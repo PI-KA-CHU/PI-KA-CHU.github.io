@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        MySQL事务隔离级别及Spring事务管理 - PI-KA-CHU&#39;s blog
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
+  <title>MySQL事务隔离级别及Spring事务管理 - PI-KA-CHU&#39;s blog</title>
+  
+
+  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <meta property="og:title" content="MySQL事务隔离级别及Spring事务管理" />
+<meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" />
+<meta property="article:published_time" content="2019-08-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-08-04T00:00:00+00:00" />
+<meta itemprop="name" content="MySQL事务隔离级别及Spring事务管理">
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
+<meta itemprop="datePublished" content="2019-08-04T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1233">
+
+
+
+<meta itemprop="keywords" content="java,mysql," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MySQL事务隔离级别及Spring事务管理"/>
+<meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">66</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">43</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/" class="title">Docker实战：3、三剑客之Docker Compose</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">22089-822-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" class="title">Docker实战：2、Dockerfile构建镜像</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">20089-820-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="title">Docker实战：1、安装及常见命令</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">17089-817-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" class="title">MySQL事务隔离级别及Spring事务管理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">4089-84-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="title">Docker的基本概念</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">1089-81-19</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#mysql">一、MySQL事务隔离级别</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#spring">二、Spring的事务管理</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#heading">三、参考</a></li>
+  </ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/"
+    >MySQL事务隔离级别及Spring事务管理</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" class="article-date">
+  <time datetime="2019-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">4089-84-19</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/it/"> IT </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> java </a>
+    <a class="article-tag-link" href="/tags/mysql/"> mysql </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1233字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:3分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      <h2 id="mysql">一、MySQL事务隔离级别</h2>
+<p><img src="https://user-images.githubusercontent.com/38284818/62423636-9421da00-b6f5-11e9-8d9e-80a969faca2d.png" alt="image"></p>
+<h4 id="11read-uncommitted">1.1、未提交读（read uncommitted）</h4>
+<p><img src="https://user-images.githubusercontent.com/38284818/62423550-52446400-b6f4-11e9-8b84-606080dc5367.png" alt="image"></p>
+<ul>
+<li><strong>特点</strong>：事务A执行修改语句，但是事务未结束，此时事务B可以读取事务A的修改语句的结果（此时数据库尚未修改）</li>
+<li><strong>问题</strong>：出现<code>脏读</code>现象，如A回滚了，但是B读取到的是A修改的数据。</li>
+</ul>
+<h4 id="12read-committed-">1.2、已提交读（read committed ）</h4>
+<p><img src="https://user-images.githubusercontent.com/38284818/62423561-8750b680-b6f4-11e9-9154-4062f530ed0f.png" alt="image"></p>
+<ul>
+<li><strong>特点</strong>：事务A执行修改语句且提交事务后，事务B才可以读取。（<strong>SQLServer 、Oracle的默认隔离级别</strong>）</li>
+<li><strong>问题</strong>：出现<code>不可重复读问题</code>，如A执行事务中读取了B事务（已提交）修改的结果，然后在A事务还没结束的时候，B事务再次修改该属性，A事务再次查询时得到了不同的结果。</li>
+</ul>
+<h4 id="13repeatable-read-">1.3、可重复读（repeatable read ）</h4>
+<p><img src="https://user-images.githubusercontent.com/38284818/62423632-80767380-b6f5-11e9-936d-b0815fb494c1.png" alt="image"></p>
+<ul>
+<li><strong>特点</strong>：事务A读取事务B的数据，事务B即使在事务A未结束前再次修改，事务A读取的数据仍然是第一次读取到的数据（快照）。（<strong>MySQL默认隔离级别</strong>）</li>
+<li><strong>问题</strong>：出现<code>幻读</code>（插入数据时）问题，如事务A提交了修改某范围内表数据的事务，但是此时事务B插入了某条数据，事务A再次读取时，会出现幻行现象（幻读）。</li>
+<li><strong>解决</strong>：加上检索范围锁，锁为只可读。</li>
+</ul>
+<h4 id="14serializable">1.4、串行化（serializable）</h4>
+<p><img src="https://user-images.githubusercontent.com/38284818/62423637-9a17bb00-b6f5-11e9-8dbe-7bdb519a7acb.png" alt="image"></p>
+<ul>
+<li><strong>特点</strong>：当启动 <code>serializable</code> 隔离级别时，其他事务对表的写操作都将被挂起，故<code>不会产生不可重复读、幻读、脏读的问题</code>。但是由于同步化的特性，其<code>性能较差</code>，一般不使用。</li>
+</ul>
+<p> 
+ </p>
+<h2 id="spring">二、Spring的事务管理</h2>
+<h4 id="21spring54--1">2.1、Spring事务隔离（5种，如上面的<code>4种 + 1种默认</code>，其中的默认隔离是指采用数据库的隔离级别）</h4>
+<h4 id="22spring7">2.2、Spring的事务传播行为（7种）</h4>
+<ul>
+<li>
+<p>事务的传播指<code>两个事务方法</code>之间的调用行为</p>
+<ul>
+<li><strong>支持当前事务的</strong>：
+<ul>
+<li><code>PROPAGATION_REQUIRED</code>：存在事务在加入、不存在则开启</li>
+<li><code>PROPAGATION_SUPPORTS</code>：存在事务则加入</li>
+<li><code>PROPAGATION_MANDATORY</code>：存在事务则加入、不存在则抛出异常</li>
+</ul>
+</li>
+<li><strong>不支持当前事务的</strong>：
+<ul>
+<li><code>PROPAGATION_REQUIRES_NEW</code>：存在事务则挂起并开启新事务</li>
+<li><code>PROPAGATION_NOT_SUPPORTED</code>：存在事务则被挂起</li>
+<li><code>PROPAGATION_NEVER</code>：存在事务则抛出异常</li>
+<li><code>PROPAGATION_NESTED</code>：不太明白
+ </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/38284818/62423747-0f37c000-b6f7-11e9-8f2a-785e462d0d72.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/38284818/62423792-01cf0580-b6f8-11e9-958f-502aef4df1bd.png" alt="image"></p>
+<p> </p>
+<h4 id="23spring1--3">2.3、Spring事务管理（1种编程式事务 + 3中声明式事务）</h4>
+<ul>
+<li><strong>Spring事务管理方法</strong>：
+<ul>
+<li><strong>编程式事务</strong>：<em>一般不用</em>
+<ul>
+<li>1、在XML中配置事务管理相关的Bean，并配置注入模板中</li>
+<li>2、在代码中调用注入好的模板的<code>beginTransaction()</code>、<code>commit()</code>、<code>rollback()</code>等事务管理相关的方法</li>
+</ul>
+</li>
+<li><strong>声明式事务</strong>
+<ul>
+<li>基于TransactionProxyFactoryBean的方式：<em>很少用</em></li>
+<li>基于AspectJ的声明式事务：<em>常用</em>
+<ul>
+<li><strong>XML方式</strong>：通过XML配置（#63）</li>
+<li><strong>注解方式</strong>：通过在业务方法上加<code>@Transactional</code>实现</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h2 id="heading">三、参考</h2>
+<ul>
+<li>
+<p>MySQL事务隔离</p>
+<ul>
+<li><a href="https://baijiahao.baidu.com/s?id=1629344395894429251&amp;wfr=spider&amp;for=pc">https://baijiahao.baidu.com/s?id=1629344395894429251&amp;wfr=spider&amp;for=pc</a></li>
+<li><a href="https://www.jianshu.com/p/4e3edbedb9a8">https://www.jianshu.com/p/4e3edbedb9a8</a></li>
+<li><a href="https://blog.csdn.net/qq_35433593/article/details/86094028">https://blog.csdn.net/qq_35433593/article/details/86094028</a></li>
+</ul>
+</li>
+<li>
+<p>Spring事务管理</p>
+<ul>
+<li><a href="https://blog.csdn.net/liuwenbiao1203/article/details/52439835">https://blog.csdn.net/liuwenbiao1203/article/details/52439835</a></li>
+<li>事务传播：https://blog.csdn.net/weixin_39625809/article/details/80707695</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" title="MySQL事务隔离级别及Spring事务管理" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" title="Docker的基本概念"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/"
+                    title="Docker实战：1、安装及常见命令"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2019
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+
+
+  </body>
+</html>

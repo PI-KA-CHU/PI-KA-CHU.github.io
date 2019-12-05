@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        MySQL分表分库学习 - PI-KA-CHU&#39;s blog
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
+  <title>MySQL分表分库学习 - PI-KA-CHU&#39;s blog</title>
+  
+
+  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <meta property="og:title" content="MySQL分表分库学习" />
+<meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/" />
+<meta property="article:published_time" content="2019-03-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-03-21T00:00:00+00:00" />
+<meta itemprop="name" content="MySQL分表分库学习">
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
+<meta itemprop="datePublished" content="2019-03-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-03-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1659">
+
+
+
+<meta itemprop="keywords" content="mysql," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MySQL分表分库学习"/>
+<meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">66</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">43</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/" class="title">Docker实战：3、三剑客之Docker Compose</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">22089-822-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" class="title">Docker实战：2、Dockerfile构建镜像</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">20089-820-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="title">Docker实战：1、安装及常见命令</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">17089-817-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" class="title">MySQL事务隔离级别及Spring事务管理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">4089-84-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="title">Docker的基本概念</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">1089-81-19</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">一、写在前面</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#mysql">二、MySQL分库分表方案</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/"
+    >MySQL分表分库学习</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/" class="article-date">
+  <time datetime="2019-03-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">21039-321-19</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/it/"> IT </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/mysql/"> mysql </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1659字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:4分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      <h2 id="heading">一、写在前面</h2>
+<h4 id="heading1">为什么要进行数据切分：</h4>
+<blockquote>
+<p>随着互联网应用的广泛普及，海量数据的存储和访问成为了系统设计的瓶颈问题。对于一个大型的互联网应用，每天几十亿的PV无疑对数据库造成了相当高的负载。对于系统的<strong>稳定性</strong>和<strong>扩展性</strong>造成了极大的问题。通过数据切分来提高网站性能，横向扩展数据层已经成为架构研发人员首选的方式。</p>
+</blockquote>
+<h4 id="heading2">数据库优化的策略</h4>
+<ul>
+<li><strong>水平切分数据库</strong>，可以降低单台机器的负载，同时最大限度的降低了了宕机造成的损失。</li>
+<li>通过<strong>负载均衡策略</strong>，有效的降低了单台机器的访问负载，降低了宕机的可能性；</li>
+<li>通过<strong>集群方案</strong>，解决了数据库宕机带来的单点数据库不能访问的问题；</li>
+<li>通过<strong>读写分离</strong>策略更是最大限度了提高了应用中读取（Read）数据的速度和并发量。</li>
+</ul>
+<p> </p>
+<h2 id="mysql">二、MySQL分库分表方案</h2>
+<h4 id="1merge">1、利用merge存储引擎来实现分表（水平分表）</h4>
+<ul>
+<li>
+<p>merge引擎实现MySQL分表，这种方法比较适用于没有事先考虑分表，而随着数据量增大，查询速度减慢的情况</p>
+</li>
+<li>
+<p>merge的要求：</p>
+<ul>
+<li>合并的表使用的必须是<strong>MyISAM引擎</strong></li>
+<li>表的结构必须一致，包括索引、字段类型、引擎和字符集</li>
+</ul>
+</li>
+<li>
+<p>示例</p>
+</li>
+</ul>
+<p><img src="http://static.oschina.net/uploads/img/201402/13104102_slb1.jpg" alt="image"></p>
+<p> </p>
+<h4 id="2mysql">2、简单的MySQL主从复制</h4>
+<ul>
+<li>
+<p>MySQL的主从复制解决了数据库的<strong>读写分离</strong>，并很好的提升了读的性能</p>
+<ul>
+<li><strong>主数据库负责写，从数据库负责读</strong>，主库写入数据后会同步到从库
+<img src="http://static.oschina.net/uploads/img/201402/13104102_nxBO.jpg" alt="image"></li>
+</ul>
+</li>
+<li>
+<p>仍存在的问题：</p>
+<ul>
+<li>写入无法<strong>扩展</strong>和<strong>缓存</strong></li>
+<li>主从的数据复制存在延迟</li>
+<li>锁表率上升</li>
+<li>表变大，缓存率下降</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h4 id="3mysql">3、MySQL垂直分区</h4>
+<ul>
+<li>如果业务足够独立，可以将不同业务的数据垂直切割到不同的数据库，起到<strong>负载分流</strong>的作用，大大提升了数据库的<strong>吞吐能力</strong>，垂直切割如下图
+<img src="http://static.oschina.net/uploads/img/201402/13104103_CHZw.jpg" alt="image"></li>
+</ul>
+<p> </p>
+<h4 id="4mysqlsharding">4、MySQL水平分片（sharding）</h4>
+<ul>
+<li><strong>切片方式：</strong>
+<ul>
+<li><strong>物理切片</strong>：通过路由规则访问特定的数据库</li>
+<li><strong>数据切片</strong>: 对数据进行一系列的切分规则，将数据分布到数据库的不同表中</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<ul>
+<li><strong>基于水平分片的三种分库方式和规则</strong>
+<ul>
+<li>
+<p><strong>按号段分</strong>：如user_id的1~1000对应DB1，1001~200对应DB2&hellip;</p>
+<ul>
+<li>优点：可迁移部分数据</li>
+<li>缺点：数据分布不均匀</li>
+</ul>
+</li>
+<li>
+<p><strong>hash取摸分</strong>：对user_id的哈希进行取模（如hash(user_id) % n），n为要分的数据库数量</p>
+<ul>
+<li>优点：数据分布均匀</li>
+<li>缺点：数据迁移的时候比较麻烦，不能按机器性能分摊数据</li>
+</ul>
+</li>
+<li>
+<p><strong>在认证库中保存数据库配置</strong>：建立一个DB，这个DB单独保存user_id到数据库的映射关系，每次访问的时候都先查询下认证库，从而得到user_id存储的DB信息。</p>
+<ul>
+<li>优点：灵活性强，一对一的关系</li>
+<li>缺点：每次查询都需要先进行一次查询，性能大打折扣</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<ul>
+<li>
+<p><strong>分布式数据方案提供功能如下</strong>：</p>
+<ol>
+<li>提供<strong>分库规则</strong>和<strong>路由规则</strong>（RouteRule简称RR），可将上面提供的三种分片规则直接内嵌入系统。</li>
+<li>引入<strong>集群</strong>（Group）概念，保证数据的高可用性。</li>
+<li>引入<strong>负载均衡策略</strong>（LocalBalancePollcy，简称LB）</li>
+<li>引入<strong>集群节点可用性探测机制</strong>，对单点机器的可用性进行定时的定制，以保障LB策略的正确实施，确保系统的<strong>高度稳定性</strong>。</li>
+<li>引入<strong>读写分离</strong>，提高数据的<strong>查询速度</strong>。</li>
+</ol>
+</li>
+</ul>
+<p> </p>
+<ul>
+<li>
+<p><strong>哈希取模分片简介</strong>：</p>
+<ul>
+<li>
+<p>将用户按照一定的规则**（按ID哈希）<strong>分组，并把该用户的数据存储到一个</strong>数据库分片**中，即一个sharding，随着用户的增加，只需要简单的配置一台服务器即可。原理如下图：
+<img src="http://static.oschina.net/uploads/img/201402/13104104_2qZP.jpg" alt="image"></p>
+</li>
+<li>
+<p>获取分片存储的信息如下（先创建一张<strong>用户和shard</strong>对应的数据表，用于查找用户的shard id，再从对应shard id查找相关数据）：
+<img src="http://static.oschina.net/uploads/img/201402/13104105_7oa0.jpg" alt="image"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h4 id="5">5、对冷热数据的处理</h4>
+<ul>
+<li>
+<p>举例：在一个博客系统中，文章标题，作者，分类，创建时间等，是变化频率慢，查询次数多，而且最好有很好的实时性的数据，我们把它叫做<strong>冷数据</strong>。而博客的浏览量，回复数等，类似的统计信息，或者别的变化频率比较高的数据，我们把它叫做<strong>活跃数据</strong>。</p>
+</li>
+<li>
+<p>处理方法：</p>
+<ul>
+<li><strong>存储引擎</strong>的使用不同，冷数据使用<strong>MyIsam</strong>可以有更好的查询数据。活跃数据，可以使用<strong>Innodb</strong> ,可以有更好的更新速度。</li>
+<li>对冷数据进行更多的<strong>从库配置</strong>，因为更多的操作是查询，这样来加快查询速度。对热数据，可以相对有更多的主库的<strong>横向分表</strong>处理。</li>
+<li>对于一些特殊的活跃数据，也可以考虑使用<strong>memcache</strong>,<strong>redis</strong>之类的缓存，等累计到一定量再去更新数据库</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h4 id="heading3">参考</h4>
+<ul>
+<li><a href="https://www.cnblogs.com/sunny3096/p/8595058.html">https://www.cnblogs.com/sunny3096/p/8595058.html</a></li>
+<li><a href="http://wenku.uml.com.cn/document.asp?fileid=3998&amp;partname=%CA%FD%BE%DD%BF%E2">http://wenku.uml.com.cn/document.asp?fileid=3998&amp;partname=%CA%FD%BE%DD%BF%E2</a> (推荐)</li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/" title="MySQL分表分库学习" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/about/" title="MyBlog"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2019/05/spring-aop%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/"
+                    title="Spring AOP实现自动读写分离"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2019
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+
+
+  </body>
+</html>

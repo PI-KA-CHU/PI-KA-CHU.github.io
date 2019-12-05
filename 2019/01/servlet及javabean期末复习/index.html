@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Servlet及JavaBean期末复习 - PI-KA-CHU&#39;s blog
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
+  <title>Servlet及JavaBean期末复习 - PI-KA-CHU&#39;s blog</title>
+  
+
+  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <meta property="og:title" content="Servlet及JavaBean期末复习" />
+<meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/01/servlet%E5%8F%8Ajavabean%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" />
+<meta property="article:published_time" content="2019-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-05T00:00:00+00:00" />
+<meta itemprop="name" content="Servlet及JavaBean期末复习">
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
+<meta itemprop="datePublished" content="2019-01-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-01-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2413">
+
+
+
+<meta itemprop="keywords" content="java,复习," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Servlet及JavaBean期末复习"/>
+<meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">66</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">43</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/" class="title">Docker实战：3、三剑客之Docker Compose</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">22089-822-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" class="title">Docker实战：2、Dockerfile构建镜像</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">20089-820-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="title">Docker实战：1、安装及常见命令</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">17089-817-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" class="title">MySQL事务隔离级别及Spring事务管理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">4089-84-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="title">Docker的基本概念</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">1089-81-19</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">前言</a></li>
+    <li><a href="#servlet">Servlet的生命周期</a></li>
+    <li><a href="#servlet1">Servlet的工作原理</a></li>
+    <li><a href="#javabean">JavaBean学习</a></li>
+    <li><a href="#heading1">其他的常见问题</a></li>
+  </ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/01/servlet%E5%8F%8Ajavabean%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"
+    >Servlet及JavaBean期末复习</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://PI-KA-CHU.github.io/2019/01/servlet%E5%8F%8Ajavabean%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time datetime="2019-01-05 00:00:00 &#43;0000 UTC" itemprop="datePublished">5019-15-19</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/it/"> IT </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> java </a>
+    <a class="article-tag-link" href="/tags/%E5%A4%8D%E4%B9%A0/"> 复习 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/01/servlet%E5%8F%8Ajavabean%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2413字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:5分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      <p> </p>
+<h2 id="heading">前言</h2>
+<ul>
+<li>特别推荐（web.xml详解）： <a href="https://blog.csdn.net/believejava/article/details/43229361">https://blog.csdn.net/believejava/article/details/43229361</a></li>
+</ul>
+<p> 
+ </p>
+<h2 id="servlet">Servlet的生命周期</h2>
+<ol>
+<li>当servlet被部署在应用服务器中（应用服务器中用于<strong>管理Java组件</strong>的部分被抽象成为<strong>容器</strong>）以后，<strong>由容器控制servlet的生命周期。</strong></li>
+<li>除非特殊制定，否则在容器启动的时候，servlet是不会被加载的，<strong>servlet只会在第一次请求的时候被加载和实例化</strong>。</li>
+<li>servlet一旦被加载，一般不会从容器中删除，直至<strong>应用服务器关闭或重新启动</strong>。但当容器做<strong>内存回收</strong>动作时，servlet有可能被删除。也正是因为这个原因，第一次访问servlet所用的时间要大大多于以后访问所用的时间。</li>
+</ol>
+<p> 
+ </p>
+<h2 id="servlet1">Servlet的工作原理</h2>
+<p><img src="https://user-images.githubusercontent.com/38284818/50696114-89c53200-1079-11e9-8b1d-470f2b4cbf95.jpg" alt="1"></p>
+<ol>
+<li>当客户端向服务器发送请求一个servlet时，服务器收到后首先到容器中检索与请求匹配的Servlet实例是否存在。若不存在，则Servlet容器负责 <strong>加载和实例化</strong> 出该servlet的实例对象，接着容器框架负责调用 <strong>init()</strong> 方法进行一些相关的初始化工作，然后Servlet容器继续调用其 <strong>service()</strong> 方法。若存在，则直接调用该servlet实例的service()方法。然后判断请求的类型，调用doGet或doPost等方法。</li>
+</ol>
+<blockquote>
+<p>Tomcat中的JSP引擎就是一个Servlet程序，负责解释执行JSP页面
+处理流程：
+1）客户通过浏览器向服务器端的JSP页面发送请求。
+2）容器接受到客户请求后，会检查JSP文件对应编译后的Servlet文件（.class）是否存在。如果不存在，则跳转到第4）步，否则执行下一步。
+3）容器检查JSP页面是否有更新（修改），没有更新，则跳转到第5）步，否则执行下一步。
+4）容器将JSP文件转换为Servlet类源文件（.java）。（此步会检查和捕获JSP语法错误）
+5）容器将Servlet源文件（.java）编译成相应的字节码（.class）文件。（会检查和捕获Java语法错误）
+6）容器将字节码（.class）文件加载到内存。
+7）容器实例化Servlet（调用构造函数），然后调用初始化方法（jspInit()）初始化Servlet。到此为止，Servlet对象真正成为一个Servlet，准备就绪，可以处理客户的请求了。
+8）容器创建一个新的线程来运行Servlet并运行Servlet的_jspService()方法处理客户的请求。
+9）Servlet生成并向客户返回一个响应（或把请求转发给另一个Web应用组件处理）。</p>
+</blockquote>
+<ol start="2">
+<li>通常，<strong>一个Servlet在容器中只有一个实例</strong>，每当有请求来到时，则分配一条<strong>线程</strong>进行处理。</li>
+<li>在处理请求时：</li>
+</ol>
+<ul>
+<li>
+<p>Servlet容器会创建一个请求对象<strong>ServletRequst</strong>，其中封装了用户请求的信息，以便处理客户端请求，此外还会创建一个响应对象<strong>ServletResponse</strong>，用于响应客户端请求，想客户端返回数据。</p>
+</li>
+<li>
+<p>然后Servlet容器把创建好的ServletRequst和ServletResponse对象传给用户所请求的Servlet。</p>
+</li>
+<li>
+<p>Servlet利用<strong>ServletResponse包含的数据和自身的业务逻辑处理请求</strong>，并把处理好的结果写在ServletResponse中，最后Servlet容器把响应结果传给用户。</p>
+</li>
+</ul>
+<p> 
+ </p>
+<h2 id="javabean">JavaBean学习</h2>
+<p><strong>什么是javaBean，如何进行交互：</strong></p>
+<ul>
+<li>JavaBean是一种用JAVA语言编写的可重用的组件，用户可以使用javaBean进行<strong>业务逻辑</strong>及<strong>数据库操作</strong>的打包，其他开发者可以通过<strong>Jsp，Servlet，其他javaBean，Applet</strong>等对javaBean进行操作，用户可以认为JavaBean提供了一种随时随地的复制和粘贴的功能，而不用关心任何改变。</li>
+</ul>
+<pre><code>&lt;jsp:useBean id=&quot;loginUser&quot; class=&quot;com.po.Users&quot; scope=&quot;page&quot;&gt;&lt;/jsp:useBean&gt;
+&lt;jsp:useBean id=&quot;userDao&quot; class=&quot;Dao.UserDao&quot;&gt;&lt;/jsp:useBean&gt;
+&lt;jsp:setProperty name=&quot;beanName&quot; property=&quot;propertyName&quot; value=&quot;&quot;&gt;
+</code></pre><p><strong>Bean的三大特性：</strong></p>
+<ul>
+<li>独立性</li>
+<li>可重用性</li>
+<li>状态可保存性</li>
+</ul>
+<p><strong>javaBean的三大核心部分：</strong></p>
+<ul>
+<li>属性（properties）</li>
+<li>方法（method）</li>
+<li>事件（event）</li>
+</ul>
+<blockquote>
+<p>事件为JavaBean组件提供了一种发送通知给其他组件的方法。在AWT事件模型中，一个事件源可以注册事件监听器对象。当事件源检测到发生了某种事件时，它将调用事件监听器对象中的一个适当的事件处理方法来处理这个事件。</p>
+</blockquote>
+<p><strong>javaBean的三大构件：</strong></p>
+<ul>
+<li>
+<p><strong>Session bean：</strong> <em>会话构件</em>，是短暂的对象，运行在服务器上，并执行一些应用逻辑处理，它由客户端应用程序建立，其数据需要自己来管理。分为无状态和有状态两种。</p>
+</li>
+<li>
+<p><strong>Entity bean：</strong> <em>实体构件</em>，是持久对象，可以被其他对象调用。在建立时指定一个唯一标示的标识，并允许客户程序，根据实体bean标识来定位beans实例。多个实体可以并发访问实体bean，事务间的协调由容器来完成。</p>
+</li>
+<li>
+<p><strong>MessageDriven Bean：</strong> <em>消息构件</em>，是专门用来处理JMS（Java Message System）消息的规范（EIB2.0）。JMS是一种与厂商无关的API，用来访问消息收发系统，并提供了与厂商无关的访问方法，以此来访问消息收发服务。JMS客户机可以用来发送消息而不必等待回应。</p>
+</li>
+</ul>
+<p> 
+ </p>
+<h2 id="heading1">其他的常见问题</h2>
+<ul>
+<li><strong>Session用哪些方法设置超时时间？</strong></li>
+</ul>
+<p>优先级：<strong>Servlet中API设置 &gt; 程序/web.xml设置 &gt; Tomcat/conf/web.xml设置</strong></p>
+<pre><code>
+//方式一：在web.xml中设置session-config
+&lt;session-config&gt;
+  &lt;session-timeout&gt;2&lt;/session-timeout&gt;
+&lt;/session-config&gt;
+
+
+//方式二：在Tomcat的/conf/web.xml中session-config，默认值为30分钟
+ &lt;session-config&gt;
+        &lt;session-timeout&gt;30&lt;/session-timeout&gt;
+ &lt;/session-config&gt;
+
+
+//方式三：在servlet中设置
+HttpSession session = request.getSession();
+session.setMaxInactiveInterval(60);//单位为秒
+
+</code></pre><ul>
+<li><strong>session存取对象分别用什么方法？</strong></li>
+</ul>
+<pre><code>request.getSession.getAttribute()
+request.getSession.setAttribute()
+</code></pre><ul>
+<li><strong>Web.xml文件的位置？</strong></li>
+</ul>
+<pre><code>WebContent/WEB-INF/
+</code></pre><ul>
+<li><strong>创建一个监听类，需要实现什么接口？</strong></li>
+</ul>
+<pre><code>监听不同的类型的类需要实现不同的接口，如HttpSessionListener
+</code></pre><ul>
+<li><strong>Response对象的什么方法可以将cookie写入会话中重写URL接口？</strong></li>
+</ul>
+<pre><code>response.encodeRedirectURL(“”)
+</code></pre><ul>
+<li><strong>Filter控制生命周期的方法是哪三个？</strong></li>
+</ul>
+<pre><code>init()，doFilter()，destroy()
+</code></pre>
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2019/01/servlet%E5%8F%8Ajavabean%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="Servlet及JavaBean期末复习" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/01/servlet%E5%8F%8Ajavabean%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/2019/01/jsp%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="JSP期末复习"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2019/01/jdbc%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"
+                    title="JDBC期末复习"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2019
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+
+
+  </body>
+</html>

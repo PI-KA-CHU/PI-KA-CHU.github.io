@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Redis命令操作 - PI-KA-CHU&#39;s blog
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
+  <title>Redis命令操作 - PI-KA-CHU&#39;s blog</title>
+  
+
+  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <meta property="og:title" content="Redis命令操作" />
+<meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/01/redis%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" />
+<meta property="article:published_time" content="2019-01-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-21T00:00:00+00:00" />
+<meta itemprop="name" content="Redis命令操作">
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
+<meta itemprop="datePublished" content="2019-01-21T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-01-21T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2127">
+
+
+
+<meta itemprop="keywords" content="java,中间件," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redis命令操作"/>
+<meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">66</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">43</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/" class="title">Docker实战：3、三剑客之Docker Compose</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">22089-822-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" class="title">Docker实战：2、Dockerfile构建镜像</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">20089-820-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="title">Docker实战：1、安装及常见命令</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">17089-817-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/" class="title">MySQL事务隔离级别及Spring事务管理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-04 00:00:00 &#43;0000 UTC" itemprop="datePublished">4089-84-19</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="title">Docker的基本概念</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">1089-81-19</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#redis">一、redis的基础命令</a></li>
+    <li><a href="#redis1">二、redis的键命令</a></li>
+    <li><a href="#redis2">三、redis的数据结构</a>
+      <ul>
+        <li><a href="#string">String字符串</a></li>
+        <li><a href="#hash">Hash哈希</a></li>
+        <li><a href="#list">List列表</a></li>
+        <li><a href="#set">Set集合</a></li>
+        <li><a href="#sortedset">sortedset有序集合</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/01/redis%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/"
+    >Redis命令操作</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://PI-KA-CHU.github.io/2019/01/redis%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time datetime="2019-01-21 00:00:00 &#43;0000 UTC" itemprop="datePublished">21019-121-19</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/it/"> IT </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> java </a>
+    <a class="article-tag-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/01/redis%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2127字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:5分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      <h2 id="redis">一、redis的基础命令</h2>
+<ul>
+<li>
+<p><code>info</code>命令：</p>
+<ul>
+<li><strong># Server</strong>：查看系统信息，包括redis的版本信息，使用的端口和process_id和依赖的gcc版本等</li>
+<li><strong># Clients</strong>：客户端连接数量等</li>
+<li><strong># Memory</strong>：内存的使用情况</li>
+<li><strong># Persistence</strong>：持久化备份的参数信息</li>
+<li><strong># State</strong>：redis状态信息</li>
+<li><strong># Replication</strong>：主从同步的相关数据</li>
+<li><strong># Keyspace</strong>：显示已有的空间及空间内的<code>key</code>的数量，在redis客户端通过<code>select index</code>选择相应的空间，类似于选择数据库表，不同的表中存储着不同的数据
+ 
+<img src="https://user-images.githubusercontent.com/38284818/51439443-2aac2200-1cf5-11e9-92f0-a42cf3b6a03f.png" alt="image"></li>
+<li>在<code>redis.conf</code>文件中可以进行<strong>空间数量</strong>的设置，默认值为<strong>16</strong>：即可以使用的空间是0-15
+ 
+<img src="https://user-images.githubusercontent.com/38284818/51439386-6abed500-1cf4-11e9-983c-08fa3888b5d2.png" alt="image"></li>
+</ul>
+</li>
+<li>
+<p><code>flushdb</code>命令：清除当前keyspace空间的所有键值</p>
+</li>
+<li>
+<p><code>flushall</code>命令：清除所有keyspace空间的所有键值</p>
+</li>
+<li>
+<p><code>dbsize</code>命令：当前keyspace的键的数量</p>
+</li>
+<li>
+<p><code>save</code>命令：人工触发的对redis的<strong>持久化</strong></p>
+</li>
+<li>
+<p><code>quit</code>命令：退出当前redis客户端的连接</p>
+</li>
+</ul>
+<p> </p>
+<h2 id="redis1">二、redis的键命令</h2>
+<ul>
+<li><code>set key value</code>：设置键值</li>
+<li><code>del key</code>：删除键，成功则返回1，失败则返回0</li>
+<li><code>exists key</code>：判断键是否存在，存在则返回1，不存在则返回0</li>
+<li><code>ttl key</code>：time to leave，返回的是键的过期时间，单位时间是秒，若返回-1，则代表该键不会过期，返回-2表示该键不存在</li>
+<li><code>expire key time</code>：设置键的过期时间，如<code>expire a 10</code>表示设置键a的过期时间为10秒</li>
+<li><code>type key</code>：返回键的类型，如string，hash等</li>
+<li><code>randomkey</code>：返回随机的key（键）</li>
+<li><code>rename key1 key2 </code>：将键名进行重命名，如<code>key a b</code>则将键a的名改为键b，若替换的键名存在，则会将已有的键进行覆盖，即将b的键值覆盖，得到的是<code>key：b，value：a</code></li>
+<li><code>renamenx key1 key2</code>：加了nx结尾的rename命令会进行一定的逻辑判断，该命令会判断该替换的键是否存在，如果存在则返回0，表示替换失败，若不存在则返回1，表示替换成功</li>
+</ul>
+<p> </p>
+<h2 id="redis2">三、redis的数据结构</h2>
+<h3 id="string">String字符串</h3>
+<ul>
+<li><code>setex key time value</code>：创建键的时候为键设置其有效时间，单位时间为秒，<code>psetex</code>设置的时间单位为毫秒</li>
+<li><code>getrange key start end</code>：获取字符串的某一片段（start到end的间字段）</li>
+<li><code>getset key value</code>：为key赋上新的值，返回被替换之前的值。</li>
+<li><code>mset key value key value</code>：进行多个键值的设置</li>
+<li><code>mget key1 key2 key3</code>：进行多个键值的获取，获取到键key1,key2,key3的值</li>
+<li><code>strlen key</code>：返回键值的长度</li>
+<li><code>msetnx key value key value</code>：进行批量的键设置，需要设置的键不存在才会赋值成功，该命令具有<strong>原子性</strong>，及要么全部设置成功返回1，要么都是失败返回0。</li>
+<li><code>incr key</code>：将类型的Integer的键值进行加一操作</li>
+<li><code>incrby key number</code>：为键值一次性加上number的数，如<code>incr 1 100</code>，则表示为键为1的值增加100.</li>
+<li><code>decr key</code>：将类型的Integer的键值进行减一操作</li>
+<li><code>decrby key number</code>：为键值一次性减去number的数</li>
+<li><code>append key str</code>：为key的值加上字符串str</li>
+</ul>
+<p> </p>
+<h3 id="hash">Hash哈希</h3>
+<ul>
+<li><code>hset key filed value</code>：设置哈希键值</li>
+<li><code>hexists key field</code>：判断键是否存在</li>
+<li><code>hget key field</code>：获取键中filed所对应的值</li>
+<li><code>hgetall key</code>：获取键中所有的field和对应的value</li>
+<li><code>hkeys key</code>：获取键中 所有的filed值</li>
+<li><code>hvals key</code>：获取键中所有的value值</li>
+<li><code>hlen key</code>：获取键中filed的数量</li>
+<li><code>hmset key field name field name</code>：批量设置键中的field和value</li>
+<li><code>hmget key field field</code>：批量获取键中field的value</li>
+<li><code>hdel key field field</code>：删除键中的多个field及其值</li>
+<li><code>hsetnx key field value</code>：若存在这个field，则设置失败返回0，否则返回1</li>
+</ul>
+<p> </p>
+<h3 id="list">List列表</h3>
+<ul>
+<li><code>lpush key value value</code>：将多个value添加到key中，添加的过程是将value从链表头部一个一个插入，及最后一个加入的是在链表的头部</li>
+<li><code>llen key</code>：获取key的数量</li>
+<li><code>lrange key startIndex stopIndex</code>：获取key列表指定下标范围内的元素</li>
+<li><code>lindex index</code>：获取指定下标的元素值</li>
+<li><code>lpop key</code>：移除key列表的首个（头）元素</li>
+<li><code>rpop key</code>：移除key列表的最后（末尾）元素</li>
+</ul>
+<p> </p>
+<h3 id="set">Set集合</h3>
+<ul>
+<li><code>sadd key value value</code>：将多个value加入key集合中</li>
+<li><code>scard key</code>：返回集合中的数量</li>
+<li><code>smembers key</code>：返回集合中的所有成员</li>
+<li><code>sdiff key1 key2</code>：返回key1与key2的差值，即key1减去ke1和key2中共同存在的元素</li>
+<li><code>sinter key1 key2</code>：返回key1与key2的交集</li>
+<li><code>sunion key1 key2</code>：返回key1与key2的并集</li>
+<li><code>srandmember key1 number</code>：返回集合中的随机的number个数</li>
+<li><code>sismember key member</code>：判断member是否为集合key中的元素，是则返回1，不是则返回0</li>
+<li><code>srem key value value</code>：移除集合中的多个元素</li>
+<li><code>spop key</code>：随机移除并返回移除的元素</li>
+</ul>
+<p> </p>
+<h3 id="sortedset">sortedset有序集合</h3>
+<ul>
+<li><code>zadd key score member score member</code>：为有序集合添加多个成员元素，score为member的值，且集合按score的值进行排序</li>
+<li><code>zcard key</code>：返回集合中成员的数量</li>
+<li><code>zscore key member</code>：返回member元素的score</li>
+<li><code>zcount key min max</code>：返回score在min到max范围内的member数量</li>
+<li><code>zrank key member</code>：返回member的下标</li>
+<li><code>zrange key min max</code>：返回score在min到max范围内的所有member</li>
+<li><code>zrange key min max withscores</code>：返回score在min到max范围内的所有member及其对应的score</li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2019/01/redis%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/" title="Redis命令操作" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/01/redis%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/2019/01/redis%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" title="Redis安装及使用"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2019/01/spring%E6%95%B4%E5%90%88redis/"
+                    title="SpringBoot整合redis"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2019  -
+    2019
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+
+
+  </body>
+</html>

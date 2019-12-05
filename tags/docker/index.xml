@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker on PI-KA-CHU&#39;s blog</title>
+    <link>https://PI-KA-CHU.github.io/tags/docker/</link>
+    <description>Recent content in docker on PI-KA-CHU&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://PI-KA-CHU.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker实战：3、三剑客之Docker Compose</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/</guid>
+      <description>一、前言 Docker Compose和Dockerfile的区别： Dockerfile主要是记录了一个镜像的构建过程，可以达到快速构建项目的目的，而Do</description>
+    </item>
+    
+    <item>
+      <title>Docker实战：2、Dockerfile构建镜像</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</guid>
+      <description>一、概念 镜像的定制实际就是定制每一层所添加的配置、文件。如果我们把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜</description>
+    </item>
+    
+    <item>
+      <title>Docker实战：1、安装及常见命令</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sat, 17 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</guid>
+      <description>一、Docker安装（Centos7） 1、Docker要求Centos内核要高于3.10，所以首先应该检查是否满足要求（如果是本地虚拟机，需</description>
+    </item>
+    
+    <item>
+      <title>MySQL事务隔离级别及Spring事务管理</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/</guid>
+      <description>一、MySQL事务隔离级别 1.1、未提交读（read uncommitted） 特点：事务A执行修改语句，但是事务未结束，此时事务B可以读取事务</description>
+    </item>
+    
+    <item>
+      <title>Docker的基本概念</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
+      <description>一、什么是Docker Docker是使用google公司推出的GO语言进行开发实现，于 Linux 内核的 cgroup，namespace，以及 AUFS 类的 Union</description>
+    </item>
+    
+    <item>
+      <title>Java容器学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/java%E5%AE%B9%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/java%E5%AE%B9%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description>一、容器间的区别 1.1、List、Map、Set三者间的区别 List：List接口存储一组可重复的、有序的对象 Map：Map接口存储以key</description>
+    </item>
+    
+    <item>
+      <title>Windows服务注册及脚本开机自启</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/windows%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%8F%8A%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/windows%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%8F%8A%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/</guid>
+      <description>注册服务 https://jingyan.baidu.com/article/870c6fc3557921b03fe4bef7.html https://www.cnblogs.com/liuxiaoji/p/8016261.html https://blog.csdn.net/lsj19830812/article/details/6187233 开机自启脚本 https://blog.csdn.net/slf450272048/article/details/79378517 https://blog.csdn.net/qq_36999656/article/details/80278437 删除服务 https://blog.csdn.net/gaoxin_gx/article/details/89639867</description>
+    </item>
+    
+    <item>
+      <title>Spring AOP学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/spring-aop%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/spring-aop%E5%AD%A6%E4%B9%A0/</guid>
+      <description>一、什么是AOP？ 1.1、AOP的定义 AOP即面向切面编程，相比OOP —— 面向对象编程（最基本单位为类和实例），AOP的基本单位为切面。AO</description>
+    </item>
+    
+    <item>
+      <title>Spring Bean学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/spring-bean%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/spring-bean%E5%AD%A6%E4%B9%A0/</guid>
+      <description>一、定义 bean的定义 Bean是一个被实例化、组装、并被Spring容器所管理的对象，是由容器提供的配置元数据（如bean.xml）创建的。</description>
+    </item>
+    
+    <item>
+      <title>Spring IOC学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/spring-ioc%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/spring-ioc%E5%AD%A6%E4%B9%A0/</guid>
+      <description>一、什么是IOC IOC（控制反转）又叫做DI（依赖注入），它描述了对象的定义和依赖的一个过程，也就是说，依赖的对象通过构造参数、工厂方法参数</description>
+    </item>
+    
+    <item>
+      <title>Spring MVC学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/06/spring-mvc%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/06/spring-mvc%E5%AD%A6%E4%B9%A0/</guid>
+      <description>最近在学习Spring的相关模块及源码，在学习Bean的相关创建方法时，发现spring的bean一般都是单例模式，在xml中可以通过sco</description>
+    </item>
+    
+    <item>
+      <title>线程池与数据库连接池的区别</title>
+      <link>https://PI-KA-CHU.github.io/2019/06/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/06/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>一、线程池 原理： 类似于操作系统中的缓冲区，流程如下：先启动若干数量的线程，并让线程处于休眠的状态，当客户端有新请求时就回唤醒其中一个睡眠线程</description>
+    </item>
+    
+    <item>
+      <title>IDEA的JAVA WEB项目配置</title>
+      <link>https://PI-KA-CHU.github.io/2019/06/idea%E7%9A%84java-web%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/06/idea%E7%9A%84java-web%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</guid>
+      <description>1、JAVA普通项目转换为JAVA WEB项目 2、JAVA WEB项目在Tomcat启动后的访问路径设置</description>
+    </item>
+    
+    <item>
+      <title>Spring AOP实现自动读写分离</title>
+      <link>https://PI-KA-CHU.github.io/2019/05/spring-aop%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</link>
+      <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/05/spring-aop%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</guid>
+      <description>一、实现原理 利用Spring AOP面向切面编程的特性，在请求进入service应用层之前，根据请求的service层的方法名，判断使用读库或</description>
+    </item>
+    
+    <item>
+      <title>MySQL分表分库学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/</guid>
+      <description>一、写在前面 为什么要进行数据切分： 随着互联网应用的广泛普及，海量数据的存储和访问成为了系统设计的瓶颈问题。对于一个大型的互联网应用，每天几十</description>
+    </item>
+    
+    <item>
+      <title>MyBlog</title>
+      <link>https://PI-KA-CHU.github.io/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/about/</guid>
+      <description>Written in Go, Hugo is an open source static site generator available under the Apache Licence 2.0. Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hugo makes use of a variety of open source projects including:
+ https://github.</description>
+    </item>
+    
+    <item>
+      <title>redis集群搭建</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>一、集群与分布式的区别 小饭店原来只有一个厨师，切菜洗菜备料炒菜全干。后来客人多了，厨房一个厨师忙不过来，又请了个厨师，两个厨师都能炒一样的菜</description>
+    </item>
+    
+    <item>
+      <title>redis的主从模式配置</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
+      <description>前言 replica-master模式就是slave-master模式，查了一下好像是slave-master名称遭到太多人反对，作者被迫进行</description>
+    </item>
+    
+    <item>
+      <title>git命令的使用及常见的问题</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/git%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/git%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>获取git仓库 git init //初始化本地仓库（会自动创建一个名为 .git 的子目录） git clone [URL] //拉取远程代码到本地 git提交代码的基本操作 git add . // 提交所有修改</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot定时任务及其redis的分布式锁创建</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/</link>
+      <pubDate>Sat, 23 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/</guid>
+      <description>分布式锁实现流程图 一、@Scheduled的使用及其redis的分布式锁创建 创建新类，使用@Scheduled注解注释需要定时启动的方法 单机</description>
+    </item>
+    
+    <item>
+      <title>RESTful学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/restful%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/restful%E5%AD%A6%E4%B9%A0/</guid>
+      <description>REST全称是Representational State Transfer，中文意思是表述性状态转移，指的是一组架构约束条件和原则， 如果一个架构符合R</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot中使用Spring Session实现单点登陆</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/</guid>
+      <description>一、Session的共享问题 Session的共享可以通过redis的操作及spring session进行解决，从而实现单点登陆，redis操</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot实现全局异常的捕获</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7/</guid>
+      <description>1. 创建一个简单类 使用@RestControllerAdvice注册组件，使用@ExceptionHandler捕获异常 该类只捕获Contro</description>
+    </item>
+    
+    <item>
+      <title>Idea中SpringBoot &#43; maven进行环境隔离</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/idea%E4%B8%ADspringboot-maven%E8%BF%9B%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB/</link>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/idea%E4%B8%ADspringboot-maven%E8%BF%9B%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB/</guid>
+      <description>1. 新建各个环境的配置文件夹 2. pom.xml中配置profile &amp;lt;!-- Maven多环境隔离配置 --&amp;gt; &amp;lt;project&amp;gt; &amp;lt;build&amp;gt; &amp;lt;!-- 多环境文件夹配置，根据profile选择对应</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot2.0静态变量注入及过滤器的使用</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/springboot2.0%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E6%B3%A8%E5%85%A5%E5%8F%8A%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/springboot2.0%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E6%B3%A8%E5%85%A5%E5%8F%8A%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>一、实现静态变量的注入 参考： SpringBoot的常见注解：https://blog.csdn.net/fxbin123/article/d</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot整合redis</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/spring%E6%95%B4%E5%90%88redis/</link>
+      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/spring%E6%95%B4%E5%90%88redis/</guid>
+      <description>一、redis单机版 写在前面 选中代码块，按control + alt + t：快捷tryCatch 选中类名，按control + shift + t：快捷创建Junit</description>
+    </item>
+    
+    <item>
+      <title>Redis命令操作</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/redis%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Mon, 21 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/redis%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/</guid>
+      <description>一、redis的基础命令 info命令： # Server：查看系统信息，包括redis的版本信息，使用的端口和process_id和依赖的gcc</description>
+    </item>
+    
+    <item>
+      <title>Redis安装及使用</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/redis%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sun, 20 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/redis%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>一、redis的安装（Linux环境） 下载需要的redis版本：http://download.redis.io/releases/ ，将re</description>
+    </item>
+    
+    <item>
+      <title>Idea的使用及常见问题</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/idea%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/idea%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>一、前言 一直使用Eclipse进行java开发的我最近发现一个界面及其炫酷的编译器Idea，尝试着使用Idea进行开发，记录下出现的一些问题</description>
+    </item>
+    
+    <item>
+      <title>进程与线程</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/</guid>
+      <description>一、进程的定义及特征 定义： 多道程序设计技术的引入，实现了资源的共享和程序的并发执行。为了描述并发执行的特点，引入了进程的概念。进程是可高并发</description>
+    </item>
+    
+    <item>
+      <title>分支限界法</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/</guid>
+      <description>分支限界法的性质 广度优先或最小耗费（最大效益）优先的方式搜索解空间树 先入先出队列式分支限界 优先队列式分支限界 分支限界法和回溯法的关系 搜索方式</description>
+    </item>
+    
+    <item>
+      <title>操作系统引论</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/</guid>
+      <description>一、操作系统的概念 操作系统是一组控制和管理计算机硬件资源和软件资源、合理组织计算机的工作流程，方便用户使用的程序的集合。 操作系统是裸机上的第</description>
+    </item>
+    
+    <item>
+      <title>时间空间复杂度</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</guid>
+      <description>参考 https://blog.csdn.net/zolalad/article/details/11848739</description>
+    </item>
+    
+    <item>
+      <title>动态规划</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>动态规划的基本步骤 1. 分析最优子结构 找出最优解的性质，并刻画其结构特征 2. 建立递归关系 递归地定义最优值 3. 计算最优值 以自底向上的方式计算出最优值（</description>
+    </item>
+    
+    <item>
+      <title>回溯法</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%9B%9E%E6%BA%AF%E6%B3%95/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%9B%9E%E6%BA%AF%E6%B3%95/</guid>
+      <description>回溯法的本质 具有限界函数的深度优先搜索法 扩展结点：一个正在产生儿子的结点称为扩展结点 活结点：一个自身已生成但其儿子还没有全部生成的节点称做活</description>
+    </item>
+    
+    <item>
+      <title>贪心算法</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
+      <description>贪心算法的本质 做出在当前看来最好的选择 自顶向下地解决问题 贪心算法基本要素 最优子结构 贪心选择 贪心算法的例子 活动安排问题： 利用贪心算法，解决下列</description>
+    </item>
+    
+    <item>
+      <title>递归与分治</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</guid>
+      <description>一、分治法 分治法思想 将要解决的较大规模的问题不断地分割成更小规模的子问题，直到能够很容易地得到子问题的解。 对小规模的问题进行求解 将小问题的解</description>
+    </item>
+    
+    <item>
+      <title>Nginx的安装及负载均衡（Linux环境）</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/nginx%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1linux%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/nginx%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1linux%E7%8E%AF%E5%A2%83/</guid>
+      <description>一、依赖环境安装 操作系统： CentOS 7.3 安装版本： nginx-1.14.2 安装gcc： yum install gcc-c++ 安装其他依赖： yum install -y pcre pcre-devel yum install -y zlib zlib-devel yum install -y openssl openssl-devel 二、Nginx安装 官网下载地址 http://nginx.org/en/download.html ng</description>
+    </item>
+    
+    <item>
+      <title>UML期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/uml%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/uml%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
+      <description>UML的体系结构 UML建模规则 名字：任何一个UML成员都必须包含一个名字。 作用域：UML成员所定义的内容起作用的上下文环境。某个成员在每个实</description>
+    </item>
+    
+    <item>
+      <title>软件测试复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/</guid>
+      <description>软件测试的知识点 思维导图（部分）： 软件测试的定义： 软件是一个集合，包括三部分：文档，程序和数据 软件测试就是为了发现错误而审查软件文档，检查软</description>
+    </item>
+    
+    <item>
+      <title>单机部署Tomcat集群</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2tomcat%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2tomcat%E9%9B%86%E7%BE%A4/</guid>
+      <description>一、Tomcat的安装 单个Tomcat的安装（包括基本JDK，Mysql环境搭建）具体可参考这边笔记#20 ，现在需要将多个Tomcat安装到</description>
+    </item>
+    
+    <item>
+      <title>Python期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/python%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/python%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
+      <description>列表： 有序，可变 [ &#39;crunchy frog&#39; , &#39;ram bladder&#39; , &#39;lark vomit&#39; ] 元组： 有序，不可变 ( &#39;crunchy frog&#39; , &#39;ram bladder&#39; , &#39;lark vomit&#39; ) 字典： 无序，可变 { &#39;x&#39; : &#39;crunchy frog&#39; , &#39;y&#39; : &#39;ram bladder&#39; , &#39;z&#39; : &#39;lark vomit&#39; } 集合： 无序，可变 {</description>
+    </item>
+    
+    <item>
+      <title>JDBC期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/jdbc%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/jdbc%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
+      <description>JDBC操作数据库的一般步骤 加载正确的数据驱动程序 Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;) 定义所要连接数据库的地址 String url = &amp;quot;jdbc:mysql://localhost:3306/dbname?SSL=false&amp;quot; 建立与数据库的连接 Connection conn = DriverManager.getConnection(url,username,password); 创建语句对象 Statement stmt = conn.createStatement(); 声明SQL</description>
+    </item>
+    
+    <item>
+      <title>Servlet及JavaBean期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/servlet%E5%8F%8Ajavabean%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/servlet%E5%8F%8Ajavabean%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
+      <description>前言 特别推荐（web.xml详解）： https://blog.csdn.net/believejava/article/details/43229361 Servlet的生命周期 当servlet被部署在应用服务器中（应用服务器中用于管理Java组件的部分被</description>
+    </item>
+    
+    <item>
+      <title>JSP期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/jsp%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/jsp%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
+      <description>JSP的工作机制 https://www.jianshu.com/p/93736c3b448b 基本工作流程： 浏览器向服务器请求JSP页面，服务器收到该请求后，检查JSP文件内容是不是为第一次访问（是的话则创建serv</description>
+    </item>
+    
+    <item>
+      <title>Maven &#43; SpringBoot实现环境隔离</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/maven-springboot%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB/</link>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/maven-springboot%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB/</guid>
+      <description>一、Maven环境隔离简介 基本类别 本地开发环境（local） 开发环境（dev） 测试环境（beta） 线上环境（prod） 解决的问题 避免人工修改</description>
+    </item>
+    
+    <item>
+      <title>Java Selenium的基本使用</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/java-selenium%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/java-selenium%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</guid>
+      <description>工具下载 下载地址： https://www.seleniumhq.org/download/ Selenuim使用firefox时所需的驱动： https://github.com/mozilla/geckodriver/releases/tag/v0.9.0 基本操作 将相关依赖包导入Eclipse中，导入完成后即可使用，下面是登</description>
+    </item>
+    
+    <item>
+      <title>JAVA反编译工具</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/java%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/java%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/</guid>
+      <description>工具下载 官网下载： http://jd.benow.ca/ 官网包括Eclipse插件，Intellij插件及独立的图形实用程序——JD-GUI，此处下载的是JD-GUI 工具的使用</description>
+    </item>
+    
+    <item>
+      <title>Lombok的安装及使用</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/lombok%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/lombok%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>Lombok的简介及安装 Lombok能够简化代码的复杂度，例如对dao层或者bean的类进行getter，setter，构造方法，toStr</description>
+    </item>
+    
+    <item>
+      <title>slf4j &#43; log4j日志框架配置</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/slf4j-log4j%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/slf4j-log4j%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E9%85%8D%E7%BD%AE/</guid>
+      <description>slf4j简介 slf4j是一套包装Logging 框架的界面程式，以外观模式实现。可以在软件部署的时候决定要使用的 Logging 框架，目前主要支援的有Ja</description>
+    </item>
+    
+    <item>
+      <title>Java-Taglib总结</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/java-taglib%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/java-taglib%E6%80%BB%E7%BB%93/</guid>
+      <description>JSTL依赖包下载（本人使用1.1.2版本） https://archive.apache.org/dist/jakarta/taglibs/standard/binaries/ 使用流程： 将依赖包中lib文件夹下的jstl和standard的jar包导入项目 在JSP头部引</description>
+    </item>
+    
+    <item>
+      <title>MySQL索引的建立及优化</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/mysql%E7%B4%A2%E5%BC%95%E7%9A%84%E5%BB%BA%E7%AB%8B%E5%8F%8A%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/mysql%E7%B4%A2%E5%BC%95%E7%9A%84%E5%BB%BA%E7%AB%8B%E5%8F%8A%E4%BC%98%E5%8C%96/</guid>
+      <description>索引对查询有着重要的作用，对索引的认识是进行数据库性能提升的起点，数据库的优化一般是从两个方面，第一个是对SQL语句进行优化，第二是优化数据</description>
+    </item>
+    
+    <item>
+      <title>免费文档下载工具</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/%E5%85%8D%E8%B4%B9%E6%96%87%E6%A1%A3%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/%E5%85%8D%E8%B4%B9%E6%96%87%E6%A1%A3%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/</guid>
+      <description>百度，豆丁和道客巴巴都有不少优秀的文档，但大部分下载都需要积分或者充钱，下面推荐的是一款免费下载的，不过下载的是PDF和text文件，没有原</description>
+    </item>
+    
+    <item>
+      <title>JAVA反射技术</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/java%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Tue, 11 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/java%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF/</guid>
+      <description>参考： https://www.jianshu.com/p/104aa6e2342d https://www.jianshu.com/p/2315dda64ad2 Java反射的原理 Java反射机制可以让我们在编译期（Compile Time）之外的运行期（Runtime）获得任何一个类的字节码</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot创建及配置（一）</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/springboot%E5%88%9B%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 02 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/springboot%E5%88%9B%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/</guid>
+      <description>创建流程 创建Maven项目，设置Maven架构类型为maven-archetype-quickstart： 创建项目后，修改其pom.xml文</description>
+    </item>
+    
+    <item>
+      <title>阿里云部署SpringBoot</title>
+      <link>https://PI-KA-CHU.github.io/2018/11/%E9%98%BF%E9%87%8C%E4%BA%91%E9%83%A8%E7%BD%B2springboot/</link>
+      <pubDate>Thu, 29 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/11/%E9%98%BF%E9%87%8C%E4%BA%91%E9%83%A8%E7%BD%B2springboot/</guid>
+      <description>一、部署流程 阿里云服务器购买（学生优惠）：https://promotion.aliyun.com/ntms/act/campus2018.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot整合Junit4</title>
+      <link>https://PI-KA-CHU.github.io/2018/11/springboot%E6%95%B4%E5%90%88junit4/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/11/springboot%E6%95%B4%E5%90%88junit4/</guid>
+      <description>Junit单元测试在SSM中的使用已经有简单介绍：#4，基本的使用是一致的，但是在配置上有所不同： 依赖包： &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-test&amp;lt;/artifactId&amp;gt; &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.jayway.jsonpath&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;json-path&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; 注释配置：（其中</description>
+    </item>
+    
+    <item>
+      <title>数据库建表规则—三大范式</title>
+      <link>https://PI-KA-CHU.github.io/2018/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E8%A1%A8%E8%A7%84%E5%88%99%E4%B8%89%E5%A4%A7%E8%8C%83%E5%BC%8F/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/11/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%BB%BA%E8%A1%A8%E8%A7%84%E5%88%99%E4%B8%89%E5%A4%A7%E8%8C%83%E5%BC%8F/</guid>
+      <description>参考： https://blog.csdn.net/kenhins/article/details/51084815 三大范式 为了建立冗余较小、结构合理的数据库，设计数据库时必须遵循一定的规则。在关系型数据库中这种规则就称为范式。范式是符合某一种设计</description>
+    </item>
+    
+    <item>
+      <title>SVN的forbidden异常</title>
+      <link>https://PI-KA-CHU.github.io/2018/11/svn%E7%9A%84forbidden%E5%BC%82%E5%B8%B8/</link>
+      <pubDate>Fri, 16 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/11/svn%E7%9A%84forbidden%E5%BC%82%E5%B8%B8/</guid>
+      <description>SVN的forbidden异常 问题：将SVN进行relocate时报了forbidden异常，检查后地址等各个都是正确的 解决：（首先确认自己</description>
+    </item>
+    
+    <item>
+      <title>JSP &#43; Bootstrap &#43;  JAVABean &#43; Servlet &#43; Mysql实现图片上传并分页显示</title>
+      <link>https://PI-KA-CHU.github.io/2018/11/jsp-bootstrap-javabean-servlet-mysql%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%B9%B6%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA/</link>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/11/jsp-bootstrap-javabean-servlet-mysql%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%B9%B6%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA/</guid>
+      <description>一、写在前面 学习博客： https://blog.csdn.net/qiyuexuelang/article/details/8861300 需要导入的包： commons-fileupload-1.3.1.jar； commons-io-2.4.jar； mys</description>
+    </item>
+    
+    <item>
+      <title>JAVA文件操作相关学习笔记</title>
+      <link>https://PI-KA-CHU.github.io/2018/10/java%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/10/java%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>File文件转换为MultipartFile 文件： （可用于测试excel文件导入的接口） File file1 = new File(&amp;quot;C:\\Users\\</description>
+    </item>
+    
+    <item>
+      <title>MySQL语句学习</title>
+      <link>https://PI-KA-CHU.github.io/2018/10/mysql%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 26 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/10/mysql%E8%AF%AD%E5%8F%A5%E5%AD%A6%E4%B9%A0/</guid>
+      <description>一、Insert语句 insert into和replace into以及insert ignore用法区别 insert into表示插入数据，数据库会检查主键，如果出现</description>
+    </item>
+    
+    <item>
+      <title>百度云盘资源搜索及高速下载</title>
+      <link>https://PI-KA-CHU.github.io/2018/10/%E7%99%BE%E5%BA%A6%E4%BA%91%E7%9B%98%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2%E5%8F%8A%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Thu, 25 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/10/%E7%99%BE%E5%BA%A6%E4%BA%91%E7%9B%98%E8%B5%84%E6%BA%90%E6%90%9C%E7%B4%A2%E5%8F%8A%E9%AB%98%E9%80%9F%E4%B8%8B%E8%BD%BD/</guid>
+      <description>百度云盘资源搜索工具： http://tansuo233.com/ 百度资源链接获取： 下载谷歌扩展程序：BaiduPan Explorer（需要先翻墙） 打开百度云资源分享页面（如视频，压</description>
+    </item>
+    
+    <item>
+      <title>JUnit单元测试的使用</title>
+      <link>https://PI-KA-CHU.github.io/2018/10/junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/10/junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>关键代码： 【配置好spring及JUnit的class（创建一次即可，后续的可以直接继承）】 @RunWith(SpringJUnit4ClassRunner.class) @ContextConfiguration({ &amp;quot;classpath:spring/spring-dao.xml&amp;quot;, &amp;quot;classpath:spring/spring-service.xml&amp;quot; }) public class BaseTest { } 创建步骤： 右键点击想测试的类</description>
+    </item>
+    
+    <item>
+      <title>Cookie,Session及Application的使用</title>
+      <link>https://PI-KA-CHU.github.io/2018/10/cookiesession%E5%8F%8Aapplication%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 02 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/10/cookiesession%E5%8F%8Aapplication%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>1.使用Cookie记录页面浏览次数（通过按钮刷新的方式） &amp;lt;%@ page language=&amp;quot;java&amp;quot; contentType=&amp;quot;text/html; charset=utf-8&amp;quot; pageEncoding=&amp;quot;utf-8&amp;quot;%&amp;gt; &amp;lt;% /** 功能：使用cookie记录页面的浏览次数： 步骤： 1.遍历所有coo</description>
+    </item>
+    
+    <item>
+      <title>JAVA Excel表格学习笔记</title>
+      <link>https://PI-KA-CHU.github.io/2018/09/java-excel%E8%A1%A8%E6%A0%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/09/java-excel%E8%A1%A8%E6%A0%BC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>// 创建工作簿 HSSFWorkbook wb = new HSSFWorkbook(); // 创建工作表 HSSFSheet sheet = wb.createSheet(); // 设置工作表的索引行的宽度，15 * 256表示15个字符宽度 sheet.setColumnWidth(0, 15 * 256); sheet.setColumnWidth(1, 15 * 256); sheet.setColumnWidth(2, 15 * 256); sheet.setColumnWidth(3, 15 * 256); // 设置表</description>
+    </item>
+    
+    <item>
+      <title>暗网学习-初入暗网（一）</title>
+      <link>https://PI-KA-CHU.github.io/2018/09/%E6%9A%97%E7%BD%91%E5%AD%A6%E4%B9%A0-%E5%88%9D%E5%85%A5%E6%9A%97%E7%BD%91%E4%B8%80/</link>
+      <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/09/%E6%9A%97%E7%BD%91%E5%AD%A6%E4%B9%A0-%E5%88%9D%E5%85%A5%E6%9A%97%E7%BD%91%E4%B8%80/</guid>
+      <description>暗网简介： 暗网（英语：Dark web）是存在于黑暗网络上的万维网内容，只能_用特殊软件、特殊授权、或对计算机做特殊设置_才能访问，使用一般的</description>
+    </item>
+    
+  </channel>
+</rss>
