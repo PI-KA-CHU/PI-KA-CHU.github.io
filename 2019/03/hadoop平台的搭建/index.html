@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Hadoop平台的搭建 - PI-KA-CHU&#39;s blog
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
+  <title>Hadoop平台的搭建 - PI-KA-CHU&#39;s blog</title>
+  
+
+  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <meta property="og:title" content="Hadoop平台的搭建" />
+<meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/" />
+<meta property="article:published_time" content="2019-03-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-03-12T00:00:00+00:00" />
+<meta itemprop="name" content="Hadoop平台的搭建">
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
+<meta itemprop="datePublished" content="2019-03-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-03-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2120">
+
+
+
+<meta itemprop="keywords" content="大数据," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hadoop平台的搭建"/>
+<meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">69</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">44</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%89%E5%85%A8/" class="tag-list-link">安全</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/" class="title">Spring高级应用</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-07</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/" class="title">Web安全入门</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-07</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/" class="title">Docker实战：3、三剑客之Docker Compose</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-08-22</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" class="title">Docker实战：2、Dockerfile构建镜像</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-08-20</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="title">Docker实战：1、安装及常见命令</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-08-17</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">一、搭建步骤</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#heading1">二、问题与解决</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/"
+    >Hadoop平台的搭建</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time datetime="2019-03-12 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-03-12</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/it/"> IT </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"> 大数据 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2120字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:5分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      <h2 id="heading">一、搭建步骤</h2>
+<h4 id="1-linux">1. 服务器（Linux）环境准备</h4>
+<ul>
+<li>修改系统文件需要root权限，可通过以下命令获取</li>
+</ul>
+<pre><code>su root
+（回车后输入密码）
+</code></pre><ul>
+<li>配置服务器的主机名称（<strong>CentOS 7的坑</strong>，需要修改<code>/etc/hostname</code>文件主机名才会修改有效，重启后生效）</li>
+</ul>
+<pre><code>vi /etc/hostname
+node-1（修改的主机名）
+</code></pre><ul>
+<li>配置服务器IP地址和主机名的映射</li>
+</ul>
+<pre><code>vi /etc/hosts
+192.168.125.129 node-1
+192.168.125.130 node-2
+192.168.125.131 node-3
+</code></pre><ul>
+<li>配置主服务器（namenode所在服务器）的ssh免密登陆</li>
+</ul>
+<pre><code># 生成ssh免登陆密钥
+ssh-keygen -t rsa（输入命令后四个回车）
+
+# 将公钥拷贝到免密登陆的目标机器上
+ssh-copy-id node-2（node-2为目标服务器）
+
+# 配置成功后，可通过以下命令免密码登陆
+ssh node-2（目标主机名）
+
+# 退出ssh连接的主机
+exit
+</code></pre><ul>
+<li>关闭服务器防火墙（CentOS 7）</li>
+</ul>
+<pre><code># 查看防火墙状态
+systemctl status firewalld.service
+
+# 关闭防火墙
+systemctl stop firewalld.service
+
+# 禁止防火墙开机自启动
+systemctl disable firewalld.service
+</code></pre><h4 id="2-jdksunjdk">2. 删除本机jdk并配置sun公司的jdk</h4>
+<ul>
+<li>将windows下载好的jdk压缩包<strong>复制粘贴</strong>到linux服务器中（<strong>不要使用拖拽</strong>，否则解压会出错），然后执行下面命令</li>
+</ul>
+<pre><code># 删除本机的openjdk
+rpm -qa|grep java
+rpm -e --nodeps xxxxxx（要删除的包名）
+
+# 解压下载的 jdk
+tar zxvf 压缩包地址 -C 解压地址
+</code></pre><ul>
+<li>配置环境变量 /etc/profile</li>
+</ul>
+<pre><code>export JAVA_HOME=/usr/java/jdk1.8.0_191 (等号右边为解压的jdk目录)
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$JAVA_HOME/bin:$PATH
+</code></pre><ul>
+<li>使配置的环境变量生效（谨慎设置，否则系统会无法正常启动
+<code>source /etc/profile</code></li>
+</ul>
+<h4 id="3-hadoop">3. 下载hadoop压缩包并解压</h4>
+<ul>
+<li>
+<p>下载地址：https://hadoop.apache.org/releases.html（本人下载的是2.7.7的二进制版本，需要的话可以下载源码在服务器自行编译）</p>
+</li>
+<li>
+<p>解压命令：<code>tar -zxvf hadoop-2.7.7.tar.gz /usr/hadoop/</code></p>
+</li>
+<li>
+<p>修改解压后的hadoop的etc目录下的相关配置：</p>
+<ul>
+<li><code>hadoop-env.sh</code>：加入jdk环境变量：</li>
+</ul>
+<pre><code># The java implementation to use.
+export JAVA_HOME=/usr/java/jdk1.8.0_191
+</code></pre><ul>
+<li><code>core-size.xml</code>：</li>
+</ul>
+<pre><code>&lt;configuration&gt;
+&lt;!-- 指定Hadoop使用的文件系统schema（URI），HDFS的老大（NameNode）所在的地址  --&gt;
+&lt;property&gt;
+    &lt;name&gt;fs.defaultFS&lt;/name&gt;
+    &lt;value&gt;hdfs://node-1:9000&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 指定hadoop运行时产生的存储目录 --&gt;
+&lt;property&gt;
+    &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+    &lt;value&gt;/usr/hadoop/tmp&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><ul>
+<li><code>hdfs-site.xml</code>:</li>
+</ul>
+<pre><code>&lt;configuration&gt;
+&lt;!-- 指定HDFS副本数量 --&gt;
+&lt;property&gt;
+     &lt;name&gt;dfs.replication&lt;/name&gt;
+     &lt;value&gt;2&lt;/value&gt;
+&lt;/property&gt;
+&lt;!-- 指定HDFS的秘书节点的地址 --&gt;
+&lt;property&gt;
+     &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
+     &lt;value&gt;node-2:50090&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><ul>
+<li><code>mapred-site.xml</code>：</li>
+</ul>
+<pre><code>&lt;configuration&gt;
+&lt;!-- 指定mapreduce运行在yarn上，默认是local模拟 --&gt;
+&lt;property&gt;
+    &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+    &lt;value&gt;yarn&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><ul>
+<li><code>yarn-site.xml</code>：</li>
+</ul>
+<pre><code>&lt;configuration&gt;
+&lt;!-- 指定YARN的老大（ResourceManager）的地址 --&gt;
+&lt;property&gt;
+     &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
+     &lt;value&gt;node-1&lt;/value&gt;
+&lt;/property&gt;
+
+&lt;!-- NodeManager上运行的附属服务。需要配置成mapreduce_shuffle，才可MapReduce程序默认值 --&gt;
+&lt;property&gt;
+     &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+     &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><ul>
+<li><code>slaves</code>：(默认为localhost)</li>
+</ul>
+<pre><code>&lt;!-- 指定从节点所在的主机名，启动DataNode --&gt;
+node-1
+node-2
+node-3
+</code></pre><ul>
+<li><code>/etc/profile</code>：修改系统环境变量(终端按G可以到达文件末尾)</li>
+</ul>
+<pre><code>export HADOOP_HOME=/usr/hadoop/hadoop-2.7.7
+export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+
+# 修改完后执行命令 `resource /etc/profile`使得环境变量生效
+</code></pre></li>
+</ul>
+<h4 id="4-">4. 同步到其他服务器</h4>
+<ul>
+<li><strong>使用远程命令将配置文件发送到各个服务器上</strong>：
+<ul>
+<li><code>scp -r /usr/hadoop/hadoop-2.7.7/ root@node-2:/usr/hadoop/</code>(r表示递归传递)</li>
+</ul>
+</li>
+<li><strong>将环境变量文件发送到其他服务器</strong>：
+<ul>
+<li><code>scp -r /etc/profile root@node-2:/etc/</code></li>
+<li>发送完成后执行<code>source /etc/profile</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="5-namenode">5. 格式化NameNode</h4>
+<ul>
+<li>首次启动HDFS时，需要对其进行<strong>格式化操作</strong></li>
+<li>格式化本质是进行文件系统的<strong>初始化操作</strong>，创建一些自己所需的文件</li>
+<li>格式化操作成功后，后续不要再进行格式化，否则可能导致集群启动失败</li>
+<li><strong>注意</strong>：需要在<strong>root权限或者sudo权限</strong>下执行格式化命令，否则会格式异常</li>
+</ul>
+<pre><code>hdfs namenode -format
+</code></pre><h4 id="6-">6. 启动集群</h4>
+<ul>
+<li>启动<code>hdfs集群</code>(在hadoop的sbin目录下执行下面命令)</li>
+</ul>
+<pre><code>start-dfs.sh
+</code></pre><ul>
+<li>启动<code>yarn集群</code>(在hadoop的sbin目录下执行下面命令)</li>
+</ul>
+<pre><code>start-yarn.sh
+</code></pre><ul>
+<li>使用<code>jps</code>命令查看是否启动成功
+<img src="https://user-images.githubusercontent.com/38284818/54256844-4b2b8680-4598-11e9-8379-617faa843b99.png" alt="image"></li>
+</ul>
+<h4 id="7-">7. 测试集群是否可用</h4>
+<ul>
+<li>
+<p>集群启动成功后可打开下面网址（node-1为主节点所在主机名）：</p>
+<ul>
+<li>打开<strong>hdfs</strong>网址（NameNode所在服务器）：http://node-1:50070</li>
+<li>打开<strong>yarn</strong>网址（ResourceManager所在服务器）：http://node-1:8088</li>
+</ul>
+</li>
+<li>
+<p><strong>初试hdfs</strong>：（执行如下命令）</p>
+</li>
+</ul>
+<pre><code># 创建hello文件夹
+hdfs dfs -mkdir /hello
+
+# 上传文件到hadoop
+hdfs dfs -put /指定文件或者文件夹
+（或者 hadoop fs -put /指定文件或者文件夹 ）
+
+# 将文件下载到本地
+hdfs dfs -get /hadoop中存储的文件的目录
+(或者 hadoop fs -get /hadoop中存储的文件的目录)
+
+# 获取hadoop文件目录下的文件
+hdfs dfs -ls /指定文件或者文件夹
+（或者 hadoop fs -ls /指定文件或者文件夹 ）
+</code></pre><ul>
+<li>初试<strong>mapreduce</strong>：(测试文件在hadoop安装目录/share/hadoop/mapreduce/下)</li>
+</ul>
+<pre><code># mapreduce执行圆周率运算
+hadoop jar hadoop-mapreduce-examples-2.7.7.jar pi 20 50
+</code></pre><h4 id="hadoop-shell-">Hadoop Shell 命令</h4>
+<ul>
+<li><a href="http://hadoop.apache.org/docs/r1.0.4/cn/hdfs_shell.html">http://hadoop.apache.org/docs/r1.0.4/cn/hdfs_shell.html</a></li>
+</ul>
+<p> </p>
+<h2 id="heading1">二、问题与解决</h2>
+<h4 id="bug">BUG</h4>
+<ul>
+<li>配置成功后如果出现ping不通其他服务器的情况，则检查下服务器的网络是否已经连接</li>
+<li>在<code>/etc/hosts</code>加入IP地址和主机名的映射的时候，除了加入<code>IP 主机名</code>不要修改其他地方，否则可能出现ping不通其他服务器的情况</li>
+<li>环境变量配置错误，把整个三个虚拟机的系统搞炸了！！垃圾BD
+<ul>
+<li>解决方法：在登陆界面处<code>control + alt + F2</code>进入终端，以root方式登陆，然后通过命令<code>/usr/bin/vi /etc/profile</code>将错误的环境变量删除，然后<code>reboot</code>重启系统即可恢复（差点绝望）</li>
+<li>参考：https://blog.csdn.net/ysy950803/article/details/60777802</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/" title="Hadoop平台的搭建" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/about/" title="MyBlog"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/"
+                    title="MySQL分表分库学习"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2019
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+
+
+  </body>
+</html>

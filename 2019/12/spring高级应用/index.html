@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Spring高级应用 - PI-KA-CHU&#39;s blog
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
+  <title>Spring高级应用 - PI-KA-CHU&#39;s blog</title>
+  
+
+  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <meta property="og:title" content="Spring高级应用" />
+<meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/" />
+<meta property="article:published_time" content="2019-12-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-07T00:00:00+00:00" />
+<meta itemprop="name" content="Spring高级应用">
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
+<meta itemprop="datePublished" content="2019-12-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2074">
+
+
+
+<meta itemprop="keywords" content="java,spring," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring高级应用"/>
+<meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">69</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">44</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%89%E5%85%A8/" class="tag-list-link">安全</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/" class="title">Spring高级应用</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-07</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/" class="title">Web安全入门</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-07</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/" class="title">Docker实战：3、三剑客之Docker Compose</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-08-22</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" class="title">Docker实战：2、Dockerfile构建镜像</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-08-20</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/" class="title">Docker实战：1、安装及常见命令</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-08-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-08-17</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#spring">一、如何基于Spring写优雅易扩展的代码</a>
+      <ul>
+        <li><a href="#11-">1.1 案例一</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading">二、如何提高工作效率</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#spring1">三、如何基于Spring写解耦易扩展的代码</a>
+      <ul>
+        <li><a href="#31-">3.1 案例分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#spring2">四、如何基于Spring写异步、定时任务</a></li>
+    <li><a href="#heading3">五、如何扩展我们的技术广度</a></li>
+  </ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/"
+    >Spring高级应用</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/" class="article-date">
+  <time datetime="2019-12-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-07</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/it/"> IT </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> java </a>
+    <a class="article-tag-link" href="/tags/spring/"> spring </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2074字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:5分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      <h2 id="spring">一、如何基于Spring写优雅易扩展的代码</h2>
+<h3 id="11-">1.1 案例一</h3>
+<p><img src="http://ww1.sinaimg.cn/large/006H3ec5gy1g9ofobumg8j30vf0datco.jpg" alt="image.png"></p>
+<h4 id="111-">1.1.1 如何实现订单金额的计算</h4>
+<ul>
+<li>
+<p><strong>策略模式</strong>
+实现面向接口编程，由于计算金额的方法是会增加的，比如促销方案是会变的，可以利用策略模式，将订单金额计算的方法抽象为接口，有不同的促销模式时候实现该接口（接口隔离原则），避免频繁的修改代码（开闭原则）</p>
+</li>
+<li>
+<p><strong>工厂模式</strong>
+利用工厂方法实现方案计算方法实例的生成，（根据传入的String）利用反射获取各种金额计算方案的实现，如果是自己利用反射技术实现简单工厂的话，每次有新促销方案的话我们需要修改自定义的工厂，因为工厂需要初始化各个促销接口的实现类，为此引入下列几种方式，通过将变化的部分以配置文件的方式隔离（SPI）、Spring注入、Spring提供的工厂真正实现开闭原则。</p>
+<ul>
+<li>
+<p><strong>Java SPI</strong>：<code>接口服务发现机制</code>，对接口的实现类自动完成加载。SPI机制可以避免硬编码的问题，厂商通过规定的配置规则，即<code>使用方提供规则，提供方根据规则把自己加载到提供方的思想</code>。在Java中通过<code>ServiceLoader</code>加载约定配置下的实现类，<code>ServiceLoader&lt;Driver&gt; s = ServiceLoader.load(Driver.class);</code>如：</p>
+<ul>
+<li>
+<ol>
+<li>MySQL的驱动加载时，在<code>META/services</code>中以调用者给定的<code>完整接口名</code>命名文件，文件内容为该接口的<code>具体实现完整类名</code>；</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Spring中的<code>component-scan</code>
+注解标签，会将@Controller、@Service等的标签注入到容器中，也就是Spring制定了规则，开发者根据规则去实现。</li>
+</ol>
+</li>
+<li>参考： <a href="https://zhuanlan.zhihu.com/p/28909673">https://zhuanlan.zhihu.com/p/28909673</a>
+<img src="http://ww1.sinaimg.cn/mw690/006H3ec5gy1g9qsftdrwmj30k007cdhh.jpg" alt="image.png">
+<img src="http://ww1.sinaimg.cn/mw690/006H3ec5gy1g9qk98mysdj30k00aujuf.jpg" alt="image.png"></li>
+</ul>
+</li>
+<li>
+<p><strong>Dubbo SPI</strong></p>
+</li>
+<li>
+<p><strong>Spring实现</strong></p>
+<ul>
+<li><code>@Autowired Map&lt;String,Order&gt; map</code>，利用<code>Map可以自动将所有Order接口的实现类注入</code></li>
+<li>利用<code>ApplicationContext</code>获取bean并实现方法的调用，即利用Spring提供的工厂模式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h2 id="heading">二、如何提高工作效率</h2>
+<h4 id="heading1">为什么我们的工作效率不高</h4>
+<ul>
+<li>我们掌握的方法、技能、工具不多，不知道还有更好的开发模式，一直采用传统的堆代码开发，<code>要提高工作效率，需要多掌握更多更好的开发方法、工具和技能</code>。</li>
+</ul>
+<h4 id="heading2">高薪人的优势是什么</h4>
+<ul>
+<li>能够解决更大的问题，更难的问题</li>
+<li>相同时间解决的问题更多，绝对不是因为加班多才会薪资高</li>
+</ul>
+<p> </p>
+<h2 id="spring1">三、如何基于Spring写解耦易扩展的代码</h2>
+<h3 id="31-">3.1 案例分析</h3>
+<h4 id="311-">3.1.1 业务场景演示</h4>
+<p><strong>常规代码流程</strong>：</p>
+<p><img src="http://ww1.sinaimg.cn/mw690/006H3ec5gy1g9ogwyyd0jj30oa0630um.jpg" alt="image.png"></p>
+<p><strong>问题</strong></p>
+<ul>
+<li>同步调用</li>
+<li>如何邮件发送异常，则短信服务也无法进行，订票失败</li>
+<li>违反单一原则（在订单方法中加入了邮件和短信通知）</li>
+<li><code>与不是强相关的类耦合</code>（航班预定与邮箱、短信类） - 复用性极低</li>
+<li>如果有新功能加入，如需要发微信、QQ，则会违反开闭原则，不易扩展</li>
+</ul>
+<hr>
+<p><strong>基于<code>事件驱动</code>的流程（观察者模式）</strong>：</p>
+<p><img src="http://ww1.sinaimg.cn/mw690/006H3ec5gy1g9oh3kzm5fj30mw09vtbk.jpg" alt="image.png"></p>
+<p><strong>事件驱动</strong></p>
+<ul>
+<li>发布者：OrderService类中的预定订单方法</li>
+<li>事件：航班预定事件，即Order（订单）对象为事件</li>
+<li>事件通道：spring（<code>ApplicationContext</code>提供事件的发布通道，如<code>publishEvent(Object o)</code>和<code>publishEvent(ApplicationEvent event)</code>方法，一个用于对象事件如订单生成Order对象、一个用于应用事件如应用启动关闭事件，可以用于Spring启动的时候进行相关的初始化任务）</li>
+<li>监听者：邮件发送类、短信发送类</li>
+</ul>
+<p><strong>Spring注解</strong></p>
+<ul>
+<li>
+<p><code>@Async</code>：异步执行注解</p>
+</li>
+<li>
+<p><code>@Transactional</code>：添加事务</p>
+</li>
+<li>
+<p>观察者模式</p>
+<ul>
+<li>监听者：<code>@EventListener</code></li>
+</ul>
+<pre><code>@EventListener
+@Async //异步执行
+public void handleOrderEvent(Order order){
+    //上面的传入对象参数即为监听的事件，该监听方法只对Order事件感兴趣
+    Email mail = ...;
+    this.sendMail(email);
+}
+</code></pre><p>``</p>
+<ul>
+<li>发布者：在发生订单事件的方法中调到Spring提供的<code>ApplicationContext</code>的发布方法</li>
+</ul>
+<pre><code>@Autowired
+ApplicationContext context;
+public void bookOrder(Order o){
+    ...
+    context.publishEvent(order);
+}
+</code></pre><pre><code>
+</code></pre></li>
+</ul>
+<p> </p>
+<h2 id="spring2">四、如何基于Spring写异步、定时任务</h2>
+<p><strong>异步方式</strong></p>
+<ul>
+<li>方式一：配置ApplicationEventMuticaster的Bean（基于事件的异步）
+<ul>
+<li>Spring提供，配置configuration的Bean，并在其中配置线程池（没有线程池配置则为同步）</li>
+<li>缺点：一刀切（所有的事件执行都变为异步的）</li>
+</ul>
+</li>
+<li>方式二：@EnableAsync @Async（基于Bean的异步）
+<ul>
+<li>控制Bean的方法调用为异步执行（灵活），需要特定线程池则进行配置</li>
+<li><code>@EnableAsync</code>：开启SpringBoot异步模式</li>
+<li><code>@Async</code>：被标识的方法在调用的时候为异步调用，未被标识的方法为同步执行</li>
+</ul>
+</li>
+</ul>
+<p><strong>定时任务</strong></p>
+<ul>
+<li><code>@EnableScheduling</code>：开启SpringBoot定时任务</li>
+<li><code>@Schedule</code>：在执行逻辑的Bean（<code>@Component</code>）的方法上注释即可实现定时任务</li>
+</ul>
+<p> </p>
+<h2 id="heading3">五、如何扩展我们的技术广度</h2>
+<blockquote>
+<p>针对事情快速应对，即想到相应的方法。需要有好的技术，想想如何达到高薪的位置，而不是单单想着拿高薪。
+单机的技术使用跟分布式的使用是不同的，单机的可以充分利用Spring的高级用法，而分布式则更多的依赖于中间件，比如上面说的事件驱动编程，如果在Spring中可以利用其注解快速实现，而分布式环境中则需要利用<code>MQ</code>实现发布订阅模式，要能快速的想出解决方案，需要我们有足够的知识广度。</p>
+</blockquote>
+<p><strong>扩展技术广度的方法</strong></p>
+<ul>
+<li>参加课程</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/006H3ec5ly1g9qw191vpfj312k0lb422.jpg" alt="image.png"></p>
+<ul>
+<li>技术大牛带</li>
+<li>项目的洗礼</li>
+<li>去大的互联网公司</li>
+<li>多看书、多交流探讨</li>
+</ul>
+<p> </p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/" title="Spring高级应用" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/" title="Web安全入门"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2019
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+
+
+  </body>
+</html>
