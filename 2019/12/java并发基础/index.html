@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Java并发基础 - PI-KA-CHU&#39;s blog
+      </title>
+    <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  
+  <meta name="theme-color" content="#000000" />
+  
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
+  <title>Java并发基础 - PI-KA-CHU&#39;s blog</title>
+  
+
+  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
+  <meta property="og:title" content="Java并发基础" />
+<meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/" />
+<meta property="article:published_time" content="2019-12-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-11T00:00:00+00:00" />
+<meta itemprop="name" content="Java并发基础">
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
+<meta itemprop="datePublished" content="2019-12-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="6010">
+
+
+
+<meta itemprop="keywords" content="Java,多线程,网易微专业," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java并发基础"/>
+<meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
+
+  <!--[if lte IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+  </head>
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">82</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">47</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">14</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%BD%91%E6%98%93%E5%BE%AE%E4%B8%93%E4%B8%9A/" class="tag-list-link">网易微专业</a><span
+                    class="tag-list-count">3</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/" class="title">Synchronize关键字</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-17</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/u%E7%9B%98%E5%90%AF%E5%8A%A8%E4%BF%AE%E5%A4%8Dwin10/" class="title">U盘修复工具</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-16 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-16</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/" class="title">Java并发基础</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-11</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/%E7%BD%91%E6%98%93%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" class="title">网易案例分析</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-10</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/" class="title">Spring高级应用</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-07 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-07</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+    <div class="slimContent">
+      <nav id="toc" class="article-toc">
+        <h3 class="toc-title">文章目录</h3>
+        <div class="toc-content always-active"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#java">一、Java程序的运行分析</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#heading3">二、线程基础</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#cpu">三、CPU缓存及内存屏障</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#heading6">四、线程通信</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#heading7">五、线程封闭</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#heading8">六、线程池原理</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#heading13">总结</a></li>
+  </ul>
+</nav>
+        </div>
+      </nav>
+    </div>
+  </aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/"
+    >Java并发基础</a
+  >
+</h1>
+
+      <div class="article-meta">
+        <span class="article-date">
+  <i class="icon icon-calendar-check"></i>
+<a href="https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time datetime="2019-12-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-11</time>
+</a>
+</span><span class="article-category">
+  <i class="icon icon-folder"></i>
+  <a class="article-category-link" href="/categories/it/"> IT </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+    <a class="article-tag-link" href="/tags/java/"> Java </a>
+    <a class="article-tag-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"> 多线程 </a>
+    <a class="article-tag-link" href="/tags/%E7%BD%91%E6%98%93%E5%BE%AE%E4%B8%93%E4%B8%9A/"> 网易微专业 </a>
+  </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/#comments"
+            class="article-comment-link">评论</a></span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:6010字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:12分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      <blockquote>
+<p>本篇文章主要讲述是并发编程前需要学习的一些基础知识，如Java程序执行过程、线程的状态、CPU的性能优化方法及带来的问题和解决方案等，这些在后面的并发编程中是必不可少的，特别是CPU的缓存、指令重排相关问题都与Java的并发编程有着重要联系。本篇博客主要参考网易云微专业 - Java高级开发工程师的慕课视频，视频的知识体系是比较完整的，不过在知识深度的讲解上还不够，所以会参考其他大佬博客的文章，由于时间原因可能主要以引用为主，希望学完并发编程部分自己能够更大的提升！</p>
+</blockquote>
+<p> </p>
+<h2 id="java">一、Java程序的运行分析</h2>
+<blockquote>
+<p>下面主要介绍Java类从编译到运行的过程：【编译 - 加载 - 运行】及此过程中资源的分配情况</p>
+</blockquote>
+<h4 id="heading">编译</h4>
+<ul>
+<li>Java编译即由<code>.java</code>源文件到<code>.class</code>字节码文件的过程，编译时如果发现依赖类没有被编译，则会先编译依赖类，编译完的字节码文件主要包含两部分：<strong>常量池</strong>和<strong>方法字节码</strong>（还有其他的文件源信息，JDK版本等），其中（main）方法字节码如下如所示：</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/006H3ec5gy1g9t49ckomyj312e0ibk47.jpg" alt="image.png"></p>
+<ul>
+<li>
+<p><strong>编译命令</strong></p>
+<ul>
+<li>编译：<code>javac Demo1.java</code></li>
+<li>反编译：<code>javap -v Demo1.class &gt; Demo1.txt</code></li>
+<li>（反编译后的文件中有相关的JVM指令操作，可以参考<code>JVM指令码表</code>）</li>
+</ul>
+</li>
+<li>
+<p><strong>访问标识（Demo1类）</strong>：
+<img src="http://ww1.sinaimg.cn/large/006H3ec5gy1g9t4705j2gj30zc0izgx7.jpg" alt="image.png"></p>
+</li>
+<li>
+<p><strong>常量池类信息表</strong>：
+<img src="http://ww1.sinaimg.cn/large/006H3ec5gy1g9t4821rclj312h0ib4iv.jpg" alt="image.png"></p>
+</li>
+</ul>
+<h4 id="heading1">加载</h4>
+<ul>
+<li>加载类到JVM内存中（如将方法字节码加载到JVM方法区），根据字节码文件执行相关指令，发现未加载的依赖类时，会先加载依赖类（可参考书籍<code>码出高效</code>中的类加载过程）</li>
+</ul>
+<h4 id="heading2">运行</h4>
+<ul>
+<li>
+<ol>
+<li>JVM创建线程来执行代码，线程在创建的时候会分配相关的资源</li>
+</ol>
+<ul>
+<li>独占空间（线程私有）：
+<ul>
+<li><strong>虚拟机栈</strong>：一个线程对应一个栈，一个栈对应多个栈帧，栈帧即为方法对应的操作</li>
+<li><strong>程序计数器</strong>：记录当前线程的字节码执行位置</li>
+<li><strong>内存区域</strong>：创建线程独占空间</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ol start="2">
+<li>在执行的过程中，程序计数器会记录方法区中执行的方法的字节码指令位置，并且在该方法<code>栈帧</code>中利用<code>局部变量表</code>和<code>操作栈</code>执行及记录相关指令，如果调用其他方法，则会在该线程栈中开辟新的栈帧（即每个方法对应一个栈帧）执行上述类似的过程。
+<img src="http://ww1.sinaimg.cn/large/006H3ec5gy1g9t4ccf5xbj30z70hw43z.jpg" alt="image.png"></li>
+</ol>
+</li>
+</ul>
+<p> </p>
+<h2 id="heading3">二、线程基础</h2>
+<blockquote>
+<p>下面主要简单描述了线程的各个状态及安全的线程终止方式，部分已经有学习及记录过，在此不再重复，可参考以前的博客。</p>
+</blockquote>
+<h4 id="heading4">线程状态</h4>
+<p><img src="http://ww1.sinaimg.cn/large/006H3ec5gy1g9sw0uh7rpj30ve0gy763.jpg" alt="image.png"></p>
+<h4 id="heading5">线程的终止方式</h4>
+<ul>
+<li><code>stop()</code>方法：不推荐，会导致线程安全问题，是一个强制中止线程的行为</li>
+<li><code>interrupt()</code>方法：如果遇到运行中或阻塞中的线程，会抛出InterruptException异常，由
+开发者自行捕获和处理。</li>
+<li><code>标识符</code>：如在线程1中有flag标识符，另外的线程修改线程1的flag状态，达到终止线程的目的，
+而不是拦腰截断。</li>
+</ul>
+<p> </p>
+<h2 id="cpu">三、CPU缓存及内存屏障</h2>
+<h4 id="31-cpu--">3.1 CPU的性能优化 - 缓存</h4>
+<blockquote>
+<p>由于CPU和内存的运行速度相差很大，为了提高CPU的性能，在CPU到主内存间加入多个高速缓存，如L1，L2，L3三级缓存，尽量让CPU从高速缓存中获取数据，从而提高其性能。</p>
+</blockquote>
+<ul>
+<li>L1 Cache（一级缓存）：分为<code>数据缓存</code>和<code>指令缓存</code>。容量通常为：32-4096KB</li>
+<li>L2 Cache（二级缓存）：由于L1高速缓存容量的限制，为了再次提高CPU的运算速度，在CPU外部防止一高速存储器，即二级缓存。</li>
+<li>L3 Cache（三级缓存）：L3缓存可以进一步降低延迟，提升大数据量计算时处理器的性能。具有较大L3缓存的处理器提供更有效的<code>文件系统缓存行为</code>及<code>较短信息</code>和<code>处理器队列长度</code>。一般是<code>多核共享一个L3缓存</code>。</li>
+</ul>
+<p><strong>缓存同步协议（MESI协议）</strong></p>
+<blockquote>
+<p>多CPU读取同样的数据，进行不同的运算后，最终写入主存的以哪个CPU为准？为了应对这种高速缓存回写的场景，CPU厂商制定了<code>MESI协议</code>，规定了每条缓存有个<code>状态位</code>，同时定义了以下四个状态；</p>
+</blockquote>
+<ul>
+<li><strong>修改态（Modified）</strong>：此cache行已经被修改过（脏行），内容已经不同于主存，为此cache专有；</li>
+<li><strong>专有态（Exclusive）</strong>：此cache行内容同于主存，但不出现在其它cache中；</li>
+<li><strong>共享态（Shared）</strong>：此cache行内容同于主存，但也出现在其他cache中；</li>
+<li><strong>无效态（Invalid）</strong>：此cache行内容无效（空行）；</li>
+</ul>
+<blockquote>
+<p>多处理器时，单个CPU对缓存中的数据进行了改动，需要通知给其他CPU，即<code>CPU既要控制自己的读写操作，还要监听其他CPU发出的通知，从而保证最终一致性</code>。</p>
+</blockquote>
+<h4 id="32-cpu--">3.2 CPU性能优化 - 运行时指令重排</h4>
+<ul>
+<li>参考： <a href="http://ifeve.com/memory-barriers-or-fences/">http://ifeve.com/memory-barriers-or-fences/</a></li>
+</ul>
+<blockquote>
+<p>由于可能存在多个CPU共享缓存同块缓存区的情况，如果某个CPU写缓存的时候缓存被其他CPU占用的情况，会将该CPU的读缓存先执行，即进行<code>指令重排序</code>，以此来提高CPU的性能，但是重排需要遵守<code>as-if-serial语义</code>，即无论怎么重排序（编译器和处理器为了提高并行度），（单线程）程序的执行结果不能被改变。也就是说，编译器和处理器<code>不会对存在数据依赖关系的操作做重排序</code>。</p>
+</blockquote>
+<h4 id="33-">3.3 存在的问题</h4>
+<ul>
+<li>
+<p>CPU高速缓存下的问题：缓存中的数据与主存中的数据不是实时同步的，各CPU间缓存的数据也不是实时同步的。<code>在同一时间点，各个CPU看到同一内存地址中的数据的值可能是不一致的</code></p>
+</li>
+<li>
+<p>CPU指令重排序下的问题：虽然遵守了<code>as-if-serial</code>语义，但是仅仅在单CPU自己执行的情况下保证结果正确。<code>多核多线程</code>中，指令逻辑无法分辨因果关联，可能会出现<code>乱序执行</code>，导致程序运行结果错误。</p>
+</li>
+</ul>
+<h4 id="34-">3.4 内存屏障</h4>
+<blockquote>
+<p>为了解决上面出现的问题，CPU厂商为处理器提供了两个内存屏障指令，一旦内存数据被推送到缓存，就会有消息协议来确保所有的缓存会对所有共享数据保持一致，使得CPU或编译器在对内存进行操作的时候，严格按照一定的顺序来执行，也就是说在<code>Store Barrier</code>之前的指令和<code>Load Barrier</code>之后的指令不会由于系统优化等原因导致乱序。</p>
+</blockquote>
+<ul>
+<li><strong>写内存屏障（Store Memory Barrier）</strong>：在指令后插入<code>Store Barrier</code>，能让写入缓存中的最新数据更新写入主内存，即强制所有在store屏障指令之前的store指令，都在该store屏障指令执行之前被执行并刷入内存，让其他线程可见。保证了内存写操作。
+<ul>
+<li><code>强制写入主内存</code>，CPU就不会因为性能考虑而去对指令重排，而是严格按照执行顺序执行。</li>
+</ul>
+</li>
+<li><strong>读内存屏障（Load Memory Barrier）</strong>：在指令前插入<code>Load Barrier</code>，可以让高速缓存中的数据失效，强制从新主内存中加载数据。即强制所有在load屏障指令之后的load指令，都在该load屏障指令执行之后被执行，并且一直等到load缓冲区被该CPU读完才能执行之后的load指令。保证了内存读操作。
+<ul>
+<li><code>强制读取主存内容</code>，让CPU缓存与主内存保持一致，避免了缓存导致的一致性问题。</li>
+</ul>
+</li>
+<li><strong>完全内存屏障（full memory barrier）</strong>：保障了早于内存屏障的内存读写操作的结果提交到内存后，再执行晚于屏障的读写操作。</li>
+</ul>
+<p><img src="http://ww1.sinaimg.cn/large/006H3ec5gy1g9tppg6t0sj30et0g0wev.jpg" alt="image.png"></p>
+<h4 id="35-">3.5 本节小结</h4>
+<blockquote>
+<p>本章节主要介绍了CPU的性能优化方法及出现的相关问题和处理方法，为后面JVM线程安全问题做铺垫。</p>
+</blockquote>
+<p> </p>
+<h2 id="heading6">四、线程通信</h2>
+<blockquote>
+<p>要实现多个线程之间的协同，如线程执行先后顺序、获取某个线程的执行结果的等。涉及到线程之心啊的相互通信，主要分为以下四种：文件共享、网络共享、变量共享和JDK提供的线程协调API（wait/notify、park/unpark）</p>
+</blockquote>
+<h4 id="41-">4.1 文件共享</h4>
+<p><img src="http://ww1.sinaimg.cn/large/006H3ec5gy1g9tq3nbllfj30zk0ia7c2.jpg" alt="image.png"></p>
+<h4 id="42-">4.2 网络共享</h4>
+<p>暂略。</p>
+<h4 id="43-">4.3 变量共享</h4>
+<p><img src="http://ww1.sinaimg.cn/large/006H3ec5gy1g9tq5iywphj310q0icahe.jpg" alt="image.png"></p>
+<h4 id="44-jdkapi">4.4 JDK线程协作API</h4>
+<blockquote>
+<p>在Java中典型的案例即：生产者 - 消费者模式</p>
+</blockquote>
+<p><strong>三种API</strong>：</p>
+<ul>
+<li><strong>suspend和resume</strong>
+<ul>
+<li>已经被弃用，在<strong>同步代码块中</strong>或者<strong>先后顺序有误</strong>时会导致死锁</li>
+<li>suspend后<strong>不会释放锁</strong>，容易造成死锁问题，而wait则会释放</li>
+</ul>
+</li>
+<li><strong>wait和notify/notifyAll</strong>
+<ul>
+<li>只能在同步代码块中调用，否则会抛出异常</li>
+<li>调用wait后<strong>会释放锁和CPU</strong>，进入waiting状态等待被唤醒</li>
+<li>虽然notify会<strong>自动解锁</strong>，但是对<strong>顺序</strong>有要求，如果在notify调用后才调用wait，线程会永远处于WAITING状态。</li>
+</ul>
+</li>
+<li><strong>park和unpark</strong>
+<ul>
+<li>对<strong>顺序无要求</strong>，类似于颁发许可证书的情况，线程在<code>park</code>的时候，如果存在许可，则立即返回（类似于正常唤醒），如果没有许可，则会进入阻塞状态。<strong>许可只有一个，不可累加</strong>，即多次调用<code>unpark</code>不可累加许可。</li>
+<li><strong>不会释放锁</strong>，在同步代码块中会造成死锁，比如消费者获取到对象锁后调用<code>LockSupport.park()</code>方法，此时锁被占用，生产者无法获取到对象锁，也无法调用<code>LockSupport.unpack(oneThread)</code>唤醒。</li>
+</ul>
+</li>
+</ul>
+<p><strong>伪唤醒</strong>：</p>
+<blockquote>
+<p>Java官方建议<strong>在循环中检查等待条件</strong>，原因是处理等待状态的线程可能会收到<strong>错误警报和伪唤醒</strong>，如果不在循环中检查等待条件而是用If语句，程序就会在没有满足结束条件的情况下退出。<strong>伪唤醒</strong>是指线程并非因为notify、notifyAll、unpark等api调用而唤醒，这涉及到更底层的因素，会造成程序逻辑的错误。</p>
+</blockquote>
+<h4 id="45-">4.5 本节小结</h4>
+<blockquote>
+<p>本节主要对线程的通信进行简单介绍，并且着重介绍了JDK中的线程协作API，在很多JDK多线程开发工具类中都是底层实现，需要重点掌握。</p>
+</blockquote>
+<p> </p>
+<h2 id="heading7">五、线程封闭</h2>
+<blockquote>
+<p>多线程访问共享可变数据时，涉及到线程间数据同步的问题，而有时候我们并不希望数据被共享，所以有了线程封闭的概念。
+数据都被封闭在各自的线程中，就不需要进行同步操作，这种通过将数据封闭在线程中而避免实用同步的技术称为<strong>线程封闭</strong>。</p>
+</blockquote>
+<h4 id="51-threadlocal">5.1 ThreadLocal</h4>
+<blockquote>
+<p>ThreadLocal是Java中的一种特殊变量，是一个线程级别的变量。在ThreadLocal中，每个线程都有自己独立的一个变量，JVM在其底层中维护了一个Map&lt;ThreadName,value&gt;，为每个线程分配了一个副本，线程与线程间的副本之间彼此独立，互不影响，从而<strong>消除了线程间的竞争条件</strong>，在并发模式下是绝对安全的变量。</p>
+</blockquote>
+<ul>
+<li><strong>用法</strong>：<code>ThreadLocal&lt;T&gt; var = new ThreadLocal&lt;T&gt;()</code></li>
+<li><strong>应用场景</strong>：
+<ul>
+<li>多线程下多个方法需要使用相同的变量时（不互相依赖），可以减少代码量</li>
+<li>线程中多个方法使用某变量，可以替换方法传参的做法。（即成员变量的作用）</li>
+</ul>
+</li>
+</ul>
+<h4 id="52-">5.2 栈封闭（局部变量表）</h4>
+<blockquote>
+<p>局部变量的固有属性之一就是封闭在线程中，它们位于执行线程的栈中，例如在JVM操作栈中，每个方法对应一个栈帧，栈帧中有局部变量表和操作栈，其他线程无法获取到当前栈帧中的局部变量表。</p>
+</blockquote>
+<p> </p>
+<h2 id="heading8">六、线程池原理</h2>
+<blockquote>
+<p>线程在Java中的一个对象，更是操作系统的资源。</p>
+</blockquote>
+<h4 id="61-">6.1 为什么要用线程池</h4>
+<p><strong>线程是不是越多越好？</strong></p>
+<ul>
+<li>
+<ol>
+<li>线程的创建、销毁需要时间。如果<strong>创建时间 + 销毁时间 &gt; 执行任务时间</strong>就是很不划算的。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Java对象占用堆内存，操作系统线程占用系统内存，根据jvm规范，一个线程默认最大栈大小是1M，这个栈空间是需要从系统内存中分配的。<strong>线程过多，会消耗很多的内存</strong>。</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>线程过多时，操作系统需要频繁地切换上下文，从而影响性能，即CPU的大部分时间都被花费在线程切换上了。</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>从上面三点可以知道，线程并不是越多越好的，不能够无限制的创建，线程池的推出，就是为了方便控制线程数量。</p>
+</blockquote>
+<h4 id="62---">6.2 线程池的原理 - 概念</h4>
+<ul>
+<li><strong>线程池管理器</strong>：用于创建并管理线程池，包括创建线程池，销毁线程池，添加新任务；</li>
+<li><strong>工作线程</strong>：线程池中线程，在没有任务时处于等待状态，可以循环的执行任务。</li>
+<li><strong>任务接口</strong>：每个任务必须实现的接口，以供工作线程调度任务的执行，它主要规定了任务的入口，任务执行完后的收尾工作，任务的执行状态等，例如线程需要实现的<code>Runnable</code>接口或者<code>Callable</code>接口等；</li>
+<li><strong>任务队列</strong>：用于存放没有处理的任务，比如线程达到核心线程数量后，会将多出的线程存放在任务队列中，作为一种缓存机制存在。</li>
+<li><strong>拒绝策略</strong>：当线程数量超过最大线程数后执行的策略，一共有四种策略：抛异常、抛弃、利用当前传递的管理线程执行、丢弃最早的任务，将其放入任务队列中。</li>
+</ul>
+<h4 id="63-api">6.3 线程池API</h4>
+<h5 id="heading9">接口定义和实现类</h5>
+<ul>
+<li>接口
+<ul>
+<li><code>Executor</code>：最上层接口，<code>定义了执行任务的方法execute</code></li>
+<li><code>ExecutorService</code>：继承自Executor接口，扩展你了Callable、Future、关闭方法</li>
+<li><code>ScheduledExecutorService</code>：继承自ExecutorService，增加了定时任务相关的方法</li>
+</ul>
+</li>
+<li>实现类
+<ul>
+<li><code>ThreadPoolExecutor</code>：<strong>基础、标准的线程池实现。</strong>
+<ul>
+<li><code>submit</code>：提交任务到线程池</li>
+<li><code>getPoolSize</code>：获取当前线程池数量</li>
+<li><code>getQueue().size()</code>：获取当前队列中的等待线程数量</li>
+</ul>
+</li>
+<li><code>ScheduledThreadPoolExecutor</code>：继承自<code>ThreadPoolExecutor</code>，实现了定时任务相关的方法。</li>
+</ul>
+</li>
+</ul>
+<h5 id="heading10">常见线程池类型</h5>
+<ul>
+<li>
+<p><strong>创建方法</strong>：<code>Executors.newFixedThreadPool() </code>和<code>new ThreadPoolExecutor()</code>，阿里巴巴开发手册中强制规定使用第二种方式创建，由于Executors中的任务队列和最大线程数量都默认为无界，在大量请求下会导致OOM。</p>
+</li>
+<li>
+<p><strong>ThreadPoolExecutor</strong>（标准线程池）：通过自定义<code>new</code>，并配置相关参数，如核心线程数量、最大线程数量、线程存活时间、阻塞队列等，如果阻塞队列为定长队列，还需要配置<code>拒绝策略</code>。一般是</p>
+</li>
+</ul>
+<pre><code>// 此处的拒绝策略用Lambda表示式实现，即`new RejectedExecutionHandler()`并重写`rejectedExecution`方法
+ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 10, 5, TimeUnit.SECONDS,
+			new LinkedBlockingQueue&lt;&gt;(3), (r, executor) -&gt; System.err.println(&quot;有任务被拒绝执行了&quot;));	
+</code></pre><ul>
+<li><strong>FixedThreadPool</strong>（定长线程池，最大线程数 = 核心线程数）- 长期较少的任务
+<ul>
+<li><code>LinkedBlockingQueue</code>：基于链表的<strong>无界阻塞队列</strong>，利用AQS实现并发操作。</li>
+</ul>
+</li>
+</ul>
+<pre><code>ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 5, 0L, TimeUnit.MILLISECONDS,
+		new LinkedBlockingQueue&lt;Runnable&gt;());
+</code></pre><ul>
+<li><strong>CachedThreadPool</strong>（缓存（弹性）线程池，起始无线程，线程有存活时间，无线程数量限制）- 当任务提交到线程池时，如果有空闲线程则直接调用，没有则创建新线程。适合短期较多的异步任务，任务大小无法控制、动态变化因素比较多的场景。
+<ul>
+<li><code>SynchronousQueue</code>：<strong>无缓存阻塞队列</strong>，队列始终为空，必须等待提交的任务被消费者消费后才会继续提交，故任务的提交是顺序的，但是结束顺序是不确定的。底层采用<strong>CAS</strong>实现并发操作，有公平（TransferQueue）和非公平（TransferStack）两种模式。</li>
+</ul>
+</li>
+</ul>
+<pre><code>ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS,
+			new SynchronousQueue&lt;Runnable&gt;());
+</code></pre><ul>
+<li><strong>SingleThreadPool</strong>（单线程线程池）- 顺序执行的任务</li>
+<li><strong>ScheduledThreadpool</strong>（定时器线程池）- 周期性执行的任务</li>
+</ul>
+<h4 id="heading11">线程数量</h4>
+<blockquote>
+<p>生产环境中，一般CPU的使用率达到80%则表示CPU充分被利用，少于80%则可能需要开多些线程，使用率太高则表示线程数量太多，太低则表示线程数量过少。</p>
+</blockquote>
+<h5 id="heading12">如何确定合适数量的线程？</h5>
+<ul>
+<li><strong>计算型任务</strong>：纯内存操作，占用CPU比较高的，一般线程数量为<strong>cpu数量的1-2倍</strong></li>
+<li><strong>IO型任务</strong>：网络操作、数据库操作、文件操作，可能会有IO阻塞，一般需要开启较多线程。
+<ul>
+<li>tomcat默认线程数量：200</li>
+<li>CacheThreadPool自动增减线程数</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h2 id="heading13">总结</h2>
+<blockquote>
+<p>以上都是Java并发的基础操作，在后续AQS、关键字Synchronize、Volatile底层都有相关操作，特别是CPU内存屏障及指令重排，需要有较深入的理解。</p>
+</blockquote>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/" title="Java并发基础" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+    </div>
+  </article>
+<section id="comments">
+</section>
+
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/2019/12/%E7%BD%91%E6%98%93%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" title="网易案例分析"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2019/12/u%E7%9B%98%E5%90%AF%E5%8A%A8%E4%BF%AE%E5%A4%8Dwin10/"
+                    title="U盘修复工具"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2019
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
+<script type="text/javascript"
+   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script>
+hljs.configure({
+  tabReplace: '    ', 
+  classPrefix: ''     
+                      
+})
+hljs.initHighlightingOnLoad();
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script>
+      (function (window) {
+          var INSIGHT_CONFIG = {
+              TRANSLATION: {
+                  POSTS: '文章',
+                  PAGES: '页面',
+                  CATEGORIES: '分类',
+                  TAGS: '标签',
+                  UNTITLED: '(未命名)',
+              },
+              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+          };
+          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+      })(window);
+      </script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+
+
+  </body>
+</html>
