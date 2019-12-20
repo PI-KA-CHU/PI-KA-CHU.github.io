@@ -40,7 +40,7 @@
 <meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
 <meta itemprop="datePublished" content="2019-12-17T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-17T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1992">
+<meta itemprop="wordCount" content="3919">
 
 
 
@@ -156,7 +156,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">83</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">84</span></li>
         </ul>
     </div>
 </div>
@@ -171,7 +171,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
-                    class="tag-list-count">48</span></li>
+                    class="tag-list-count">49</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
@@ -199,7 +199,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
-                    class="tag-list-count">3</span></li>
+                    class="tag-list-count">4</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
@@ -223,7 +223,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%BD%91%E6%98%93%E5%BE%AE%E4%B8%93%E4%B8%9A/" class="tag-list-link">网易微专业</a><span
-                    class="tag-list-count">3</span></li>
+                    class="tag-list-count">4</span></li>
             
         </ul>
 
@@ -234,6 +234,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/" class="title">Volatile关键字</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-19</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -274,16 +284,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://PI-KA-CHU.github.io/2019/12/%E7%BD%91%E6%98%93%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" class="title">网易案例分析</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-12-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-10</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -308,6 +308,7 @@
         <li></li>
       </ul>
     </li>
+    <li><a href="#heading">三、总结</a></li>
   </ul>
 </nav>
         </div>
@@ -346,8 +347,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1992字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:4分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:3919字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:8分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -385,6 +386,7 @@
 <h2 id="synchronize1">二、Synchronize的底层原理</h2>
 <ul>
 <li>HotSpot JVM： <a href="https://www.cs.princeton.edu/picasso/mats/HotspotOverview.pdf">https://www.cs.princeton.edu/picasso/mats/HotspotOverview.pdf</a></li>
+<li>参考： <a href="https://blog.csdn.net/javazejian/article/details/72828483">https://blog.csdn.net/javazejian/article/details/72828483</a></li>
 </ul>
 <blockquote>
 <p>Synchronize主要用于修饰方法和代码块，两者在JVM中的底层实现是不同的，同步代码块的实现主要基于对象监视器（Monitor）实现，其主要是利用<code>monitorenter</code>和<code>monitorexit</code>指令实现代码同步；同步方法则是依靠方法修饰符上的<code>ACC_SYNCHRONIZED</code>标识实现同步。两者的JVM指令（利用javap命令对.class文件进行反编译）如下图所示：</p>
@@ -393,16 +395,16 @@
 <p><img src="http://ww1.sinaimg.cn/mw690/0061iV1igy1g9zkuemrbbj313y0jodjj.jpg" alt="image.png"></p>
 <p><strong>同步方法</strong>：</p>
 <p><img src="http://ww1.sinaimg.cn/mw690/0061iV1igy1g9zkw839yhj30mp07kt97.jpg" alt="image.png"></p>
-<h4 id="monitor">对象监视器（Monitor）</h4>
+<h4 id="21-">2.1 对象的同步属性</h4>
 <blockquote>
-<p>Synchronize的底层同步（重量级锁）就是利用Monitor监视器实现线程间的互斥，进而达到同步的效果，下面简单描述Java对象在内存中的存储结构及Monitor如何实现同步监视。</p>
+<p>Synchronize的底层同步（<strong>重量级锁</strong>）就是利用Monitor监视器实现线程间的互斥，进而达到同步的效果，下面简单描述Java对象在内存中的存储结构及Monitor如何实现同步监视。</p>
 </blockquote>
-<p><strong>对象的内存布局</strong>：</p>
+<h5 id="211-">2.1.1 对象的内存布局</h5>
 <ul>
 <li><strong>对象头（Header）</strong>
 <ul>
 <li>
-<p><strong>Mark Word</strong>：主要存储<strong>对象运行时数据</strong>，如存储哈希码、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等，长度在32位和63位的虚拟机中分别为32bit和64bit。Mark Word被设计为非固定大小的数据结构，在不同的锁状态下存储不同的内容，其中偏向锁是Java 6之后对synchronize的优化新添加的，锁标识位是01；重量级锁的锁标识位是10，其中指针指向monitor对象的起始地址，monitor在下面会进行较详细的介绍。
+<p><strong>Mark Word</strong>：主要存储<strong>对象运行时数据</strong>，如存储<strong>哈希码、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等</strong>，长度在32位和63位的虚拟机中分别为32bit和64bit。Mark Word被设计为非固定大小的数据结构，在不同的锁状态下存储不同的内容，其中偏向锁是Java 6之后对<code>synchronize</code>的优化新添加的，锁标识位是01；重量级锁的锁标识位是10，其中指针指向monitor对象的起始地址，monitor在下面会进行较详细的介绍。
 <img src="http://ww1.sinaimg.cn/mw690/0061iV1igy1ga05ligouxj30iy091wfn.jpg" alt="image.png"></p>
 <ul>
 <li>例：在对象未被锁定的状态下，32bit的Mark Word中的25bit用于存储对象哈希码，4bit用于存储对象分代年龄，2bit用于存储锁标志位，1bit固定为0（当1时候表示偏向锁）。</li>
@@ -416,9 +418,9 @@
 <li><strong>实例数据（Instance Data）</strong>：对象真正存储的有效信息，即程序代码中所定义的各种类型的字段内容（包括父类字段）。</li>
 <li><strong>对齐填充（Padding）</strong>：非必要存在，占位符（对象的大小必须是8的整数倍，不足时补充对齐）。</li>
 </ul>
-<p><strong>monitor监视器底层</strong></p>
+<h5 id="221-monitor">2.2.1 monitor监视器底层</h5>
 <blockquote>
-<p>每个对象都存在对应的monitor与之关联，对象与其 monitor 之间的关系有存在多种实现方式，如monitor可以与对象一起创建销毁或当线程试图获取对象锁时自动生成，monitor对象被某个线程持有后会进入锁定状态，monitor是由<code>ObjectMonitor</code>实现，其数据结构如下（C++源码）：</p>
+<p>每个对象都存在对应的monitor与之关联，对象与其<code>monitor</code>之间的关系有存在多种实现方式，如monitor可以与对象一起创建销毁或当线程试图获取对象锁时自动生成，monitor对象被某个线程持有后会进入锁定状态，monitor是由<code>ObjectMonitor</code>实现，其数据结构如下（C++源码）：</p>
 </blockquote>
 <pre><code>ObjectMonitor() {
     _header       = NULL;
@@ -438,10 +440,97 @@
     _SpinClock    = 0 ;
     OwnerIsThread = 0 ;
   }
-</code></pre><blockquote>
-<p>上面为monitor对象的数据结构，主要包括_EntryList和_WaitSet队列及_owner锁持有者和其他的信息，获取到monitor对象（锁）的线程可以正常执行代码。</p>
-</blockquote>
+</code></pre><p>上面为monitor对象的数据结构，主要包括<code>_EntryList</code>和<code>_WaitSet</code>队列及<code>_owner</code>锁持有者和其他的信息，获取到<code>monitor</code>对象（锁）的线程可以正常执行代码。</p>
 <p><img src="http://ww1.sinaimg.cn/mw690/0061iV1igy1ga06nrkkjlj30et08vgn0.jpg" alt="image.png"></p>
+<h4 id="22-synchronize">2.2 synchronize锁状态的变化</h4>
+<blockquote>
+<p>synchronize在1.6版本后进行了优化，获取锁的过程为<strong>偏向锁</strong>（乐观锁，适应于一个线程执行的场景，进行简单的线程Id校验，减少轻量级锁的CAS次数） - <strong>轻量级锁</strong>（乐观锁，适用于<strong>多线程交替执行同步块的场景</strong>，轻量级锁认为当前线程的竞争程度很轻，即可能是两个线程交互执行，只要稍微（自旋）等待一会就可以获取到锁，如果自旋次数超过一定次数，则认为当前锁竞争激烈，升级为重量级锁） - <strong>重量级锁</strong>（悲观锁，适用于<strong>多线程同时进入同步块场景</strong>，需要获取monitor对象监视器，阻塞除了拥有锁以外的其他线程）</p>
+</blockquote>
+<p><img src="http://ww1.sinaimg.cn/mw690/0061iV1igy1ga0zhgwfq8j30wy0fktee.jpg" alt="image.png"></p>
+<ul>
+<li>
+<p><strong>偏向锁加锁过程</strong></p>
+<ul>
+<li>
+<ol>
+<li>访问<code>Mark Work</code>中偏向锁的标识是否为1（默认为1，即开启状态）</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>如果为可偏向状态，则检查<code>_owner</code>线程Id是否指向当前线程，如果是，进入步骤5，否则进入步骤3</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>如果线程ID未指向当前线程，则通过<code>CAS</code>操作竞争锁。如果加锁成功（成功加锁后获取锁的线程再次进入时只需校验是否当前获取锁的线程Id，无需再进行CAS操作），则执行步骤5；如果加锁失败，则执行步骤4。</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>如果<code>CAS</code>获取偏向锁失败，则表示当前存在竞争，在到达全局安全点时，获取到偏向锁的线程被挂起，<strong>偏向锁升级为轻量级锁</strong>，然后被阻塞在安全点的线程继续执行同步代码。</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>执行同步代码。</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li><strong>释放锁</strong>：偏向锁不会由线程主动释放，而是等到其他竞争锁的线程出现时，暂停拥有偏向锁的线程，检查线程是否存活，如果不存活，则恢复到无锁状态，允许其他线程竞争；如果存活，则挂起持有偏向锁的线程，将对象头<code>Mark word</code>修改为指向锁记录指针的标识，<strong>锁升级为轻量级锁状态（00）</strong>，最后重新唤醒挂起的线程。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>轻量级锁加锁过程</strong></p>
+<ul>
+<li>参考：
+<ul>
+<li><a href="https://gorden5566.com/post/1019.html">https://gorden5566.com/post/1019.html</a></li>
+<li><a href="https://www.cnblogs.com/paddix/p/5405678.html">https://www.cnblogs.com/paddix/p/5405678.html</a></li>
+<li><a href="https://www.zhihu.com/question/53826114">https://www.zhihu.com/question/53826114</a></li>
+</ul>
+</li>
+<li>
+<ol>
+<li>在代码进入同步块的时候，如果同步对象锁状态为无锁状态（锁标志位为“01”状态，是否为偏向锁标识为“0”），虚拟机首先将在<strong>当前线程的栈帧</strong>中建立一个名为<strong>锁记录</strong>（<code>Lock Record</code>）的空间，用于存储锁对象目前的<code>Mark Word</code>的拷贝，官方称之为<code>Displaced Mark Word</code>。<br>
+<img src="http://ww1.sinaimg.cn/mw690/0061iV1igy1ga0yp11ok4j30t00dqtd3.jpg" alt="image.png"></li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>拷贝对象头中的<code>Mark Word</code>复制到锁记录中。</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>拷贝成功后，虚拟机将使用<code>CAS</code>操作尝试将对象的<code>Mark Word</code>更新为指向<code>Lock Record</code>的指针，并将<code>Lock record</code>里的<code>owner</code>指针指向<code>object mark word</code>。如果更新成功，则执行步骤4，否则执行步骤5。</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>如果这个更新动作成功了，那么这个线程就拥有了该对象的锁，并且对象<code>Mark Word</code>的锁标志位设置为“00”，即表示此对象处于<strong>轻量级锁定状态</strong>，这时候线程堆栈与对象头的状态如下图所示。<br>
+<img src="http://ww1.sinaimg.cn/mw690/0061iV1igy1ga0yurrfbqj30sa0iyag8.jpg" alt="image.png"></li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>如果这个更新操作失败了，虚拟机首先会检查对象的<code>Mark Word</code>是否指向当前线程的栈帧，如果是就说明当前线程已经拥有了这个对象的锁（<strong>重入</strong>，每次获取轻量级锁时都会创建一个 <code>Lock Record</code>，锁重入时会创建多个指向同一个<code>Object</code>的<code>Lock Record</code>，除第一次设置<code>Displaced Mark Word</code> ，后面均设置为 null），那就可以直接进入同步块继续执行。否则说明<strong>多个线程竞争锁</strong>，（多次自旋无果后）轻量级锁就要<strong>膨胀为重量级锁</strong>，锁标志的状态值变为“10”，<code>Mark Word</code>中存储的就是指向重量级锁（互斥量）的指针，后面等待锁的线程也要进入<strong>阻塞状态</strong>。 而当前线程便尝试使用自旋来获取锁，自旋就是为了不让线程阻塞，而采用循环去获取锁的过程。</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li><strong>释放锁</strong>：利用<code>CAS</code>操作把当前线程的栈帧中的<code>Displaced Mark Word</code>替换回锁对象的<code>Mark Word</code>中去，如果替换成功，则解锁成功，恢复到无锁的状态（01）。若替换失败，则轻量级锁膨胀为重量级锁后再解锁。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>重量级锁</strong></p>
+</li>
+</ul>
 <h4 id="synchronize2">Synchronize的优化</h4>
 <ul>
 <li><strong>锁消除</strong>
@@ -464,6 +553,27 @@
 </ul>
 <blockquote>
 <p>例如在for循环中循环的加锁，会频繁的进行加锁解锁操作，造成性能消耗，Java会进行优化，将锁范围进行扩大，例如扩到到for循环外部。</p>
+</blockquote>
+<ul>
+<li>
+<p><strong>偏向锁</strong>
+（参考上文）</p>
+</li>
+<li>
+<p><strong>轻量级锁</strong>
+（参考上文）</p>
+</li>
+<li>
+<p><strong>自旋锁</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>轻量级锁失败后，虚拟机为了避免线程真实地在操作系统层面挂起，还会进行一项称为自旋锁的优化手段。这是基于在大多数情况下，线程持有锁的时间都不会太长，如果直接挂起操作系统层面的线程可能会得不偿失，毕竟操作系统实现线程之间的切换时需要从用户态转换到核心态，这个状态之间的转换需要相对比较长的时间，时间成本相对较高，因此自旋锁会假设在不久将来，当前的线程可以获得锁，因此虚拟机会让当前想要获取锁的线程做几个空循环(这也是称为自旋的原因)，一般不会太久，可能是50个循环或100循环，在经过若干次循环后，如果得到锁，就顺利进入临界区。如果还不能获得锁，那就会将线程在操作系统层面挂起，这就是自旋锁的优化方式，这种方式确实也是可以提升效率的。最后没办法也就只能升级为重量级锁了。</p>
+</blockquote>
+<p> </p>
+<h2 id="heading">三、总结</h2>
+<blockquote>
+<p>一个<code>synchronize</code>就涉及到大量的知识点，文章主要根据网易微专业视频并查找相关的博客、书籍学习后总结而成，主要涉及到<code>synchronize</code>锁状态及底层同步处理的过程，如有错误或问题，请联系笔者。</p>
 </blockquote>
 
     </div>
@@ -507,6 +617,11 @@
                 <a href="https://PI-KA-CHU.github.io/2019/12/u%E7%9B%98%E5%90%AF%E5%8A%A8%E4%BF%AE%E5%A4%8Dwin10/" title="U盘修复工具"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/"
+                    title="Volatile关键字"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

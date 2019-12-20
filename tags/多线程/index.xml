@@ -5,10 +5,19 @@
     <link>https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
     <description>Recent content in 多线程 on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 17 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Dec 2019 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Volatile关键字</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <description>一、初识Volatile what volatile是Java语言提供的一种较弱的同步机制，用来确保将变量的更新操作通知到其他线程，volatile修</description>
+    </item>
     
     <item>
       <title>Synchronize关键字</title>

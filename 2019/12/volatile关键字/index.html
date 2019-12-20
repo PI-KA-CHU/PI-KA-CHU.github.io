@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        SpringBoot中使用Spring Session实现单点登陆 - PI-KA-CHU&#39;s blog
+        Volatile关键字 - PI-KA-CHU&#39;s blog
       </title>
     <head>
   <meta charset="utf-8">
@@ -25,27 +25,27 @@
   
   <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
   <meta name="generator" content="Hugo 0.60.1 with theme pure" />
-  <title>SpringBoot中使用Spring Session实现单点登陆 - PI-KA-CHU&#39;s blog</title>
+  <title>Volatile关键字 - PI-KA-CHU&#39;s blog</title>
   
 
   <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
   <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
-  <meta property="og:title" content="SpringBoot中使用Spring Session实现单点登陆" />
+  <meta property="og:title" content="Volatile关键字" />
 <meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/" />
-<meta property="article:published_time" content="2019-02-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-02-13T00:00:00+00:00" />
-<meta itemprop="name" content="SpringBoot中使用Spring Session实现单点登陆">
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/" />
+<meta property="article:published_time" content="2019-12-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-19T00:00:00+00:00" />
+<meta itemprop="name" content="Volatile关键字">
 <meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
-<meta itemprop="datePublished" content="2019-02-13T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-02-13T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="675">
+<meta itemprop="datePublished" content="2019-12-19T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-12-19T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1437">
 
 
 
-<meta itemprop="keywords" content="java,spring-boot," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SpringBoot中使用Spring Session实现单点登陆"/>
+<meta itemprop="keywords" content="Java,多线程,网易微专业," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Volatile关键字"/>
 <meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
 
   <!--[if lte IE 9]>
@@ -298,13 +298,12 @@
         <h3 class="toc-title">文章目录</h3>
         <div class="toc-content always-active"><nav id="TableOfContents">
   <ul>
-    <li><a href="#session">一、Session的共享问题</a></li>
-    <li><a href="#springsession">二、Spring-Session实现</a>
+    <li><a href="#volatile">一、初识Volatile</a>
       <ul>
         <li></li>
       </ul>
     </li>
-    <li><a href="#heading">三、使用过程中遇到的坑</a>
+    <li><a href="#volatile1">二、Volatile的底层原理</a>
       <ul>
         <li></li>
       </ul>
@@ -323,16 +322,16 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/"
-    >SpringBoot中使用Spring Session实现单点登陆</a
+    href="/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/"
+    >Volatile关键字</a
   >
 </h1>
 
       <div class="article-meta">
         <span class="article-date">
   <i class="icon icon-calendar-check"></i>
-<a href="https://PI-KA-CHU.github.io/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/" class="article-date">
-  <time datetime="2019-02-13 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-02-13</time>
+<a href="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/" class="article-date">
+  <time datetime="2019-12-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-19</time>
 </a>
 </span><span class="article-category">
   <i class="icon icon-folder"></i>
@@ -340,93 +339,80 @@
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-    <a class="article-tag-link" href="/tags/java/"> java </a>
-    <a class="article-tag-link" href="/tags/spring-boot/"> spring-boot </a>
+    <a class="article-tag-link" href="/tags/java/"> Java </a>
+    <a class="article-tag-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"> 多线程 </a>
+    <a class="article-tag-link" href="/tags/%E7%BD%91%E6%98%93%E5%BE%AE%E4%B8%93%E4%B8%9A/"> 网易微专业 </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/#comments"
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:675字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:2分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1437字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:3分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
-      <p> </p>
-<h2 id="session">一、Session的共享问题</h2>
+      <h2 id="volatile">一、初识Volatile</h2>
+<h4 id="what">what</h4>
 <blockquote>
-<p>Session的共享可以通过<code>redis</code>的操作及<code>spring session</code>进行解决，从而实现单点登陆，redis操作可以直接通过调用<code>template</code>的方法进行数据的存取，但是其对业务具有一定的侵入性，使用<code>spring session</code>对session的存储进行封装，可以通过正常的HttpSession操作进行代码编写，其支持使用Redis、Mongo、JDBC、Hazelcast来存储Session，可以通过指定不同的存储方式进行存储，此处使用的是redis</p>
+<p><code>volatile</code>是Java语言提供的一种<strong>较弱的同步机制</strong>，用来确保将变量的更新操作通知到其他线程，<code>volatile</code>修饰的变量具有<strong>可见性</strong>和<strong>有序性</strong>，即变量的修改不会被缓存在寄存器或者其他高速缓存器中（可见），并且不会被遍历器和处理器<strong>指令重排</strong>（有序）。<code>synchronize</code>提供了<strong>原子性</strong>和<strong>可见性</strong>，与<code>synchronize</code>相比，<code>volatile</code>不保证原子性，所以在多线程并发情况下仍可能会出现线程安全问题，另外两者的<strong>有序性</strong>也是不一样的，<code>volatile</code>的有序性是禁止指令重排，而<code>synchronize</code>的有序性是建立在同步之上的，就是说保证单线程执行，并且同步区域的变量会被写入主存（对其他线程可见），但是同步区域仍然可以进行指令重排，这也就是DCL（双重检验锁）的问题。</p>
 </blockquote>
-<p> </p>
-<h2 id="springsession">二、Spring-Session实现</h2>
-<h4 id="maven">Maven依赖</h4>
-<pre><code>&lt;!-- 引入redis依赖 --&gt;
-&lt;dependency&gt;
-	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-	&lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
-&lt;/dependency&gt;
+<h4 id="where-and-why">where and why</h4>
+<blockquote>
+<p><code>volatile</code>主要应用在需要<strong>确保自身状态可见</strong>和<strong>指令重排会出现问题</strong>的场景，如确保所引用对象的状态可见性、标识一些重要的程序生命周期事件的发生（如初始化或关闭）。<code>volatile</code>没有加锁的消耗，因此在一些不需要加锁访问并且需要对其他线程可见的场景能提供更好的性能。
+<code>volatile</code>的使用条件：</p>
+<ul>
+<li>对变量的写入操作不依赖变量的当前值，获取保证只有<strong>单线程</strong>更新变量的值。</li>
+<li>该变量不会与其他状态变量一起纳入不变性条件中。</li>
+<li>在访问变量时<strong>不需要加锁</strong>。</li>
+</ul>
+</blockquote>
+<h4 id="how">how</h4>
+<blockquote>
+<p><code>volatile</code>用于修饰共享变量，保证变量的修改在多线程间的可见性和有序性（禁止指令重排），下面的例子是<strong>单例模式</strong>中的双重检验锁（DCL）模式，使用<code>volatile</code>保证要创建的对象的可见性，否则在同步代码块中，对象的<code>new</code>在底层分为多步骤进行，如：a.分配内存、b.初始化对象、c.对象引用指向内存区域，由于同步代码块中可以进行<strong>指令重排</strong>（由abc变成acb，可参考笔者的另一篇博客<code>Java并发基础</code>），其他线程在判断对象不为空时对象可能还没初始化，获取到的是空的对象，由此造成安全问题。</p>
+</blockquote>
+<pre><code>public class Singleton {
 
-&lt;!--spring session的redis相关依赖 --&gt;
-&lt;dependency&gt;
-	&lt;groupId&gt;org.springframework.session&lt;/groupId&gt;
-	&lt;artifactId&gt;spring-session-data-redis&lt;/artifactId&gt;
-	&lt;version&gt;2.1.3.RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre><h4 id="applicationproperties">配置application.properties</h4>
-<pre><code>spring.session.store-type=redis
-</code></pre><h4 id="enableredishttpsession-">在启动类中加入@EnableRedisHttpSession 注解</h4>
-<pre><code>@EnableRedisHttpSession
-@SpringBootApplication
-public class LostBackSysApplication extends SpringBootServletInitializer{
+    private static volatile Singleton singleton;
 
-	
-	@Override
-	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		
-		return application.sources(LostBackSysApplication.class);
-	}
-	
-	public static void main(String[] args) {
-//		System.setProperty(&quot;spring.devtools.restart.enabled&quot;, &quot;false&quot;);
-		SpringApplication.run(LostBackSysApplication.class, args);
-	}
+    private Singleton(){
 
-}
+    }
 
-</code></pre><h4 id="spring-sessionhttpsession">Spring Session的操作(与HttpSession操作无区别)</h4>
-<pre><code>@RequestMapping(value = &quot;/check&quot;,method=RequestMethod.POST)
-public BaseReturnDto checkUser(HttpSession session) {
-	
-	//使用Spring Session存储至redis中
-	session.setAttribute(‘key’,‘value’);
+    public static Singleton getInstance(){
+        if(singleton != null){
+            synchronized (Singleton.class){
+                if (singleton != null){
+                    // 可能会有指令重排
+                    singleton = new Singleton();
+                }
+            }
+        }
+        return singleton;
+    }
+
 }
 </code></pre><p> </p>
-<h2 id="heading">三、使用过程中遇到的坑</h2>
+<h2 id="volatile1">二、Volatile的底层原理</h2>
+<blockquote>
+<p>JMM（Java内存模型）定义了volatile的内存语义，当一个变量声明为volatile时，它的读写操作将具有特殊的含义。如果对声明了volatile的变量进行写操作，JVM就会向处理器发送一条<code>Lock</code>前缀的指令，将变量所在缓存行的数据写回系统内存。但是即使内存被写回，缓存在其他处理器上的数据仍然是旧数据，在多核处理器下，为了保证各个处理器的缓存是一致的，CPU厂商制定了<strong>缓存一致性协议</strong>，<strong>每个处理器通过嗅探在总线上传播的数据来检查自己缓存的值是不是过期了</strong>，当处理器发现自己缓存行的内存地址被修改，就会将当前处理器的缓存行设置为无效（仅仅设置为无效，不会直接更新），当需要数据的时候发现缓存行状态为无效，则从主存中读取。</p>
+</blockquote>
+<h4 id="heading">内存语义</h4>
 <ul>
-<li><strong>异常</strong>：</li>
+<li>volatile<strong>写的内存语义</strong>：当写一个volatile变量时，JMM会把该线程对应的本地内存中的共享变量值刷新到主内存。其他线程在监听到总线对该内存地址的写入后，如果他们的对该地址内存的缓存状态为S，则让缓存失效并置为I。</li>
+<li>volatile<strong>读的内存语义</strong>：当读一个volatile变量时，由于volatile写入时<code>MESI</code>协议会把该线程对应的本地内存置为无效，线程接下来从主内存中读取共享变量。</li>
 </ul>
-<pre><code>Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2018-05-11 22:27:32.921 ERROR 5600 --- [ main] o.s.boot.SpringApplication : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'enableRedisKeyspaceNotificationsInitializer' defined in class path resource [org/springframework/session/data/redis/config/annotation/web/http/RedisHttpSessionConfiguration.class]: Invocation of init method failed; nested exception is java.lang.NoSuchMethodError: org.springframework.data.redis.connection.RedisConnection.getConfig(Ljava/lang/String;)Ljava/util/List;
-at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(Abstr
-...
-
-</code></pre><ul>
-<li><strong>解决</strong>：
+<h4 id="heading1">内存语义的实现</h4>
 <ul>
-<li><strong>一</strong>：spring session的redis依赖版本不对</li>
-<li><strong>二</strong>：依赖导入只需要springBoot对redis的依赖及spring session对redis的依赖两个即可，不要再导入其他spring session依赖。</li>
+<li>通过<strong>对编译器和处理器的重排序的限制</strong>，从而实现了volatile的内存语义。
+<ul>
+<li><strong>对编译器重排序的限制</strong>
+<img src="http://ww1.sinaimg.cn/large/0061iV1igy1ga30gtwmkzj30ou0giab4.jpg" alt="image.png"></li>
+<li><strong>对处理器重排序的限制</strong>
+<img src="http://ww1.sinaimg.cn/large/0061iV1igy1ga30hpgonvj30p00jawgg.jpg" alt="image.png"></li>
 </ul>
 </li>
 </ul>
-<p> </p>
-<h4 id="heading1">参考</h4>
-<ul>
-<li><a href="https://juejin.im/post/5bdd449b6fb9a04a09557a40">https://juejin.im/post/5bdd449b6fb9a04a09557a40</a></li>
-<li><a href="https://www.jianshu.com/p/e4191997da56">https://www.jianshu.com/p/e4191997da56</a></li>
-</ul>
-<p> </p>
+<h4 id="heading2"></h4>
 
     </div>
     <div class="article-footer">
@@ -434,7 +420,7 @@ at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接: </strong>
-      <a href="https://PI-KA-CHU.github.io/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/" title="SpringBoot中使用Spring Session实现单点登陆" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/</a>
+      <a href="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/" title="Volatile关键字" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
@@ -466,14 +452,9 @@ at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7/" title="SpringBoot实现全局异常的捕获"><i
+                <a href="https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/" title="Synchronize关键字"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
-            </li>
-            <li class="next">
-                <a href="https://PI-KA-CHU.github.io/2019/02/restful%E5%AD%A6%E4%B9%A0/"
-                    title="RESTful学习"><span>上一篇&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

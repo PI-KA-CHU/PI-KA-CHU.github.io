@@ -40,7 +40,7 @@
 <meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
 <meta itemprop="datePublished" content="2019-12-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="6010">
+<meta itemprop="wordCount" content="7208">
 
 
 
@@ -156,7 +156,7 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">83</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">84</span></li>
         </ul>
     </div>
 </div>
@@ -171,7 +171,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
-                    class="tag-list-count">48</span></li>
+                    class="tag-list-count">49</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
@@ -199,7 +199,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
-                    class="tag-list-count">3</span></li>
+                    class="tag-list-count">4</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
@@ -223,7 +223,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%BD%91%E6%98%93%E5%BE%AE%E4%B8%93%E4%B8%9A/" class="tag-list-link">网易微专业</a><span
-                    class="tag-list-count">3</span></li>
+                    class="tag-list-count">4</span></li>
             
         </ul>
 
@@ -234,6 +234,16 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/" class="title">Volatile关键字</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-19</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -271,16 +281,6 @@
                     </p>
                     <p class="item-date">
                         <time datetime="2019-12-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-11</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://PI-KA-CHU.github.io/2019/12/%E7%BD%91%E6%98%93%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" class="title">网易案例分析</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-12-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-10</time>
                     </p>
                 </div>
             </li>
@@ -328,7 +328,7 @@
         <li></li>
       </ul>
     </li>
-    <li><a href="#heading13">总结</a></li>
+    <li><a href="#heading13">七、总结</a></li>
   </ul>
 </nav>
         </div>
@@ -367,8 +367,8 @@
 
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/#comments"
             class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:6010字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:12分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:7208字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:15分 </span>
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
@@ -447,6 +447,14 @@
 </ul>
 <p> </p>
 <h2 id="cpu">三、CPU缓存及内存屏障</h2>
+<ul>
+<li>参考：
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/29881777">https://zhuanlan.zhihu.com/p/29881777</a></li>
+<li><a href="https://crowhawk.github.io/2018/02/10/volatile/">https://crowhawk.github.io/2018/02/10/volatile/</a></li>
+</ul>
+</li>
+</ul>
 <h4 id="31-cpu--">3.1 CPU的性能优化 - 缓存</h4>
 <blockquote>
 <p>由于CPU和内存的运行速度相差很大，为了提高CPU的性能，在CPU到主内存间加入多个高速缓存，如L1，L2，L3三级缓存，尽量让CPU从高速缓存中获取数据，从而提高其性能。</p>
@@ -456,15 +464,33 @@
 <li>L2 Cache（二级缓存）：由于L1高速缓存容量的限制，为了再次提高CPU的运算速度，在CPU外部防止一高速存储器，即二级缓存。</li>
 <li>L3 Cache（三级缓存）：L3缓存可以进一步降低延迟，提升大数据量计算时处理器的性能。具有较大L3缓存的处理器提供更有效的<code>文件系统缓存行为</code>及<code>较短信息</code>和<code>处理器队列长度</code>。一般是<code>多核共享一个L3缓存</code>。</li>
 </ul>
-<p><strong>缓存同步协议（MESI协议）</strong></p>
+<p><strong>缓存一致性协议（总线索和MESI协议）</strong></p>
 <blockquote>
-<p>多CPU读取同样的数据，进行不同的运算后，最终写入主存的以哪个CPU为准？为了应对这种高速缓存回写的场景，CPU厂商制定了<code>MESI协议</code>，规定了每条缓存有个<code>状态位</code>，同时定义了以下四个状态；</p>
+<p>多CPU读取同样的数据，进行不同的运算后，最终写入主存的以哪个CPU为准？为了应对这种高速缓存回写的场景，常见的解决缓存一致性的方法有两种，总线锁和<code>MESI</code>。</p>
 </blockquote>
+<ul>
+<li>
+<ol>
+<li><strong>总线锁</strong>：总线锁（Bus Locking）实现是当一个CPU对缓存中的数据进行操作的时候，往总线中发送一个Lock信号。这个时候，所有CPU收到这个信号之后就不操作自己缓存中的对应数据了，当操作结束，释放锁以后，所有的CPU就去内存中获取最新数据更新。但是总线锁会导致CPU的性能下降，因而出现了另外一种CPU缓存一致性协议：<code>MESI</code>。</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><strong>MESI</strong>：CPU厂商制定了<code>MESI协议</code>，规定了每条缓存有个<code>状态位</code>，同时定义了以下四个状态；</li>
+</ol>
 <ul>
 <li><strong>修改态（Modified）</strong>：此cache行已经被修改过（脏行），内容已经不同于主存，为此cache专有；</li>
 <li><strong>专有态（Exclusive）</strong>：此cache行内容同于主存，但不出现在其它cache中；</li>
 <li><strong>共享态（Shared）</strong>：此cache行内容同于主存，但也出现在其他cache中；</li>
 <li><strong>无效态（Invalid）</strong>：此cache行内容无效（空行）；</li>
+</ul>
+</li>
+</ul>
+<p><strong>CPU的读取遵循下面几点：</strong></p>
+<ul>
+<li>如果缓存状态是I，那么就从内存中读取，否则就从缓存中直接读取。</li>
+<li>如果缓存处于M或E的CPU读取到其他CPU有读操作，就把自己的缓存写入到内存中，并将自己的状态设置为S。</li>
+<li>只有缓存状态是M或E的时候，CPU才可以修改缓存中的数据，修改后，缓存状态变为M。</li>
 </ul>
 <blockquote>
 <p>多处理器时，单个CPU对缓存中的数据进行了改动，需要通知给其他CPU，即<code>CPU既要控制自己的读写操作，还要监听其他CPU发出的通知，从而保证最终一致性</code>。</p>
@@ -474,8 +500,68 @@
 <li>参考： <a href="http://ifeve.com/memory-barriers-or-fences/">http://ifeve.com/memory-barriers-or-fences/</a></li>
 </ul>
 <blockquote>
-<p>由于可能存在多个CPU共享缓存同块缓存区的情况，如果某个CPU写缓存的时候缓存被其他CPU占用的情况，会将该CPU的读缓存先执行，即进行<code>指令重排序</code>，以此来提高CPU的性能，但是重排需要遵守<code>as-if-serial语义</code>，即无论怎么重排序（编译器和处理器为了提高并行度），（单线程）程序的执行结果不能被改变。也就是说，编译器和处理器<code>不会对存在数据依赖关系的操作做重排序</code>。</p>
+<p>由于可能存在多个CPU共享缓存同块缓存区的情况，如果某个CPU写缓存的时候缓存被其他CPU占用的情况，会将该CPU的读缓存先执行，即进行<code>指令重排序</code>，以此来提高CPU的性能，但是重排需要遵守<code>as-if-serial语义</code>：无论怎么重排序（编译器和处理器为了提高并行度），（单线程）程序的执行结果不能被改变。也就是说，<strong>编译器和处理器不会对存在数据依赖关系的操作做重排序</strong>。</p>
 </blockquote>
+<h5 id="321-">3.2.1 重排序的分类</h5>
+<p><img src="http://ww1.sinaimg.cn/mw690/0061iV1igy1ga2e12ziucj30he0353yp.jpg" alt="image.png"></p>
+<ul>
+<li><strong>编译器重排序</strong>：编译器在不改变<strong>单线程程序语义</strong>的前提下，可以重新安排语句的执行顺序。</li>
+<li><strong>处理器重排序</strong>
+<ul>
+<li>指令重排序：如果不存在<strong>数据依赖性</strong>，<strong>处理器</strong>可以改变语句对应机器指令的执行顺序。</li>
+<li>内存重排序：不改变单线程结果的情况下，<strong>缓存</strong>可以改变写入的变量的顺序。</li>
+</ul>
+</li>
+</ul>
+<h5 id="322-">3.2.2 重排序对单线程的影响</h5>
+<ul>
+<li>重排序不会改变单线程程序的执行结果，所有的重排序都遵守<code>as-if-serial</code>语义。对于存在<strong>数据依赖</strong>关系的曹祖，编译器和处理器都不会进行重排序。</li>
+</ul>
+<h5 id="323-">3.2.3 重排序对多线程的影响</h5>
+<ul>
+<li>多线程情况下，对<strong>不存在数据依赖</strong>（相对于当前线程而言）的操作进行重排序，也会影响结果。比如下面代码，如果存在读线程和写线程，对于各自的线程而言，1、2和3、4都不是数据依赖的关系，所以2可能先于1执行，那么读线程可能会读到1未执行时的a的值，此为重排序引起的并发问题。</li>
+</ul>
+<pre><code>class ReorderExample {
+    int a = 0;
+    boolean flag = false;
+    public void writer() {
+        a = 1;              // 1
+        flag = true;        // 2
+    }
+    Public void reader() {
+        if (flag) {         // 3
+            int i = a * a;  // 4
+        }
+    }
+}	
+</code></pre><h5 id="324-">3.2.4 数据竞争（博客）</h5>
+<ul>
+<li><strong>数据竞争</strong>是指未同步的情况下，多个线程对同一个变量的<strong>读写竞争</strong>，它的定义如下：
+<ul>
+<li>
+<ol>
+<li>在一个线程中写一个变量</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>在另一个线程中读同一个变量</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>上述的两个操作未正确同步</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>如果存在数据竞争，程序的执行结果是没有保证的。但是如果正序是正确的同步的，就不存在数据竞争，比如上面的代码中，共享变量flag和a的读写在可能存在两个线程中，并且读写方法未同步，存在数据竞争。如果读写方法是同步方法，则没有数据竞争关系，程序的执行将具有<strong>顺序一致性</strong>。</li>
+</ul>
+<h5 id="325-java">3.2.5 竞态条件（Java并发编程实战）</h5>
+<ul>
+<li>当某个计算的<strong>正确性</strong>取决于<strong>多个线程</strong>的交替<strong>执行时序</strong>时，就会发生竞态条件。大多数的竞态条件的本质是：基于一种可能失效的观察结果来做出判断或者执行某个计算，其常见类型的主要为：<strong>先检查后执行</strong>、<strong>读取-修改-写入</strong>，其观察的结果可能变得无效，从而导致各种问题（未预期的异常、数据被覆盖、文件被破坏等）</li>
+<li>竞态条件与数据竞争的描述类似，都是简述了多线程并发下可能存在问题的场景，笔者觉得竞态条件描述有点抽象，数据竞争的描述更具体些，可以很好的带入到各个出现问题的案例中。</li>
+</ul>
 <h4 id="33-">3.3 存在的问题</h4>
 <ul>
 <li>
@@ -682,7 +768,7 @@ ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(5, 10, 5, TimeUni
 </li>
 </ul>
 <p> </p>
-<h2 id="heading13">总结</h2>
+<h2 id="heading13">七、总结</h2>
 <blockquote>
 <p>以上都是Java并发的基础操作，在后续AQS、关键字Synchronize、Volatile底层都有相关操作，特别是CPU内存屏障及指令重排，需要有较深入的理解。</p>
 </blockquote>
