@@ -5,10 +5,37 @@
     <link>https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
     <description>Recent content in 多线程 on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 19 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JUC包结构及AQS抽象队列同步器</title>
+      <link>https://PI-KA-CHU.github.io/2020/01/aqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2020/01/aqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/</guid>
+      <description>前言：Concurrent包的层次结构 java.util.concurrent包下提供了大量针对并发编程的高性能、实用的工具类，其目录结构图</description>
+    </item>
+    
+    <item>
+      <title>Java happens-before及as-if-serial原则</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%8E%9F%E5%88%99/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%8E%9F%E5%88%99/</guid>
+      <description>一、happens-before 【happens-before定义了某些操作下的可见性和&amp;quot;有序性&amp;rdquo;】 由于重排序（编译器</description>
+    </item>
+    
+    <item>
+      <title>线程安全之原子性操作</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B9%8B%E5%8E%9F%E5%AD%90%E6%80%A7%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B9%8B%E5%8E%9F%E5%AD%90%E6%80%A7%E6%93%8D%E4%BD%9C/</guid>
+      <description>一、原子性操作方法 1.1 同步锁 synchronized (this){ ++ count; } 1.2 Atomic类 Atomic底层利用CAS实现，而CAS则是利用UnSafe类（native） + 反射技术</description>
+    </item>
     
     <item>
       <title>Volatile关键字</title>
