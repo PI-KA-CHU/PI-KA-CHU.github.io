@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="zh">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         Docker实战：3、三剑客之Docker Compose - PI-KA-CHU&#39;s blog
       </title>
-    <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  
-  <meta name="theme-color" content="#000000" />
-  
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
-  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
-  <title>Docker实战：3、三剑客之Docker Compose - PI-KA-CHU&#39;s blog</title>
-  
-
-  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
-  <meta property="og:title" content="Docker实战：3、三剑客之Docker Compose" />
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title>Docker实战：3、三剑客之Docker Compose - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="Docker实战：3、三剑客之Docker Compose" />
 <meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-08-22T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-08-22T00:00:00+00:00" />
+
 <meta itemprop="name" content="Docker实战：3、三剑客之Docker Compose">
-<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
-<meta itemprop="datePublished" content="2019-08-22T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-08-22T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet"><meta itemprop="datePublished" content="2019-08-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-08-22T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1416">
-
-
-
 <meta itemprop="keywords" content="docker,开发工具," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker实战：3、三剑客之Docker Compose"/>
 <meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
 
-  <!--[if lte IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-    <![endif]-->
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
 
-  <!--[if lt IE 9]>
-      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
   </head>
+
+  
   
 
   <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -139,7 +135,8 @@
       </nav>
     </div>
   </header>
-  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
     
       <div class="widget">
@@ -156,7 +153,8 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">87</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">88</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">15</span></li>
         </ul>
     </div>
 </div>
@@ -182,6 +180,10 @@
                     class="tag-list-count">5</span></li>
             
             
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
                     class="tag-list-count">8</span></li>
             
@@ -192,10 +194,6 @@
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
                     class="tag-list-count">7</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
-                    class="tag-list-count">6</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
@@ -211,7 +209,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
-                    class="tag-list-count">15</span></li>
+                    class="tag-list-count">16</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
@@ -237,7 +235,17 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://PI-KA-CHU.github.io/2020/01/aqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" class="title">JUC包结构及AQS抽象队列同步器</a>
+                        <a href="https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="title">hugo &#43; github编写个人博客</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-05-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2020/01/juc%E5%8C%85%E7%BB%93%E6%9E%84%E5%8F%8Aaqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" class="title">JUC包结构及AQS抽象队列同步器</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-03</time>
@@ -274,16 +282,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/" class="title">Synchronize关键字</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-12-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-17</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -292,24 +290,14 @@
 
     
     
-  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
-    <div class="slimContent">
-      <nav id="toc" class="article-toc">
-        <h3 class="toc-title">文章目录</h3>
-        <div class="toc-content always-active"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">一、前言</a></li>
-    <li><a href="#docker-compose">二、Docker Compose的安装</a></li>
-    <li><a href="#heading1">三、搭建项目环境</a></li>
-    <li><a href="#heading2">四、快速部署并启动项目</a></li>
-    <li><a href="#heading3">五、问题与解决：</a></li>
-    <li><a href="#heading4">六、参考</a></li>
-  </ul>
-</nav>
-        </div>
-      </nav>
-    </div>
-  </aside>
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
 <main class="main" role="main"><div class="content">
   <article id="-" class="article article-type-" itemscope
     itemtype="http://schema.org/BlogPosting">
@@ -324,36 +312,36 @@
 </h1>
 
       <div class="article-meta">
-        <span class="article-date">
-  <i class="icon icon-calendar-check"></i>
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
 <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/" class="article-date">
   <time datetime="2019-08-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-08-22</time>
 </a>
-</span><span class="article-category">
-  <i class="icon icon-folder"></i>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
   <a class="article-category-link" href="/categories/it/"> IT </a>
 </span>  
   <span class="article-tag">
-    <i class="icon icon-tags"></i>
+    <i class="icon icon-tags"></i>&nbsp;
     <a class="article-tag-link" href="/tags/docker/"> docker </a>
     <a class="article-tag-link" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"> 开发工具 </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/#comments"
-            class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1416字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:3分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1416字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
       </div>
     </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      <h2 id="heading">一、前言</h2>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h2 id="一前言">一、前言</h2>
 <blockquote>
 <p><strong>Docker Compose和Dockerfile的区别</strong>：
 Dockerfile主要是记录了一个镜像的构建过程，可以达到快速构建项目的目的，而Docker Compose则是构建项目（服务）的过程，一个服务中可以有多个容器。docker-compose.yml不提供镜像的构建信息，而是通过Dockerfile进行获取（需要build的情况）。</p>
 </blockquote>
 <p> </p>
-<h2 id="docker-compose">二、Docker Compose的安装</h2>
-<pre><code># 下载安装
+<h2 id="二docker-compose的安装">二、Docker Compose的安装</h2>
+<pre tabindex="0"><code># 下载安装
 curl -L https://get.daocloud.io/docker/compose/releases/download/1.20.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
 
 # 添加权限
@@ -362,7 +350,7 @@ chmod +x /usr/local/bin/docker-compose
 #查看版本
 docker-compose version
 </code></pre><p> </p>
-<h2 id="heading1">三、搭建项目环境</h2>
+<h2 id="三搭建项目环境">三、搭建项目环境</h2>
 <p><strong>3.1、项目目录结构</strong></p>
 <ul>
 <li>docker目录下每个文件夹对应一个服务，并且有各自的<code>Dockerfile</code>（用于该服务的镜像构建）及相关挂载的数据，<code>docker-compose.yml</code>则控制各个服务的镜像构建，数据挂载，命令启动及启动流程等，通过<code>docker-compose</code>命令实现快速部署启动。</li>
@@ -370,7 +358,7 @@ docker-compose version
 <p><img src="https://user-images.githubusercontent.com/38284818/63484649-f3903000-c4d2-11e9-8118-65588e3ab32a.png" alt="image"></p>
 <p><strong>3.2、镜像文件详情</strong></p>
 <p><strong>a、Dockerfile:</strong></p>
-<pre><code>app:
+<pre tabindex="0"><code>app:
 FROM maven:3.5-jdk-8
 
 mysql：
@@ -380,9 +368,8 @@ redis：
 FROM redis:5.0.5
 
 rocketmq：未整合
-
 </code></pre><p><strong>b、docker-compose.yml：</strong></p>
-<pre><code>version: '3'
+<pre tabindex="0"><code>version: &#39;3&#39;
 services:
   nginx:
     container_name: bigdata-nginx
@@ -402,9 +389,9 @@ services:
     environment:
       MYSQL_DATABASE: multisource_bigdata
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_ROOT_HOST: '%'
-      MYSQL_USER: 'hive'
-      MYSQL_PASS: 'hive'
+      MYSQL_ROOT_HOST: &#39;%&#39;
+      MYSQL_USER: &#39;hive&#39;
+      MYSQL_PASS: &#39;hive&#39;
       TZ: Asia/Shanghai
     ports:
       - 3306:3306
@@ -440,7 +427,7 @@ services:
       - mysql
       - redis
 </code></pre><p><strong>c、/nginx/conf.d/app.conf</strong>：nginx的挂载文件</p>
-<pre><code>server {
+<pre tabindex="0"><code>server {
     listen 80;
     charset utf-8;
     access_log off;
@@ -460,45 +447,42 @@ services:
         alias /app/static;
     }
 }
-
 </code></pre><p><strong>d、/mysql/mysql_data</strong>：mysql数据库数据的挂载</p>
 <p><strong>e、/redis/redis.conf</strong>：redis配置文件的挂载</p>
 <ul>
 <li>比如我们先在本地配置redis，并成功整合项目后，可以将原来的配置文件挂载到容器的redis配置文件下，从而快速实现整合</li>
 </ul>
 <p> </p>
-<h2 id="heading2">四、快速部署并启动项目</h2>
-<pre><code>1、cd 进入项目 /src/docker 目录
+<h2 id="四快速部署并启动项目">四、快速部署并启动项目</h2>
+<pre tabindex="0"><code>1、cd 进入项目 /src/docker 目录
 2、执行 `docker-compose up` (会出现相关的启动图标。如redis、springboot等)
 </code></pre><p><img src="https://user-images.githubusercontent.com/38284818/63485632-b4fc7480-c4d6-11e9-8d18-696d767f4f6f.png" alt="image"></p>
-<pre><code>
+<pre tabindex="0"><code>
 3、访问项目的index界面，测试nginx：
     - http://192.168.125.131/index.html
     - （resource/static/index.html）
 4、访问接口，测试数据库连接及redis缓存（接口实现缓存的情况）
     - http://192.168.125.131/api/test/getUser
-
 </code></pre><p><img src="https://user-images.githubusercontent.com/38284818/63485717-191f3880-c4d7-11e9-91ec-ab4ad1aa54d2.png" alt="image"></p>
-<pre><code>5、容器内部访问（非必须）
+<pre tabindex="0"><code>5、容器内部访问（非必须）
 
 # 查看容器Id
 docker ps -a
 # 进入容器内部
 docker exec -it 容器Id bash
-
 </code></pre><p> </p>
-<h2 id="heading3">五、问题与解决：</h2>
+<h2 id="五问题与解决">五、问题与解决：</h2>
 <p><strong>问题一</strong>：执行<code>docker-compose up</code>后异常</p>
-<pre><code>container_linux.go:345: starting container process caused &quot;exec: \&quot;mvn\&quot;: executable file not found in $PATH&quot;: unknown
+<pre tabindex="0"><code>container_linux.go:345: starting container process caused &#34;exec: \&#34;mvn\&#34;: executable file not found in $PATH&#34;: unknown
 </code></pre><p><strong>解决</strong>：</p>
 <ul>
 <li>参考：https://medium.com/p/baf30968163e/responses/show</li>
 </ul>
-<pre><code>构建的docker容器中没有maven环境，无法通过maven进行打包，将web项目的镜像改为 maven:3.5-jdk-8 ，此镜像包含了jdk1.8 + maven3.5，即可正常运行
+<pre tabindex="0"><code>构建的docker容器中没有maven环境，无法通过maven进行打包，将web项目的镜像改为 maven:3.5-jdk-8 ，此镜像包含了jdk1.8 + maven3.5，即可正常运行
 </code></pre><p> </p>
 <p><strong>问题二</strong>：修改mysql密码不生效问题</p>
 <p><strong>解决</strong>：</p>
-<pre><code>重启mysql的docker服务
+<pre tabindex="0"><code>重启mysql的docker服务
 </code></pre><p><strong>问题三</strong>：navicat无法正常连接docker数据库</p>
 <p><strong>解决</strong>：</p>
 <ul>
@@ -515,7 +499,7 @@ docker exec -it 容器Id bash
 <p>方案一：将相关端口添加到防火墙开放：</p>
 </li>
 </ul>
-<pre><code># 添加开放端口
+<pre tabindex="0"><code># 添加开放端口
 firewall-cmd --zone=public --add-port=80/tcp --permanent  
 
 # 重启防火墙（不重启可能无法生效）
@@ -525,7 +509,7 @@ systemctl restart firewalld.service
 </ul>
 <p> 
  </p>
-<h2 id="heading4">六、参考</h2>
+<h2 id="六参考">六、参考</h2>
 <ul>
 <li><a href="http://www.ityouknow.com/docker/2018/03/22/docker-compose.html">http://www.ityouknow.com/docker/2018/03/22/docker-compose.html</a></li>
 <li><a href="https://www.jianshu.com/p/efd70ad53602">https://www.jianshu.com/p/efd70ad53602</a></li>
@@ -542,7 +526,8 @@ systemctl restart firewalld.service
       <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/" title="Docker实战：3、三剑客之Docker Compose" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License: </strong>
+        
     </li>
   </ul>
 </blockquote>
@@ -562,11 +547,9 @@ systemctl restart firewalld.service
     </figure>
   </div>
 </div>
+
     </div>
   </article>
-<section id="comments">
-</section>
-
 </div><nav class="bar bar-footer clearfix" data-stick-bottom>
     <div class="bar-inner">
         <ul class="pager pull-left">
@@ -649,6 +632,7 @@ systemctl restart firewalld.service
         </div>
     </div>
 </div>
+
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 <ul class="social-links">
     <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
@@ -658,10 +642,11 @@ systemctl restart firewalld.service
 </ul>
   <div class="copyright">
     &copy;2017  -
-    2020
+    2022
     <div class="publishby">
         Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
     </div>
+    
   </div>
 </footer>
 
@@ -678,39 +663,49 @@ systemctl restart firewalld.service
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script>
-   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
-<script type="text/javascript"
-   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script>
-hljs.configure({
-  tabReplace: '    ', 
-  classPrefix: ''     
-                      
-})
-hljs.initHighlightingOnLoad();
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
 </script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
 <script>
-      (function (window) {
-          var INSIGHT_CONFIG = {
-              TRANSLATION: {
-                  POSTS: '文章',
-                  PAGES: '页面',
-                  CATEGORIES: '分类',
-                  TAGS: '标签',
-                  UNTITLED: '(未命名)',
-              },
-              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
-              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
-          };
-          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-      })(window);
-      </script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
 
 
   </body>

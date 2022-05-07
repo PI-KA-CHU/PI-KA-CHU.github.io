@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        JSP &#43; Bootstrap &#43;  JAVABean &#43; Servlet &#43; Mysql实现图片上传并分页显示 - PI-KA-CHU&#39;s blog
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title>JSP &#43; Bootstrap &#43;  JAVABean &#43; Servlet &#43; Mysql实现图片上传并分页显示 - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="JSP &#43; Bootstrap &#43;  JAVABean &#43; Servlet &#43; Mysql实现图片上传并分页显示" />
+<meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2018/11/jsp--bootstrap--javabean--servlet--mysql%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%B9%B6%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-11-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-11-01T00:00:00+00:00" />
+
+<meta itemprop="name" content="JSP &#43; Bootstrap &#43;  JAVABean &#43; Servlet &#43; Mysql实现图片上传并分页显示">
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet"><meta itemprop="datePublished" content="2018-11-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-11-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1561">
+<meta itemprop="keywords" content="java," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JSP &#43; Bootstrap &#43;  JAVABean &#43; Servlet &#43; Mysql实现图片上传并分页显示"/>
+<meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">88</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">15</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
+                    class="tag-list-count">52</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">16</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%BD%91%E6%98%93%E5%BE%AE%E4%B8%93%E4%B8%9A/" class="tag-list-link">网易微专业</a><span
+                    class="tag-list-count">7</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="title">hugo &#43; github编写个人博客</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-05-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2020/01/juc%E5%8C%85%E7%BB%93%E6%9E%84%E5%8F%8Aaqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" class="title">JUC包结构及AQS抽象队列同步器</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%8E%9F%E5%88%99/" class="title">Java happens-before及as-if-serial原则</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B9%8B%E5%8E%9F%E5%AD%90%E6%80%A7%E6%93%8D%E4%BD%9C/" class="title">线程安全之原子性操作</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-29</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/" class="title">Volatile关键字</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-19</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2018/11/jsp--bootstrap--javabean--servlet--mysql%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%B9%B6%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA/"
+    >JSP &#43; Bootstrap &#43;  JAVABean &#43; Servlet &#43; Mysql实现图片上传并分页显示</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://PI-KA-CHU.github.io/2018/11/jsp--bootstrap--javabean--servlet--mysql%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%B9%B6%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA/" class="article-date">
+  <time datetime="2018-11-01 00:00:00 &#43;0000 UTC" itemprop="datePublished">2018-11-01</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/it/"> IT </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/java/"> java </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1561字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h2 id="一写在前面">一、写在前面</h2>
+<p><strong>学习博客：</strong></p>
+<ul>
+<li><a href="https://blog.csdn.net/qiyuexuelang/article/details/8861300">https://blog.csdn.net/qiyuexuelang/article/details/8861300</a></li>
+</ul>
+<p><strong>需要导入的包：</strong></p>
+<ul>
+<li>commons-fileupload-1.3.1.jar；</li>
+<li>commons-io-2.4.jar；</li>
+<li>mysql-connector-java-5.1.39-bin.jar；</li>
+</ul>
+<p> </p>
+<h2 id="二实现流程">二、实现流程</h2>
+<h3 id="1-图片添加界面addjsp">1. 图片添加界面：add.jsp</h3>
+<pre tabindex="0"><code>&lt;%@ page language=&#34;java&#34; contentType=&#34;text/html; charset=utf-8&#34;
+	pageEncoding=&#34;utf-8&#34;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;jsp:useBean id=&#34;DBBean&#34; scope=&#34;page&#34; class=&#34;com.zeng.lab06.DBBean&#34;/&gt;
+
+&lt;%
+	DBBean.getConnect();
+
+	String createSQL = &#34;CREATE TABLE IF NOT EXISTS lab06(id int PRIMARY KEY AUTO_INCREMENT,title varchar(255),author varchar(255),file varchar(255))&#34;;
+	DBBean.createTable(createSQL);
+%&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&#34;utf-8&#34;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;link rel=&#34;stylesheet&#34;
+	href=&#34;https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css&#34;&gt;
+&lt;style type=&#34;text/css&#34;&gt;
+#upload {
+	width: 30%;
+	height: 400px;
+	border-width: 1px;
+	border-style: inset;
+	margin-top: 8%;
+	margin-left: 35%;
+	background-color: white;
+	margin-top: 8%;
+}
+
+#form{
+	margin-top: 28%;
+	margin-left: 10%;
+	width: 80%;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+	&lt;div id=&#34;upload&#34;&gt;
+		&lt;form id=&#34;form&#34; action=&#34;../UploadServlet&#34; method=&#34;post&#34; enctype=&#34;multipart/form-data&#34;&gt;
+			&lt;div class=&#34;input-group mb-3&#34;&gt;
+				&lt;input type=&#34;text&#34; class=&#34;form-control&#34;
+					placeholder=&#34;title&#34; aria-label=&#34;title&#34;
+					aria-describedby=&#34;basic-addon2&#34; name=&#34;title&#34;&gt;
+				&lt;div class=&#34;input-group-append&#34;&gt;
+					&lt;span class=&#34;input-group-text&#34; id=&#34;basic-addon2&#34;&gt;标题&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			
+			&lt;div class=&#34;input-group mb-3&#34;&gt;
+				&lt;input type=&#34;text&#34; class=&#34;form-control&#34;
+					placeholder=&#34;name&#34; aria-label=&#34;name&#34;
+					aria-describedby=&#34;basic-addon2&#34; name=&#34;author&#34;&gt;
+				&lt;div class=&#34;input-group-append&#34;&gt;
+					&lt;span class=&#34;input-group-text&#34; id=&#34;basic-addon2&#34;&gt;发布人&lt;/span&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+
+			&lt;div class=&#34;input-group&#34;&gt;
+				&lt;div class=&#34;custom-file&#34;&gt;
+					&lt;input type=&#34;file&#34; class=&#34;custom-file-input&#34; id=&#34;inputGroupFile04&#34; name=&#34;file&#34;&gt;
+					&lt;label class=&#34;custom-file-label&#34; for=&#34;inputGroupFile04&#34;&gt;choose image&lt;/label&gt;
+				&lt;/div&gt;
+				&lt;div class=&#34;input-group-append&#34;&gt;
+					&lt;button class=&#34;btn btn-outline-secondary&#34; type=&#34;submit&#34;&gt;Upload&lt;/button&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/form&gt;
+	
+	&lt;/div&gt;
+	&lt;script src=&#34;https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js&#34;&gt;&lt;/script&gt;
+	&lt;script
+		src=&#34;https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js&#34;&gt;&lt;/script&gt;
+	&lt;script
+		src=&#34;https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p> </p>
+<h3 id="2-图片上传的servletuploadservletjava">2. 图片上传的servlet：UploadServlet.java</h3>
+<pre tabindex="0"><code>package com.zeng.lab06;
+
+import java.io.File;
+import java.io.IOException;
+import java.sql.ResultSet;
+import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+@WebServlet(&#34;/UploadServlet&#34;)
+public class UploadServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public UploadServlet() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		request.setCharacterEncoding(&#34;utf-8&#34;);
+		response.setContentType(&#34;text/html;charset=utf-8&#34;);
+
+		// 为解析类提供配置信息
+		DiskFileItemFactory factory = new DiskFileItemFactory();
+
+		// 创建解析类的实例
+		ServletFileUpload suf = new ServletFileUpload(factory);
+
+		// 设置文件大小
+		suf.setFileSizeMax(1024 * 400);
+
+		String title = &#34;&#34;;
+		String author = &#34;&#34;;
+		String imgUploadPath = &#34;&#34;;
+		String fileName = &#34;&#34;;
+		try {
+			List&lt;FileItem&gt; items = suf.parseRequest(request);
+
+			for (FileItem item : items) {
+
+				// isFormField为true，表示这不是文件上传表单域
+				if (!item.isFormField()) {
+
+					ServletContext sctx = getServletContext();
+
+					//返回包含给定虚拟路径的实际路径。
+					String path = sctx.getRealPath(&#34;/upload&#34;);
+
+					fileName = item.getName();
+					fileName = fileName.substring(fileName.lastIndexOf(&#34;\\&#34;) + 1);
+					imgUploadPath = path + &#34;\\&#34; + fileName;
+
+					System.out.println(imgUploadPath + &#34;=========&#34;);
+					// &#34;\&#34;会被转义，需要输入&#34;\\\\&#34;用于表示&#34;\&#34;
+					imgUploadPath = imgUploadPath.replaceAll(&#34;\\\\&#34;, &#34;/&#34;);
+
+					System.out.println(imgUploadPath + &#34;=========&#34;);
+
+					File file = new File(imgUploadPath);
+					if (!file.exists()) {
+						// 创建文件所需的目录(用于保存上传的图片)
+						file.getParentFile().mkdirs();
+						item.write(file);
+
+					}
+				} else {
+
+					if (item.getFieldName().equals(&#34;title&#34;)) {
+						title = item.getString();
+					} else if (item.getFieldName().equals(&#34;author&#34;)) {
+						author = item.getString();
+					}
+				}
+
+			}
+
+			//保存图片的相对路径
+			String rootPath = &#34;/upload/&#34; + fileName;
+			String sql = &#34;insert into lab06(title,author,file) &#34; + &#34;values(&#39;&#34; + title + &#34;&#39;,&#39;&#34; + author + &#34;&#39;,&#39;&#34;
+					+ rootPath + &#34;&#39;)&#34;;
+			DBBean.executeUpdate(sql);
+
+			response.sendRedirect(&#34;lab06_jsp/list.jsp&#34;);
+
+		} catch (FileUploadException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
+	}
+}
+</code></pre><p> </p>
+<h3 id="3-图片分页显示界面listjsp">3. 图片分页显示界面：list.jsp</h3>
+<pre tabindex="0"><code>&lt;%@page import=&#34;java.sql.ResultSet&#34;%&gt;
+&lt;%@page import=&#34;com.zeng.lab06.DBBean&#34;%&gt;
+&lt;%@ page language=&#34;java&#34; contentType=&#34;text/html; charset=utf-8&#34;
+	pageEncoding=&#34;utf-8&#34;%&gt;
+
+&lt;%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + &#34;://&#34; + request.getServerName() + &#34;:&#34; + request.getServerPort()
+			+ path + &#34;/&#34;;
+%&gt;
+
+&lt;!DOCTYPE html&gt;
+
+&lt;jsp:useBean id=&#34;DBBean&#34; scope=&#34;page&#34; class=&#34;com.zeng.lab06.DBBean&#34; /&gt;
+&lt;%
+	DBBean.getConnect();
+
+	String sqlTotal = &#34;select count(*) from lab06&#34;;
+	ResultSet rs1 = DBBean.executeQuery(sqlTotal);
+	
+	int total = 0;
+	while(rs1.next()){
+		//总的上传数
+		total = Integer.parseInt(rs1.getString(1));
+	}
+	
+	
+	//起始下标
+	int index;
+	
+	String indexTemp = request.getParameter(&#34;index&#34;);
+	if(indexTemp == null || indexTemp.equals(&#34;&#34;)){
+		index = 0;
+	}else{
+		index = Integer.parseInt(indexTemp);
+	}
+	
+	//每五个分一页
+	int number = 3;
+	
+%&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&#34;utf-8&#34;&gt;
+&lt;link rel=&#34;stylesheet&#34;
+	href=&#34;https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css&#34;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+
+&lt;style&gt;
+#main {
+	width: 60%;
+	margin-top: 5%;
+	margin-left: 20%;
+	border: 1px inset;
+}
+
+#bottom {
+	margin-left: 38%;
+}
+
+.table {
+	text-align: center;
+	vertical-align: center;
+}
+&lt;/style&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div id=&#34;main&#34;&gt;
+		&lt;div id=&#34;content&#34;&gt;
+			&lt;table class=&#34;table&#34;&gt;
+				&lt;thead class=&#34;thead-light&#34;&gt;
+					&lt;tr&gt;
+						&lt;th scope=&#34;col&#34;&gt;#&lt;/th&gt;
+						&lt;th scope=&#34;col&#34;&gt;图片&lt;/th&gt;
+						&lt;th scope=&#34;col&#34;&gt;标题&lt;/th&gt;
+						&lt;th scope=&#34;col&#34;&gt;发布人&lt;/th&gt;
+						&lt;th&gt;查看详情&lt;/th&gt;
+					&lt;/tr&gt;
+				&lt;/thead&gt;
+				&lt;tbody&gt;
+					&lt;%
+						if(index &lt; 0){
+							index = 0;
+						}
+					
+						String sql = &#34;select * from lab06 limit &#34; + index + &#34;,&#34; + number;
+						ResultSet rs = DBBean.executeQuery(sql);
+						
+						String author = null;
+						String title = null;
+						String img = null;
+						while (rs.next()) {
+							img = basePath + rs.getString(4);
+							title = rs.getString(2);
+							author = rs.getString(3);
+							
+					%&gt;
+					&lt;tr&gt;
+						&lt;th scope=&#34;row&#34;&gt;&lt;%=rs.getString(1)%&gt;&lt;/th&gt;
+						&lt;td&gt;&lt;img src=&#34;&lt;%=img%&gt;&#34;&gt;&lt;/td&gt;
+						&lt;td&gt;&lt;%=title%&gt;&lt;/td&gt;
+						&lt;td&gt;&lt;%=author%&gt;&lt;/td&gt;
+						&lt;td&gt;
+							&lt;a type=&#34;button&#34; class=&#34;btn btn-success&#34; href=&#34;detail.jsp?
+							img=&lt;%=img%&gt;&amp;title=&lt;%=title%&gt;&amp;author=&lt;%=author%&gt;&#34;&gt;detail&lt;/a&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;%
+						}
+						
+						if(index + number &gt; total){
+							index = index - number;
+						}
+						
+						//要分的页数
+						int pageT = (total % number==0)? (total/number) : (total/number + 1);
+					%&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+		&lt;/div&gt;
+		&lt;div id=&#34;bottom&#34;&gt;
+			&lt;nav aria-label=&#34;Page navigation example&#34;&gt;
+				&lt;ul class=&#34;pagination&#34;&gt;
+					&lt;li class=&#34;page-item&#34;&gt;
+						&lt;a class=&#34;page-link&#34; href=&#34;list.jsp?pageT=&lt;%=pageT%&gt;&amp;total=&lt;%=total%&gt;&amp;index=&lt;%=index-number%&gt;&#34; aria-label=&#34;Previous&#34;&gt; 
+							&lt;span aria-hidden=&#34;true&#34;&gt;&amp;laquo;&lt;/span&gt;
+							&lt;span class=&#34;sr-only&#34;&gt;Previous&lt;/span&gt;
+						&lt;/a&gt;
+					&lt;/li&gt;
+					&lt;% 
+						for(int i = 1;i &lt;= pageT;i ++){
+							
+					%&gt;
+						&lt;li class=&#34;page-item&#34;&gt;&lt;a class=&#34;page-link&#34; href=&#34;list.jsp?pageT=&lt;%=i%&gt;&amp;total=&lt;%=total%&gt;&amp;index=&lt;%=number*(i-1)%&gt;&#34;&gt;&lt;%=i %&gt;&lt;/a&gt;&lt;/li&gt;
+					&lt;%
+						}
+					%&gt;
+					&lt;li class=&#34;page-item&#34;&gt;
+						&lt;a class=&#34;page-link&#34; href=&#34;list.jsp?pageT=&lt;%=pageT%&gt;&amp;total=&lt;%=total%&gt;&amp;index=&lt;%=index+number%&gt;&#34; aria-label=&#34;Next&#34;&gt; 
+							&lt;span aria-hidden=&#34;true&#34;&gt;&amp;raquo;&lt;/span&gt; 
+							&lt;span class=&#34;sr-only&#34;&gt;Next&lt;/span&gt;
+						&lt;/a&gt;
+					&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/nav&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;script src=&#34;https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js&#34;&gt;&lt;/script&gt;
+	&lt;script
+		src=&#34;https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js&#34;&gt;&lt;/script&gt;
+	&lt;script
+		src=&#34;https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p> </p>
+<h3 id="4-详情图片信息显示页面detailjsp">4. 详情图片信息显示页面：detail.jsp</h3>
+<pre tabindex="0"><code>&lt;%@ page language=&#34;java&#34; contentType=&#34;text/html; charset=utf-8&#34;
+	pageEncoding=&#34;utf-8&#34;%&gt;
+	
+	
+&lt;%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + &#34;://&#34; + request.getServerName() + &#34;:&#34; + request.getServerPort()
+			+ path + &#34;/&#34;;
+%&gt;
+	
+	
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&#34;utf-8&#34;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;link rel=&#34;stylesheet&#34;
+	href=&#34;https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css&#34;&gt;
+
+&lt;style type=&#34;text/css&#34;&gt;
+	.card{
+		margin-top: 5%;
+		margin-left: 30%;
+	}
+	
+	.black{
+		margin-left: 85%;
+	}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div&gt;
+		&lt;div class=&#34;card&#34; style=&#34;width: 35rem;&#34;&gt;
+			&lt;img class=&#34;card-img-top&#34; src=&#34;&lt;%=request.getParameter(&#34;img&#34;) %&gt;&#34; alt=&#34;Card image cap&#34;&gt;
+			&lt;div class=&#34;card-body&#34;&gt;
+				&lt;h5 class=&#34;card-title&#34;&gt;标题：&lt;%=request.getParameter(&#34;title&#34;) %&gt;&lt;/h5&gt;
+				&lt;p class=&#34;card-text&#34;&gt;作者：&lt;%=request.getParameter(&#34;author&#34;) %&gt;&lt;/p&gt;
+				&lt;div class=&#34;black&#34;&gt;&lt;a href=&#34;list.jsp&#34; class=&#34;btn btn-primary&#34;&gt;返回&lt;/a&gt;&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+
+	&lt;script src=&#34;https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js&#34;&gt;&lt;/script&gt;
+	&lt;script
+		src=&#34;https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js&#34;&gt;&lt;/script&gt;
+	&lt;script
+		src=&#34;https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2018/11/jsp--bootstrap--javabean--servlet--mysql%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%B9%B6%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA/" title="JSP &#43; Bootstrap &#43;  JAVABean &#43; Servlet &#43; Mysql实现图片上传并分页显示" target="_blank" rel="external">https://PI-KA-CHU.github.io/2018/11/jsp--bootstrap--javabean--servlet--mysql%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%B9%B6%E5%88%86%E9%A1%B5%E6%98%BE%E7%A4%BA/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/2018/10/java%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="JAVA文件操作相关学习笔记"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2018/11/svn%E7%9A%84forbidden%E5%BC%82%E5%B8%B8/"
+                    title="SVN的forbidden异常"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

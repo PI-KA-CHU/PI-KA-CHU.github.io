@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="zh">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         Volatile关键字 - PI-KA-CHU&#39;s blog
       </title>
-    <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  
-  <meta name="theme-color" content="#000000" />
-  
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
-  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
-  <title>Volatile关键字 - PI-KA-CHU&#39;s blog</title>
-  
-
-  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
-  <meta property="og:title" content="Volatile关键字" />
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title>Volatile关键字 - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="Volatile关键字" />
 <meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-12-19T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-12-19T00:00:00+00:00" />
+
 <meta itemprop="name" content="Volatile关键字">
-<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
-<meta itemprop="datePublished" content="2019-12-19T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-12-19T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet"><meta itemprop="datePublished" content="2019-12-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-12-19T00:00:00+00:00" />
 <meta itemprop="wordCount" content="2321">
-
-
-
 <meta itemprop="keywords" content="Java,多线程,网易微专业," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Volatile关键字"/>
 <meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
 
-  <!--[if lte IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-    <![endif]-->
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
 
-  <!--[if lt IE 9]>
-      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
   </head>
+
+  
   
 
   <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -139,7 +135,8 @@
       </nav>
     </div>
   </header>
-  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
     
       <div class="widget">
@@ -156,7 +153,8 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">87</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">88</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">15</span></li>
         </ul>
     </div>
 </div>
@@ -182,6 +180,10 @@
                     class="tag-list-count">5</span></li>
             
             
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
                     class="tag-list-count">8</span></li>
             
@@ -192,10 +194,6 @@
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
                     class="tag-list-count">7</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
-                    class="tag-list-count">6</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
@@ -211,7 +209,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
-                    class="tag-list-count">15</span></li>
+                    class="tag-list-count">16</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
@@ -237,7 +235,17 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://PI-KA-CHU.github.io/2020/01/aqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" class="title">JUC包结构及AQS抽象队列同步器</a>
+                        <a href="https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="title">hugo &#43; github编写个人博客</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-05-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2020/01/juc%E5%8C%85%E7%BB%93%E6%9E%84%E5%8F%8Aaqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" class="title">JUC包结构及AQS抽象队列同步器</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-03</time>
@@ -274,16 +282,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/" class="title">Synchronize关键字</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-12-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-17</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -292,29 +290,14 @@
 
     
     
-  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
-    <div class="slimContent">
-      <nav id="toc" class="article-toc">
-        <h3 class="toc-title">文章目录</h3>
-        <div class="toc-content always-active"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#volatile">一、初识Volatile</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#volatile1">二、Volatile的底层原理</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#heading">三、总结</a></li>
-  </ul>
-</nav>
-        </div>
-      </nav>
-    </div>
-  </aside>
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
 <main class="main" role="main"><div class="content">
   <article id="-" class="article article-type-" itemscope
     itemtype="http://schema.org/BlogPosting">
@@ -329,30 +312,30 @@
 </h1>
 
       <div class="article-meta">
-        <span class="article-date">
-  <i class="icon icon-calendar-check"></i>
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
 <a href="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/" class="article-date">
   <time datetime="2019-12-19 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-19</time>
 </a>
-</span><span class="article-category">
-  <i class="icon icon-folder"></i>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
   <a class="article-category-link" href="/categories/it/"> IT </a>
 </span>  
   <span class="article-tag">
-    <i class="icon icon-tags"></i>
+    <i class="icon icon-tags"></i>&nbsp;
     <a class="article-tag-link" href="/tags/java/"> Java </a>
     <a class="article-tag-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"> 多线程 </a>
     <a class="article-tag-link" href="/tags/%E7%BD%91%E6%98%93%E5%BE%AE%E4%B8%93%E4%B8%9A/"> 网易微专业 </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/#comments"
-            class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:2321字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:5分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2321字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5分 </span>
       </div>
     </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      <h2 id="volatile">一、初识Volatile</h2>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h2 id="一初识volatile">一、初识Volatile</h2>
 <h4 id="what">what</h4>
 <blockquote>
 <p><code>volatile</code>是Java语言提供的一种<strong>较弱的同步机制</strong>，用来确保将变量的更新操作通知到其他线程，<code>volatile</code>修饰的变量具有<strong>可见性</strong>和<strong>有序性</strong>，即变量的修改不会被缓存在寄存器或者其他高速缓存器中（可见），并且不会被遍历器和处理器<strong>指令重排</strong>（有序）。<code>synchronize</code>提供了<strong>原子性</strong>和<strong>可见性</strong>，与<code>synchronize</code>相比，<code>volatile</code>不保证原子性，所以在多线程并发情况下仍可能会出现线程安全问题，另外两者的<strong>有序性</strong>也是不一样的，<code>volatile</code>的有序性是禁止指令重排，而<code>synchronize</code>的有序性是建立在同步之上的，就是说保证单线程执行，并且同步区域的变量会被写入主存（对其他线程可见），但是同步区域仍然可以进行指令重排，这也就是DCL（双重检验锁）的问题。</p>
@@ -371,7 +354,7 @@
 <blockquote>
 <p><code>volatile</code>用于修饰共享变量，保证变量的修改在多线程间的可见性和有序性（禁止指令重排），下面的例子是<strong>单例模式</strong>中的双重检验锁（DCL）模式，使用<code>volatile</code>保证要创建的对象的可见性，否则在同步代码块中，对象的<code>new</code>在底层分为多步骤进行，如：a.分配内存、b.初始化对象、c.对象引用指向内存区域，由于同步代码块中可以进行<strong>指令重排</strong>（由abc变成acb，可参考笔者的另一篇博客<code>Java并发基础</code>），其他线程在判断对象不为空时对象可能还没初始化，获取到的是空的对象，由此造成安全问题。</p>
 </blockquote>
-<pre><code>public class Singleton {
+<pre tabindex="0"><code>public class Singleton {
 
     private static volatile Singleton singleton;
 
@@ -393,27 +376,27 @@
 
 }
 </code></pre><p> </p>
-<h2 id="volatile1">二、Volatile的底层原理</h2>
+<h2 id="二volatile的底层原理">二、Volatile的底层原理</h2>
 <blockquote>
 <p>JMM（Java内存模型）定义了volatile的内存语义，当一个变量声明为volatile时，它的读写操作将具有特殊的含义。</p>
 </blockquote>
-<h4 id="21-volatile">2.1 volatile内存语义</h4>
-<h5 id="211-">2.1.1 可见性的内存语义</h5>
+<h4 id="21-volatile内存语义">2.1 volatile内存语义</h4>
+<h5 id="211-可见性的内存语义">2.1.1 可见性的内存语义</h5>
 <ul>
 <li><strong>写的内存语义</strong>：当写一个volatile变量时，JMM会把该线程对应的本地内存中的共享变量值刷新到主内存。其他线程在监听到总线对该内存地址的写入后，如果他们的对该地址内存的缓存状态为S，则让缓存失效并置为I。</li>
 <li><strong>读的内存语义</strong>：当读一个volatile变量时，由于volatile写入时<code>MESI</code>协议会把该线程对应的本地内存置为无效，线程接下来从主内存中读取共享变量。</li>
 </ul>
-<h5 id="212-">2.1.2 可见性的内存语义实现</h5>
+<h5 id="212-可见性的内存语义实现">2.1.2 可见性的内存语义实现</h5>
 <ul>
 <li>如果对声明了volatile的变量进行写操作，JVM就会向处理器发送一条<code>Lock</code>前缀的指令，该指令将变量所在缓存行的数据写回系统内存。但是即使内存被写回，缓存在其他处理器上的数据仍然是旧数据，在多核处理器下，为了保证各个处理器的缓存是一致的，CPU厂商制定了<strong>缓存一致性协议</strong>，<strong>每个处理器通过嗅探在总线上传播的数据来检查自己缓存的值是不是过期了</strong>，当处理器发现自己缓存行的内存地址被修改，就会将当前处理器的缓存行设置为无效（仅仅设置为无效，不会直接更新），当需要数据的时候发现缓存行状态为无效，则从主存中读取。</li>
 </ul>
-<h5 id="221-">2.2.1 有序性的内存语义</h5>
+<h5 id="221-有序性的内存语义">2.2.1 有序性的内存语义</h5>
 <ul>
 <li><strong>volatile读</strong>：volatile读之后的操作不会被重排序到volatile读之前</li>
 <li><strong>volatile写</strong>：volatile写之前的操作不会被重排到volatile之后</li>
 <li><strong>先volatile写-后volatile读</strong>：不可重排序</li>
 </ul>
-<h5 id="222-">2.2.2 有序性的内存语义实现</h5>
+<h5 id="222-有序性的内存语义实现">2.2.2 有序性的内存语义实现</h5>
 <blockquote>
 <p>通过<strong>对编译器和处理器的重排序的限制</strong>，从而实现了volatile的内存语义。</p>
 </blockquote>
@@ -468,7 +451,7 @@
 </li>
 </ul>
 <p> </p>
-<h2 id="heading">三、总结</h2>
+<h2 id="三总结">三、总结</h2>
 <blockquote>
 <p>扩展：虚拟机规范中，写64位的double和long分成了两次32位值的操作（非原子性），而添加了<code>volatile</code>修饰的long和double读写总是<strong>原子的</strong>，读写引用也是原子的。商业JVM则不会有此问题，考虑到实际应用都实现了原子性。
 本篇博客对volatile的可见性和有序性进行了描述，并针对底层实现进行了简单总结，设计到编译器、处理器的指令重排机制及实现volatile可见性的<strong>MESI</strong>缓存一致性协议、<strong>编译器Locl前缀的指令</strong>和实现有序性的<strong>CPU内存屏障</strong>，内容主要总结自其他大佬博客及个人理解，有不正确的地方希望大家指出。</p>
@@ -491,7 +474,8 @@
       <a href="https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/" title="Volatile关键字" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License: </strong>
+        
     </li>
   </ul>
 </blockquote>
@@ -511,11 +495,9 @@
     </figure>
   </div>
 </div>
+
     </div>
   </article>
-<section id="comments">
-</section>
-
 </div><nav class="bar bar-footer clearfix" data-stick-bottom>
     <div class="bar-inner">
         <ul class="pager pull-left">
@@ -598,6 +580,7 @@
         </div>
     </div>
 </div>
+
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 <ul class="social-links">
     <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
@@ -607,10 +590,11 @@
 </ul>
   <div class="copyright">
     &copy;2017  -
-    2020
+    2022
     <div class="publishby">
         Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
     </div>
+    
   </div>
 </footer>
 
@@ -627,39 +611,49 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script>
-   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
-<script type="text/javascript"
-   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script>
-hljs.configure({
-  tabReplace: '    ', 
-  classPrefix: ''     
-                      
-})
-hljs.initHighlightingOnLoad();
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
 </script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
 <script>
-      (function (window) {
-          var INSIGHT_CONFIG = {
-              TRANSLATION: {
-                  POSTS: '文章',
-                  PAGES: '页面',
-                  CATEGORIES: '分类',
-                  TAGS: '标签',
-                  UNTITLED: '(未命名)',
-              },
-              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
-              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
-          };
-          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-      })(window);
-      </script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
 
 
   </body>

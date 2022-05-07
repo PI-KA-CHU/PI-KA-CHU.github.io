@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="zh">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         Docker实战：2、Dockerfile构建镜像 - PI-KA-CHU&#39;s blog
       </title>
-    <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  
-  <meta name="theme-color" content="#000000" />
-  
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
-  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
-  <title>Docker实战：2、Dockerfile构建镜像 - PI-KA-CHU&#39;s blog</title>
-  
-
-  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
-  <meta property="og:title" content="Docker实战：2、Dockerfile构建镜像" />
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title>Docker实战：2、Dockerfile构建镜像 - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="Docker实战：2、Dockerfile构建镜像" />
 <meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-08-20T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-08-20T00:00:00+00:00" />
+
 <meta itemprop="name" content="Docker实战：2、Dockerfile构建镜像">
-<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
-<meta itemprop="datePublished" content="2019-08-20T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-08-20T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet"><meta itemprop="datePublished" content="2019-08-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-08-20T00:00:00+00:00" />
 <meta itemprop="wordCount" content="4381">
-
-
-
 <meta itemprop="keywords" content="docker,开发工具," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Docker实战：2、Dockerfile构建镜像"/>
 <meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
 
-  <!--[if lte IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-    <![endif]-->
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
 
-  <!--[if lt IE 9]>
-      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
   </head>
+
+  
   
 
   <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -139,7 +135,8 @@
       </nav>
     </div>
   </header>
-  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
     
       <div class="widget">
@@ -156,7 +153,8 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">87</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">88</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">15</span></li>
         </ul>
     </div>
 </div>
@@ -182,6 +180,10 @@
                     class="tag-list-count">5</span></li>
             
             
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
                     class="tag-list-count">8</span></li>
             
@@ -192,10 +194,6 @@
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
                     class="tag-list-count">7</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
-                    class="tag-list-count">6</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
@@ -211,7 +209,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
-                    class="tag-list-count">15</span></li>
+                    class="tag-list-count">16</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
@@ -237,7 +235,17 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://PI-KA-CHU.github.io/2020/01/aqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" class="title">JUC包结构及AQS抽象队列同步器</a>
+                        <a href="https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="title">hugo &#43; github编写个人博客</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-05-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2020/01/juc%E5%8C%85%E7%BB%93%E6%9E%84%E5%8F%8Aaqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" class="title">JUC包结构及AQS抽象队列同步器</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-03</time>
@@ -274,16 +282,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/" class="title">Synchronize关键字</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-12-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-17</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -292,31 +290,14 @@
 
     
     
-  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
-    <div class="slimContent">
-      <nav id="toc" class="article-toc">
-        <h3 class="toc-title">文章目录</h3>
-        <div class="toc-content always-active"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">一、概念</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#--nginx">二、实战（简单版 - nginx为例）</a></li>
-    <li><a href="#heading1">三、修改容器内容</a></li>
-    <li><a href="#springbootdocker">四、SpringBoot整合Docker</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#heading2">五、参考</a></li>
-  </ul>
-</nav>
-        </div>
-      </nav>
-    </div>
-  </aside>
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
 <main class="main" role="main"><div class="content">
   <article id="-" class="article article-type-" itemscope
     itemtype="http://schema.org/BlogPosting">
@@ -331,90 +312,90 @@
 </h1>
 
       <div class="article-meta">
-        <span class="article-date">
-  <i class="icon icon-calendar-check"></i>
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
 <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" class="article-date">
   <time datetime="2019-08-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-08-20</time>
 </a>
-</span><span class="article-category">
-  <i class="icon icon-folder"></i>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
   <a class="article-category-link" href="/categories/it/"> IT </a>
 </span>  
   <span class="article-tag">
-    <i class="icon icon-tags"></i>
+    <i class="icon icon-tags"></i>&nbsp;
     <a class="article-tag-link" href="/tags/docker/"> docker </a>
     <a class="article-tag-link" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"> 开发工具 </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/#comments"
-            class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:4381字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:9分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 4381字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9分 </span>
       </div>
     </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      <h2 id="heading">一、概念</h2>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h2 id="一概念">一、概念</h2>
 <blockquote>
 <p>镜像的定制实际就是定制每一层所添加的配置、文件。如果我们把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜像，那么就可以实现快速的搭建一个服务环境并快速配置环境相关变量，而不是靠手动的搭建及命令行操作，这个脚本就是Dockerfile。</p>
 </blockquote>
-<h4 id="11">1.1、文件格式：(四部分)</h4>
+<h4 id="11文件格式四部分">1.1、文件格式：(四部分)</h4>
 <ul>
 <li>基础镜像信息</li>
 <li>维护者信息</li>
 <li>镜像操作指令</li>
 <li>容器启动执行指令</li>
 </ul>
-<pre><code># 1、第一行必须指定 基础镜像信息
+<pre tabindex="0"><code># 1、第一行必须指定 基础镜像信息
 FROM ubuntu
 
 # 2、维护者信息
 MAINTAINER docker_user docker_user@email.com
 
 # 3、镜像操作指令
-RUN echo &quot;deb http://archive.ubuntu.com/ubuntu/ raring main universe&quot; &gt;&gt; /etc/apt/sources.list
+RUN echo &#34;deb http://archive.ubuntu.com/ubuntu/ raring main universe&#34; &gt;&gt; /etc/apt/sources.list
 RUN apt-get update &amp;&amp; apt-get install -y nginx
-RUN echo &quot;\ndaemon off;&quot; &gt;&gt; /etc/nginx/nginx.conf
+RUN echo &#34;\ndaemon off;&#34; &gt;&gt; /etc/nginx/nginx.conf
 
 # 4、容器启动执行指令
 CMD /usr/sbin/nginx
 </code></pre><p> </p>
-<h4 id="12">1.2、常用命令</h4>
+<h4 id="12常用命令">1.2、常用命令</h4>
 <p><strong>镜像构建</strong>：(<code>-f</code>指定Dockerfile路径，<code>.</code>表示当前路径)</p>
-<pre><code>docker build .
+<pre tabindex="0"><code>docker build .
 docker build -f /path/to/a/Dockerfile .
 </code></pre><p><strong>镜像标签</strong>：(<code>-t</code>构建 仓库/标签，可以支持多个)</p>
-<pre><code>docker build -t nginx/v3 .
+<pre tabindex="0"><code>docker build -t nginx/v3 .
 docker build -t nginx/v3:1.0.2 -t nginx/v3:latest .
 </code></pre><p> </p>
-<h4 id="13">1.3、指令格式及说明</h4>
+<h4 id="13指令格式及说明">1.3、指令格式及说明</h4>
 <p>(1)、FROM（指定基础image）</p>
-<pre><code>FROM &lt;image&gt;
+<pre tabindex="0"><code>FROM &lt;image&gt;
 
 # 指定版本
 FROM &lt;image&gt;:&lt;tag&gt;
 </code></pre><p>(2)、MAINTAINER（用来指定镜像<code>创建者信息</code>）</p>
-<pre><code>MAINTAINER &lt;name&gt;
+<pre tabindex="0"><code>MAINTAINER &lt;name&gt;
 </code></pre><p>(3)、RUN（安装软件用）</p>
 <ul>
 <li>构建指令，RUN可以运行任何被基础image支持的命令。如基础image选择了ubuntu，那么软件管理部分只能使用ubuntu的命令。</li>
 <li>RUN命令将在当前image中执行任意合法命令并提交执行结果。命令执行提交后，就会自动执行Dockerfile中的<code>下一个指令</code>。</li>
 <li>RUN 指令缓存不会在下个命令执行时自动失效。比如 RUN apt-get dist-upgrade -y 的缓存就可能被用于下一个指令. &ndash;no-cache 标志可以被用于强制取消缓存使用。</li>
 </ul>
-<pre><code>RUN &lt;command&gt; (the command is run in a shell - /bin/sh -c)
-RUN [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot; ... ] (exec form)
+<pre tabindex="0"><code>RUN &lt;command&gt; (the command is run in a shell - /bin/sh -c)
+RUN [&#34;executable&#34;, &#34;param1&#34;, &#34;param2&#34; ... ] (exec form)
 </code></pre><p>(4)、CMD（设置<code>container启动</code>时执行的<code>操作</code>）</p>
 <ul>
 <li>设置指令，用于<code>container启动时</code>指定的操作。该操作可以是执行自定义脚本，也可以是执行系统命令。该指令只能在文件中存在一次，如果有多个，则<code>只执行最后一条</code>。</li>
 </ul>
-<pre><code># （三种格式）
-CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;] (like an exec, this is the preferred form)
+<pre tabindex="0"><code># （三种格式）
+CMD [&#34;executable&#34;,&#34;param1&#34;,&#34;param2&#34;] (like an exec, this is the preferred form)
 CMD command param1 param2 (as a shell)
 
 # 当Dockerfile指定了ENTRYPOINT，那么使用下面的格式：
-CMD [&quot;param1&quot;,&quot;param2&quot;] (作为ENTRYPOINT的默认参数)
+CMD [&#34;param1&#34;,&#34;param2&#34;] (作为ENTRYPOINT的默认参数)
 </code></pre><p>(5)、ENTRYPOINT（设置<code>container启动时</code>执行的<code>操作</code>）</p>
-<pre><code># 单独使用
-ENTRYPOINT [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;] (like an exec, the preferred form)
+<pre tabindex="0"><code># 单独使用
+ENTRYPOINT [&#34;executable&#34;, &#34;param1&#34;, &#34;param2&#34;] (like an exec, the preferred form)
 ENTRYPOINT command param1 param2 (as a shell)
 
 # 于CMD结合使用 - 2种情况
@@ -424,17 +405,17 @@ ENTRYPOINT ls -l
 
 # b、CMD是参数部分，ENTRYPOINT指令只能使用JSON方式指定执行命令，而不能指定参数
 FROM ubuntu  
-CMD [&quot;-l&quot;]  
-ENTRYPOINT [&quot;/usr/bin/ls&quot;]  
+CMD [&#34;-l&#34;]  
+ENTRYPOINT [&#34;/usr/bin/ls&#34;]  
 </code></pre><p>(6)、USER（设置container容器的<code>用户</code>）</p>
 <ul>
 <li>设置指令，设置启动容器的用户，默认是root用户。</li>
 </ul>
-<pre><code># 指定memcached的运行用户  
-ENTRYPOINT [&quot;memcached&quot;]  
+<pre tabindex="0"><code># 指定memcached的运行用户  
+ENTRYPOINT [&#34;memcached&#34;]  
 USER daemon  
 或  
-ENTRYPOINT [&quot;memcached&quot;, &quot;-u&quot;, &quot;daemon&quot;]  
+ENTRYPOINT [&#34;memcached&#34;, &#34;-u&#34;, &#34;daemon&#34;]  
 </code></pre><p>(7)、EXPOSE（指定容器需要<code>映射</code>到宿主机器的<code>端口</code>）</p>
 <ul>
 <li>
@@ -445,7 +426,7 @@ ENTRYPOINT [&quot;memcached&quot;, &quot;-u&quot;, &quot;daemon&quot;]
 </ul>
 </li>
 </ul>
-<pre><code># 注：若无指定宿主主机的映射端口，则会被随机映射
+<pre tabindex="0"><code># 注：若无指定宿主主机的映射端口，则会被随机映射
 
 # 映射一个端口  
 EXPOSE port1  
@@ -465,7 +446,7 @@ docker run -p host_port1:port1 -p host_port2:port2 -p host_port3:port3 image
 <ul>
 <li>ENV设置的环境变量，可以使用<code>docker inspect</code>命令来查看。同时还可以使用<code>docker run --env &lt;key&gt;=&lt;value&gt;</code>来修改环境变量。</li>
 </ul>
-<pre><code>ENV &lt;key&gt; &lt;value&gt;
+<pre tabindex="0"><code>ENV &lt;key&gt; &lt;value&gt;
 # 例:
 ENV JAVA_HOME /path/to/java/dirent
 </code></pre><p>(9)、ADD（从src<code>复制文件</code>到container的dest路径）</p>
@@ -475,7 +456,7 @@ ENV JAVA_HOME /path/to/java/dirent
 <li>如果<!-- raw HTML omitted -->是文件且<!-- raw HTML omitted -->中<code>不使用</code>斜杠结束，则会将<!-- raw HTML omitted -->视为<code>文件</code>，<!-- raw HTML omitted -->的内容会写入<!-- raw HTML omitted --></li>
 <li>如果<!-- raw HTML omitted -->是文件且<!-- raw HTML omitted -->中<code>使用斜杠</code>结束，则会<!-- raw HTML omitted -->文件拷贝到<!-- raw HTML omitted -->目录下。</li>
 </ul>
-<pre><code># &lt;src&gt; 是相对被构建的源目录的相对路径，可以是文件或目录的路径，也可以是一个远程的文件url;
+<pre tabindex="0"><code># &lt;src&gt; 是相对被构建的源目录的相对路径，可以是文件或目录的路径，也可以是一个远程的文件url;
 # &lt;dest&gt; 是container中的绝对路径
 ADD &lt;src&gt; &lt;dest&gt;
 </code></pre><p>(10)、VOLUME (指定挂载点)</p>
@@ -483,65 +464,64 @@ ADD &lt;src&gt; &lt;dest&gt;
 <li>创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存放数据库和需要保持的数据等。</li>
 <li>Volume设置指令，使容器中的一个目录具有<code>持久化存储数据</code>的功能，该目录可以被容器本身使用，也可以共享给其他容器使用。我们知道容器使用的是<code>AUFS</code>，这种文件系统不能持久化数据，<code>当容器关闭后，所有的更改都会丢失</code>。当容器中的应用有持久化数据的需求时可以在Dockerfile中使用该指令。如MySQL数据、日志数据等如果不挂载到宿主机器，重启容器后数据都会消失。</li>
 </ul>
-<pre><code>VOLUME [&quot;&lt;mountpoint&gt;&quot;]
+<pre tabindex="0"><code>VOLUME [&#34;&lt;mountpoint&gt;&#34;]
 
 # 例：
-VOLUME [&quot;/tmp/data&quot;]
+VOLUME [&#34;/tmp/data&#34;]
 </code></pre><ul>
 <li>运行通过该Dockerfile生成image的容器，/tmp/data目录中的数据在容器关闭后，里面的数据还存在。例如另一个容器也有持久化数据的需求，且想使用上面容器共享的/tmp/data目录，那么可以运行下面的命令启动一个容器：</li>
 </ul>
-<pre><code># container1为第一个容器的ID，image2为第二个容器运行image的名字。
+<pre tabindex="0"><code># container1为第一个容器的ID，image2为第二个容器运行image的名字。
 docker run -t -i -rm -volumes-from container1 image2 bash
 </code></pre><p>(11)、WORKDIR（切换目录）</p>
 <ul>
 <li>设置指令，可以多次切换(相当于<code>cd命令</code>)，对RUN,CMD,ENTRYPOINT生效。</li>
 </ul>
-<pre><code>WORKDIR /path/to/workdir
+<pre tabindex="0"><code>WORKDIR /path/to/workdir
 
 # 例:在 /p1/p2 下执行 vim a.txt  
 WORKDIR /p1
 WORKDIR p2
 RUN vim a.txt  
-
 </code></pre><p>(12)、ONBUILD（在子镜像中执行）</p>
 <ul>
 <li>ONBUILD 指定的命令在构建镜像时并不执行，而是在它的子镜像中执行。</li>
 </ul>
-<pre><code>ONBUILD &lt;Dockerfile关键字&gt;
+<pre tabindex="0"><code>ONBUILD &lt;Dockerfile关键字&gt;
 </code></pre><p>(13)、COPY(复制本地主机的src文件为container的dest)</p>
 <ul>
 <li>复制本地主机的src文件（为Dockerfile所在目录的相对路径、文件或目录 ）到container的dest。目标路径不存在时，会自动创建。</li>
 </ul>
-<pre><code># 当使用本地目录为源目录时，推荐使用COPY
+<pre tabindex="0"><code># 当使用本地目录为源目录时，推荐使用COPY
 COPY &lt;src&gt; &lt;dest&gt;
 </code></pre><p>(14)、ARG(设置构建镜像时变量)</p>
 <ul>
 <li>ARG指令在Docker1.9版本才加入的新指令，ARG 定义的变量<code>只在建立 image 时有效</code>，建立完成后变量就失效消失</li>
 </ul>
-<pre><code>ARG &lt;key&gt;=&lt;value&gt;
+<pre tabindex="0"><code>ARG &lt;key&gt;=&lt;value&gt;
 </code></pre><p>(15)、LABEL(定义标签)</p>
 <ul>
 <li>定义一个 image 标签 Owner，并赋值，其值为变量 Name 的值。</li>
 </ul>
-<pre><code>LABEL Owner=$Name
+<pre tabindex="0"><code>LABEL Owner=$Name
 </code></pre><p> 
  </p>
-<h2 id="--nginx">二、实战（简单版 - nginx为例）</h2>
+<h2 id="二实战简单版---nginx为例">二、实战（简单版 - nginx为例）</h2>
 <p><strong>2.1、创建Dockerfile文件</strong></p>
 <ul>
 <li>FROM：选择指定基础镜像</li>
 <li>RUN：执行指令</li>
 </ul>
-<pre><code>FROM nginx
-RUN echo '&lt;h1&gt;Hello, Docker!&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html
+<pre tabindex="0"><code>FROM nginx
+RUN echo &#39;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&#39; &gt; /usr/share/nginx/html/index.html
 </code></pre><p><strong>2.2、运行Dockerfile构建镜像</strong></p>
-<pre><code># 构建镜像
+<pre tabindex="0"><code># 构建镜像
 docker build -t nginx:v1 .
 
 # 查看镜像
 docker images
 </code></pre><p><strong>2.3、启动镜像容器</strong></p>
-<pre><code># --name 为容器名，-d为后台运行，-p为指定映射端口:端口，nginx:v1为镜像:标签
+<pre tabindex="0"><code># --name 为容器名，-d为后台运行，-p为指定映射端口:端口，nginx:v1为镜像:标签
 docker run --name docker_nginx_v1 -d -p 80:80 nginx:v1
 </code></pre><ul>
 <li>
@@ -557,33 +537,33 @@ docker run --name docker_nginx_v1 -d -p 80:80 nginx:v1
 <p><em>问题二</em>：无法正常启动docker实例</p>
 </li>
 </ul>
-<pre><code>(iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 8801 -j DNAT --to-destination 172.17.0.3:80 ! -i docker0: iptables: No chain/target/match by that name.
+<pre tabindex="0"><code>(iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 8801 -j DNAT --to-destination 172.17.0.3:80 ! -i docker0: iptables: No chain/target/match by that name.
 </code></pre><ul>
 <li><em>解决</em>：重启docker</li>
 </ul>
-<pre><code>systemctl restart docker
+<pre tabindex="0"><code>systemctl restart docker
 </code></pre><p> 
  </p>
-<h2 id="heading1">三、修改容器内容</h2>
+<h2 id="三修改容器内容">三、修改容器内容</h2>
 <ul>
 <li>在容器启动后，需要对里面的文件进行修改，可以使用<code>docker exec -it xx bash</code>命令再次进行修改（此处修改nginx的主页面显示）</li>
 </ul>
-<pre><code>docker exec -it docker_nginx_v1 bash
-root@3729b97e8226: echo '&lt;h1&gt;Hello, Docker neo!&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html
+<pre tabindex="0"><code>docker exec -it docker_nginx_v1 bash
+root@3729b97e8226: echo &#39;&lt;h1&gt;Hello, Docker neo!&lt;/h1&gt;&#39; &gt; /usr/share/nginx/html/index.html
 root@3729b97e8226: exit
 exit
 </code></pre><ul>
 <li>（容器的存储层）修改后，可以通过 <code>docker diff</code> 命令看到具体的改动</li>
 </ul>
-<pre><code>docker diff docker_nginx_v1
+<pre tabindex="0"><code>docker diff docker_nginx_v1
 </code></pre><p> </p>
-<h2 id="springbootdocker">四、SpringBoot整合Docker</h2>
+<h2 id="四springboot整合docker">四、SpringBoot整合Docker</h2>
 <ul>
 <li>在已经搭建好SpringBoot的基础上</li>
 </ul>
-<h4 id="41docker">4.1、项目docker支持准备</h4>
+<h4 id="41项目docker支持准备">4.1、项目docker支持准备</h4>
 <p>a、在pom.xml文件中添加docker支持</p>
-<pre><code>&lt;properties&gt;
+<pre tabindex="0"><code>&lt;properties&gt;
 	&lt;docker.image.prefix&gt;springboot-docker&lt;/docker.image.prefix&gt;
 &lt;/properties&gt;
 
@@ -606,10 +586,10 @@ exit
 	&lt;/configuration&gt;
 &lt;/plugin&gt;
 </code></pre><p>b、在项目的<code>src/main/docker</code>目录下创建<code>Dockerfile</code>文件：</p>
-<pre><code>FROM openjdk:8-jdk-alpine
+<pre tabindex="0"><code>FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 ADD bigdata_presentation.jar app.jar
-ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]
+ENTRYPOINT [&#34;java&#34;,&#34;-Djava.security.egd=file:/dev/./urandom&#34;,&#34;-jar&#34;,&#34;/app.jar&#34;]
 </code></pre><p><strong>参数解释</strong>：</p>
 <ul>
 <li>
@@ -626,11 +606,11 @@ ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;
 </li>
 </ul>
 <p> </p>
-<h4 id="42">4.2、项目打包环境构建</h4>
+<h4 id="42项目打包环境构建">4.2、项目打包环境构建</h4>
 <p><strong>a、dcker安装</strong></p>
-<pre><code>请参考上一篇
+<pre tabindex="0"><code>请参考上一篇
 </code></pre><p><strong>b、JDK环境安装</strong></p>
-<pre><code># 安装
+<pre tabindex="0"><code># 安装
 yum -y install java-1.8.0-openjdk*
 
 # 修改环境变量（/etc/profile）
@@ -643,7 +623,7 @@ source /etc/profile
 # 检查是否安装成功
 java -version
 </code></pre><p><strong>c、Maven环境安装</strong></p>
-<pre><code># 下载压缩包
+<pre tabindex="0"><code># 下载压缩包
 wget http://mirrors.shu.edu.cn/apache/maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz
 
 # 解压
@@ -665,18 +645,18 @@ source /etc/profile
 # 检测是否安装成功
 mvn -version
 </code></pre><p> </p>
-<h4 id="43springbootdocker">4.3、构建SpringBoot的docker镜像</h4>
+<h4 id="43构建springboot的docker镜像">4.3、构建SpringBoot的docker镜像</h4>
 <blockquote>
 <p>将SpringBoot项目拷贝到服务器中，并通过命令行进入其项目目录</p>
 </blockquote>
 <p>a、测试SpringBoot环境是否正常</p>
-<pre><code># 打包
+<pre tabindex="0"><code># 打包
 mvn clean package -Dmaven.skip.test=true
 
 # 启动
 java -jar target/spring-boot-docker-1.0.jar
 </code></pre><p>b、SpringBoot正常则进行其docker镜像的构建</p>
-<pre><code># 构建docker镜像
+<pre tabindex="0"><code># 构建docker镜像
 mvn package docker:build
 
 # 查看构建成功的镜像
@@ -701,7 +681,7 @@ Step 2/4 : VOLUME /tmp
 Step 3/4 : ADD bigdata_presentation.jar app.jar
 
  ---&gt; ed2bf2401a6f
-Step 4/4 : ENTRYPOINT [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]
+Step 4/4 : ENTRYPOINT [&#34;java&#34;,&#34;-Djava.security.egd=file:/dev/./urandom&#34;,&#34;-jar&#34;,&#34;/app.jar&#34;]
 
  ---&gt; Running in 718ca03aaa8f
 Removing intermediate container 718ca03aaa8f
@@ -717,11 +697,10 @@ Successfully tagged springboot-docker/bigdata_presentation:latest
 [INFO] Finished at: Tue Aug 20 11:54:44 CST 2019
 [INFO] Final Memory: 43M/103M
 [INFO] ------------------------------------------------------------------------
-
 </code></pre><p>访问首页：
 <img src="https://user-images.githubusercontent.com/38284818/63319679-71c2ca00-c34d-11e9-9110-bd22dc350031.png" alt="image"></p>
 <p> </p>
-<h4 id="44">4.4、问题及解决</h4>
+<h4 id="44问题及解决">4.4、问题及解决</h4>
 <p><strong>问题一</strong>：springBoot执行mvn命令异常，Spring Boot:jar中没有主清单属性</p>
 <p><strong>解决</strong>：</p>
 <blockquote>
@@ -738,9 +717,9 @@ Successfully tagged springboot-docker/bigdata_presentation:latest
 </blockquote>
 <p><strong>问题三</strong>：如何自定义maven打包后的文件名</p>
 <p><strong>解决</strong>：</p>
-<pre><code>在pom文件的&lt;build&gt;&lt;/build&gt;中加入&lt;finalName&gt;自定义文件名&lt;/finalName&gt;
+<pre tabindex="0"><code>在pom文件的&lt;build&gt;&lt;/build&gt;中加入&lt;finalName&gt;自定义文件名&lt;/finalName&gt;
 </code></pre><p> </p>
-<h2 id="heading2">五、参考</h2>
+<h2 id="五参考">五、参考</h2>
 <ul>
 <li><a href="http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html">http://www.ityouknow.com/docker/2018/03/12/docker-use-dockerfile.html</a></li>
 <li><a href="http://www.ityouknow.com/docker/2018/03/15/docker-dockerfile-command-introduction.html">http://www.ityouknow.com/docker/2018/03/15/docker-dockerfile-command-introduction.html</a></li>
@@ -758,7 +737,8 @@ Successfully tagged springboot-docker/bigdata_presentation:latest
       <a href="https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/" title="Docker实战：2、Dockerfile构建镜像" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License: </strong>
+        
     </li>
   </ul>
 </blockquote>
@@ -778,11 +758,9 @@ Successfully tagged springboot-docker/bigdata_presentation:latest
     </figure>
   </div>
 </div>
+
     </div>
   </article>
-<section id="comments">
-</section>
-
 </div><nav class="bar bar-footer clearfix" data-stick-bottom>
     <div class="bar-inner">
         <ul class="pager pull-left">
@@ -865,6 +843,7 @@ Successfully tagged springboot-docker/bigdata_presentation:latest
         </div>
     </div>
 </div>
+
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 <ul class="social-links">
     <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
@@ -874,10 +853,11 @@ Successfully tagged springboot-docker/bigdata_presentation:latest
 </ul>
   <div class="copyright">
     &copy;2017  -
-    2020
+    2022
     <div class="publishby">
         Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
     </div>
+    
   </div>
 </footer>
 
@@ -894,39 +874,49 @@ Successfully tagged springboot-docker/bigdata_presentation:latest
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script>
-   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
-<script type="text/javascript"
-   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script>
-hljs.configure({
-  tabReplace: '    ', 
-  classPrefix: ''     
-                      
-})
-hljs.initHighlightingOnLoad();
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
 </script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
 <script>
-      (function (window) {
-          var INSIGHT_CONFIG = {
-              TRANSLATION: {
-                  POSTS: '文章',
-                  PAGES: '页面',
-                  CATEGORIES: '分类',
-                  TAGS: '标签',
-                  UNTITLED: '(未命名)',
-              },
-              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
-              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
-          };
-          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-      })(window);
-      </script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
 
 
   </body>

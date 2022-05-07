@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="zh">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         SpringBoot定时任务及其redis的分布式锁创建 - PI-KA-CHU&#39;s blog
       </title>
-    <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  
-  <meta name="theme-color" content="#000000" />
-  
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
-  <meta name="generator" content="Hugo 0.60.1 with theme pure" />
-  <title>SpringBoot定时任务及其redis的分布式锁创建 - PI-KA-CHU&#39;s blog</title>
-  
-
-  <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.css">
-  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css">
-  <meta property="og:title" content="SpringBoot定时任务及其redis的分布式锁创建" />
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title>SpringBoot定时任务及其redis的分布式锁创建 - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="SpringBoot定时任务及其redis的分布式锁创建" />
 <meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-02-23T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-02-23T00:00:00+00:00" />
+
 <meta itemprop="name" content="SpringBoot定时任务及其redis的分布式锁创建">
-<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet">
-<meta itemprop="datePublished" content="2019-02-23T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-02-23T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1564">
-
-
-
+<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet"><meta itemprop="datePublished" content="2019-02-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-02-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1550">
 <meta itemprop="keywords" content="java,spring-boot,中间件," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SpringBoot定时任务及其redis的分布式锁创建"/>
 <meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
 
-  <!--[if lte IE 9]>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-    <![endif]-->
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
 
-  <!--[if lt IE 9]>
-      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-    <![endif]-->
-
-</head>
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
   </head>
+
+  
   
 
   <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -139,7 +135,8 @@
       </nav>
     </div>
   </header>
-  <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
     
       <div class="widget">
@@ -156,7 +153,8 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">87</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">88</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">15</span></li>
         </ul>
     </div>
 </div>
@@ -182,6 +180,10 @@
                     class="tag-list-count">5</span></li>
             
             
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
                     class="tag-list-count">8</span></li>
             
@@ -192,10 +194,6 @@
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
                     class="tag-list-count">7</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%8D%E4%B9%A0/" class="tag-list-link">复习</a><span
-                    class="tag-list-count">6</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
@@ -211,7 +209,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
-                    class="tag-list-count">15</span></li>
+                    class="tag-list-count">16</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
@@ -237,7 +235,17 @@
             <li>
                 <div class="item-inner">
                     <p class="item-title">
-                        <a href="https://PI-KA-CHU.github.io/2020/01/aqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" class="title">JUC包结构及AQS抽象队列同步器</a>
+                        <a href="https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="title">hugo &#43; github编写个人博客</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-05-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2020/01/juc%E5%8C%85%E7%BB%93%E6%9E%84%E5%8F%8Aaqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" class="title">JUC包结构及AQS抽象队列同步器</a>
                     </p>
                     <p class="item-date">
                         <time datetime="2020-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-03</time>
@@ -274,16 +282,6 @@
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/" class="title">Synchronize关键字</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2019-12-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-17</time>
-                    </p>
-                </div>
-            </li>
         </ul>
     </div>
 </div>
@@ -292,21 +290,14 @@
 
     
     
-  <aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
-    <div class="slimContent">
-      <nav id="toc" class="article-toc">
-        <h3 class="toc-title">文章目录</h3>
-        <div class="toc-content always-active"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">分布式锁实现流程图</a></li>
-    <li><a href="#scheduledredis">一、@Scheduled的使用及其redis的分布式锁创建</a></li>
-    <li><a href="#springboot-schedulecron">二、SpringBoot Schedule的cron的使用</a></li>
-  </ul>
-</nav>
-        </div>
-      </nav>
-    </div>
-  </aside>
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
 <main class="main" role="main"><div class="content">
   <article id="-" class="article article-type-" itemscope
     itemtype="http://schema.org/BlogPosting">
@@ -321,33 +312,34 @@
 </h1>
 
       <div class="article-meta">
-        <span class="article-date">
-  <i class="icon icon-calendar-check"></i>
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
 <a href="https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/" class="article-date">
   <time datetime="2019-02-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-02-23</time>
 </a>
-</span><span class="article-category">
-  <i class="icon icon-folder"></i>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
   <a class="article-category-link" href="/categories/it/"> IT </a>
+  <a class="article-category-link" href="/categories/spring/"> Spring </a>
 </span>  
   <span class="article-tag">
-    <i class="icon icon-tags"></i>
+    <i class="icon icon-tags"></i>&nbsp;
     <a class="article-tag-link" href="/tags/java/"> java </a>
     <a class="article-tag-link" href="/tags/spring-boot/"> spring-boot </a>
     <a class="article-tag-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
   </span>
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/#comments"
-            class="article-comment-link">评论</a></span>
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计:1564字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长:4分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1550字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4分 </span>
       </div>
     </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      <h2 id="heading">分布式锁实现流程图</h2>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h2 id="分布式锁实现流程图">分布式锁实现流程图</h2>
 <p><img src="https://user-images.githubusercontent.com/38284818/53300510-3a360200-3883-11e9-9465-ee22e2dabc21.JPG" alt="default"></p>
 <p> </p>
-<h2 id="scheduledredis">一、@Scheduled的使用及其redis的分布式锁创建</h2>
+<h2 id="一scheduled的使用及其redis的分布式锁创建">一、@Scheduled的使用及其redis的分布式锁创建</h2>
 <ul>
 <li>
 <p>创建新类，使用<code>@Scheduled</code>注解注释需要定时启动的方法</p>
@@ -362,7 +354,7 @@
 <p><strong>双重防死锁</strong>：使用redis实现分布式锁，并且为创建的键赋值为<code>System.currentTimeMillis() + RedisConst.APPLICATION.TASK_LOCK_TIME</code>，即当前系统时间加上有效时间，若分布式锁已经存在，则使用<code>if (time != null &amp;&amp; System.currentTimeMillis() &gt; Long.valueOf(time))</code>判断是否过期，若过期，则可以正常获取到分布式锁并使用。</p>
 </li>
 </ul>
-<pre><code>@Component
+<pre tabindex="0"><code>@Component
 public class ApplicationCloseTask {
 
     @Autowired
@@ -377,10 +369,10 @@ public class ApplicationCloseTask {
      * @author 曾博佳
      * @since 2019-02-23
      */
-    @Scheduled(cron = &quot;0 0 0 */7 * ?&quot;)
+    @Scheduled(cron = &#34;0 0 0 */7 * ?&#34;)
     public void closeApplication(){
 
-        log.info(&quot;定时任务正常启动：{}&quot;,new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;).format(new Date()));
+        log.info(&#34;定时任务正常启动：{}&#34;,new SimpleDateFormat(&#34;yyyy-MM-dd HH:mm:ss&#34;).format(new Date()));
 
         //设置分布式锁，若不存在，将其值设置为{当前时间 + 有限时间}，返回true
         boolean setnxResult = RedisPoolUtil.setnx(RedisConst.APPLICATION.TASK_CLOSE_LOCK,
@@ -393,7 +385,7 @@ public class ApplicationCloseTask {
             String time = RedisPoolUtil.get(RedisConst.APPLICATION.TASK_CLOSE_LOCK);
 
             if (time != null &amp;&amp; System.currentTimeMillis() &gt; Long.valueOf(time)){
-                log.info(&quot;获取分布式锁{} 成功，ThreadName：{}&quot;,RedisConst.APPLICATION.TASK_CLOSE_LOCK,Thread.currentThread().getName());
+                log.info(&#34;获取分布式锁{} 成功，ThreadName：{}&#34;,RedisConst.APPLICATION.TASK_CLOSE_LOCK,Thread.currentThread().getName());
 
                 String time2 = RedisPoolUtil.getset(RedisConst.APPLICATION.TASK_CLOSE_LOCK,
                         String.valueOf(System.currentTimeMillis() + RedisConst.APPLICATION.TASK_LOCK_TIME));
@@ -401,14 +393,14 @@ public class ApplicationCloseTask {
                 // time2为null表示集群应用的锁已经其他进程执行并删除，从正常逻辑上此时可以获取到锁
                 // 如果time不等于time2并且time2不等于null，说明time2已经被其他进程获取并修改
                 if (time2 == null || StringUtils.equals(time,time2)){
-                    log.info(&quot;获取分布式锁{} 成功，ThreadName：{}&quot;,RedisConst.APPLICATION.TASK_CLOSE_LOCK,Thread.currentThread().getName());
+                    log.info(&#34;获取分布式锁{} 成功，ThreadName：{}&#34;,RedisConst.APPLICATION.TASK_CLOSE_LOCK,Thread.currentThread().getName());
                     updateApplicationState();
                 }else{
-                    log.info(&quot;分布式锁：{} 获取失败&quot;,RedisConst.APPLICATION.TASK_CLOSE_LOCK);
+                    log.info(&#34;分布式锁：{} 获取失败&#34;,RedisConst.APPLICATION.TASK_CLOSE_LOCK);
                 }
 
             }else{
-                log.info(&quot;分布式锁：{} 获取失败&quot;,RedisConst.APPLICATION.TASK_CLOSE_LOCK);
+                log.info(&#34;分布式锁：{} 获取失败&#34;,RedisConst.APPLICATION.TASK_CLOSE_LOCK);
             }
         }
     }
@@ -417,18 +409,18 @@ public class ApplicationCloseTask {
      * 执行更新application状态的代码
      */
     private void updateApplicationState(){
-        log.info(&quot;分布式锁获取成功，执行关闭订单程序&quot;);
+        log.info(&#34;分布式锁获取成功，执行关闭订单程序&#34;);
 
         //将已经过期的申请更新为过期状态
         formExecuteService.updateAllApplicationState(new Date(), NormalConst.APPLICATION.EFFECTIVE_TIME);
 
         RedisPoolUtil.del(RedisConst.APPLICATION.TASK_CLOSE_LOCK);
-        log.info(&quot;分布式锁删除成功&quot;);
+        log.info(&#34;分布式锁删除成功&#34;);
     }
 
 }
 </code></pre><p> </p>
-<h2 id="springboot-schedulecron">二、SpringBoot Schedule的<code>cron</code>的使用</h2>
+<h2 id="二springboot-schedule的cron的使用">二、SpringBoot Schedule的<code>cron</code>的使用</h2>
 <ul>
 <li>
 <p>在线<code>corn</code>生成器：http://www.pppet.net/</p>
@@ -493,7 +485,8 @@ public class ApplicationCloseTask {
       <a href="https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/" title="SpringBoot定时任务及其redis的分布式锁创建" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/</a>
     </li>
     <li class="post-copyright-license">
-      <strong>License：</strong><a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+      <strong>License: </strong>
+        
     </li>
   </ul>
 </blockquote>
@@ -513,16 +506,14 @@ public class ApplicationCloseTask {
     </figure>
   </div>
 </div>
+
     </div>
   </article>
-<section id="comments">
-</section>
-
 </div><nav class="bar bar-footer clearfix" data-stick-bottom>
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://PI-KA-CHU.github.io/2019/02/restful%E5%AD%A6%E4%B9%A0/" title="RESTful学习"><i
+                <a href="https://PI-KA-CHU.github.io/2019/02/restful%D1%A7%CF%B0/" title="RESTful学习"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
             </li>
@@ -600,6 +591,7 @@ public class ApplicationCloseTask {
         </div>
     </div>
 </div>
+
 </main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
 <ul class="social-links">
     <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
@@ -609,10 +601,11 @@ public class ApplicationCloseTask {
 </ul>
   <div class="copyright">
     &copy;2017  -
-    2020
+    2022
     <div class="publishby">
         Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
     </div>
+    
   </div>
 </footer>
 
@@ -629,39 +622,49 @@ public class ApplicationCloseTask {
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script>
-   window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 </script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
-<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/rust.min.js"></script>
-<script type="text/javascript"
-   src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
-<script>
-hljs.configure({
-  tabReplace: '    ', 
-  classPrefix: ''     
-                      
-})
-hljs.initHighlightingOnLoad();
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
 </script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/application.js"></script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/plugin.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
 <script>
-      (function (window) {
-          var INSIGHT_CONFIG = {
-              TRANSLATION: {
-                  POSTS: '文章',
-                  PAGES: '页面',
-                  CATEGORIES: '分类',
-                  TAGS: '标签',
-                  UNTITLED: '(未命名)',
-              },
-              ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
-              CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
-          };
-          window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-      })(window);
-      </script>
-<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.js"></script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
 
 
   </body>
