@@ -39,7 +39,7 @@
 <meta itemprop="name" content="git命令的使用及常见的问题">
 <meta itemprop="description" content="Lorem Ipsum Dolor Si Amet"><meta itemprop="datePublished" content="2019-02-24T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-02-24T00:00:00+00:00" />
-<meta itemprop="wordCount" content="360">
+<meta itemprop="wordCount" content="436">
 <meta itemprop="keywords" content="java,开发工具," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git命令的使用及常见的问题"/>
 <meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
@@ -329,7 +329,7 @@
     <a class="article-tag-link" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"> 开发工具 </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 360字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 436字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
       </div>
     </div>
@@ -360,6 +360,17 @@ git pull  // 拉取远程项目
 !/src    # 忽略除了src文件夹的其他文件
 !/bin    # 忽略除了bin文件夹的其他文件
 !/pom.xml    #忽略除了pom.xml文件的其他文件
+</code></pre><h4 id="添加目标git项目作为submodule到public目录中">添加目标git项目作为submodule到public目录中</h4>
+<pre tabindex="0"><code>git submodule add https://github.com/PI-KA-CHU/PI-KA-CHU.github.io.git public
+
+问题：
+&#39;public&#39; already exists in the index
+
+解决：
+1. git ls-files --stage public
+2. 看到 160000开头的目录
+3. git rm --cached public
+4. 重新添加
 </code></pre>
     </div>
     <div class="article-footer">
