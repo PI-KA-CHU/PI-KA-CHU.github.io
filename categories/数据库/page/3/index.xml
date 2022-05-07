@@ -5,10 +5,19 @@
     <link>https://PI-KA-CHU.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
     <description>Recent content in 数据库 on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 04 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>redis的主从模式配置</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
+      <description>前言 replica-master模式就是slave-master模式，查了一下好像是slave-master名称遭到太多人反对，作者被迫进行</description>
+    </item>
     
     <item>
       <title>git命令的使用及常见的问题</title>
@@ -179,15 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/01/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
       <description>贪心算法的本质 做出在当前看来最好的选择 自顶向下地解决问题 贪心算法基本要素 最优子结构 贪心选择 贪心算法的例子 活动安排问题： 利用贪心算法，解决下列</description>
-    </item>
-    
-    <item>
-      <title>Nginx的安装及负载均衡（Linux环境）</title>
-      <link>https://PI-KA-CHU.github.io/2019/01/nginx%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1linux%E7%8E%AF%E5%A2%83/</link>
-      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/01/nginx%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1linux%E7%8E%AF%E5%A2%83/</guid>
-      <description>一、依赖环境安装 操作系统： CentOS 7.3 安装版本： nginx-1.14.2 安装gcc： yum install gcc-c++ 安装其他依赖： yum install -y pcre pcre-devel yum install -y zlib zlib-devel yum install -y openssl openssl-devel 二、Nginx安装 官网下载地址 http://nginx.org/en/download.html ng</description>
     </item>
     
   </channel>

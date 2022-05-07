@@ -20,6 +20,15 @@
     </item>
     
     <item>
+      <title>MySQL执行一条语句的过程</title>
+      <link>https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</guid>
+      <description>https://www.pdai.tech/md/db/sql-mysql/sql-mysql-execute.html bin log三种模式的区别 https://blog.csdn.net/keda8997110/article/details/50895171 row：记录具体的行被修改的内容。优点是记录清晰，复制完整；缺点是日志量较大。 statement：记录的是执行的S</description>
+    </item>
+    
+    <item>
       <title>JUC包结构及AQS抽象队列同步器</title>
       <link>https://PI-KA-CHU.github.io/2020/01/juc%E5%8C%85%E7%BB%93%E6%9E%84%E5%8F%8Aaqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/</link>
       <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
@@ -179,15 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/07/java%E5%AE%B9%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
       <description>一、容器间的区别 1.1、List、Map、Set三者间的区别 List：List接口存储一组可重复的、有序的对象 Map：Map接口存储以key</description>
-    </item>
-    
-    <item>
-      <title>Windows服务注册及脚本开机自启</title>
-      <link>https://PI-KA-CHU.github.io/2019/07/windows%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%8F%8A%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/</link>
-      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/07/windows%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%8F%8A%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/</guid>
-      <description>注册服务 https://jingyan.baidu.com/article/870c6fc3557921b03fe4bef7.html https://www.cnblogs.com/liuxiaoji/p/8016261.html https://blog.csdn.net/lsj19830812/article/details/6187233 开机自启脚本 https://blog.csdn.net/slf450272048/article/details/79378517 https://blog.csdn.net/qq_36999656/article/details/80278437 删除服务 https://blog.csdn.net/gaoxin_gx/article/details/89639867</description>
     </item>
     
   </channel>

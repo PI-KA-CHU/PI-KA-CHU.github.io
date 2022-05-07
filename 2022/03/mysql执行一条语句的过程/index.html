@@ -2,7 +2,7 @@
 <html lang="zh">
   <head>
     <title>
-        redis的主从模式配置 - PI-KA-CHU&#39;s blog
+        MySQL执行一条语句的过程 - PI-KA-CHU&#39;s blog
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,29 +20,29 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+    <meta name="description" content=" InnoDB，redo log，undo log，bin log" />
     <meta name="generator" content="Hugo 0.98.0 with theme pure" />
-    <title>redis的主从模式配置 - PI-KA-CHU&#39;s blog</title>
+    <title>MySQL执行一条语句的过程 - PI-KA-CHU&#39;s blog</title>
     
     
     <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="redis的主从模式配置" />
-<meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
+    <meta property="og:title" content="MySQL执行一条语句的过程" />
+<meta property="og:description" content=" InnoDB，redo log，undo log，bin log" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2019-02-25T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-02-25T00:00:00+00:00" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-10T00:00:00+00:00" />
 
-<meta itemprop="name" content="redis的主从模式配置">
-<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet"><meta itemprop="datePublished" content="2019-02-25T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2019-02-25T00:00:00+00:00" />
-<meta itemprop="wordCount" content="819">
-<meta itemprop="keywords" content="java,中间件," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="redis的主从模式配置"/>
-<meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
+<meta itemprop="name" content="MySQL执行一条语句的过程">
+<meta itemprop="description" content=" InnoDB，redo log，undo log，bin log"><meta itemprop="datePublished" content="2022-03-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-03-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="198">
+<meta itemprop="keywords" content="mysql," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MySQL执行一条语句的过程"/>
+<meta name="twitter:description" content=" InnoDB，redo log，undo log，bin log"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -307,8 +307,8 @@
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/"
-    >redis的主从模式配置</a
+    href="/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/"
+    >MySQL执行一条语句的过程</a
   >
 </h1>
 
@@ -316,88 +316,38 @@
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://PI-KA-CHU.github.io/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/" class="article-date">
-  <time datetime="2019-02-25 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-02-25</time>
+<a href="https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/" class="article-date">
+  <time datetime="2022-03-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-03-10</time>
 </a>
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
   <a class="article-category-link" href="/categories/it/"> IT </a>
+  <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"> 数据库 </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/java/"> java </a>
-    <a class="article-tag-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
+    <a class="article-tag-link" href="/tags/mysql/"> mysql </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 819字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 198字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h2 id="前言">前言</h2>
+      <h2 id="heading"></h2>
 <ul>
-<li>
-<p><code>replica-master</code>模式就是<code>slave-master</code>模式，查了一下好像是slave-master名称遭到太多人反对，作者被迫进行了修改。</p>
-</li>
-<li>
-<p>配置了主从模式后重启相应配置的redis服务器，<code>从redis会异步复制主redis的数据</code>，开启<code>AOF</code>可以实现数据的持久性（将数据写入磁盘）</p>
-</li>
-<li>
-<p>下面主从模式的配置是建立在已经启动redis-cluster的前提上进行修改配置，集群搭建详情参考#52 。</p>
-</li>
-<li>
-<p><strong>主从、哨兵和集群的关系</strong>：</p>
+<li><a href="https://www.pdai.tech/md/db/sql-mysql/sql-mysql-execute.html">https://www.pdai.tech/md/db/sql-mysql/sql-mysql-execute.html</a></li>
+</ul>
+<h3 id="bin-log三种模式的区别">bin log三种模式的区别</h3>
 <ul>
-<li><code>主从</code>：<strong>数据备份</strong>及<strong>读写分离</strong></li>
-<li><code>哨兵</code>：<strong>高可用</strong>，主挂了哨兵可以<strong>选主</strong>切换</li>
-<li><code>集群</code>：<strong>数据 hash 分片</strong>， 解决单台机器<strong>资源的上限的问题</strong>，<strong>分散压力</strong>。</li>
+<li><a href="https://blog.csdn.net/keda8997110/article/details/50895171">https://blog.csdn.net/keda8997110/article/details/50895171</a></li>
 </ul>
-</li>
-</ul>
-<p> </p>
-<h2 id="redis的复制">redis的复制</h2>
-<ul>
-<li>
-<p>Redis使用<code>异步复制</code>，异步从站到主站确认处理的数据量。</p>
-</li>
-<li>
-<p>主设备可以有<code>多个从设备</code>。</p>
-</li>
-<li>
-<p>复制在从属端也很大程度上是<code>非阻塞的</code>。当slave正在执行初始同步时，假设您在redis.conf中配置了Redis，它可以使用旧版本的数据集处理查询。</p>
-</li>
-<li>
-<p>复制可用于<code>可伸缩性</code>，以便为只读查询提供多个从站（例如，可以将慢速O（N）操作卸载到从站），或者仅用于提高数据安全性和高可用性。</p>
-</li>
-<li>
-<p>可以使用复制来避免让主服务器将完整数据集写入磁盘的成本：典型的技术是配置主服务器redis.conf以避免持久存储到磁盘，然后连接配置为不时保存的从服务器，或者已启用<code>AOF</code>。但是，必须小心处理此设置，因为重新启动的主服务器将以空数据集开始：如果从服务器尝试与其同步，则从服务器也将被清空。</p>
-</li>
-</ul>
-<p> </p>
-<h2 id="修改replica从者redis的redisconf配置文件有密码还需要配置replica连接master的密码">修改replica（从者redis）的<code>redis.conf</code>配置文件（有密码还需要配置replica连接master的密码）</h2>
-<pre tabindex="0"><code># 设置master的IP及端口
-replicaof [masterip] [port]
-
-# replica需要关闭集群的启动模式，否则会报异常
-cluster-enable no
-</code></pre><p> </p>
-<h2 id="重启replica的redis">重启replica的redis</h2>
-<ul>
-<li>
-<p>进入redis的src目录下，执行<code>./redis-cli -a [password] -h [ip] -p [port] shutdown</code>关闭redis</p>
-</li>
-<li>
-<p>使用<code>./redis-server ../redis.conf</code>命令重启redis服务器</p>
-</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/38284818/53335008-4e3a3c00-3935-11e9-9242-a54805b0a827.png" alt="image"></p>
-<p> </p>
-<h4 id="参考文献">参考文献</h4>
-<ul>
-<li>官方文档： <a href="https://redis.io/topics/replication">https://redis.io/topics/replication</a></li>
-</ul>
-<p> </p>
+<ol>
+<li><strong>row</strong>：记录具体的行被修改的内容。优点是记录清晰，复制完整；缺点是日志量较大。</li>
+<li><strong>statement</strong>：记录的是执行的SQL语句。优点是日志量少；缺点是对于某些特定的函数（sleep()、last_insert_id())，可能由于版本问题导致复制失败。</li>
+<li><strong>mixed</strong>：混合模式，对于正常的情况采用statement模式，对于statement模式无法复制的操作则采用row模式。</li>
+</ol>
 
     </div>
     <div class="article-footer">
@@ -405,7 +355,7 @@ cluster-enable no
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接: </strong>
-      <a href="https://PI-KA-CHU.github.io/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/" title="redis的主从模式配置" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</a>
+      <a href="https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/" title="MySQL执行一条语句的过程" target="_blank" rel="external">https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License: </strong>
@@ -436,13 +386,13 @@ cluster-enable no
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://PI-KA-CHU.github.io/2019/02/git%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/" title="git命令的使用及常见的问题"><i
+                <a href="https://PI-KA-CHU.github.io/2020/01/juc%E5%8C%85%E7%BB%93%E6%9E%84%E5%8F%8Aaqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" title="JUC包结构及AQS抽象队列同步器"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
             </li>
             <li class="next">
-                <a href="https://PI-KA-CHU.github.io/2019/02/redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"
-                    title="redis集群搭建"><span>上一篇&nbsp;&nbsp;</span><i
+                <a href="https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"
+                    title="hugo &#43; github编写个人博客"><span>上一篇&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
