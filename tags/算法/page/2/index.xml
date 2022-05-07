@@ -11,6 +11,24 @@
     
     
     <item>
+      <title>Docker的基本概念</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
+      <description>一、什么是Docker Docker是使用google公司推出的GO语言进行开发实现，于 Linux 内核的 cgroup，namespace，以及 AUFS 类的 Union</description>
+    </item>
+    
+    <item>
+      <title>Java容器学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/java%E5%AE%B9%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/java%E5%AE%B9%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description>一、容器间的区别 1.1、List、Map、Set三者间的区别 List：List接口存储一组可重复的、有序的对象 Map：Map接口存储以key</description>
+    </item>
+    
+    <item>
       <title>Windows服务注册及脚本开机自启</title>
       <link>https://PI-KA-CHU.github.io/2019/07/windows%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%8F%8A%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
@@ -170,24 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</guid>
       <description>一、搭建步骤 1. 服务器（Linux）环境准备 修改系统文件需要root权限，可通过以下命令获取 su root （回车后输入密码） 配置服务器的主机名称（Cen</description>
-    </item>
-    
-    <item>
-      <title>MyBlog</title>
-      <link>https://PI-KA-CHU.github.io/about/</link>
-      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/about/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>redis集群搭建</title>
-      <link>https://PI-KA-CHU.github.io/2019/02/redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
-      <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/02/redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
-      <description>一、集群与分布式的区别 小饭店原来只有一个厨师，切菜洗菜备料炒菜全干。后来客人多了，厨房一个厨师忙不过来，又请了个厨师，两个厨师都能炒一样的菜</description>
     </item>
     
   </channel>

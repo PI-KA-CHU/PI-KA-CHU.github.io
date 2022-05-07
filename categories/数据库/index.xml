@@ -110,12 +110,30 @@
     </item>
     
     <item>
+      <title>预备课（一）</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/%E9%A2%84%E5%A4%87%E8%AF%BE%E4%B8%80/</link>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/%E9%A2%84%E5%A4%87%E8%AF%BE%E4%B8%80/</guid>
+      <description>做时间，没有拼搏的精神，全力以赴的投入，是不可能成功的。人性是充满惰性的，没有到生死关头，是不回使尽全力来付出， 但是有和智慧的人并不是把自己</description>
+    </item>
+    
+    <item>
       <title>Spring高级应用</title>
       <link>https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</guid>
       <description>一、如何基于Spring写优雅易扩展的代码 1.1 案例一 1.1.1 如何实现订单金额的计算 策略模式 实现面向接口编程，由于计算金额的方法是会增加的，比如促销方</description>
+    </item>
+    
+    <item>
+      <title>Web安全入门</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/</guid>
+      <description>一、Web安全入门 Web安全案例 1、某诈骗集团通过短信发送了钓鱼网站给我们，以下是通过一系列的手段最终追踪到用户的手段 User-Agent：</description>
     </item>
     
     <item>
@@ -170,24 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1/</guid>
       <description>一、oozie组件 Workflow：工作流（流程图） 常用结点： 控制流结点（Control Flow Nodes） start、end、kill、分支、合</description>
-    </item>
-    
-    <item>
-      <title>Docker的基本概念</title>
-      <link>https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</link>
-      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
-      <description>一、什么是Docker Docker是使用google公司推出的GO语言进行开发实现，于 Linux 内核的 cgroup，namespace，以及 AUFS 类的 Union</description>
-    </item>
-    
-    <item>
-      <title>Java容器学习</title>
-      <link>https://PI-KA-CHU.github.io/2019/07/java%E5%AE%B9%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/07/java%E5%AE%B9%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
-      <description>一、容器间的区别 1.1、List、Map、Set三者间的区别 List：List接口存储一组可重复的、有序的对象 Map：Map接口存储以key</description>
     </item>
     
   </channel>
