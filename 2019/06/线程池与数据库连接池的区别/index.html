@@ -20,7 +20,7 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="Lorem Ipsum Dolor Si Amet" />
+    <meta name="description" content=" " />
     <meta name="generator" content="Hugo 0.98.0 with theme pure" />
     <title>线程池与数据库连接池的区别 - PI-KA-CHU&#39;s blog</title>
     
@@ -30,19 +30,19 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
     <meta property="og:title" content="线程池与数据库连接池的区别" />
-<meta property="og:description" content="Lorem Ipsum Dolor Si Amet" />
+<meta property="og:description" content=" " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://PI-KA-CHU.github.io/2019/06/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E7%9A%84%E5%8C%BA%E5%88%AB/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2019-06-28T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-06-28T00:00:00+00:00" />
 
 <meta itemprop="name" content="线程池与数据库连接池的区别">
-<meta itemprop="description" content="Lorem Ipsum Dolor Si Amet"><meta itemprop="datePublished" content="2019-06-28T00:00:00+00:00" />
+<meta itemprop="description" content=" "><meta itemprop="datePublished" content="2019-06-28T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-06-28T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1968">
-<meta itemprop="keywords" content="java,多线程," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="多线程," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="线程池与数据库连接池的区别"/>
-<meta name="twitter:description" content="Lorem Ipsum Dolor Si Amet"/>
+<meta name="twitter:description" content=" "/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -153,9 +153,15 @@
     <h3 class="widget-title"> 分类</h3>
     <div class="widget-body">
         <ul class="category-list">
-            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">91</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">92</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/java/" class="category-list-link">java</a><span class="category-list-count">17</span></li>
             <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">15</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-list-link">中间件</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%85%B6%E4%BB%96/" class="category-list-link">其他</a><span class="category-list-count">9</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="category-list-link">基础理论</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4/" class="category-list-link">开发运维</a><span class="category-list-count">15</span></li>
             <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-list-link">数据库</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/" class="category-list-link">算法</a><span class="category-list-count">6</span></li>
         </ul>
     </div>
 </div>
@@ -169,20 +175,16 @@
                     class="tag-list-count">4</span></li>
             
             
-            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/java/" class="tag-list-link">java</a><span
-                    class="tag-list-count">52</span></li>
-            
-            
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
                     class="tag-list-count">2</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
-                    class="tag-list-count">6</span></li>
+                    class="tag-list-count">7</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
-                    class="tag-list-count">1</span></li>
+                    class="tag-list-count">6</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
@@ -190,11 +192,7 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
-                    class="tag-list-count">9</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="tag-list-link">中间件</a><span
-                    class="tag-list-count">7</span></li>
+                    class="tag-list-count">10</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
@@ -210,23 +208,23 @@
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
-                    class="tag-list-count">4</span></li>
+                    class="tag-list-count">3</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
-                    class="tag-list-count">16</span></li>
+                    class="tag-list-count">11</span></li>
             
             
             <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
                     class="tag-list-count">2</span></li>
             
             
-            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%AE%97%E6%B3%95/" class="tag-list-link">算法</a><span
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" class="tag-list-link">疑难杂症</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E9%83%A8%E7%BD%B2%E5%B7%A5%E5%85%B7/" class="tag-list-link">部署工具</a><span
                     class="tag-list-count">6</span></li>
-            
-            
-            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%BD%91%E6%98%93%E5%BE%AE%E4%B8%93%E4%B8%9A/" class="tag-list-link">网易微专业</a><span
-                    class="tag-list-count">8</span></li>
             
         </ul>
 
@@ -326,11 +324,11 @@
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/it/"> IT </a>
+  <a class="article-category-link" href="/categories/it/"> it </a>
+  <a class="article-category-link" href="/categories/java/"> java </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/java/"> java </a>
     <a class="article-tag-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"> 多线程 </a>
   </span>
 
