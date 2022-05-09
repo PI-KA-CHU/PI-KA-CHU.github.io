@@ -39,7 +39,7 @@
 <meta itemprop="name" content="git命令的使用及常见的问题">
 <meta itemprop="description" content=" "><meta itemprop="datePublished" content="2019-02-24T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-02-24T00:00:00+00:00" />
-<meta itemprop="wordCount" content="460">
+<meta itemprop="wordCount" content="497">
 <meta itemprop="keywords" content="开发工具," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git命令的使用及常见的问题"/>
 <meta name="twitter:description" content=" "/>
@@ -332,7 +332,7 @@
     <a class="article-tag-link" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"> 开发工具 </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 460字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 497字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
       </div>
     </div>
@@ -377,6 +377,10 @@ git pull  // 拉取远程项目
 </code></pre><h4 id="重置本地修改">重置本地修改</h4>
 <pre tabindex="0"><code># 忽略本地修改，使用远方分支
 git reset --hard origin/master
+</code></pre><h4 id="解除ssl验证">解除SSL验证</h4>
+<pre tabindex="0"><code>问题：fatal: unable to access &#39;https://github.com/PI-KA-CHU/PI-KA-CHU.github.io.git/&#39;: OpenSSL SSL_read: Connection was reset, errno 10054
+
+解决：git config --global http.sslVerify &#34;false&#34;
 </code></pre>
     </div>
     <div class="article-footer">
