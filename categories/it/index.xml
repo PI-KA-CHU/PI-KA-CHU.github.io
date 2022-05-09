@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>IT on PI-KA-CHU&#39;s blog</title>
+    <title>it on PI-KA-CHU&#39;s blog</title>
     <link>https://PI-KA-CHU.github.io/categories/it/</link>
-    <description>Recent content in IT on PI-KA-CHU&#39;s blog</description>
+    <description>Recent content in it on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate>
     
@@ -16,7 +16,7 @@
       <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>hugo + github编写个人博客 https://blog.csdn.net/qq_41136216/article/details/112674327 生成流程如下： 下载hugo，并配置环境变量 hugo new site myNewSite 创建新项目 在/content/posts 文件夹中编写md文件</description>
+      <description>hugo + github编写个人博客 https://blog.csdn.net/qq_41136216/article/details/112674327 生成流程如下： 下载hugo，并配置环境变量 mac下载通过brew install hugo命令下载，如果失败，则直接到Hugo</description>
     </item>
     
     <item>

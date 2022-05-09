@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>其他 on PI-KA-CHU&#39;s blog</title>
+    <link>https://PI-KA-CHU.github.io/categories/%E5%85%B6%E4%BB%96/</link>
+    <description>Recent content in 其他 on PI-KA-CHU&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 16 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://PI-KA-CHU.github.io/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>回溯法</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%9B%9E%E6%BA%AF%E6%B3%95/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%9B%9E%E6%BA%AF%E6%B3%95/</guid>
+      <description>回溯法的本质 具有限界函数的深度优先搜索法 扩展结点：一个正在产生儿子的结点称为扩展结点 活结点：一个自身已生成但其儿子还没有全部生成的节点称做活</description>
+    </item>
+    
+    <item>
+      <title>贪心算法</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
+      <description>贪心算法的本质 做出在当前看来最好的选择 自顶向下地解决问题 贪心算法基本要素 最优子结构 贪心选择 贪心算法的例子 活动安排问题： 利用贪心算法，解决下列</description>
+    </item>
+    
+    <item>
+      <title>Nginx的安装及负载均衡（Linux环境）</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/nginx%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1linux%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/nginx%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1linux%E7%8E%AF%E5%A2%83/</guid>
+      <description>一、依赖环境安装 操作系统： CentOS 7.3 安装版本： nginx-1.14.2 安装gcc： yum install gcc-c++ 安装其他依赖： yum install -y pcre pcre-devel yum install -y zlib zlib-devel yum install -y openssl openssl-devel 二、Nginx安装 官网下载地址 http://nginx.org/en/download.html ng</description>
+    </item>
+    
+    <item>
+      <title>UML期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/uml/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/uml/</guid>
+      <description>UML的体系结构 UML建模规则 名字：任何一个UML成员都必须包含一个名字。 作用域：UML成员所定义的内容起作用的上下文环境。某个成员在每个实</description>
+    </item>
+    
+    <item>
+      <title>软件测试复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/</guid>
+      <description>软件测试的知识点 思维导图（部分）： 软件测试的定义： 软件是一个集合，包括三部分：文档，程序和数据 软件测试就是为了发现错误而审查软件文档，检查软</description>
+    </item>
+    
+    <item>
+      <title>单机部署Tomcat集群</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2tomcat%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2tomcat%E9%9B%86%E7%BE%A4/</guid>
+      <description>一、Tomcat的安装 单个Tomcat的安装（包括基本JDK，Mysql环境搭建）具体可参考这边笔记#20 ，现在需要将多个Tomcat安装到</description>
+    </item>
+    
+    <item>
+      <title>Python期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/python%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/python%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
+      <description>列表： 有序，可变 [ &#39;crunchy frog&#39; , &#39;ram bladder&#39; , &#39;lark vomit&#39; ] 元组： 有序，不可变 ( &#39;crunchy frog&#39; , &#39;ram bladder&#39; , &#39;lark vomit&#39; ) 字典： 无序，可变 { &#39;x&#39; : &#39;crunchy frog&#39; , &#39;y&#39; : &#39;ram bladder&#39; , &#39;z&#39; : &#39;lark vomit&#39; } 集合： 无序，可变 {</description>
+    </item>
+    
+    <item>
+      <title>JDBC期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/jdbc%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/jdbc%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
+      <description>JDBC操作数据库的一般步骤 加载正确的数据驱动程序 Class.forName(&amp;quot;com.mysql.jdbc.Driver&amp;quot;) 定义所要连接数据库的地址 String url = &amp;quot;jdbc:mysql://localhost:3306/dbname?SSL=false&amp;quot; 建立与数据库的连接 Connection conn = DriverManager.getConnection(url,username,password); 创建语句对象 Statement stmt = conn.createStatement(); 声明SQL</description>
+    </item>
+    
+    <item>
+      <title>Servlet及JavaBean期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/servlet%E5%8F%8Ajavabean%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Sat, 05 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/servlet%E5%8F%8Ajavabean%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
+      <description>前言 特别推荐（web.xml详解）： https://blog.csdn.net/believejava/article/details/43229361 Servlet的生命周期 当servlet被部署在应用服务器中（应用服务器中用于管理Java组件的部分被</description>
+    </item>
+    
+    <item>
+      <title>JSP期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/jsp%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/jsp%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
+      <description>JSP的工作机制 https://www.jianshu.com/p/93736c3b448b 基本工作流程： 浏览器向服务器请求JSP页面，服务器收到该请求后，检查JSP文件内容是不是为第一次访问（是的话则创建serv</description>
+    </item>
+    
+    <item>
+      <title>Maven &#43; SpringBoot实现环境隔离</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/maven--springboot%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB/</link>
+      <pubDate>Wed, 02 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/maven--springboot%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB/</guid>
+      <description>一、Maven环境隔离简介 基本类别 本地开发环境（local） 开发环境（dev） 测试环境（beta） 线上环境（prod） 解决的问题 避免人工修改</description>
+    </item>
+    
+    <item>
+      <title>Java Selenium的基本使用</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/java-selenium%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/java-selenium%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</guid>
+      <description>工具下载 下载地址： https://www.seleniumhq.org/download/ Selenuim使用firefox时所需的驱动： https://github.com/mozilla/geckodriver/releases/tag/v0.9.0 基本操作 将相关依赖包导入Eclipse中，导入完成后即可使用，下面是登</description>
+    </item>
+    
+    <item>
+      <title>JAVA反编译工具</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/java%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/java%E5%8F%8D%E7%BC%96%E8%AF%91%E5%B7%A5%E5%85%B7/</guid>
+      <description>工具下载 官网下载： http://jd.benow.ca/ 官网包括Eclipse插件，Intellij插件及独立的图形实用程序——JD-GUI，此处下载的是JD-GUI 工具的使用</description>
+    </item>
+    
+    <item>
+      <title>Lombok的安装及使用</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/lombok%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/lombok%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>Lombok的简介及安装 Lombok能够简化代码的复杂度，例如对dao层或者bean的类进行getter，setter，构造方法，toStr</description>
+    </item>
+    
+    <item>
+      <title>Lombok的安装及使用</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/mac%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/mac%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85/</guid>
+      <description>Command Line Tools工具包下载 Command Line Tools for Xcode：https://developer.apple.com/download/all/?q=Comm</description>
+    </item>
+    
+    <item>
+      <title>slf4j &#43; log4j日志框架配置</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/slf4j--log4j%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sat, 29 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/slf4j--log4j%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E9%85%8D%E7%BD%AE/</guid>
+      <description>slf4j简介 slf4j是一套包装Logging 框架的界面程式，以外观模式实现。可以在软件部署的时候决定要使用的 Logging 框架，目前主要支援的有Ja</description>
+    </item>
+    
+    <item>
+      <title>Java-Taglib总结</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/java-taglib%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/java-taglib%E6%80%BB%E7%BB%93/</guid>
+      <description>JSTL依赖包下载（本人使用1.1.2版本） https://archive.apache.org/dist/jakarta/taglibs/standard/binaries/ 使用流程： 将依赖包中lib文件夹下的jstl和standard的jar包导入项目 在JSP头部引</description>
+    </item>
+    
+    <item>
+      <title>MySQL索引的建立及优化</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/mysql%E7%B4%A2%E5%BC%95%E7%9A%84%E5%BB%BA%E7%AB%8B%E5%8F%8A%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/mysql%E7%B4%A2%E5%BC%95%E7%9A%84%E5%BB%BA%E7%AB%8B%E5%8F%8A%E4%BC%98%E5%8C%96/</guid>
+      <description>索引对查询有着重要的作用，对索引的认识是进行数据库性能提升的起点，数据库的优化一般是从两个方面，第一个是对SQL语句进行优化，第二是优化数据</description>
+    </item>
+    
+    <item>
+      <title>免费文档下载工具</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/%E5%85%8D%E8%B4%B9%E6%96%87%E6%A1%A3%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/%E5%85%8D%E8%B4%B9%E6%96%87%E6%A1%A3%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/</guid>
+      <description>百度，豆丁和道客巴巴都有不少优秀的文档，但大部分下载都需要积分或者充钱，下面推荐的是一款免费下载的，不过下载的是PDF和text文件，没有原</description>
+    </item>
+    
+    <item>
+      <title>JAVA反射技术</title>
+      <link>https://PI-KA-CHU.github.io/2018/12/java%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Tue, 11 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2018/12/java%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF/</guid>
+      <description>参考： https://www.jianshu.com/p/104aa6e2342d https://www.jianshu.com/p/2315dda64ad2 Java反射的原理 Java反射机制可以让我们在编译期（Compile Time）之外的运行期（Runtime）获得任何一个类的字节码</description>
+    </item>
+    
+  </channel>
+</rss>

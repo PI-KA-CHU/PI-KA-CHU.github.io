@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        UML期末复习 - PI-KA-CHU&#39;s blog
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content=" " />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title>UML期末复习 - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="UML期末复习" />
+<meta property="og:description" content=" " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2019/01/uml/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-01-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-09T00:00:00+00:00" />
+
+<meta itemprop="name" content="UML期末复习">
+<meta itemprop="description" content=" "><meta itemprop="datePublished" content="2019-01-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-01-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2812">
+<meta itemprop="keywords" content=" ," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="UML期末复习"/>
+<meta name="twitter:description" content=" "/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">92</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/java/" class="category-list-link">java</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">15</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-list-link">中间件</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%85%B6%E4%BB%96/" class="category-list-link">其他</a><span class="category-list-count">9</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="category-list-link">基础理论</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4/" class="category-list-link">开发运维</a><span class="category-list-count">15</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-list-link">数据库</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/" class="category-list-link">算法</a><span class="category-list-count">6</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">6</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%89%E5%85%A8/" class="tag-list-link">安全</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" class="tag-list-link">疑难杂症</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E9%83%A8%E7%BD%B2%E5%B7%A5%E5%85%B7/" class="tag-list-link">部署工具</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="title">hugo &#43; github编写个人博客</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-05-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/" class="title">MySQL执行一条语句的过程</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-03-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-03-10</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2020/01/juc%E5%8C%85%E7%BB%93%E6%9E%84%E5%8F%8Aaqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/" class="title">JUC包结构及AQS抽象队列同步器</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2020-01-03 00:00:00 &#43;0000 UTC" itemprop="datePublished">2020-01-03</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%8E%9F%E5%88%99/" class="title">Java happens-before及as-if-serial原则</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2019/12/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B9%8B%E5%8E%9F%E5%AD%90%E6%80%A7%E6%93%8D%E4%BD%9C/" class="title">线程安全之原子性操作</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2019-12-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-12-29</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2019/01/uml/"
+    >UML期末复习</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://PI-KA-CHU.github.io/2019/01/uml/" class="article-date">
+  <time datetime="2019-01-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2019-01-09</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/it/"> it </a>
+  <a class="article-category-link" href="/categories/%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/"> 基础理论 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags//">   </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2812字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h2 id="uml的体系结构">UML的体系结构</h2>
+<p><img src="https://user-images.githubusercontent.com/38284818/50906230-9c67ae80-145f-11e9-9520-75ded4ba9e39.JPG" alt="default"></p>
+<h3 id="uml建模规则">UML建模规则</h3>
+<ul>
+<li><strong>名字</strong>：任何一个UML成员都必须包含一个名字。</li>
+<li><strong>作用域</strong>：UML成员所定义的内容起作用的上下文环境。某个成员在每个实例中代表一个值，还是代表这个类元的所有实例的一个共享值，由上下文决定。</li>
+<li><strong>可见性</strong>：UML成员能被其他成员引用的方式。</li>
+<li><strong>完整性</strong>：UML成员间互相连接的合法性和一致性。</li>
+<li><strong>运行属性</strong>：UML成员在运行时的特性。</li>
+</ul>
+<h3 id="uml建模的原则">UML建模的原则</h3>
+<ul>
+<li><strong>被省略</strong>：即模型本身是完备的，但在图上某些属性被隐藏起来，以简化表达；</li>
+<li><strong>不完全</strong>：即在设计过程中某些元素可以暂时不存在；</li>
+<li><strong>不一致</strong>：即在设计过程中暂时不保证设计的完整性。</li>
+</ul>
+<p> </p>
+<h2 id="uml常用的9种模型图">UML常用的9种模型图</h2>
+<ul>
+<li><strong>按照视图进行划分：</strong></li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/38284818/50912926-30d90d80-146e-11e9-96d8-d69e50950be4.png" alt="uml"></p>
+<p>（<strong>4 + 1 视图</strong>）
+<img src="https://user-images.githubusercontent.com/38284818/50912993-60881580-146e-11e9-96d5-775e9b5af25e.JPG" alt="4 1"></p>
+<ul>
+<li><strong>按照静态图及动态图进行划分：</strong></li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/38284818/50882121-be8d0c80-141e-11e9-9341-4e4c965c8a7c.png" alt="uml"></p>
+<h3 id="1-用例图usecase-diagrams">1. 用例图（UseCase Diagrams）</h3>
+<ul>
+<li>用于描述一组<strong>用例、参与者</strong>及它们之间的连接关系，即<strong>什么角色做了什么事</strong>。</li>
+<li>从角色使用系统的角度描述系统中的信息，查看系统的<strong>功能</strong>，而不描述该功能的内部实现。</li>
+<li>用例图包括<strong>系统用例图</strong>及<strong>业务用例图</strong>，系统用例图是通过系统的使用用例，业务用例图是没有系统参与时的使用用例。</li>
+</ul>
+<p>（系统用例图）</p>
+<ul>
+<li>椭圆：用例，是用户与计算机之间的一次典型<strong>交互作用</strong>。</li>
+<li>人形：参与者（外部执行者）是指用户在系统中<strong>扮演的角色</strong>。</li>
+</ul>
+<p>(旅游系统)
+<img src="https://user-images.githubusercontent.com/38284818/50883684-bdaaa980-1423-11e9-9e61-a4f027192457.png" alt="1"></p>
+<p>(ATM系统)
+<img src="https://user-images.githubusercontent.com/38284818/50883792-0a8e8000-1424-11e9-8f89-9f20f2e835fb.png" alt="2"></p>
+<p> </p>
+<h3 id="2-类图class-diagrams">2. 类图（Class Diagrams）</h3>
+<ul>
+<li>用于描述一组<strong>类，接口，协作</strong>及它们间的静态关系（即系统的对象结构，显示构成系统的对象类，以及那些对象类间的关系），阐明了系统的<!-- raw HTML omitted -->静态结构<!-- raw HTML omitted --> 。</li>
+<li>类是一组具有<!-- raw HTML omitted -->相同属性，操作，关系和语义<!-- raw HTML omitted -->的<!-- raw HTML omitted -->对象的描述<!-- raw HTML omitted -->，其中对类和属性进行描述时的一个重要细节是它的<!-- raw HTML omitted -->可见性<!-- raw HTML omitted -->。</li>
+</ul>
+<p>（类图）</p>
+<ul>
+<li>类图用矩形框表示，它的<strong>属性</strong>和<strong>方法</strong>操作分别列在分格中。</li>
+<li>类之间可以多种方式链接，<strong>关联，泛化，依赖，实现，聚合，组合</strong>，各种关系的强弱顺序：
+<code>泛化 = 实现 &gt; 组合 &gt; 聚合 &gt; 关联 &gt; 依赖</code></li>
+<li>类框之间的关系通过连线来表示，不同关系用连线上和连线端头的修饰符来区别。</li>
+<li>方法修饰符<code> “-” 表示私有属性private</code>，内部可见，类内部操作才可存取，<code> “+” 表示公有属性public</code> ，可以被系统中其他操作查看和使用。<code>“#”表示 protected </code> ，类中操作存取，也可被子类使用。</li>
+</ul>
+<p>（大学类图）
+<img src="https://user-images.githubusercontent.com/38284818/50884609-53dfcf00-1426-11e9-84c5-3d57f24a77ed.png" alt="3"></p>
+<p> </p>
+<h3 id="3-对象图object-diagrams">3. 对象图（Object DIagrams）</h3>
+<ul>
+<li>对象图描述的是<strong>参与交互的各个对象在交互过程中某一时刻的状态</strong>，其中所使用的符号与类图中的符号几乎完全相同，区别仅在于对象图的对象名带有<strong>下划线</strong>，而且类与类之间关系的<strong>所有实例</strong>都要画出来。</li>
+</ul>
+<p>（汽车类图）
+<img src="https://user-images.githubusercontent.com/38284818/50886541-a53e8d00-142b-11e9-8ec0-43ab7313b34a.png" alt="5"></p>
+<p>（汽车对象图）
+<img src="https://user-images.githubusercontent.com/38284818/50886563-bab3b700-142b-11e9-9dc8-a573b14cd360.png" alt="6"></p>
+<p> </p>
+<h3 id="4-时序图sequence-diagrams顺序图序列图">4. 时序图（Sequence Diagrams）（顺序图，序列图）</h3>
+<ul>
+<li>顺序图表示<strong>对象间传送消息的时间顺序</strong>，阐明对象间交互过程以及在系统执行过程中的某一具体时刻将会发送什么事件。</li>
+<li>是一种强调<strong>时间顺序</strong>的<strong>交互图</strong>，将用例表达的需求，转化为进一步，更加正式层次的精细表达。用例常常被细化为一个或者多个序列图。</li>
+</ul>
+<p>（时序图）</p>
+<ul>
+<li>
+<p><strong>对象：</strong> 传送事件的对象，如下面餐厅点餐时序图中的人形及方框内的对象。</p>
+</li>
+<li>
+<p><strong>对象生命线：</strong> 对象下的一条虚线，表示一个对象在一段时间内存在。</p>
+</li>
+<li>
+<p><strong>控制焦点：</strong> 每个对象下面有一个小矩形条，它与对象的生命线相重叠，事务的请求传递和响应返回在矩形条中进行。</p>
+</li>
+<li>
+<p><strong>同步消息：</strong> 需要等待上一步执行完，才可进行下一步操作
+<img src="https://user-images.githubusercontent.com/38284818/50888305-58a98080-1430-11e9-9a3f-e5f038a15736.jpg" alt="v2-8e96c1aaa07823cb9c70dc6fd8b310c9_hd"></p>
+</li>
+<li>
+<p><strong>异步消息：</strong> 异步发送消息，不需等待
+<img src="https://user-images.githubusercontent.com/38284818/50888325-619a5200-1430-11e9-9482-5941b5601fea.jpg" alt="v2-e7dd1348b9873ca38013b581e6606847_hd"></p>
+</li>
+<li>
+<p><strong>注释：</strong> 对某一操作过程进行注释
+<img src="https://user-images.githubusercontent.com/38284818/50888563-eedda680-1430-11e9-9566-8b414f3df82a.jpg" alt="v2-f3364acd4c6f7e65b0c46791bbad1d69_hd"></p>
+</li>
+<li>
+<p><strong>约束：</strong> 对传输的数据进行约束
+<img src="https://user-images.githubusercontent.com/38284818/50888585-f8ffa500-1430-11e9-8cde-0885f4f8eb2f.jpg" alt="v2-0a3b9a94f8142bed5d19bb1183086f85_hd"></p>
+</li>
+</ul>
+<p>（餐厅点餐时序图）
+<img src="https://user-images.githubusercontent.com/38284818/50887383-fb143480-142d-11e9-8a27-a2d9e5253400.png" alt="7"></p>
+<p> </p>
+<h3 id="5-协作图collaboration-diagrams">5. 协作图（Collaboration Diagrams）</h3>
+<ul>
+<li>
+<p>协作图是一种交互图，它强调收发信息的对象的<strong>组织结构</strong> ，描述的对象间的<strong>协作关系</strong>（与写作图相似），显示<strong>对象间的动态合作关系</strong> 。</p>
+</li>
+<li>
+<p>协作图是表示一个<strong>类操作</strong>的实现，可以说明类操作中用到的<strong>参数</strong>和<strong>局部变量</strong>及<strong>操作中的永久链</strong>，当实现一个行为时，消息编号对应了程序中<strong>嵌套调用结构</strong>和<strong>信息传递过程</strong>。</p>
+</li>
+</ul>
+<p> </p>
+<p>（张三取款协作图）
+<img src="https://user-images.githubusercontent.com/38284818/50891420-30715000-1437-11e9-9a16-1bece5b8e8c0.png" alt="8"></p>
+<p>（就餐者，服务生和厨师间关系的协作图）
+<img src="https://user-images.githubusercontent.com/38284818/50891513-69a9c000-1437-11e9-904f-112f2a026d35.png" alt="9"></p>
+<p> </p>
+<!-- raw HTML omitted -->
+<blockquote>
+<p><strong>协作图与顺序图的区别：</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>两者同构，可以相互转换，顺序图强调<strong>时间顺序</strong>，协作图强调<strong>组织结构</strong>及<strong>对象间的协作</strong>。</p>
+</li>
+<li>
+<p>在多数情况下，协作图主要用来对<strong>单调的</strong>，<strong>顺序的</strong>控制流建模，但它也可以用来对包括<strong>迭代</strong>和<strong>分支</strong>的控制流程进行建模。</p>
+</li>
+<li>
+<p>如果强调<strong>时间和顺序</strong>，则使用顺序图；如果强调<strong>上下级关系</strong>（对象间的协作），则选择协作图。</p>
+</li>
+</ul>
+<p> </p>
+<h3 id="6-状态图statechart-diagrams">6. 状态图（Statechart Diagrams）</h3>
+<ul>
+<li>
+<p>状态视图是一<strong>个类对象所经历的所有历程的模型图</strong>，状态由对象的各个<strong>状态</strong>和<strong>连接这些状态的变迁</strong>（事件和条件）组成。</p>
+</li>
+<li>
+<p>每个状态对一个对象在其生命周期中<strong>满足某种条件</strong>的一个<strong>时间段建模</strong>，当一个事件发生时，它会触发状态间的<strong>变迁</strong>，导致对象<strong>从一种状态转化到另一种新的状态</strong>，与变迁相关的活动执行时，变迁也同时发生。</p>
+</li>
+<li>
+<p>在UML中,状态图可用来对一个对象<strong>按事件排序的行为建模</strong>（建模特定对象的动态行为,说明对象的生命周期）</p>
+</li>
+</ul>
+<p>（张三取款状态图）
+<img src="https://user-images.githubusercontent.com/38284818/50894059-4124c480-143d-11e9-8046-a53f24700453.png" alt="10"></p>
+<p>（电梯系统运行的状态图）
+<img src="https://user-images.githubusercontent.com/38284818/50894092-53066780-143d-11e9-90b7-9643c2c2bec8.png" alt="11"></p>
+<p> </p>
+<h3 id="7-活动图activity-diagrams">7. 活动图（Activity Diagrams）</h3>
+<ul>
+<li>
+<p>活动图<strong>是状态图的一种特殊情况</strong>，其中几乎所有或大多数状态都处于<strong>活动状态</strong>，而且几乎所有或大多数变迁都是由源状态中活动的完成而触发的。</p>
+</li>
+<li>
+<p>活动图本质上是一种流程图，它描述从<strong>活动到活动的控制流</strong>，而交互图强调的是<strong>对象到对象的控制流</strong>。活动图显示了<strong>系统的流程</strong>，可以是<strong>工作流</strong>，也可以是<strong>事件流</strong>。</p>
+</li>
+<li>
+<p>活动图是一种表述<strong>过程基理</strong>、<strong>业务过程</strong>以及<strong>工作流</strong>的技术。它可以用来对业务过程、工作流建模，也可以对用例实现甚至是程序实现来建模。</p>
+</li>
+</ul>
+<p>（带泳道的开户的活动图）
+<img src="https://user-images.githubusercontent.com/38284818/50897774-1db34700-1448-11e9-841b-7bf126ddb602.png" alt="12"></p>
+<p>（喝饮料活动图，同一个地方需要多个活动时，加实体长方条）
+<img src="https://user-images.githubusercontent.com/38284818/50898011-cbbef100-1448-11e9-9fbc-ac15e051bf00.png" alt="13"></p>
+<p> </p>
+<h3 id="8-构件图component-diagrams组件图">8. 构件图（Component Diagrams）（组件图）</h3>
+<ul>
+<li>
+<p>用于描述一<strong>组(构)件</strong>之间的<strong>组织和依赖</strong>关系，用于建模系统的<strong>静态实现视图</strong>(可以显示程序代码如何分解成模块，相当于哪些程序代码负责哪个功能模块)。组(构)件用<strong>虚线连接</strong>,表示组(构)件间的相关性。</p>
+</li>
+<li>
+<p>组(构)件可以是可<strong>执行程序、库、表、文件和文档</strong>等，它包含了<strong>逻辑类</strong>或者<strong>逻辑类的实现信息</strong>，因此逻辑视图和实现视图之间存在<strong>映射关系</strong>。</p>
+</li>
+<li>
+<p>组(构)件间也存在<strong>依赖关系</strong>，利用它可方便地分析<strong>一个组(构)件的变化会给其他组(构)件带来怎样的影响</strong>。</p>
+</li>
+</ul>
+<p>（ATM系统构件图）
+<img src="https://user-images.githubusercontent.com/38284818/50898882-72a48c80-144b-11e9-8102-27ec729f0c93.png" alt="15"></p>
+<p>（ATM客户机的C++组建图）
+<img src="https://user-images.githubusercontent.com/38284818/50898691-e2fede00-144a-11e9-8c49-72d10aa1a2a8.png" alt="14"></p>
+<p><strong>ATM客户机的C++组建图解析：</strong></p>
+<ul>
+<li>
+<p>在C++组件图中，每个类有自己的<strong>体文件</strong>和<strong>头文件</strong>，框图中每个类映射自己的组件。如，显示类映射ATM显示组件，阴影组件称为包体，表示C++中显示类的体文件(.cpp)。</p>
+</li>
+<li>
+<p>无阴影组件称为包规范，表示C++类的<strong>头文件(.H)</strong>。组件ATM.exe是**任务规范,**表示处理线程(可执行程序)。</p>
+</li>
+<li>
+<p>组(构)件间的相关性：如，读卡机类与显示类相关，即必须有显示类才能编译读卡机类。<strong>编译所有类后，即可创建可执行文件ATMClient.exe</strong>。</p>
+</li>
+</ul>
+<p> </p>
+<h3 id="8-部署图deployment-diagrams">8. 部署图（Deployment Diagrams）</h3>
+<p>部署(配置)图用于定义系统中软硬件的<strong>物理体系结构</strong>。可显示实际的计算机和设备(<strong>节点</strong>，立方体图形)以及它们间的连接关系，也可显示<strong>连接的类型</strong>及<strong>组(构)件间的依赖性</strong>。</p>
+<p>在<strong>节点内部</strong>，放置可执行<strong>组(构)件</strong>和<strong>对象</strong>以显示<strong>节点与可执行软件单元的对应关系</strong>。</p>
+<p>（ATM系统部署图）
+<img src="https://user-images.githubusercontent.com/38284818/50913678-d2ad2a00-146f-11e9-89c2-6c19877fc914.png" alt="1"></p>
+<p> </p>
+<p><img src="https://user-images.githubusercontent.com/38284818/50913825-30da0d00-1470-11e9-9123-a7d999372721.JPG" alt="2"></p>
+<p> 
+ </p>
+<h4 id="参考文献">参考文献</h4>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/44518805">https://zhuanlan.zhihu.com/p/44518805</a></li>
+<li><a href="http://wenku.uml.com.cn/document.asp?fileid=16458&amp;partname=UML">http://wenku.uml.com.cn/document.asp?fileid=16458&amp;partname=UML</a></li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2019/01/uml/" title="UML期末复习" target="_blank" rel="external">https://PI-KA-CHU.github.io/2019/01/uml/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/2019/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/" title="软件测试复习"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2019/01/nginx%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1linux%E7%8E%AF%E5%A2%83/"
+                    title="Nginx的安装及负载均衡（Linux环境）"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>
