@@ -15,7 +15,7 @@
       <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>hugo + github编写个人博客 https://blog.csdn.net/qq_41136216/article/details/112674327 生成流程如下： 下载hugo，并配置环境变量 mac下载通过brew install hugo命令下载，如果失败，则直接到Hugo</description>
+      <description>hugo + github编写个人博客 https://blog.csdn.net/qq_41136216/article/details/112674327 搭建流程： 下载hugo，并配置环境变量 mac下载通过brew install hugo命令下载，如果失败，则直接到Hugo gi</description>
     </item>
     
     <item>

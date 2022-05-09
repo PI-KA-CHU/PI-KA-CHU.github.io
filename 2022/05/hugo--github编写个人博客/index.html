@@ -39,7 +39,7 @@
 <meta itemprop="name" content="hugo &#43; github编写个人博客">
 <meta itemprop="description" content=" "><meta itemprop="datePublished" content="2022-05-06T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-05-06T00:00:00+00:00" />
-<meta itemprop="wordCount" content="492">
+<meta itemprop="wordCount" content="715">
 <meta itemprop="keywords" content="开发工具," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="hugo &#43; github编写个人博客"/>
 <meta name="twitter:description" content=" "/>
@@ -332,8 +332,8 @@
     <a class="article-tag-link" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"> 开发工具 </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 492字</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1分 </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 715字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -341,7 +341,7 @@
 <ul>
 <li><a href="https://blog.csdn.net/qq_41136216/article/details/112674327">https://blog.csdn.net/qq_41136216/article/details/112674327</a></li>
 </ul>
-<p>生成流程如下：</p>
+<p><strong>搭建流程</strong>：</p>
 <ul>
 <li>
 <p>下载hugo，并配置环境变量</p>
@@ -371,7 +371,7 @@
 </ul>
 </li>
 </ul>
-<p>配置记录：</p>
+<p><strong>配置记录</strong>：</p>
 <ul>
 <li>头部加入：<code>draft = true</code>可以隐藏该md，即不被hugo构建</li>
 </ul>
@@ -379,15 +379,39 @@
 <ol>
 <li>在github的以下位置，生产token</li>
 </ol>
-<p><img src="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io/blob/master/images/image-20220508095706237.png?raw=true" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/PI-KA-CHU.github.io/master/images/image-20220508095706237.png" alt="image"></p>
 <ol start="2">
 <li>mac搜索<em>Keychain</em>，进入以下界面，并搜索github</li>
 </ol>
-<p><img src="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io/blob/master/images/Snipaste_2022-05-08_23-29-40.png?raw=true" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/PI-KA-CHU.github.io/master/images/Snipaste_2022-05-08_23-29-40.png" alt="image"></p>
 <ol start="3">
 <li>进入相关的密钥界面，在以下红框内填入第一步生成的密钥并保存即可</li>
 </ol>
-<p><img src="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io/blob/master/images/image-20220508095706239.png?raw=true" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/PI-KA-CHU.github.io/master/images/image-20220508095706239.png" alt="image"></p>
+<h3 id="typora自动上传图片">Typora自动上传图片</h3>
+<p><strong>问题</strong>：由于博客采用markdown编写，而截图的时候保存图片保存在本地，用hugo生成网站后相对路径发现了变化，这导致图片地址很难控制，即使硬编写后也会导致迁移性很差，在偶然的配置中发现了Typora的内置功能，可以整合PicGo图床上传软件，实现在插入图片时自动上传到图床并生成url。</p>
+<p><strong>解决</strong>：</p>
+<ol>
+<li>
+<p>PicGo下载并运行</p>
+<ul>
+<li><a href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a></li>
+</ul>
+</li>
+<li>
+<p>配置PicGo中的Github图床</p>
+<ul>
+<li><a href="https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A">https://picgo.github.io/PicGo-Doc/zh/guide/config.html#github%E5%9B%BE%E5%BA%8A</a></li>
+</ul>
+</li>
+<li>
+<p>在偏好设置中配置PicGo</p>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images/image-20220509113454353.png" alt="image-20220509113454353"></p>
+</li>
+<li>
+<p>完成后在插入图片/截图时都会自动上传并转化url</p>
+</li>
+</ol>
 
     </div>
     <div class="article-footer">
