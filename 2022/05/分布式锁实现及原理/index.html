@@ -348,8 +348,6 @@
 <p><strong>场景</strong>：多实例的代码块同步（单实例通信基于本机环境，多实例通信借助第三方）</p>
 <p>​		锁通常用于做代码块的<strong>同步</strong>，保证同段代码在<strong>多线程</strong>情况下同一时间只能被一个线程执行。Java中用于锁操作的有<strong>Synchronize</strong>和<strong>ReentranLock</strong>，但是两者都是基于单机应用的情况下使用，对于分布式系统，同个服务会有多个实例被启动（例如多实例下保证单个定时任务执行），那么对于这种场景下的代码块同步就不能按常规处理，只能借助第三方让各个实例进行通信，进而达到锁的控制效果，目前分布式锁常见的实现方式有：<strong>基于数据库行锁</strong>、<strong>基于Redis锁</strong>、<strong>基于Zookeeper锁</strong>。</p>
 <p><strong>流程</strong>：多实例做锁的抢占，<strong>加锁</strong>成功的获取到锁并执行相关代码块，此时其他实例获取锁失败，完成操作后<strong>解锁</strong>。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <h2 id="二分布式锁的实现方案及优缺点">二、分布式锁的实现方案及优缺点</h2>
 <blockquote>
 <p><strong>临界知识</strong>：</p>
@@ -357,9 +355,7 @@
 <li>分布式锁本质上就是多实例的锁抢占问题。</li>
 </ul>
 </blockquote>
-<!-- raw HTML omitted -->
 <h3 id="1-基于数据库的分布式锁">1. 基于数据库的分布式锁</h3>
-<!-- raw HTML omitted -->
 <h4 id="实现原理">实现原理</h4>
 <ul>
 <li>分布式锁在MySQL上的体现本质上就是<strong>多实例间基于数据库表的锁抢占过程</strong>。其中会用到MySQL的一些锁的特性。</li>
@@ -372,7 +368,6 @@
 </li>
 <li>MySQL在执行<strong>Select语句之前会加读锁</strong>，<strong>Delete、Update、Insert语句前会加写锁</strong>（悲观锁）。</li>
 </ul>
-<!-- raw HTML omitted -->
 <h4 id="实现方式">实现方式</h4>
 <p>隐式加锁</p>
 <ul>
@@ -419,7 +414,6 @@ set status=2,version=version+1
 where id=#{id} and version=#{version};
 </code></pre></li>
 </ul>
-<!-- raw HTML omitted -->
 <h4 id="优缺点">优缺点</h4>
 <ul>
 <li>对数据库依赖，存在
@@ -430,31 +424,25 @@ where id=#{id} and version=#{version};
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
 <h3 id="2-基于redis的分布式锁">2. 基于Redis的分布式锁</h3>
 <ul>
 <li><a href="https://juejin.cn/post/6844903717641142285">https://juejin.cn/post/6844903717641142285</a></li>
 </ul>
-<!-- raw HTML omitted -->
 <h4 id="实现原理-1">实现原理</h4>
 <ul>
 <li>Redis是<strong>单线程</strong>的，天生不需要做锁抢占</li>
 <li>通过其<code>set nx</code>命令可以实现<strong>加锁</strong>：当redis中不存在该key时返回成功，否则返回失败</li>
 <li>通过<code>px</code>命令，可以实现<strong>超时解锁</strong>：指定时间后做锁的释放</li>
 </ul>
-<!-- raw HTML omitted -->
 <h4 id="实现方式-1">实现方式</h4>
-<!-- raw HTML omitted -->
 <h5 id="基于redisson的实现">基于Redisson的实现</h5>
 <blockquote>
 <p>流程：客户端A向redis集群申请锁，redisson根据hash算法选择一个节点，并执行lua脚本加锁，lua脚本主要进行了以下步骤：【判断锁是否存在，不存在则setnx并且通过px命令添加超时时间，用于保证多个指令的原子性，防止程序运行到一半宕机导致的脏数据生成】。加锁成功后，redisson有watch dog机制，每隔一段时间去检测该锁的超时时间延长，防止业务还没执行完锁就被超时释放的情况。如果此时客户端B申请锁，发现锁被占用，则循环尝试不断加锁。待客户端A完成业务并通过lua脚本释放锁后，B获取锁。</p>
 </blockquote>
-<!-- raw HTML omitted -->
 <pre tabindex="0"><code>RLock lock = redisson.getLock(&#34;myLock&#34;);
 lock.lock();
 lock.unLock();
-</code></pre><!-- raw HTML omitted -->
-<p><strong>原理：</strong></p>
+</code></pre><p><strong>原理：</strong></p>
 <ul>
 <li>加锁：lua脚本加锁（key name，expire time，客户端Id）</li>
 <li>锁的互斥机制：单线程判断key是否存在</li>
@@ -472,27 +460,23 @@ watch dog的作用是什么？
 由于用户在设置锁的超时时间的时候，无法把握时间长短，可能会出现以下情况：业务还没执行完，锁就被释放了。为了解决这个问题，watch dog自动延期机制被开发出来，主要遵循以下原则：
 1. 每隔一段时间向redis服务器查看锁是否存在，存在则延长超时时间。
 2. 当用户的工作线程出错的时候，watch dog协程则会终止延时，保证锁会被超时释放。
-</code></pre><!-- raw HTML omitted -->
-<p><strong>优点：</strong></p>
+</code></pre><p><strong>优点：</strong></p>
 <ul>
 <li>分布式主从节点，避免单点故障</li>
 <li>锁的可重入性（每次进入会检查锁的客户端Id是否相同，相同则锁的数量+1，解锁的时候-1，直到0）</li>
 <li>基于内存的锁操作，性能更高。</li>
 <li>防死锁机制：超时解锁（watch dog做配对实现超时延时）</li>
 </ul>
-<!-- raw HTML omitted -->
 <p><strong>缺点</strong>：</p>
 <ul>
 <li>master节点如果来不及同步到slave就挂了，重新选举后会导致另外的客户端获取到该锁，及同个锁被多个用户获取，导致脏数据的产生。</li>
 </ul>
-<!-- raw HTML omitted -->
 <h5 id="基于redlock算法的实现">基于RedLock算法的实现</h5>
 <p>为了解决上述的同步问题，redis作者提出了基于RedLock算法的解决方案，大致内容如下（本质上是让多个节点上存储锁，redisson已经整合）：</p>
 <ol>
 <li>加锁的时候，RedLock算法会尝试在大多数节点上分别创建锁，假如节点总数为n，那么大多数节点指的是n/2+1。</li>
 <li>客户端计算成功建立完锁的时间，如果建锁时间小于超时时间，就可以判定锁创建成功。如果锁创建失败，则依次(遍历master节点)删除锁。</li>
 </ol>
-<!-- raw HTML omitted -->
 <h3 id="3-基于zookeeper的分布式锁">3. 基于Zookeeper的分布式锁</h3>
 <ul>
 <li><a href="https://juejin.cn/post/6844903729406148622">https://juejin.cn/post/6844903729406148622</a></li>
@@ -510,12 +494,10 @@ watch dog的作用是什么？
 <li>锁的互斥：zk线程安全的顺序发号器（不同客户端请求获取的锁序号不同，底层可能是加乐观锁或悲观锁）</li>
 <li>解锁：客户端完成业务后，删除序号（监听器会监听并通知下一个序号）。</li>
 </ul>
-<!-- raw HTML omitted -->
 <p><strong>常见问题</strong>：</p>
 <pre tabindex="0"><code>如果客户端宕机了，如何防止死锁？
 zk提供了防死锁机制，zk会监听客户端是否存活，如果监测到不存活则删除对应的序号。
-</code></pre><!-- raw HTML omitted -->
-<p><strong>优点</strong>：</p>
+</code></pre><p><strong>优点</strong>：</p>
 <ul>
 <li>主动通知客户端锁释放</li>
 <li>锁的可重入</li>
