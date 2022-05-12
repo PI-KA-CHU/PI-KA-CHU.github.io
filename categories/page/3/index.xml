@@ -5,10 +5,46 @@
     <link>https://PI-KA-CHU.github.io/categories/</link>
     <description>Recent content in Categories on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MySQL分表分库学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/</guid>
+      <description>一、写在前面 为什么要进行数据切分： 随着互联网应用的广泛普及，海量数据的存储和访问成为了系统设计的瓶颈问题。对于一个大型的互联网应用，每天几十</description>
+    </item>
+    
+    <item>
+      <title>IDEA远程连接Hadoop集群</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/idea%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5hadoop%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/idea%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5hadoop%E9%9B%86%E7%BE%A4/</guid>
+      <description>环境 服务器：CentOS 7 Hadoop版本：2.7.7 cli端：Windows 10 开发工具：intellij IDEA 连接前提 已成功创建Hadoop集</description>
+    </item>
+    
+    <item>
+      <title>Hadoop的设计目标及重要特性</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/hadoop%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E5%8F%8A%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Wed, 13 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/hadoop%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E5%8F%8A%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7/</guid>
+      <description>一、Hadoop 2.x的相关组件： HDFS（Hadop分布式文件系统）：负责分布式数据存储 NameNode：存储元信息，包括文件块的分块数量</description>
+    </item>
+    
+    <item>
+      <title>Hadoop平台的搭建</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</guid>
+      <description>一、搭建步骤 1. 服务器（Linux）环境准备 修改系统文件需要root权限，可通过以下命令获取 su root （回车后输入密码） 配置服务器的主机名称（Cen</description>
+    </item>
     
     <item>
       <title>MyBlog</title>
@@ -152,42 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/</guid>
       <description>一、操作系统的概念 操作系统是一组控制和管理计算机硬件资源和软件资源、合理组织计算机的工作流程，方便用户使用的程序的集合。 操作系统是裸机上的第</description>
-    </item>
-    
-    <item>
-      <title>分支限界法</title>
-      <link>https://PI-KA-CHU.github.io/2019/01/%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/</link>
-      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/</guid>
-      <description>分支限界法的性质 广度优先或最小耗费（最大效益）优先的方式搜索解空间树 先入先出队列式分支限界 优先队列式分支限界 分支限界法和回溯法的关系 搜索方式</description>
-    </item>
-    
-    <item>
-      <title>时间空间复杂度</title>
-      <link>https://PI-KA-CHU.github.io/2019/01/%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</link>
-      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/01/%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</guid>
-      <description>参考 https://blog.csdn.net/zolalad/article/details/11848739</description>
-    </item>
-    
-    <item>
-      <title>递归与分治</title>
-      <link>https://PI-KA-CHU.github.io/2019/01/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</link>
-      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/01/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</guid>
-      <description>一、分治法 分治法思想 将要解决的较大规模的问题不断地分割成更小规模的子问题，直到能够很容易地得到子问题的解。 对小规模的问题进行求解 将小问题的解</description>
-    </item>
-    
-    <item>
-      <title>动态规划</title>
-      <link>https://PI-KA-CHU.github.io/2019/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
-      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
-      <description>动态规划的基本步骤 1. 分析最优子结构 找出最优解的性质，并刻画其结构特征 2. 建立递归关系 递归地定义最优值 3. 计算最优值 以自底向上的方式计算出最优值（</description>
     </item>
     
   </channel>

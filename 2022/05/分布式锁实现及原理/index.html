@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        分布式锁实现及原理 - PI-KA-CHU&#39;s blog
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="基于数据库，Redis，Zookeeper" />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title>分布式锁实现及原理 - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="分布式锁实现及原理" />
+<meta property="og:description" content="基于数据库，Redis，Zookeeper" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2022/05/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%8E%9F%E7%90%86/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-09T00:00:00+00:00" />
+
+<meta itemprop="name" content="分布式锁实现及原理">
+<meta itemprop="description" content="基于数据库，Redis，Zookeeper"><meta itemprop="datePublished" content="2022-05-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-05-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2779">
+<meta itemprop="keywords" content="分布式,redis,mysql," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="分布式锁实现及原理"/>
+<meta name="twitter:description" content="基于数据库，Redis，Zookeeper"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">95</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/java/" class="category-list-link">java</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">16</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" class="category-list-link">个人成长</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-list-link">中间件</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%85%B6%E4%BB%96/" class="category-list-link">其他</a><span class="category-list-count">9</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="category-list-link">基础理论</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4/" class="category-list-link">开发运维</a><span class="category-list-count">16</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-list-link">数据库</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/" class="category-list-link">算法</a><span class="category-list-count">6</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%89%E5%85%A8/" class="tag-list-link">安全</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">12</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" class="tag-list-link">疑难杂症</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E9%83%A8%E7%BD%B2%E5%B7%A5%E5%85%B7/" class="tag-list-link">部署工具</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/05/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1/" class="title">程序员的工具包</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-05-11 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-11</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/05/%E5%8F%8D%E5%86%85%E8%80%97%E5%81%9C%E6%AD%A2%E5%BF%83%E7%90%86%E5%86%85%E8%80%97%E6%89%8D%E8%83%BD%E5%8F%98%E6%9B%B4%E5%BC%BA/" class="title">反内耗：停止心理内耗才能变更强</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-05-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-10</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/05/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%8E%9F%E7%90%86/" class="title">分布式锁实现及原理</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-05-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-09</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="title">hugo &#43; github编写个人博客</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-05-06 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-06</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/" class="title">MySQL执行一条语句的过程</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-03-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-03-10</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2022/05/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%8E%9F%E7%90%86/"
+    >分布式锁实现及原理</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://PI-KA-CHU.github.io/2022/05/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%8E%9F%E7%90%86/" class="article-date">
+  <time datetime="2022-05-09 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-05-09</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/it/"> it </a>
+  <a class="article-category-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"> 中间件 </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"> 分布式 </a>
+    <a class="article-tag-link" href="/tags/redis/"> redis </a>
+    <a class="article-tag-link" href="/tags/mysql/"> mysql </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2779字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h2 id="一分布式锁的原理">一、分布式锁的原理</h2>
+<p><strong>场景</strong>：多实例的代码块同步（单实例通信基于本机环境，多实例通信借助第三方）</p>
+<p>​		锁通常用于做代码块的<strong>同步</strong>，保证同段代码在<strong>多线程</strong>情况下同一时间只能被一个线程执行。Java中用于锁操作的有<strong>Synchronize</strong>和<strong>ReentranLock</strong>，但是两者都是基于单机应用的情况下使用，对于分布式系统，同个服务会有多个实例被启动（例如多实例下保证单个定时任务执行），那么对于这种场景下的代码块同步就不能按常规处理，只能借助第三方让各个实例进行通信，进而达到锁的控制效果，目前分布式锁常见的实现方式有：<strong>基于数据库行锁</strong>、<strong>基于Redis锁</strong>、<strong>基于Zookeeper锁</strong>。</p>
+<p><strong>流程</strong>：多实例做锁的抢占，<strong>加锁</strong>成功的获取到锁并执行相关代码块，此时其他实例获取锁失败，完成操作后<strong>解锁</strong>。</p>
+<h2 id="二分布式锁的实现方案及优缺点">二、分布式锁的实现方案及优缺点</h2>
+<blockquote>
+<p><strong>临界知识</strong>：</p>
+<ul>
+<li>分布式锁本质上就是多实例的锁抢占问题。</li>
+</ul>
+</blockquote>
+<h3 id="1-基于数据库的分布式锁">1. 基于数据库的分布式锁</h3>
+<h4 id="实现原理">实现原理</h4>
+<ul>
+<li>分布式锁在MySQL上的体现本质上就是<strong>多实例间基于数据库表的锁抢占过程</strong>。其中会用到MySQL的一些锁的特性。</li>
+<li>MySQL有哪些锁？
+<ul>
+<li>按照锁的粒度分有：<strong>行锁</strong>和<strong>表锁</strong>（都是悲观锁）。InnoDB支持两者，MyIsam只支持表锁。<strong>行锁是基于索引进行的</strong>，如果查询没走索引，则说明需要进行全表扫描，加的也是表锁。</li>
+<li>按照锁的功能分有：读锁（共享锁）和写锁（排他锁）。</li>
+<li>按照锁的实现方式分有：悲观锁和乐观锁。</li>
+</ul>
+</li>
+<li>MySQL在执行<strong>Select语句之前会加读锁</strong>，<strong>Delete、Update、Insert语句前会加写锁</strong>（悲观锁）。</li>
+</ul>
+<h4 id="实现方式">实现方式</h4>
+<p>隐式加锁</p>
+<ul>
+<li>基于数据库表：直接创建一张表
+<ul>
+<li>加锁：向表中插入一条数据（主键或唯一键），插入成功则说明获取到锁。</li>
+<li>解锁：删除该行数据</li>
+</ul>
+</li>
+</ul>
+<p>显式加锁</p>
+<ul>
+<li>
+<p>悲观锁：在SQL语句中显式做锁竞争</p>
+<ul>
+<li>加锁：在语句后面 + for update修改锁状态，修改成功则锁抢占成功</li>
+<li>解锁：将锁状态修改回来</li>
+</ul>
+<pre tabindex="0"><code>// 在同个事务中for update的锁会一直持有，该例子只是单实例加锁演示，但是for update确实可以用于锁的抢占。
+
+//0.开始事务
+begin;/begin work;/start transaction; (三者选一就可以)
+//1.查询出商品信息
+select status from t_goods where id=1 for update;
+//2.根据商品信息生成订单
+insert into t_orders (id,goods_id) values (null,1);
+//3.修改商品status为2
+update t_goods set status=2;
+//4.提交事务
+commit;/commit work;
+</code></pre></li>
+<li>
+<p>乐观锁：在SQL语句中显式做锁竞争</p>
+<ul>
+<li>加锁：update并修改锁状态成功则说明锁抢占成功。（用于做锁抢占的语句本质上没有加锁，不过每次都会校验当前版本，版本号不同则回滚。）</li>
+<li>解锁：将锁状态改回则解锁成功</li>
+</ul>
+<pre tabindex="0"><code>1.查询出商品信息
+select (status,status,version) from t_goods where id=#{id}
+2.根据商品信息生成订单
+3.修改商品status为2
+update t_goods 
+set status=2,version=version+1
+where id=#{id} and version=#{version};
+</code></pre></li>
+</ul>
+<h4 id="优缺点">优缺点</h4>
+<ul>
+<li>对数据库依赖，存在
+<ul>
+<li>单点故障</li>
+<li>不走索引时行锁会变表锁，导致并发性能降低</li>
+<li>锁不可以重入</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-基于redis的分布式锁">2. 基于Redis的分布式锁</h3>
+<ul>
+<li><a href="https://juejin.cn/post/6844903717641142285">https://juejin.cn/post/6844903717641142285</a></li>
+</ul>
+<h4 id="实现原理-1">实现原理</h4>
+<ul>
+<li>Redis是<strong>单线程</strong>的，天生不需要做锁抢占</li>
+<li>通过其<code>set nx</code>命令可以实现<strong>加锁</strong>：当redis中不存在该key时返回成功，否则返回失败</li>
+<li>通过<code>px</code>命令，可以实现<strong>超时解锁</strong>：指定时间后做锁的释放</li>
+</ul>
+<h4 id="实现方式-1">实现方式</h4>
+<h5 id="基于redisson的实现">基于Redisson的实现</h5>
+<blockquote>
+<p>流程：客户端A向redis集群申请锁，redisson根据hash算法选择一个节点，并执行lua脚本加锁，lua脚本主要进行了以下步骤：【判断锁是否存在，不存在则setnx并且通过px命令添加超时时间，用于保证多个指令的原子性，防止程序运行到一半宕机导致的脏数据生成】。加锁成功后，redisson有watch dog机制，每隔一段时间去检测该锁的超时时间延长，防止业务还没执行完锁就被超时释放的情况。如果此时客户端B申请锁，发现锁被占用，则循环尝试不断加锁。待客户端A完成业务并通过lua脚本释放锁后，B获取锁。</p>
+</blockquote>
+<pre tabindex="0"><code>RLock lock = redisson.getLock(&#34;myLock&#34;);
+lock.lock();
+lock.unLock();
+</code></pre><p><strong>原理：</strong></p>
+<ul>
+<li>加锁：lua脚本加锁（key name，expire time，客户端Id）</li>
+<li>锁的互斥机制：单线程判断key是否存在</li>
+<li>解锁：lua脚本解锁（key name）</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images16730ecd592f41e3%7Etplv-t2oaga2asx-zoom-in-crop-mark%3A1304%3A0%3A0%3A0.awebp" alt="img"></p>
+<p><strong>常见问题</strong>：</p>
+<pre tabindex="0"><code>lua脚本是的作用是什么？
+由于Redis的setnx命令和px命令不是原子性的，如果setnx成功而px失败，则会导致锁一直存在。lua脚本就是为了保证多条命令的原子性。
+
+lua脚本的本质是什么？
+lua脚本本质上类似于开启了事物，跟MySQL开启事物类似，从客户端的角度上看，就是只有完全执行成功的脚本命令才可见，执行一半是不可见的（隔离级别：已提交读。
+
+watch dog的作用是什么？
+由于用户在设置锁的超时时间的时候，无法把握时间长短，可能会出现以下情况：业务还没执行完，锁就被释放了。为了解决这个问题，watch dog自动延期机制被开发出来，主要遵循以下原则：
+1. 每隔一段时间向redis服务器查看锁是否存在，存在则延长超时时间。
+2. 当用户的工作线程出错的时候，watch dog协程则会终止延时，保证锁会被超时释放。
+</code></pre><p><strong>优点：</strong></p>
+<ul>
+<li>分布式主从节点，避免单点故障</li>
+<li>锁的可重入性（每次进入会检查锁的客户端Id是否相同，相同则锁的数量+1，解锁的时候-1，直到0）</li>
+<li>基于内存的锁操作，性能更高。</li>
+<li>防死锁机制：超时解锁（watch dog做配对实现超时延时）</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>master节点如果来不及同步到slave就挂了，重新选举后会导致另外的客户端获取到该锁，及同个锁被多个用户获取，导致脏数据的产生。</li>
+</ul>
+<h5 id="基于redlock算法的实现">基于RedLock算法的实现</h5>
+<p>为了解决上述的同步问题，redis作者提出了基于RedLock算法的解决方案，大致内容如下（本质上是让多个节点上存储锁，redisson已经整合）：</p>
+<ol>
+<li>加锁的时候，RedLock算法会尝试在大多数节点上分别创建锁，假如节点总数为n，那么大多数节点指的是n/2+1。</li>
+<li>客户端计算成功建立完锁的时间，如果建锁时间小于超时时间，就可以判定锁创建成功。如果锁创建失败，则依次(遍历master节点)删除锁。</li>
+</ol>
+<h3 id="3-基于zookeeper的分布式锁">3. 基于Zookeeper的分布式锁</h3>
+<ul>
+<li><a href="https://juejin.cn/post/6844903729406148622">https://juejin.cn/post/6844903729406148622</a></li>
+<li><a href="https://www.cnblogs.com/crazymakercircle/p/14504520.html">https://www.cnblogs.com/crazymakercircle/p/14504520.html</a></li>
+</ul>
+<blockquote>
+<p>流程：（Curator框架整合了zk）</p>
+<p>客户端A向Zookeeper申请锁，此时zookeeper会创建一个用于发号的锁节点，zk会在该节点下维护循序的序号，每个来申请锁的客户端都会依次获得一个序号，获得序号后，客户端会来查看自己的序号是否是最小的序号，如果是则<strong>加锁</strong>成功。</p>
+<p>如果此时客户端B申请锁，同样或许序号后发现自己的序号不是最小序号，则会创建一个监听器，监听上一个序号是否被删除等变化，如果该序号被删除（客户端A完成业务后删除序号<strong>释放锁</strong>），则会通知客户端B。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images/1676531f71973f37%7Etplv-t2oaga2asx-zoom-in-crop-mark%3A1304%3A0%3A0%3A0.awebp" alt="img"></p>
+<p><strong>原理</strong>：</p>
+<ul>
+<li>加锁：zk发号器发放顺序序号并且发放的序号为最小序号，则加锁成功</li>
+<li>锁的互斥：zk线程安全的顺序发号器（不同客户端请求获取的锁序号不同，底层可能是加乐观锁或悲观锁）</li>
+<li>解锁：客户端完成业务后，删除序号（监听器会监听并通知下一个序号）。</li>
+</ul>
+<p><strong>常见问题</strong>：</p>
+<pre tabindex="0"><code>如果客户端宕机了，如何防止死锁？
+zk提供了防死锁机制，zk会监听客户端是否存活，如果监测到不存活则删除对应的序号。
+</code></pre><p><strong>优点</strong>：</p>
+<ul>
+<li>主动通知客户端锁释放</li>
+<li>锁的可重入</li>
+<li>防死锁机制：监听客户端是否存活，如果不存活则删除对应的锁序号。</li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2022/05/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%8E%9F%E7%90%86/" title="分布式锁实现及原理" target="_blank" rel="external">https://PI-KA-CHU.github.io/2022/05/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%8E%9F%E7%90%86/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="hugo &#43; github编写个人博客"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2022/05/%E5%8F%8D%E5%86%85%E8%80%97%E5%81%9C%E6%AD%A2%E5%BF%83%E7%90%86%E5%86%85%E8%80%97%E6%89%8D%E8%83%BD%E5%8F%98%E6%9B%B4%E5%BC%BA/"
+                    title="反内耗：停止心理内耗才能变更强"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

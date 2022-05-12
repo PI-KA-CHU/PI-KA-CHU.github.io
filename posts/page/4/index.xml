@@ -5,10 +5,46 @@
     <link>https://PI-KA-CHU.github.io/posts/</link>
     <description>Recent content in Posts on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>分支限界法</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/</guid>
+      <description>分支限界法的性质 广度优先或最小耗费（最大效益）优先的方式搜索解空间树 先入先出队列式分支限界 优先队列式分支限界 分支限界法和回溯法的关系 搜索方式</description>
+    </item>
+    
+    <item>
+      <title>时间空间复杂度</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</guid>
+      <description>参考 https://blog.csdn.net/zolalad/article/details/11848739</description>
+    </item>
+    
+    <item>
+      <title>递归与分治</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</guid>
+      <description>一、分治法 分治法思想 将要解决的较大规模的问题不断地分割成更小规模的子问题，直到能够很容易地得到子问题的解。 对小规模的问题进行求解 将小问题的解</description>
+    </item>
+    
+    <item>
+      <title>动态规划</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>动态规划的基本步骤 1. 分析最优子结构 找出最优解的性质，并刻画其结构特征 2. 建立递归关系 递归地定义最优值 3. 计算最优值 以自底向上的方式计算出最优值（</description>
+    </item>
     
     <item>
       <title>回溯法</title>
@@ -152,42 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2018/12/slf4j--log4j%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E9%85%8D%E7%BD%AE/</guid>
       <description>slf4j简介 slf4j是一套包装Logging 框架的界面程式，以外观模式实现。可以在软件部署的时候决定要使用的 Logging 框架，目前主要支援的有Ja</description>
-    </item>
-    
-    <item>
-      <title>Java-Taglib总结</title>
-      <link>https://PI-KA-CHU.github.io/2018/12/java-taglib%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2018/12/java-taglib%E6%80%BB%E7%BB%93/</guid>
-      <description>JSTL依赖包下载（本人使用1.1.2版本） https://archive.apache.org/dist/jakarta/taglibs/standard/binaries/ 使用流程： 将依赖包中lib文件夹下的jstl和standard的jar包导入项目 在JSP头部引</description>
-    </item>
-    
-    <item>
-      <title>MySQL索引的建立及优化</title>
-      <link>https://PI-KA-CHU.github.io/2018/12/mysql%E7%B4%A2%E5%BC%95%E7%9A%84%E5%BB%BA%E7%AB%8B%E5%8F%8A%E4%BC%98%E5%8C%96/</link>
-      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2018/12/mysql%E7%B4%A2%E5%BC%95%E7%9A%84%E5%BB%BA%E7%AB%8B%E5%8F%8A%E4%BC%98%E5%8C%96/</guid>
-      <description>索引对查询有着重要的作用，对索引的认识是进行数据库性能提升的起点，数据库的优化一般是从两个方面，第一个是对SQL语句进行优化，第二是优化数据</description>
-    </item>
-    
-    <item>
-      <title>免费文档下载工具</title>
-      <link>https://PI-KA-CHU.github.io/2018/12/%E5%85%8D%E8%B4%B9%E6%96%87%E6%A1%A3%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/</link>
-      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2018/12/%E5%85%8D%E8%B4%B9%E6%96%87%E6%A1%A3%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7/</guid>
-      <description>百度，豆丁和道客巴巴都有不少优秀的文档，但大部分下载都需要积分或者充钱，下面推荐的是一款免费下载的，不过下载的是PDF和text文件，没有原</description>
-    </item>
-    
-    <item>
-      <title>JAVA反射技术</title>
-      <link>https://PI-KA-CHU.github.io/2018/12/java%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF/</link>
-      <pubDate>Tue, 11 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2018/12/java%E5%8F%8D%E5%B0%84%E6%8A%80%E6%9C%AF/</guid>
-      <description>参考： https://www.jianshu.com/p/104aa6e2342d https://www.jianshu.com/p/2315dda64ad2 Java反射的原理 Java反射机制可以让我们在编译期（Compile Time）之外的运行期（Runtime）获得任何一个类的字节码</description>
     </item>
     
   </channel>

@@ -5,10 +5,37 @@
     <link>https://PI-KA-CHU.github.io/tags/redis/</link>
     <description>Recent content in redis on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 26 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>程序员的工具包</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1/</guid>
+      <description>一、Tools JSON JSON验证解析、ToBean转换：https://www.json.cn/json/json2java.html 二、Uti</description>
+    </item>
+    
+    <item>
+      <title>反内耗：停止心理内耗才能变更强</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E5%8F%8D%E5%86%85%E8%80%97%E5%81%9C%E6%AD%A2%E5%BF%83%E7%90%86%E5%86%85%E8%80%97%E6%89%8D%E8%83%BD%E5%8F%98%E6%9B%B4%E5%BC%BA/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E5%8F%8D%E5%86%85%E8%80%97%E5%81%9C%E6%AD%A2%E5%BF%83%E7%90%86%E5%86%85%E8%80%97%E6%89%8D%E8%83%BD%E5%8F%98%E6%9B%B4%E5%BC%BA/</guid>
+      <description>真正厉害的人，都是“反内耗”体质，只有停止心理内耗，这样才会一步步变强。很多人抱怨开发越来越卷，而实际上多数人的卷来源自己的&amp;rsquo;内</description>
+    </item>
+    
+    <item>
+      <title>分布式锁实现及原理</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%8E%9F%E7%90%86/</guid>
+      <description>一、分布式锁的原理 场景：多实例的代码块同步（单实例通信基于本机环境，多实例通信借助第三方） ​ 锁通常用于做代码块的同步，保证同段代码在多线程情</description>
+    </item>
     
     <item>
       <title>hugo &#43; github编写个人博客</title>
@@ -16,7 +43,7 @@
       <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>hugo + github编写个人博客 https://blog.csdn.net/qq_41136216/article/details/112674327 搭建流程： 下载hugo，并配置环境变量 mac下载通过brew install hugo命令下载，如果失败，则直接到Hugo gi</description>
+      <description>1. hugo + github搭建个人博客 https://blog.csdn.net/qq_41136216/article/details/112674327 搭建流程： 下载hugo，并配置环境变量 mac下载通过brew install hugo命令下载，如果失败，则直接到Hugo g</description>
     </item>
     
     <item>
@@ -26,6 +53,15 @@
       
       <guid>https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</guid>
       <description>https://www.pdai.tech/md/db/sql-mysql/sql-mysql-execute.html bin log三种模式的区别 https://blog.csdn.net/keda8997110/article/details/50895171 row：记录具体的行被修改的内容。优点是记录清晰，复制完整；缺点是日志量较大。 statement：记录的是执行的S</description>
+    </item>
+    
+    <item>
+      <title>Spring高级应用</title>
+      <link>https://PI-KA-CHU.github.io/2021/12/spring%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</link>
+      <pubDate>Tue, 07 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2021/12/spring%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</guid>
+      <description>Spring Boot 当前项目扫描不到通用包的Component 解决：在Application类添加包扫描注解 @ComponentScan(&amp;#34;com.feida.*&amp;#34;) public class UserManagementServiceApplication { public static void main(String[] args) { SpringApplication.run(UserManagementServiceApplication.class, args); } }</description>
     </item>
     
     <item>
@@ -152,42 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</guid>
       <description>一、概念 镜像的定制实际就是定制每一层所添加的配置、文件。如果我们把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜</description>
-    </item>
-    
-    <item>
-      <title>Docker实战：1、安装及常见命令</title>
-      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</link>
-      <pubDate>Sat, 17 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</guid>
-      <description>一、Docker安装（Centos7） 1、Docker要求Centos内核要高于3.10，所以首先应该检查是否满足要求（如果是本地虚拟机，需</description>
-    </item>
-    
-    <item>
-      <title>Oozie学习（定时任务）</title>
-      <link>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
-      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
-      <description>一、Oozie的定时任务方式 1.1 官方定义 1.2 corntab方式 二、编写定时任务 2.1 代码编写 job.properties nameNode=hdfs://hh:8020 jobTracker=hh:8032 queueName=qcpj_access_log_queue examplesRoot=accessLogAnalyze # workflow参数为 oozie.wf.application.path oozie.coord.application.path=${nameNode}/oozie/workflows/qcpj/${examplesRoot} start=2019-08-05T23:00+0800 end=2099-08-05T23:30+0800 workflowAppUri=${nameNode}/oozie/workflows/qcpj/${examplesRoot} workflow.xml &amp;lt;workflow-app name=&amp;#39;qcpj_accessLog_analyze&amp;#39; xmlns=&amp;#34;uri:oozie:workflow:0.3&amp;#34;&amp;gt; &amp;lt;start to=&amp;#34;accessLogAnalyze&amp;#34;/&amp;gt;</description>
-    </item>
-    
-    <item>
-      <title>MySQL事务隔离级别及Spring事务管理</title>
-      <link>https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/</link>
-      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/</guid>
-      <description>一、MySQL事务隔离级别 1.1、未提交读（read uncommitted） 特点：事务A执行修改语句，但是事务未结束，此时事务B可以读取事务</description>
-    </item>
-    
-    <item>
-      <title>Oozie学习（基本任务）</title>
-      <link>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1/</link>
-      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1/</guid>
-      <description>一、oozie组件 Workflow：工作流（流程图） 常用结点： 控制流结点（Control Flow Nodes） start、end、kill、分支、合</description>
     </item>
     
   </channel>

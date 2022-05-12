@@ -5,10 +5,46 @@
     <link>https://PI-KA-CHU.github.io/categories/</link>
     <description>Recent content in Categories on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 06 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker实战：1、安装及常见命令</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sat, 17 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</guid>
+      <description>一、Docker安装（Centos7） 1、Docker要求Centos内核要高于3.10，所以首先应该检查是否满足要求（如果是本地虚拟机，需</description>
+    </item>
+    
+    <item>
+      <title>Oozie学习（定时任务）</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <description>一、Oozie的定时任务方式 1.1 官方定义 1.2 corntab方式 二、编写定时任务 2.1 代码编写 job.properties nameNode=hdfs://hh:8020 jobTracker=hh:8032 queueName=qcpj_access_log_queue examplesRoot=accessLogAnalyze # workflow参数为 oozie.wf.application.path oozie.coord.application.path=${nameNode}/oozie/workflows/qcpj/${examplesRoot} start=2019-08-05T23:00+0800 end=2099-08-05T23:30+0800 workflowAppUri=${nameNode}/oozie/workflows/qcpj/${examplesRoot} workflow.xml &amp;lt;workflow-app name=&amp;#39;qcpj_accessLog_analyze&amp;#39; xmlns=&amp;#34;uri:oozie:workflow:0.3&amp;#34;&amp;gt; &amp;lt;start to=&amp;#34;accessLogAnalyze&amp;#34;/&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>MySQL事务隔离级别及Spring事务管理</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/</guid>
+      <description>一、MySQL事务隔离级别 1.1、未提交读（read uncommitted） 特点：事务A执行修改语句，但是事务未结束，此时事务B可以读取事务</description>
+    </item>
+    
+    <item>
+      <title>Oozie学习（基本任务）</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1/</guid>
+      <description>一、oozie组件 Workflow：工作流（流程图） 常用结点： 控制流结点（Control Flow Nodes） start、end、kill、分支、合</description>
+    </item>
     
     <item>
       <title>Docker的基本概念</title>
@@ -152,42 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/03/hbase%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%88%86%E6%9E%90/</guid>
       <description>Hbase简介 HBase利用Hadoop的HDFS作为其文件存储系统，提供高可靠性、高性能、列存储，可伸缩、实时读写的分布式的数据库系统，利</description>
-    </item>
-    
-    <item>
-      <title>MySQL分表分库学习</title>
-      <link>https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/</link>
-      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/</guid>
-      <description>一、写在前面 为什么要进行数据切分： 随着互联网应用的广泛普及，海量数据的存储和访问成为了系统设计的瓶颈问题。对于一个大型的互联网应用，每天几十</description>
-    </item>
-    
-    <item>
-      <title>IDEA远程连接Hadoop集群</title>
-      <link>https://PI-KA-CHU.github.io/2019/03/idea%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5hadoop%E9%9B%86%E7%BE%A4/</link>
-      <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/03/idea%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5hadoop%E9%9B%86%E7%BE%A4/</guid>
-      <description>环境 服务器：CentOS 7 Hadoop版本：2.7.7 cli端：Windows 10 开发工具：intellij IDEA 连接前提 已成功创建Hadoop集</description>
-    </item>
-    
-    <item>
-      <title>Hadoop的设计目标及重要特性</title>
-      <link>https://PI-KA-CHU.github.io/2019/03/hadoop%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E5%8F%8A%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7/</link>
-      <pubDate>Wed, 13 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/03/hadoop%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E5%8F%8A%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7/</guid>
-      <description>一、Hadoop 2.x的相关组件： HDFS（Hadop分布式文件系统）：负责分布式数据存储 NameNode：存储元信息，包括文件块的分块数量</description>
-    </item>
-    
-    <item>
-      <title>Hadoop平台的搭建</title>
-      <link>https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</link>
-      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</guid>
-      <description>一、搭建步骤 1. 服务器（Linux）环境准备 修改系统文件需要root权限，可通过以下命令获取 su root （回车后输入密码） 配置服务器的主机名称（Cen</description>
     </item>
     
   </channel>
