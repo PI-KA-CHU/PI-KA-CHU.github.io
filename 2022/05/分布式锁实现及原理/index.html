@@ -348,6 +348,8 @@
 <p><strong>场景</strong>：多实例的代码块同步（单实例通信基于本机环境，多实例通信借助第三方）</p>
 <p>​		锁通常用于做代码块的<strong>同步</strong>，保证同段代码在<strong>多线程</strong>情况下同一时间只能被一个线程执行。Java中用于锁操作的有<strong>Synchronize</strong>和<strong>ReentranLock</strong>，但是两者都是基于单机应用的情况下使用，对于分布式系统，同个服务会有多个实例被启动（例如多实例下保证单个定时任务执行），那么对于这种场景下的代码块同步就不能按常规处理，只能借助第三方让各个实例进行通信，进而达到锁的控制效果，目前分布式锁常见的实现方式有：<strong>基于数据库行锁</strong>、<strong>基于Redis锁</strong>、<strong>基于Zookeeper锁</strong>。</p>
 <p><strong>流程</strong>：多实例做锁的抢占，<strong>加锁</strong>成功的获取到锁并执行相关代码块，此时其他实例获取锁失败，完成操作后<strong>解锁</strong>。</p>
+<p> </p>
+<p> </p>
 <h2 id="二分布式锁的实现方案及优缺点">二、分布式锁的实现方案及优缺点</h2>
 <blockquote>
 <p><strong>临界知识</strong>：</p>
