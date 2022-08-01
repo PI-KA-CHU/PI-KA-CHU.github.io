@@ -39,7 +39,7 @@
 <meta itemprop="name" content="JVM">
 <meta itemprop="description" content=" JMM、GC、OOM"><meta itemprop="datePublished" content="2018-10-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2018-10-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="8133">
+<meta itemprop="wordCount" content="8119">
 <meta itemprop="keywords" content="jvm," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JVM"/>
 <meta name="twitter:description" content=" JMM、GC、OOM"/>
@@ -368,17 +368,19 @@
     <a class="article-tag-link" href="/tags/jvm/"> jvm </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 8133字</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 8119字</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 17分 </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <p> </p>
-<p>目标：</p>
+<blockquote>
+<p>大厂问题：</p>
 <ul>
 <li>哪些区域会发生OOM异常？</li>
 <li>垃圾回收器有哪些？</li>
 </ul>
+</blockquote>
 <p> </p>
 <h2 id="一jmm模型">一、JMM模型</h2>
 <p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/imagesimage-20220622231028306.png" alt="image-20220622231028306"></p>
@@ -559,14 +561,14 @@
 <ul>
 <li><strong>Unexpected GC</strong>：意外发生的 GC，实际上不需要发生，我们可以通过一些手段去避免。
 <ul>
-<li>**Space Shock：**空间震荡问题，参见“场景一：动态扩容引起的空间震荡”。</li>
-<li>**Explicit GC：**显示执行 GC 问题，参见“场景二：显式 GC 的去与留”。</li>
+<li><strong>Space Shock</strong>：空间震荡问题，参见“场景一：动态扩容引起的空间震荡”。</li>
+<li><strong>Explicit GC</strong>：显示执行 GC 问题，参见“场景二：显式 GC 的去与留”。</li>
 </ul>
 </li>
 <li><strong>Full GC</strong>：全量收集的 GC，对整个堆进行回收，STW 时间会比较长，一旦发生，影响较大。参见“场景七：内存碎片&amp;收集器退化”。</li>
-<li>**MetaSpace：**元空间回收引发问题，参见“场景三：MetaSpace 区 OOM”。</li>
-<li>**Direct Memory：**直接内存（也可以称作为堆外内存）回收引发问题，参见“场景八：堆外内存 OOM”。</li>
-<li>**JNI：**本地 Native 方法引发问题，参见“场景九：JNI 引发的 GC 问题”。</li>
+<li><strong>MetaSpace</strong>：元空间回收引发问题，参见“场景三：MetaSpace 区 OOM”。</li>
+<li><strong>Direct Memory</strong>：直接内存（也可以称作为堆外内存）回收引发问题，参见“场景八：堆外内存 OOM”。</li>
+<li><strong>JNI</strong>：本地 Native 方法引发问题，参见“场景九：JNI 引发的 GC 问题”。</li>
 </ul>
 <h4 id="常见场景分析与解决">常见场景分析与解决</h4>
 <p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images640-20220622235843314.png" alt="图片"></p>
@@ -588,8 +590,8 @@
 <li><strong>现象</strong>：JVM 在启动后或者某个时间点开始，<strong>MetaSpace 的已使用大小在持续增长，同时每次 GC 也无法释放，调大 MetaSpace 空间也无法彻底解决</strong></li>
 <li><strong>原因</strong>：
 <ul>
-<li>**MetaSpace 内存管理：**类和其元数据的生命周期与其对应的类加载器相同，只要类的类加载器是存活的，在 Metaspace 中的类元数据也是存活的，不能被回收</li>
-<li><strong>MetaSpace 弹性伸缩：<strong>由于 MetaSpace 空间和 Heap 并不在一起，所以这块的空间可以不用设置或者单独设置，一般情况下避免 MetaSpace 耗尽 VM 内存都会设置一个 MaxMetaSpaceSize，在运行过程中，如果实际大小小于这个值，JVM会动态调整其大小。为了避免弹性伸缩带来的额外 GC 消耗，我们会将 <code>-XX:MetaSpaceSize</code> 和 <code>-XX:MaxMetaSpaceSize</code>两个值设置为固定的，但是这样也会导致在空间不够的时候无法扩容，然后频繁地触发 GC，最终 OOM。所以关键原因就是 ClassLoader 不停地在内存中 load 了新的 Class ，一般这种问题都发生在</strong>动态类加载</strong>等情况上</li>
+<li><strong>MetaSpace 内存管理</strong>：类和其元数据的生命周期与其对应的类加载器相同，只要类的类加载器是存活的，在 Metaspace 中的类元数据也是存活的，不能被回收</li>
+<li><strong>MetaSpace 弹性伸缩</strong>：由于 MetaSpace 空间和 Heap 并不在一起，所以这块的空间可以不用设置或者单独设置，一般情况下避免 MetaSpace 耗尽 VM 内存都会设置一个 MaxMetaSpaceSize，在运行过程中，如果实际大小小于这个值，JVM会动态调整其大小。为了避免弹性伸缩带来的额外 GC 消耗，我们会将 <code>-XX:MetaSpaceSize</code> 和 <code>-XX:MaxMetaSpaceSize</code>两个值设置为固定的，但是这样也会导致在空间不够的时候无法扩容，然后频繁地触发 GC，最终 OOM。所以关键原因就是 ClassLoader 不停地在内存中 load 了新的 Class ，一般这种问题都发生在<strong>动态类加载</strong>等情况上</li>
 </ul>
 </li>
 <li><strong>策略</strong>：了解MetaSpace的内存管理后，如何定位和解决就很简单了，可以 dump 快照之后通过 JProfiler 或 MAT 观察 Classes 的 Histogram（直方图） 即可，或者直接通过命令即可定位，看一下具体是哪个包下的 <strong>Class 增加</strong>较多就可以定位了</li>
@@ -682,15 +684,13 @@
 </ul>
 </li>
 <li>
-<p>策略：</p>
-<ul>
+<p><strong>策略</strong>：</p>
+</li>
 <li>
 <p>策略一：JVM 使用 <code>-XX:MaxDirectMemorySize=size</code> 参数来控制可申请的堆外内存的最大值。在 Java 8 中，如果未配置该参数，默认和 <code>-Xmx</code> 相等。可以通过 Debug 的方式确定使用堆外内存的地方是否正确执行了释放内存的代码。另外，需要检查 JVM 的参数是否有 <code>-XX:+DisableExplicitGC</code> 选项，如果有就去掉，因为该参数会使 System.gc 失效。（场景二：显式 GC 的去与留）</p>
 </li>
 <li>
 <p>策略二：Google perftools（统计调用 malloc 时进行内存分配的情况） + Btrace（对线上的Java调用栈进行追踪喝监控）工具进行分析，</p>
-</li>
-</ul>
 </li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images640-20220622224641446.png" alt="图片"></p>
