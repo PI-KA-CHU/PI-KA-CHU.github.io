@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>websocket on PI-KA-CHU&#39;s blog</title>
+    <link>https://PI-KA-CHU.github.io/tags/websocket/</link>
+    <description>Recent content in websocket on PI-KA-CHU&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 28 Jun 2022 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://PI-KA-CHU.github.io/tags/websocket/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>网易案例分析</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/</link>
+      <pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/</guid>
+      <description>常见响应码 3XX（重定向） 301：永久重定向 308：临时重定向 4XX（客户端问题） 400：缺少参数 401：没有权限 403：Forbidden</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot整合redis</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/springcloud%E6%95%B4%E5%90%88websocket/</link>
+      <pubDate>Tue, 28 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/springcloud%E6%95%B4%E5%90%88websocket/</guid>
+      <description>SpringCloud整合WebSocket https://blog.csdn.net/moshowgame/article/details/80275084 个人探索版 整合websocket可能遇到的问题： 功能上：可行 什么时候主动推送事件？如果是有事件</description>
+    </item>
+    
+    <item>
+      <title>Kafka常见问题解析</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/kafka%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/kafka%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/</guid>
+      <description>一、顺序消费 Kafka是如何消费消息的 Kafka消费线程模型：https://juejin.cn/post/6906843890607718</description>
+    </item>
+    
+    <item>
+      <title>高并发场景库存处理方案</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF%E5%BA%93%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF%E5%BA%93%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/</guid>
+      <description>场景： https://juejin.cn/post/6844904030158716941#comment https://juejin.cn/post/6844903719318847495 停车位区域剩余车位数量更新，当有车辆进入停车区域，需要更新剩余停车位数量。 商品库存，高并发更新的情况下， 如果是直接做数量扣除，直接</description>
+    </item>
+    
+    <item>
+      <title>程序员的工具包</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>Windows 命令行 查找端口运行的线程： netstat -ano | findstr &amp;#34;9910&amp;#34; 删除指定pid的线程 taskkill -f -pid 27541 查看某进程占用端口号 打开任务管理，查看某进程的pid 查看进程中cms命令的</description>
+    </item>
+    
+    <item>
+      <title>Go入门学习</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/go%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/go%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Go学习资料 Go语言高级编程：https://chai2010.cn/advanced-go-programming-book/ch1-ba</description>
+    </item>
+    
+    <item>
+      <title>深入理解Dubbo</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3dubbo/</link>
+      <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3dubbo/</guid>
+      <description>一、What Dubbo what是一个自顶层往下不断的概念定义解析过程。从上往下为每个关键词下定义。 1. 什么是Dubbo？ Dubbo是一款高性能、轻量级</description>
+    </item>
+    
+    <item>
+      <title>实用资源网站</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E5%AE%9E%E7%94%A8%E8%B5%84%E6%BA%90%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E5%AE%9E%E7%94%A8%E8%B5%84%E6%BA%90%E7%BD%91%E7%AB%99/</guid>
+      <description>一、图片资源 Pexels：高清图片（自然、人物、城市） https://www.pexels.com/zh-cn/search/%E6%A3%AE%E6%9E%97/</description>
+    </item>
+    
+    <item>
+      <title>程序员的工具包</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1/</guid>
+      <description>一、Tools JSON JSON验证解析、ToBean转换：https://www.json.cn/json/json2java.html @JsonProperty ：Jso</description>
+    </item>
+    
+    <item>
+      <title>反内耗：停止心理内耗才能变更强</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E5%8F%8D%E5%86%85%E8%80%97%E5%81%9C%E6%AD%A2%E5%BF%83%E7%90%86%E5%86%85%E8%80%97%E6%89%8D%E8%83%BD%E5%8F%98%E6%9B%B4%E5%BC%BA/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E5%8F%8D%E5%86%85%E8%80%97%E5%81%9C%E6%AD%A2%E5%BF%83%E7%90%86%E5%86%85%E8%80%97%E6%89%8D%E8%83%BD%E5%8F%98%E6%9B%B4%E5%BC%BA/</guid>
+      <description>真正厉害的人，都是“反内耗”体质，只有停止心理内耗，这样才会一步步变强。很多人抱怨开发越来越卷，而实际上多数人的卷来源自己的&amp;rsquo;内</description>
+    </item>
+    
+    <item>
+      <title>分布式锁实现及原理</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E5%8F%8A%E5%8E%9F%E7%90%86/</guid>
+      <description>一、分布式锁的原理 场景：多实例的代码块同步（单实例通信基于本机环境，多实例通信借助第三方） ​ 锁通常用于做代码块的同步，保证同段代码在多线程情</description>
+    </item>
+    
+    <item>
+      <title>微服务治理</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86/</guid>
+      <description>一、监控中心 Grafana 日志分析：对日志做关键字筛选，一般用来定位问题。例如： 统计最近五分钟内MySQL打印的日志数 统计最近十秒内MySQL timeout erro</description>
+    </item>
+    
+    <item>
+      <title>hugo &#43; github编写个人博客</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>1. hugo + github搭建个人博客 https://blog.csdn.net/qq_41136216/article/details/112674327 搭建流程： 下载hugo，并配置环境变量 mac下载通过brew install hugo命令下载，如果失败，则直接到Hugo g</description>
+    </item>
+    
+    <item>
+      <title>MySQL执行一条语句的过程</title>
+      <link>https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</guid>
+      <description>MySQL执行一条语句的过程 https://www.pdai.tech/md/db/sql-mysql/sql-mysql-execute.html bin log三种模式的区别 https://blog.csdn.net/keda8997110/article/details/50895171 row：记录具体的行被修改的内容。优点是记录清晰，复制完整；缺点是日志量较大。 stat</description>
+    </item>
+    
+    <item>
+      <title>Spring高级应用</title>
+      <link>https://PI-KA-CHU.github.io/2021/12/spring%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</link>
+      <pubDate>Tue, 07 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2021/12/spring%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/</guid>
+      <description>Spring Boot 当前项目扫描不到通用包的Component 解决：在Application类添加包扫描注解 @ComponentScan(&amp;#34;com.feida.*&amp;#34;) public class UserManagementServiceApplication { public static void main(String[] args) { SpringApplication.run(UserManagementServiceApplication.class, args); } }</description>
+    </item>
+    
+    <item>
+      <title>JUC包结构及AQS抽象队列同步器</title>
+      <link>https://PI-KA-CHU.github.io/2020/01/juc%E5%8C%85%E7%BB%93%E6%9E%84%E5%8F%8Aaqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2020/01/juc%E5%8C%85%E7%BB%93%E6%9E%84%E5%8F%8Aaqs%E6%8A%BD%E8%B1%A1%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8/</guid>
+      <description>前言：Concurrent包的层次结构 java.util.concurrent包下提供了大量针对并发编程的高性能、实用的工具类，其目录结构图</description>
+    </item>
+    
+    <item>
+      <title>Java happens-before及as-if-serial原则</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%8E%9F%E5%88%99/</link>
+      <pubDate>Mon, 30 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%8E%9F%E5%88%99/</guid>
+      <description>一、happens-before 【happens-before定义了某些操作下的可见性和&amp;quot;有序性&amp;quot;】 由于重排序（编译器重</description>
+    </item>
+    
+    <item>
+      <title>线程安全之原子性操作</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B9%8B%E5%8E%9F%E5%AD%90%E6%80%A7%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B9%8B%E5%8E%9F%E5%AD%90%E6%80%A7%E6%93%8D%E4%BD%9C/</guid>
+      <description>一、原子性操作方法 1.1 同步锁 synchronized (this){ ++ count; } 1.2 Atomic类 Atomic底层利用CAS实现，而CAS则是利用UnSafe类（native） + 反射技术</description>
+    </item>
+    
+    <item>
+      <title>Volatile关键字</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <description>一、初识Volatile what volatile是Java语言提供的一种较弱的同步机制，用来确保将变量的更新操作通知到其他线程，volatile修</description>
+    </item>
+    
+    <item>
+      <title>Synchronize关键字</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <description>一、初识Synchronize what Synchronize是JVM的底层关键字，可以为对象的方法或者代码块加锁，加锁的代码同一时刻最多只能有一个</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jvm on PI-KA-CHU&#39;s blog</title>
+    <link>https://PI-KA-CHU.github.io/tags/jvm/</link>
+    <description>Recent content in jvm on PI-KA-CHU&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://PI-KA-CHU.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>线程池与数据库连接池的区别</title>
+      <link>https://PI-KA-CHU.github.io/2019/06/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/06/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>一、线程池 原理： 类似于操作系统中的缓冲区，流程如下：先启动若干数量的线程，并让线程处于休眠的状态，当客户端有新请求时就回唤醒其中一个睡眠线程</description>
+    </item>
+    
+    <item>
+      <title>IDEA的JAVA WEB项目配置</title>
+      <link>https://PI-KA-CHU.github.io/2019/06/idea%E7%9A%84java-web%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/06/idea%E7%9A%84java-web%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</guid>
+      <description>1、JAVA普通项目转换为JAVA WEB项目 2、JAVA WEB项目在Tomcat启动后的访问路径设置</description>
+    </item>
+    
+    <item>
+      <title>Spring AOP实现自动读写分离</title>
+      <link>https://PI-KA-CHU.github.io/2019/05/spring-aop%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</link>
+      <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/05/spring-aop%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</guid>
+      <description>一、实现原理 利用Spring AOP面向切面编程的特性，在请求进入service应用层之前，根据请求的service层的方法名，判断使用读库或</description>
+    </item>
+    
+    <item>
+      <title>Flume收集日志 - windows（实战版二）</title>
+      <link>https://PI-KA-CHU.github.io/2019/05/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E5%AE%9E%E6%88%98%E7%89%88%E4%BA%8C/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/05/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E5%AE%9E%E6%88%98%E7%89%88%E4%BA%8C/</guid>
+      <description>一、写在前面 Flume在Windows上的使用还真是各种不方便，但是没办法，项目就是搭建在Windows服务器上的，前面的文章是使用自定义拦</description>
+    </item>
+    
+    <item>
+      <title>Flume收集日志 - windows（实战版一）</title>
+      <link>https://PI-KA-CHU.github.io/2019/05/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E5%AE%9E%E6%88%98%E7%89%88%E4%B8%80/</link>
+      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/05/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E5%AE%9E%E6%88%98%E7%89%88%E4%B8%80/</guid>
+      <description>flume官方文档： http://flume.apache.org/releases/content/1.9.0/FlumeUserGuide.html 技术博客（较全面的介绍）： http://www.51niux.com/?id=197 一、Flume的核心组件 source：用于对源文件的监控（即数据的传入点） channel：</description>
+    </item>
+    
+    <item>
+      <title>Flume收集日志 - windows（配置版）</title>
+      <link>https://PI-KA-CHU.github.io/2019/04/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E9%85%8D%E7%BD%AE%E7%89%88/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/04/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E9%85%8D%E7%BD%AE%E7%89%88/</guid>
+      <description>Flume的一些常见参数： https://blog.csdn.net/realoyou/article/details/81514128 Windows配置Flume https://www.cnblogs.com/edisonchou/p/4445491.html https://blog.csdn.net/wateryouyo/article/details/82057082 https://blog.csdn.net/woshixiazaizhe/article/details/80605293 https://www.cnblogs.com/chevin/p/8491721.html windows环境下使用flume的权限问题： http://www.huqiwen.com/2013/07/18/hdfs-permission-denied/ commons-io缺包问题</description>
+    </item>
+    
+    <item>
+      <title>Tomcat配置日志格式</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/tomcat%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/tomcat%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</guid>
+      <description>前言 查看日志是重要的排查异常的方式，在出现error时查找日志可以快速确定出错的原因，而在大数据时代里，随着用户的访问上升，日志数据量也呈爆</description>
+    </item>
+    
+    <item>
+      <title>HBase的搭建及连接（IDEA）</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/hbase%E7%9A%84%E6%90%AD%E5%BB%BA%E5%8F%8A%E8%BF%9E%E6%8E%A5idea/</link>
+      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/hbase%E7%9A%84%E6%90%AD%E5%BB%BA%E5%8F%8A%E8%BF%9E%E6%8E%A5idea/</guid>
+      <description>搭建参考 参考： https://www.cnblogs.com/edisonchou/p/4405906.html 根据这篇文章可以正常搭建平台，HBase的配置与Hadoop类似，分别修改hbase-env.sh和hbase-site.x</description>
+    </item>
+    
+    <item>
+      <title>HBase理论学习与分析</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/hbase%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%88%86%E6%9E%90/</link>
+      <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/hbase%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%88%86%E6%9E%90/</guid>
+      <description>Hbase简介 HBase利用Hadoop的HDFS作为其文件存储系统，提供高可靠性、高性能、列存储，可伸缩、实时读写的分布式的数据库系统，利</description>
+    </item>
+    
+    <item>
+      <title>MySQL分表分库学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/mysql%E5%88%86%E8%A1%A8%E5%88%86%E5%BA%93/</guid>
+      <description>一、写在前面 为什么要进行数据切分： 随着互联网应用的广泛普及，海量数据的存储和访问成为了系统设计的瓶颈问题。对于一个大型的互联网应用，每天几十</description>
+    </item>
+    
+    <item>
+      <title>IDEA远程连接Hadoop集群</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/idea%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5hadoop%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Sun, 17 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/idea%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5hadoop%E9%9B%86%E7%BE%A4/</guid>
+      <description>环境 服务器：CentOS 7 Hadoop版本：2.7.7 cli端：Windows 10 开发工具：intellij IDEA 连接前提 已成功创建Hadoop集</description>
+    </item>
+    
+    <item>
+      <title>Hadoop的设计目标及重要特性</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/hadoop%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E5%8F%8A%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7/</link>
+      <pubDate>Wed, 13 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/hadoop%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87%E5%8F%8A%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7/</guid>
+      <description>一、Hadoop 2.x的相关组件： HDFS（Hadop分布式文件系统）：负责分布式数据存储 NameNode：存储元信息，包括文件块的分块数量</description>
+    </item>
+    
+    <item>
+      <title>Hadoop平台的搭建</title>
+      <link>https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Tue, 12 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/03/hadoop%E5%B9%B3%E5%8F%B0%E7%9A%84%E6%90%AD%E5%BB%BA/</guid>
+      <description>一、搭建步骤 1. 服务器（Linux）环境准备 修改系统文件需要root权限，可通过以下命令获取 su root （回车后输入密码） 配置服务器的主机名称（Cen</description>
+    </item>
+    
+    <item>
+      <title>MyBlog</title>
+      <link>https://PI-KA-CHU.github.io/about/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redis集群搭建</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Tue, 26 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <description>一、集群与分布式的区别 小饭店原来只有一个厨师，切菜洗菜备料炒菜全干。后来客人多了，厨房一个厨师忙不过来，又请了个厨师，两个厨师都能炒一样的菜</description>
+    </item>
+    
+    <item>
+      <title>redis的主从模式配置</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 25 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/redis%E7%9A%84%E4%B8%BB%E4%BB%8E%E6%A8%A1%E5%BC%8F%E9%85%8D%E7%BD%AE/</guid>
+      <description>前言 replica-master模式就是slave-master模式，查了一下好像是slave-master名称遭到太多人反对，作者被迫进行</description>
+    </item>
+    
+    <item>
+      <title>git命令的使用及常见的问题</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/git%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/git%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E8%A7%81%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>获取git仓库 git init //初始化本地仓库（会自动创建一个名为 .git 的子目录） git clone [URL] //拉取远程代码到本地 git提交代码的基本操作 git add . // 提交所有修改</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot定时任务及其redis的分布式锁创建</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/</link>
+      <pubDate>Sat, 23 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/</guid>
+      <description>分布式锁实现流程图 一、@Scheduled的使用及其redis的分布式锁创建 创建新类，使用@Scheduled注解注释需要定时启动的方法 单机</description>
+    </item>
+    
+    <item>
+      <title>RESTful学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/restful%D1%A7%CF%B0/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/restful%D1%A7%CF%B0/</guid>
+      <description>REST全称是Representational State Transfer，中文意思是表述性状态转移，指的是一组架构约束条件和原则， 如果一个架构符合R</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot实现全局异常的捕获</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7/</guid>
+      <description>1. 创建一个简单类 使用@RestControllerAdvice注册组件，使用@ExceptionHandler捕获异常 该类只捕获Contro</description>
+    </item>
+    
+  </channel>
+</rss>

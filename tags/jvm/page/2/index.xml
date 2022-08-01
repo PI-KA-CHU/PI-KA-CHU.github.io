@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jvm on PI-KA-CHU&#39;s blog</title>
+    <link>https://PI-KA-CHU.github.io/tags/jvm/</link>
+    <description>Recent content in jvm on PI-KA-CHU&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 10 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://PI-KA-CHU.github.io/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>U盘修复工具</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/u%E7%9B%98%E5%90%AF%E5%8A%A8%E4%BF%AE%E5%A4%8Dwin10/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/u%E7%9B%98%E5%90%AF%E5%8A%A8%E4%BF%AE%E5%A4%8Dwin10/</guid>
+      <description>问题描述 今天一个在暑假的时候认识的朋友加了我微信让我帮忙看下电脑，电脑的情况是：打开一个软件后蓝屏了，并且一直在windows的自动修复下循</description>
+    </item>
+    
+    <item>
+      <title>Idea高效开发</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/idea%E9%AB%98%E6%95%88%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/idea%E9%AB%98%E6%95%88%E5%BC%80%E5%8F%91/</guid>
+      <description>Idea已经称为越来越普遍的开发工具，其功能强大，并且界面简洁舒服，但是Idea快捷键用起来并没有Eclipse舒服，很多快捷键用起来很不方</description>
+    </item>
+    
+    <item>
+      <title>Java并发基础</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</guid>
+      <description>本篇文章主要讲述是并发编程前需要学习的一些基础知识，如Java程序执行过程、线程的状态、CPU的性能优化方法及带来的问题和解决方案等，这些在</description>
+    </item>
+    
+    <item>
+      <title>网易案例分析</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/%E7%BD%91%E6%98%93%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/%E7%BD%91%E6%98%93%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</guid>
+      <description>一、项目拆解 分布式系统 一个请求由多个系统协同完成，这种系统称为分布式系统 服务拆分：单体项目一个模块修改需要重新部署、运维整个项目，故将其拆分</description>
+    </item>
+    
+    <item>
+      <title>预备课（一）</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/%E9%A2%84%E5%A4%87%E8%AF%BE%E4%B8%80/</link>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/%E9%A2%84%E5%A4%87%E8%AF%BE%E4%B8%80/</guid>
+      <description>做时间，没有拼搏的精神，全力以赴的投入，是不可能成功的。人性是充满惰性的，没有到生死关头，是不回使尽全力来付出， 但是有和智慧的人并不是把自己</description>
+    </item>
+    
+    <item>
+      <title>Spring高级应用</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</guid>
+      <description>一、如何基于Spring写优雅易扩展的代码 1.1 案例一 1.1.1 如何实现订单金额的计算 策略模式 实现面向接口编程，由于计算金额的方法是会增加的，比如促销方</description>
+    </item>
+    
+    <item>
+      <title>Web安全入门</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/</guid>
+      <description>一、Web安全入门 Web安全案例 1、某诈骗集团通过短信发送了钓鱼网站给我们，以下是通过一系列的手段最终追踪到用户的手段 User-Agent：</description>
+    </item>
+    
+    <item>
+      <title>Docker实战：3、三剑客之Docker Compose</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/</guid>
+      <description>一、前言 Docker Compose和Dockerfile的区别： Dockerfile主要是记录了一个镜像的构建过程，可以达到快速构建项目的目的，而Do</description>
+    </item>
+    
+    <item>
+      <title>Docker实战：2、Dockerfile构建镜像</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</guid>
+      <description>一、概念 镜像的定制实际就是定制每一层所添加的配置、文件。如果我们把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜</description>
+    </item>
+    
+    <item>
+      <title>Docker实战：1、安装及常见命令</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Sat, 17 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%981%E5%AE%89%E8%A3%85%E5%8F%8A%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4/</guid>
+      <description>一、Docker安装（Centos7） 1、Docker要求Centos内核要高于3.10，所以首先应该检查是否满足要求（如果是本地虚拟机，需</description>
+    </item>
+    
+    <item>
+      <title>Oozie学习（定时任务）</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
+      <description>一、Oozie的定时任务方式 1.1 官方定义 1.2 corntab方式 二、编写定时任务 2.1 代码编写 job.properties nameNode=hdfs://hh:8020 jobTracker=hh:8032 queueName=qcpj_access_log_queue examplesRoot=accessLogAnalyze # workflow参数为 oozie.wf.application.path oozie.coord.application.path=${nameNode}/oozie/workflows/qcpj/${examplesRoot} start=2019-08-05T23:00+0800 end=2099-08-05T23:30+0800 workflowAppUri=${nameNode}/oozie/workflows/qcpj/${examplesRoot} workflow.xml &amp;lt;workflow-app name=&amp;#39;qcpj_accessLog_analyze&amp;#39; xmlns=&amp;#34;uri:oozie:workflow:0.3&amp;#34;&amp;gt; &amp;lt;start to=&amp;#34;accessLogAnalyze&amp;#34;/&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>MySQL事务隔离级别及Spring事务管理</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sun, 04 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/mysql%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%E5%8F%8Aspring%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/</guid>
+      <description>一、MySQL事务隔离级别 1.1、未提交读（read uncommitted） 特点：事务A执行修改语句，但是事务未结束，此时事务B可以读取事务</description>
+    </item>
+    
+    <item>
+      <title>Oozie学习（基本任务）</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/oozie%E5%AD%A6%E4%B9%A0%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1/</guid>
+      <description>一、oozie组件 Workflow：工作流（流程图） 常用结点： 控制流结点（Control Flow Nodes） start、end、kill、分支、合</description>
+    </item>
+    
+    <item>
+      <title>Docker的基本概念</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</guid>
+      <description>一、什么是Docker Docker是使用google公司推出的GO语言进行开发实现，于 Linux 内核的 cgroup，namespace，以及 AUFS 类的 Union</description>
+    </item>
+    
+    <item>
+      <title>Java容器学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/java%E5%AE%B9%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/java%E5%AE%B9%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description>一、容器间的区别 1.1、List、Map、Set三者间的区别 List：List接口存储一组可重复的、有序的对象 Map：Map接口存储以key</description>
+    </item>
+    
+    <item>
+      <title>Windows服务注册及脚本开机自启</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/windows%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%8F%8A%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/</link>
+      <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/windows%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E5%8F%8A%E8%84%9A%E6%9C%AC%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF/</guid>
+      <description>注册服务 https://jingyan.baidu.com/article/870c6fc3557921b03fe4bef7.html https://www.cnblogs.com/liuxiaoji/p/8016261.html https://blog.csdn.net/lsj19830812/article/details/6187233 开机自启脚本 https://blog.csdn.net/slf450272048/article/details/79378517 https://blog.csdn.net/qq_36999656/article/details/80278437 删除服务 https://blog.csdn.net/gaoxin_gx/article/details/89639867</description>
+    </item>
+    
+    <item>
+      <title>Spring AOP学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/spring-aop%D1%A7%CF%B0/</link>
+      <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/spring-aop%D1%A7%CF%B0/</guid>
+      <description>一、什么是AOP？ 1.1、AOP的定义 AOP即面向切面编程，相比OOP —— 面向对象编程（最基本单位为类和实例），AOP的基本单位为切面。AO</description>
+    </item>
+    
+    <item>
+      <title>Spring Bean学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/spring-bean%D1%A7%CF%B0/</link>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/spring-bean%D1%A7%CF%B0/</guid>
+      <description>一、定义 bean的定义 Bean是一个被实例化、组装、并被Spring容器所管理的对象，是由容器提供的配置元数据（如bean.xml）创建的。</description>
+    </item>
+    
+    <item>
+      <title>Spring IOC学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/spring-ioc%D1%A7%CF%B0/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/spring-ioc%D1%A7%CF%B0/</guid>
+      <description>一、什么是IOC IOC（控制反转）又叫做DI（依赖注入），它描述了对象的定义和依赖的一个过程，也就是说，依赖的对象通过构造参数、工厂方法参数</description>
+    </item>
+    
+    <item>
+      <title>Spring MVC学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/06/spring-mvc%D1%A7%CF%B0/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/06/spring-mvc%D1%A7%CF%B0/</guid>
+      <description>最近在学习Spring的相关模块及源码，在学习Bean的相关创建方法时，发现spring的bean一般都是单例模式，在xml中可以通过sco</description>
+    </item>
+    
+  </channel>
+</rss>

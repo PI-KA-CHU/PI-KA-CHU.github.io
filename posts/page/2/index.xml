@@ -5,10 +5,91 @@
     <link>https://PI-KA-CHU.github.io/posts/</link>
     <description>Recent content in Posts on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jun 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>U盘修复工具</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/u%E7%9B%98%E5%90%AF%E5%8A%A8%E4%BF%AE%E5%A4%8Dwin10/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/u%E7%9B%98%E5%90%AF%E5%8A%A8%E4%BF%AE%E5%A4%8Dwin10/</guid>
+      <description>问题描述 今天一个在暑假的时候认识的朋友加了我微信让我帮忙看下电脑，电脑的情况是：打开一个软件后蓝屏了，并且一直在windows的自动修复下循</description>
+    </item>
+    
+    <item>
+      <title>Idea高效开发</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/idea%E9%AB%98%E6%95%88%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/idea%E9%AB%98%E6%95%88%E5%BC%80%E5%8F%91/</guid>
+      <description>Idea已经称为越来越普遍的开发工具，其功能强大，并且界面简洁舒服，但是Idea快捷键用起来并没有Eclipse舒服，很多快捷键用起来很不方</description>
+    </item>
+    
+    <item>
+      <title>Java并发基础</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</guid>
+      <description>本篇文章主要讲述是并发编程前需要学习的一些基础知识，如Java程序执行过程、线程的状态、CPU的性能优化方法及带来的问题和解决方案等，这些在</description>
+    </item>
+    
+    <item>
+      <title>网易案例分析</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/%E7%BD%91%E6%98%93%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/%E7%BD%91%E6%98%93%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</guid>
+      <description>一、项目拆解 分布式系统 一个请求由多个系统协同完成，这种系统称为分布式系统 服务拆分：单体项目一个模块修改需要重新部署、运维整个项目，故将其拆分</description>
+    </item>
+    
+    <item>
+      <title>预备课（一）</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/%E9%A2%84%E5%A4%87%E8%AF%BE%E4%B8%80/</link>
+      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/%E9%A2%84%E5%A4%87%E8%AF%BE%E4%B8%80/</guid>
+      <description>做时间，没有拼搏的精神，全力以赴的投入，是不可能成功的。人性是充满惰性的，没有到生死关头，是不回使尽全力来付出， 但是有和智慧的人并不是把自己</description>
+    </item>
+    
+    <item>
+      <title>Spring高级应用</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</guid>
+      <description>一、如何基于Spring写优雅易扩展的代码 1.1 案例一 1.1.1 如何实现订单金额的计算 策略模式 实现面向接口编程，由于计算金额的方法是会增加的，比如促销方</description>
+    </item>
+    
+    <item>
+      <title>Web安全入门</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/</guid>
+      <description>一、Web安全入门 Web安全案例 1、某诈骗集团通过短信发送了钓鱼网站给我们，以下是通过一系列的手段最终追踪到用户的手段 User-Agent：</description>
+    </item>
+    
+    <item>
+      <title>Docker实战：3、三剑客之Docker Compose</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/</guid>
+      <description>一、前言 Docker Compose和Dockerfile的区别： Dockerfile主要是记录了一个镜像的构建过程，可以达到快速构建项目的目的，而Do</description>
+    </item>
+    
+    <item>
+      <title>Docker实战：2、Dockerfile构建镜像</title>
+      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</guid>
+      <description>一、概念 镜像的定制实际就是定制每一层所添加的配置、文件。如果我们把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜</description>
+    </item>
     
     <item>
       <title>Docker实战：1、安装及常见命令</title>
@@ -107,87 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/06/spring-mvc%D1%A7%CF%B0/</guid>
       <description>最近在学习Spring的相关模块及源码，在学习Bean的相关创建方法时，发现spring的bean一般都是单例模式，在xml中可以通过sco</description>
-    </item>
-    
-    <item>
-      <title>线程池与数据库连接池的区别</title>
-      <link>https://PI-KA-CHU.github.io/2019/06/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
-      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/06/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
-      <description>一、线程池 原理： 类似于操作系统中的缓冲区，流程如下：先启动若干数量的线程，并让线程处于休眠的状态，当客户端有新请求时就回唤醒其中一个睡眠线程</description>
-    </item>
-    
-    <item>
-      <title>IDEA的JAVA WEB项目配置</title>
-      <link>https://PI-KA-CHU.github.io/2019/06/idea%E7%9A%84java-web%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/06/idea%E7%9A%84java-web%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE/</guid>
-      <description>1、JAVA普通项目转换为JAVA WEB项目 2、JAVA WEB项目在Tomcat启动后的访问路径设置</description>
-    </item>
-    
-    <item>
-      <title>Spring AOP实现自动读写分离</title>
-      <link>https://PI-KA-CHU.github.io/2019/05/spring-aop%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</link>
-      <pubDate>Wed, 29 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/05/spring-aop%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</guid>
-      <description>一、实现原理 利用Spring AOP面向切面编程的特性，在请求进入service应用层之前，根据请求的service层的方法名，判断使用读库或</description>
-    </item>
-    
-    <item>
-      <title>Flume收集日志 - windows（实战版二）</title>
-      <link>https://PI-KA-CHU.github.io/2019/05/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E5%AE%9E%E6%88%98%E7%89%88%E4%BA%8C/</link>
-      <pubDate>Wed, 22 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/05/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E5%AE%9E%E6%88%98%E7%89%88%E4%BA%8C/</guid>
-      <description>一、写在前面 Flume在Windows上的使用还真是各种不方便，但是没办法，项目就是搭建在Windows服务器上的，前面的文章是使用自定义拦</description>
-    </item>
-    
-    <item>
-      <title>Flume收集日志 - windows（实战版一）</title>
-      <link>https://PI-KA-CHU.github.io/2019/05/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E5%AE%9E%E6%88%98%E7%89%88%E4%B8%80/</link>
-      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/05/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E5%AE%9E%E6%88%98%E7%89%88%E4%B8%80/</guid>
-      <description>flume官方文档： http://flume.apache.org/releases/content/1.9.0/FlumeUserGuide.html 技术博客（较全面的介绍）： http://www.51niux.com/?id=197 一、Flume的核心组件 source：用于对源文件的监控（即数据的传入点） channel：</description>
-    </item>
-    
-    <item>
-      <title>Flume收集日志 - windows（配置版）</title>
-      <link>https://PI-KA-CHU.github.io/2019/04/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E9%85%8D%E7%BD%AE%E7%89%88/</link>
-      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/04/flume%E6%94%B6%E9%9B%86%E6%97%A5%E5%BF%97-windows%E9%85%8D%E7%BD%AE%E7%89%88/</guid>
-      <description>Flume的一些常见参数： https://blog.csdn.net/realoyou/article/details/81514128 Windows配置Flume https://www.cnblogs.com/edisonchou/p/4445491.html https://blog.csdn.net/wateryouyo/article/details/82057082 https://blog.csdn.net/woshixiazaizhe/article/details/80605293 https://www.cnblogs.com/chevin/p/8491721.html windows环境下使用flume的权限问题： http://www.huqiwen.com/2013/07/18/hdfs-permission-denied/ commons-io缺包问题</description>
-    </item>
-    
-    <item>
-      <title>Tomcat配置日志格式</title>
-      <link>https://PI-KA-CHU.github.io/2019/03/tomcat%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</link>
-      <pubDate>Sat, 30 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/03/tomcat%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F/</guid>
-      <description>前言 查看日志是重要的排查异常的方式，在出现error时查找日志可以快速确定出错的原因，而在大数据时代里，随着用户的访问上升，日志数据量也呈爆</description>
-    </item>
-    
-    <item>
-      <title>HBase的搭建及连接（IDEA）</title>
-      <link>https://PI-KA-CHU.github.io/2019/03/hbase%E7%9A%84%E6%90%AD%E5%BB%BA%E5%8F%8A%E8%BF%9E%E6%8E%A5idea/</link>
-      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/03/hbase%E7%9A%84%E6%90%AD%E5%BB%BA%E5%8F%8A%E8%BF%9E%E6%8E%A5idea/</guid>
-      <description>搭建参考 参考： https://www.cnblogs.com/edisonchou/p/4405906.html 根据这篇文章可以正常搭建平台，HBase的配置与Hadoop类似，分别修改hbase-env.sh和hbase-site.x</description>
-    </item>
-    
-    <item>
-      <title>HBase理论学习与分析</title>
-      <link>https://PI-KA-CHU.github.io/2019/03/hbase%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%88%86%E6%9E%90/</link>
-      <pubDate>Fri, 22 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/03/hbase%E7%90%86%E8%AE%BA%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%88%86%E6%9E%90/</guid>
-      <description>Hbase简介 HBase利用Hadoop的HDFS作为其文件存储系统，提供高可靠性、高性能、列存储，可伸缩、实时读写的分布式的数据库系统，利</description>
     </item>
     
   </channel>

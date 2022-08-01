@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+         - PI-KA-CHU&#39;s blog
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="author = &amp;ldquo;pikachu&amp;rdquo; title = &amp;ldquo;Netty实战&amp;rdquo; date = &amp;ldquo;2022-07-24&amp;rdquo; description = &amp;quot; 简单netty通信案例 &amp;quot; draft = false tags = [ &amp;ldquo;netty&amp;rdquo; ] categories = [ &amp;ldquo;it&amp;rdquo;, &amp;ldquo;中间件&amp;rdq" />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title> - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="" />
+<meta property="og:description" content="author = &ldquo;pikachu&rdquo; title = &ldquo;Netty实战&rdquo; date = &ldquo;2022-07-24&rdquo; description = &quot; 简单netty通信案例 &quot; draft = false tags = [ &ldquo;netty&rdquo; ] categories = [ &ldquo;it&rdquo;, &ldquo;中间件&rdq" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/1/01/netty%E5%AE%9E%E6%88%98/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="author = &ldquo;pikachu&rdquo; title = &ldquo;Netty实战&rdquo; date = &ldquo;2022-07-24&rdquo; description = &quot; 简单netty通信案例 &quot; draft = false tags = [ &ldquo;netty&rdquo; ] categories = [ &ldquo;it&rdquo;, &ldquo;中间件&rdq">
+
+<meta itemprop="wordCount" content="2932">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="author = &ldquo;pikachu&rdquo; title = &ldquo;Netty实战&rdquo; date = &ldquo;2022-07-24&rdquo; description = &quot; 简单netty通信案例 &quot; draft = false tags = [ &ldquo;netty&rdquo; ] categories = [ &ldquo;it&rdquo;, &ldquo;中间件&rdq"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/go/" class="category-list-link">go</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">104</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/java/" class="category-list-link">java</a><span class="category-list-count">18</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" class="category-list-link">个人成长</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-list-link">中间件</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%85%B6%E4%BB%96/" class="category-list-link">其他</a><span class="category-list-count">9</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" class="category-list-link">分布式</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="category-list-link">基础理论</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4/" class="category-list-link">开发运维</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-list-link">数据库</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/" class="category-list-link">算法</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-list-link">计算机网络</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/dubbo/" class="tag-list-link">dubbo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/go/" class="tag-list-link">go</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/http/" class="tag-list-link">http</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/jvm/" class="tag-list-link">jvm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/kafka/" class="tag-list-link">kafka</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-cloud/" class="tag-list-link">spring-cloud</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/websocket/" class="tag-list-link">websocket</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%89%E5%85%A8/" class="tag-list-link">安全</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">13</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" class="tag-list-link">疑难杂症</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E9%83%A8%E7%BD%B2%E5%B7%A5%E5%85%B7/" class="tag-list-link">部署工具</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/" class="title">网易案例分析</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/springcloud%E6%95%B4%E5%90%88websocket/" class="title">SpringBoot整合redis</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-28</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/kafka%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/" class="title">Kafka常见问题解析</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-23</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF%E5%BA%93%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" class="title">高并发场景库存处理方案</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-23</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="title">程序员的工具包</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-22</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/1/01/netty%E5%AE%9E%E6%88%98/"
+    ></a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2932字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <p>author = &ldquo;pikachu&rdquo;
+title = &ldquo;Netty实战&rdquo;
+date = &ldquo;2022-07-24&rdquo;
+description = &quot; 简单netty通信案例 &quot;
+draft = false
+tags = [
+&ldquo;netty&rdquo;
+]
+categories = [
+&ldquo;it&rdquo;, &ldquo;中间件&rdquo;
+]</p>
+<hr>
+<h2 id="netty实战">Netty实战</h2>
+<p>个人demo：</p>
+<ul>
+<li><a href="https://github.com/PI-KA-CHU/netty-demo.git/">https://github.com/PI-KA-CHU/netty-demo.git/</a></li>
+</ul>
+<p>大佬demo：</p>
+<ul>
+<li><a href="https://github.com/waylau/netty-4-user-guide-demos/tree/master/netty4-demos/src/main/java/com/waylau/netty">https://github.com/waylau/netty-4-user-guide-demos/tree/master/netty4-demos/src/main/java/com/waylau/netty</a></li>
+</ul>
+<h3 id="前言">前言</h3>
+<blockquote>
+<p>这几天进行了情报部通信相关的开发，想要Netty加入到开发过程中，在整合到过程出现了一些难以解决的问题，情报板发送分为四个阶段：</p>
+<ol>
+<li>发送删除旧的情报板文件请求</li>
+<li>发送创建新的文件请求</li>
+<li>发送文件内容</li>
+<li>发送播放文件的请求</li>
+</ol>
+<p>按照传统的IO模型，我们可以每次发送socket后阻塞等待返回，以确定是否进行下一步操作，但是采用Netty后我就有点懵了，因为Netty本身定位为非阻塞型IO，不知道如何进行阻塞某一个的结果并根据结果确定下一步执行，本次Demo通过Netty的Handler + Promise实现上述内容。</p>
+<p>原来的情报板实现发送的逻辑如下：</p>
+<ol>
+<li>接收到Kafka消息后，启动新线程去执行情报板发送</li>
+<li>在发送情报板的Service类中，BIO Socket作为static静态变量进行通信（这意味着多线程下会共享同个Socket，数据的写入将会出现无法预期的混乱情况（并发写入Socket），并且发布情报板的四个阶段也会因为并发操作而出现问题。）</li>
+</ol>
+<p>解决方案：</p>
+<ol>
+<li>采用Netty NIO框架</li>
+<li>单线程池替换new Thread的方式 -&gt; 采用可缓存线程池（多线程还是需要开启，因为对多个情报板同时更新是完全没问题的，单线程无法保证其最大并发）</li>
+<li>对情报板的四步操作加锁保证其原子性，并且为了提高并发，降低锁的粒度，对设备IP进行加锁，即保证同个情报板的更新是同步的。</li>
+</ol>
+<p>疑惑：</p>
+<ol>
+<li>Netty的NIO在代码层面到底具体在哪部分？</li>
+</ol>
+<p>目前的猜测，传统的IO操作，我们直接对socket操作，并耦合业务代码，这导致我们的工作线程需要阻塞等待IO，而Netty的业务我们可以封装到handler中，通过channel异步写入数据后，后续的业务操作由Netty专有线程池控制Handler进行操作，当前工作线程可以返回。由于情报板的更新有序性及操作原子性特性，所以需要对情报板加锁处理，保证当前操作完成后进行下一次的更新。</p>
+</blockquote>
+<h3 id="依赖">依赖</h3>
+<ul>
+<li>该springboot依赖包含netty-all依赖包</li>
+</ul>
+<pre tabindex="0"><code>&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-webflux&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><h3 id="客户端">客户端</h3>
+<p><strong>1. 客户端服务启动类</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NettyClient</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> InterruptedException <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        NioEventLoopGroup nioEventLoopGroup <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NioEventLoopGroup<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// promise用于获取业务的执行结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        EventExecutor eventExecutor <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DefaultEventExecutor<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        Promise<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> promise <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> DefaultPromise<span style="color:#f92672">&lt;&gt;(</span>eventExecutor<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Bootstrap bootstrap <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bootstrap<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        bootstrap
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">group</span><span style="color:#f92672">(</span>nioEventLoopGroup<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">channel</span><span style="color:#f92672">(</span>NioSocketChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">option</span><span style="color:#f92672">(</span>ChannelOption<span style="color:#f92672">.</span><span style="color:#a6e22e">SO_KEEPALIVE</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">option</span><span style="color:#f92672">(</span>ChannelOption<span style="color:#f92672">.</span><span style="color:#a6e22e">TCP_NODELAY</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">handler</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ChannelInitializer<span style="color:#f92672">&lt;</span>SocketChannel<span style="color:#f92672">&gt;()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">initChannel</span><span style="color:#f92672">(</span>SocketChannel socketChannel<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                        ChannelPipeline pipeline <span style="color:#f92672">=</span> socketChannel<span style="color:#f92672">.</span><span style="color:#a6e22e">pipeline</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>                        pipeline<span style="color:#f92672">.</span><span style="color:#a6e22e">addLast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ClientDecoder<span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>                        pipeline<span style="color:#f92672">.</span><span style="color:#a6e22e">addLast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ClientByteEncoder<span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>                        pipeline<span style="color:#f92672">.</span><span style="color:#a6e22e">addLast</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ClientHandler<span style="color:#f92672">(</span>promise<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// channel无法序列化，所以不能直接传输
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Channel channel <span style="color:#f92672">=</span> bootstrap<span style="color:#f92672">.</span><span style="color:#a6e22e">connect</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;127.0.0.1&#34;</span><span style="color:#f92672">,</span> 8090<span style="color:#f92672">).</span><span style="color:#a6e22e">await</span><span style="color:#f92672">().</span><span style="color:#a6e22e">channel</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        OperateDto operateDto <span style="color:#f92672">=</span> OperateDto<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">operate</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;1&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">content</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;这是client的1&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        channel<span style="color:#f92672">.</span><span style="color:#a6e22e">writeAndFlush</span><span style="color:#f92672">(</span>operateDto<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;发送内容：&#34;</span> <span style="color:#f92672">+</span> operateDto<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            Integer integer <span style="color:#f92672">=</span> promise<span style="color:#f92672">.</span><span style="color:#a6e22e">await</span><span style="color:#f92672">().</span><span style="color:#a6e22e">get</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;最终执行结果：&#34;</span> <span style="color:#f92672">+</span> integer<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>ExecutionException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;最终执行结果：&#34;</span> <span style="color:#f92672">+</span> e<span style="color:#f92672">.</span><span style="color:#a6e22e">getCause</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ol start="2">
+<li><strong>客户端Handler处理类</strong></li>
+</ol>
+<ul>
+<li><strong>编码类</strong>：用于做客户端的编码工作，通常协议的构建就是在此类中进行，然后发送给服务端</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClientByteEncoder</span> <span style="color:#66d9ef">extends</span> MessageToByteEncoder<span style="color:#f92672">&lt;</span>OperateDto<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">encode</span><span style="color:#f92672">(</span>ChannelHandlerContext channelHandlerContext<span style="color:#f92672">,</span> OperateDto operateDto<span style="color:#f92672">,</span> ByteBuf byteBuf<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> serialize <span style="color:#f92672">=</span> SerializationUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">serialize</span><span style="color:#f92672">(</span>operateDto<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;客户端encoder发送：&#34;</span> <span style="color:#f92672">+</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>serialize<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        byteBuf<span style="color:#f92672">.</span><span style="color:#a6e22e">writeBytes</span><span style="color:#f92672">(</span>serialize<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ul>
+<li><strong>解码类</strong>：用于接收和解析从服务端发送来的数据，校验及内容的提取就是在此类进行</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClientDecoder</span> <span style="color:#66d9ef">extends</span> ByteToMessageDecoder <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  	
+</span></span><span style="display:flex;"><span>	  <span style="color:#75715e">// 第二个参数为in（from server），第三个参数为out（out to next handler）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">decode</span><span style="color:#f92672">(</span>ChannelHandlerContext channelHandlerContext<span style="color:#f92672">,</span> ByteBuf byteBuf<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span> list<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      	<span style="color:#75715e">// ByteBuf byteBuf = channelHandlerContext.alloc().buffer();
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// byteBuf用于存储通信内容
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">byte</span><span style="color:#f92672">[]</span> resp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>byteBuf<span style="color:#f92672">.</span><span style="color:#a6e22e">readableBytes</span><span style="color:#f92672">()];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 将byteBuf的内容读取到resp数组中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        byteBuf<span style="color:#f92672">.</span><span style="color:#a6e22e">readBytes</span><span style="color:#f92672">(</span>resp<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 将读取到到byte数组进行反序列化操作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        ResultDto resultDto <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>ResultDto<span style="color:#f92672">)</span> SerializationUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">deserialize</span><span style="color:#f92672">(</span>resp<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;接收到服务器响应：&#34;</span> <span style="color:#f92672">+</span> resultDto<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// list即为out，加入后会传送给下一个handler
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>resultDto<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ul>
+<li><strong>业务处理类</strong>：该类可以认为是Decoder类的下一层解析，Decoder解析协议并提取出内容，Handler将内容进行业务层相关的解析工作，并且只有当监听到相同类型的对象时才会有效，否则会忽略，例如下面的handler，需要监听到上游handler发送了ResultDto类型的数据才会响应。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClientHandler</span> <span style="color:#66d9ef">extends</span> SimpleChannelInboundHandler<span style="color:#f92672">&lt;</span>ResultDto<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * 接收来自客户端的promise，当业务达到结束条件后，setSuccess或者setFailure，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * 客户端监听到结果后后进行相关处理，例如通过addListening异步监听，或者通过sync同步阻塞等待结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Promise<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> promise<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ClientHandler</span><span style="color:#f92672">(</span>Promise<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> promise<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">promise</span> <span style="color:#f92672">=</span> promise<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     *  将channel和promise的操作放在handler中，与service解耦
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     *  promise：用于确定业务的执行结果，并将结果返回到client
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     *  channel：用于服务端和客户端间到通信，向channel写入数据即可向对方通信
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     *  ByteBuf：用于存储接收到的通信内容，通常需要从中读取内容并进行接下来的业务操作
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">channelRead0</span><span style="color:#f92672">(</span>ChannelHandlerContext channelHandlerContext<span style="color:#f92672">,</span> ResultDto resultDto<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        ClientService clientService <span style="color:#f92672">=</span> SpringContextUtil<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span>ClientService<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        Channel channel <span style="color:#f92672">=</span> channelHandlerContext<span style="color:#f92672">.</span><span style="color:#a6e22e">channel</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 将业务逻辑抽离到service层，获取业务执行结果
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        OperateDto operateDto <span style="color:#f92672">=</span> clientService<span style="color:#f92672">.</span><span style="color:#a6e22e">handleResult</span><span style="color:#f92672">(</span>resultDto<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        channel<span style="color:#f92672">.</span><span style="color:#a6e22e">writeAndFlush</span><span style="color:#f92672">(</span>operateDto<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 根据结果判定是否达到业务结束条件，将结果添加到promise中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        String operate <span style="color:#f92672">=</span> operateDto<span style="color:#f92672">.</span><span style="color:#a6e22e">getOperate</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;3&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>operate<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            promise<span style="color:#f92672">.</span><span style="color:#a6e22e">setSuccess</span><span style="color:#f92672">(</span>10000<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//            promise.setFailure(new Exception(&#34;出错啦&#34;));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><strong>3. 客户端Service层业务处理</strong></p>
+<ul>
+<li>抽离出来的业务执行类，输入是服务器的响应内容，输出是处理后接下来的执行内容</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClientService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> OperateDto <span style="color:#a6e22e">handleResult</span><span style="color:#f92672">(</span>ResultDto resultDto<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        String flag <span style="color:#f92672">=</span> resultDto<span style="color:#f92672">.</span><span style="color:#a6e22e">getFlag</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        OperateDto operateDto <span style="color:#f92672">=</span> OperateDto<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">().</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>flag<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;1&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                operateDto<span style="color:#f92672">.</span><span style="color:#a6e22e">setOperate</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;2&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                operateDto<span style="color:#f92672">.</span><span style="color:#a6e22e">setContent</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;接收到1，开始执行2&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;2&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>                operateDto<span style="color:#f92672">.</span><span style="color:#a6e22e">setOperate</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;3&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                operateDto<span style="color:#f92672">.</span><span style="color:#a6e22e">setContent</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;接收到2，开始执行3&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> operateDto<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="服务端">服务端</h3>
+<ol>
+<li><strong>服务端启动类</strong></li>
+</ol>
+<pre tabindex="0"><code>public class NettyServer {
+
+    public static void start() {
+        NioEventLoopGroup bossExecutors = new NioEventLoopGroup();
+        NioEventLoopGroup workerExecutors = new NioEventLoopGroup();
+
+        ServerBootstrap serverBootstrap = new ServerBootstrap();
+        serverBootstrap
+                .group(bossExecutors, workerExecutors)
+                .channel(NioServerSocketChannel.class)
+                .childOption(ChannelOption.SO_KEEPALIVE, true)
+                .childOption(ChannelOption.TCP_NODELAY, true)
+                .childHandler(new ChannelInitializer&lt;SocketChannel&gt;() {
+
+                    @Override
+                    protected void initChannel(SocketChannel socketChannel) throws Exception {
+                        ChannelPipeline pipeline = socketChannel.pipeline();
+                        pipeline.addLast(new ServerByteEncoder());
+                        pipeline.addLast(new ServerByteDecoder());
+                        pipeline.addLast(new ServerHandler());
+                    }
+                });
+
+        serverBootstrap.bind(8090);
+    }
+}
+</code></pre><p><strong>2. 服务端Handler处理类</strong></p>
+<ul>
+<li><strong>服务端解码类</strong></li>
+</ul>
+<pre tabindex="0"><code>public class ServerByteDecoder extends ByteToMessageDecoder {
+
+    @Override
+    protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List&lt;Object&gt; list) throws Exception {
+        byte[] con = new byte[byteBuf.readableBytes()];
+        byteBuf.readBytes(con);
+
+        OperateDto operateDto = (OperateDto) SerializationUtils.deserialize(con);
+        System.out.println(&#34;服务端decoder收到消息：&#34; + operateDto);
+        list.add(operateDto);
+    }
+}
+</code></pre><ul>
+<li><strong>服务端编码类</strong></li>
+</ul>
+<pre tabindex="0"><code>public class ServerByteEncoder extends MessageToByteEncoder&lt;ResultDto&gt; {
+
+    @Override
+    protected void encode(ChannelHandlerContext channelHandlerContext, ResultDto resultDto, ByteBuf byteBuf) throws Exception {
+
+        System.out.println(&#34;服务端响应处理结果：&#34; + resultDto);
+        byteBuf.writeBytes(SerializationUtils.serialize(resultDto));
+    }
+}
+</code></pre><ul>
+<li><strong>服务端处理类</strong></li>
+</ul>
+<pre tabindex="0"><code>public class ServerHandler extends SimpleChannelInboundHandler&lt;OperateDto&gt; {
+
+
+    @Override
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, OperateDto operateDto) {
+        System.out.println(&#34;server handler 接收到：&#34; + operateDto);
+
+        ServerService serverService = SpringContextUtil.getBean(ServerService.class);
+        Channel channel = channelHandlerContext.channel();
+
+        ResultDto resultDto = serverService.operateClientReq(operateDto);
+
+        // 服务端可以通过channel跟客户端进行通信，每个客户端与服务端的连接都会有一个channel
+        channel.writeAndFlush(resultDto);
+    }
+}
+</code></pre><p><strong>3. 服务端Service层业务处理</strong></p>
+<pre tabindex="0"><code>@Service
+public class ServerService {
+    
+    public ResultDto operateClientReq(OperateDto operateDto) {
+        String operate = operateDto.getOperate();
+        ResultDto resultDto = ResultDto.builder().build();
+
+        switch (operate) {
+            case &#34;1&#34;:
+                resultDto.setFlag(&#34;1&#34;);
+                resultDto.setResult(&#34;这是server对你1的回复&#34;);
+                break;
+            case &#34;2&#34;:
+                resultDto.setFlag(&#34;2&#34;);
+                resultDto.setResult(&#34;这是server回复你2的回复&#34;);
+                break;
+        }
+
+        return resultDto;
+    }
+}
+</code></pre><h3 id="其他">其他</h3>
+<ul>
+<li>OperateDto</li>
+</ul>
+<pre tabindex="0"><code>@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class OperateDto implements Serializable {
+    private String operate;
+    private String content;
+}
+</code></pre><ul>
+<li>ResultDto</li>
+</ul>
+<pre tabindex="0"><code>@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class ResultDto implements Serializable {
+
+    private String flag;
+    private String result;
+}
+</code></pre><ul>
+<li>SpringContextUtil</li>
+</ul>
+<pre tabindex="0"><code>@Component
+public class SpringContextUtil implements ApplicationContextAware {
+
+    private static ApplicationContext applicationContext;
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        SpringContextUtil.applicationContext = applicationContext;
+    }
+
+    //获取applicationContext
+    public static ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
+
+    //通过name获取 Bean.
+    public static Object getBean(String name) {
+        return getApplicationContext().getBean(name);
+    }
+
+    //通过class获取Bean.
+    public static &lt;T&gt; T getBean(Class&lt;T&gt; clazz) {
+        return getApplicationContext().getBean(clazz);
+    }
+
+    //通过name,以及Clazz返回指定的Bean
+    public static &lt;T&gt; T getBean(String name, Class&lt;T&gt; clazz) {
+        return getApplicationContext().getBean(name, clazz);
+    }
+
+}
+</code></pre>
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/1/01/netty%E5%AE%9E%E6%88%98/" title="" target="_blank" rel="external">https://PI-KA-CHU.github.io/1/01/netty%E5%AE%9E%E6%88%98/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/1/01/jvm%E7%9B%91%E6%B5%8B%E5%B7%A5%E5%85%B7/" title=""><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/1/01/%E9%A1%B9%E7%9B%AE%E9%9A%BE%E7%82%B9%E6%80%BB%E7%BB%93/"
+                    title=""><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

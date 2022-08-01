@@ -5,10 +5,82 @@
     <link>https://PI-KA-CHU.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
     <description>Recent content in 中间件 on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jun 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>网易案例分析</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/</link>
+      <pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/</guid>
+      <description>常见响应码 3XX（重定向） 301：永久重定向 308：临时重定向 4XX（客户端问题） 400：缺少参数 401：没有权限 403：Forbidden</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot整合redis</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/springcloud%E6%95%B4%E5%90%88websocket/</link>
+      <pubDate>Tue, 28 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/springcloud%E6%95%B4%E5%90%88websocket/</guid>
+      <description>SpringCloud整合WebSocket https://blog.csdn.net/moshowgame/article/details/80275084 个人探索版 整合websocket可能遇到的问题： 功能上：可行 什么时候主动推送事件？如果是有事件</description>
+    </item>
+    
+    <item>
+      <title>Kafka常见问题解析</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/kafka%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/kafka%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/</guid>
+      <description>一、顺序消费 Kafka是如何消费消息的 Kafka消费线程模型：https://juejin.cn/post/6906843890607718</description>
+    </item>
+    
+    <item>
+      <title>高并发场景库存处理方案</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF%E5%BA%93%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF%E5%BA%93%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/</guid>
+      <description>场景： https://juejin.cn/post/6844904030158716941#comment https://juejin.cn/post/6844903719318847495 停车位区域剩余车位数量更新，当有车辆进入停车区域，需要更新剩余停车位数量。 商品库存，高并发更新的情况下， 如果是直接做数量扣除，直接</description>
+    </item>
+    
+    <item>
+      <title>程序员的工具包</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%A1%8C/</link>
+      <pubDate>Wed, 22 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%A1%8C/</guid>
+      <description>Windows 命令行 查找端口运行的线程： netstat -ano | findstr &amp;#34;9910&amp;#34; 删除指定pid的线程 taskkill -f -pid 27541 查看某进程占用端口号 打开任务管理，查看某进程的pid 查看进程中cms命令的</description>
+    </item>
+    
+    <item>
+      <title>Go入门学习</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/go%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 17 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/go%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Go学习资料 Go语言高级编程：https://chai2010.cn/advanced-go-programming-book/ch1-ba</description>
+    </item>
+    
+    <item>
+      <title>深入理解Dubbo</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3dubbo/</link>
+      <pubDate>Tue, 24 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3dubbo/</guid>
+      <description>一、What Dubbo what是一个自顶层往下不断的概念定义解析过程。从上往下为每个关键词下定义。 1. 什么是Dubbo？ Dubbo是一款高性能、轻量级</description>
+    </item>
+    
+    <item>
+      <title>实用资源网站</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E5%AE%9E%E7%94%A8%E8%B5%84%E6%BA%90%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Mon, 23 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E5%AE%9E%E7%94%A8%E8%B5%84%E6%BA%90%E7%BD%91%E7%AB%99/</guid>
+      <description>一、图片资源 Pexels：高清图片（自然、人物、城市） https://www.pexels.com/zh-cn/search/%E6%A3%AE%E6%9E%97/</description>
+    </item>
     
     <item>
       <title>程序员的工具包</title>
@@ -16,7 +88,7 @@
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://PI-KA-CHU.github.io/2022/05/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E5%B7%A5%E5%85%B7%E7%AE%B1/</guid>
-      <description>一、Tools JSON JSON验证解析、ToBean转换：https://www.json.cn/json/json2java.html 二、Uti</description>
+      <description>一、Tools JSON JSON验证解析、ToBean转换：https://www.json.cn/json/json2java.html @JsonProperty ：Jso</description>
     </item>
     
     <item>
@@ -38,6 +110,15 @@
     </item>
     
     <item>
+      <title>微服务治理</title>
+      <link>https://PI-KA-CHU.github.io/2022/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86/</link>
+      <pubDate>Mon, 09 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86/</guid>
+      <description>一、监控中心 Grafana 日志分析：对日志做关键字筛选，一般用来定位问题。例如： 统计最近五分钟内MySQL打印的日志数 统计最近十秒内MySQL timeout erro</description>
+    </item>
+    
+    <item>
       <title>hugo &#43; github编写个人博客</title>
       <link>https://PI-KA-CHU.github.io/2022/05/hugo--github%E7%BC%96%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 06 May 2022 00:00:00 +0000</pubDate>
@@ -52,7 +133,7 @@
       <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
       
       <guid>https://PI-KA-CHU.github.io/2022/03/mysql%E6%89%A7%E8%A1%8C%E4%B8%80%E6%9D%A1%E8%AF%AD%E5%8F%A5%E7%9A%84%E8%BF%87%E7%A8%8B/</guid>
-      <description>https://www.pdai.tech/md/db/sql-mysql/sql-mysql-execute.html bin log三种模式的区别 https://blog.csdn.net/keda8997110/article/details/50895171 row：记录具体的行被修改的内容。优点是记录清晰，复制完整；缺点是日志量较大。 statement：记录的是执行的S</description>
+      <description>MySQL执行一条语句的过程 https://www.pdai.tech/md/db/sql-mysql/sql-mysql-execute.html bin log三种模式的区别 https://blog.csdn.net/keda8997110/article/details/50895171 row：记录具体的行被修改的内容。优点是记录清晰，复制完整；缺点是日志量较大。 stat</description>
     </item>
     
     <item>
@@ -107,87 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
       <description>一、初识Synchronize what Synchronize是JVM的底层关键字，可以为对象的方法或者代码块加锁，加锁的代码同一时刻最多只能有一个</description>
-    </item>
-    
-    <item>
-      <title>U盘修复工具</title>
-      <link>https://PI-KA-CHU.github.io/2019/12/u%E7%9B%98%E5%90%AF%E5%8A%A8%E4%BF%AE%E5%A4%8Dwin10/</link>
-      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/12/u%E7%9B%98%E5%90%AF%E5%8A%A8%E4%BF%AE%E5%A4%8Dwin10/</guid>
-      <description>问题描述 今天一个在暑假的时候认识的朋友加了我微信让我帮忙看下电脑，电脑的情况是：打开一个软件后蓝屏了，并且一直在windows的自动修复下循</description>
-    </item>
-    
-    <item>
-      <title>Idea高效开发</title>
-      <link>https://PI-KA-CHU.github.io/2019/12/idea%E9%AB%98%E6%95%88%E5%BC%80%E5%8F%91/</link>
-      <pubDate>Fri, 13 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/12/idea%E9%AB%98%E6%95%88%E5%BC%80%E5%8F%91/</guid>
-      <description>Idea已经称为越来越普遍的开发工具，其功能强大，并且界面简洁舒服，但是Idea快捷键用起来并没有Eclipse舒服，很多快捷键用起来很不方</description>
-    </item>
-    
-    <item>
-      <title>Java并发基础</title>
-      <link>https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Wed, 11 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/12/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</guid>
-      <description>本篇文章主要讲述是并发编程前需要学习的一些基础知识，如Java程序执行过程、线程的状态、CPU的性能优化方法及带来的问题和解决方案等，这些在</description>
-    </item>
-    
-    <item>
-      <title>网易案例分析</title>
-      <link>https://PI-KA-CHU.github.io/2019/12/%E7%BD%91%E6%98%93%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</link>
-      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/12/%E7%BD%91%E6%98%93%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/</guid>
-      <description>一、项目拆解 分布式系统 一个请求由多个系统协同完成，这种系统称为分布式系统 服务拆分：单体项目一个模块修改需要重新部署、运维整个项目，故将其拆分</description>
-    </item>
-    
-    <item>
-      <title>预备课（一）</title>
-      <link>https://PI-KA-CHU.github.io/2019/12/%E9%A2%84%E5%A4%87%E8%AF%BE%E4%B8%80/</link>
-      <pubDate>Tue, 10 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/12/%E9%A2%84%E5%A4%87%E8%AF%BE%E4%B8%80/</guid>
-      <description>做时间，没有拼搏的精神，全力以赴的投入，是不可能成功的。人性是充满惰性的，没有到生死关头，是不回使尽全力来付出， 但是有和智慧的人并不是把自己</description>
-    </item>
-    
-    <item>
-      <title>Spring高级应用</title>
-      <link>https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</link>
-      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/12/spring%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8/</guid>
-      <description>一、如何基于Spring写优雅易扩展的代码 1.1 案例一 1.1.1 如何实现订单金额的计算 策略模式 实现面向接口编程，由于计算金额的方法是会增加的，比如促销方</description>
-    </item>
-    
-    <item>
-      <title>Web安全入门</title>
-      <link>https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/</link>
-      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/12/web%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8/</guid>
-      <description>一、Web安全入门 Web安全案例 1、某诈骗集团通过短信发送了钓鱼网站给我们，以下是通过一系列的手段最终追踪到用户的手段 User-Agent：</description>
-    </item>
-    
-    <item>
-      <title>Docker实战：3、三剑客之Docker Compose</title>
-      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/</link>
-      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%983%E4%B8%89%E5%89%91%E5%AE%A2%E4%B9%8Bdocker-compose/</guid>
-      <description>一、前言 Docker Compose和Dockerfile的区别： Dockerfile主要是记录了一个镜像的构建过程，可以达到快速构建项目的目的，而Do</description>
-    </item>
-    
-    <item>
-      <title>Docker实战：2、Dockerfile构建镜像</title>
-      <link>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</link>
-      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/08/docker%E5%AE%9E%E6%88%982dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F/</guid>
-      <description>一、概念 镜像的定制实际就是定制每一层所添加的配置、文件。如果我们把每一层修改、安装、构建、操作的命令都写入一个脚本，用这个脚本来构建、定制镜</description>
     </item>
     
   </channel>

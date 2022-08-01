@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        JVM - PI-KA-CHU&#39;s blog
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content=" JMM、GC、OOM" />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title>JVM - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="JVM" />
+<meta property="og:description" content=" JMM、GC、OOM" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2018/10/jvm/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-10-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-10-10T00:00:00+00:00" />
+
+<meta itemprop="name" content="JVM">
+<meta itemprop="description" content=" JMM、GC、OOM"><meta itemprop="datePublished" content="2018-10-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-10-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="8133">
+<meta itemprop="keywords" content="jvm," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JVM"/>
+<meta name="twitter:description" content=" JMM、GC、OOM"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/go/" class="category-list-link">go</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">104</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/java/" class="category-list-link">java</a><span class="category-list-count">18</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" class="category-list-link">个人成长</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-list-link">中间件</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%85%B6%E4%BB%96/" class="category-list-link">其他</a><span class="category-list-count">9</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" class="category-list-link">分布式</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="category-list-link">基础理论</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4/" class="category-list-link">开发运维</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-list-link">数据库</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/" class="category-list-link">算法</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-list-link">计算机网络</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/dubbo/" class="tag-list-link">dubbo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/go/" class="tag-list-link">go</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/http/" class="tag-list-link">http</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/jvm/" class="tag-list-link">jvm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/kafka/" class="tag-list-link">kafka</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-cloud/" class="tag-list-link">spring-cloud</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/websocket/" class="tag-list-link">websocket</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%89%E5%85%A8/" class="tag-list-link">安全</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">13</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" class="tag-list-link">疑难杂症</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E9%83%A8%E7%BD%B2%E5%B7%A5%E5%85%B7/" class="tag-list-link">部署工具</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/" class="title">网易案例分析</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/springcloud%E6%95%B4%E5%90%88websocket/" class="title">SpringBoot整合redis</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-28</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/kafka%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/" class="title">Kafka常见问题解析</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-23</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF%E5%BA%93%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" class="title">高并发场景库存处理方案</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-23</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="title">程序员的工具包</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-22</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2018/10/jvm/"
+    >JVM</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://PI-KA-CHU.github.io/2018/10/jvm/" class="article-date">
+  <time datetime="2018-10-10 00:00:00 &#43;0000 UTC" itemprop="datePublished">2018-10-10</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/it/"> it </a>
+  <a class="article-category-link" href="/categories/java/"> java </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/jvm/"> jvm </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 8133字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 17分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <p> </p>
+<p>目标：</p>
+<ul>
+<li>哪些区域会发生OOM异常？</li>
+<li>垃圾回收器有哪些？</li>
+</ul>
+<p> </p>
+<h2 id="一jmm模型">一、JMM模型</h2>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/imagesimage-20220622231028306.png" alt="image-20220622231028306"></p>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images/640" alt="图片"></p>
+<ul>
+<li>GC 主要工作在 Heap 区和 MetaSpace 区（上图蓝色部分）</li>
+</ul>
+<p> </p>
+<h2 id="二gc垃圾回收">二、GC垃圾回收</h2>
+<ul>
+<li>9种常见GC：https://mp.weixin.qq.com/s/RFwXYdzeRkTG5uaebVoLQw</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images/image-20220607112223300.png" alt="image-20220607112223300"></p>
+<h3 id="21-gc基础">2.1 GC基础</h3>
+<ul>
+<li>
+<p>**GC：**GC 本身有三种语义，下文需要根据具体场景带入不同的语义：</p>
+</li>
+<li>
+<ul>
+<li><strong>Garbage Collection</strong>：垃圾收集技术，名词。</li>
+<li><strong>Garbage Collector</strong>：垃圾收集器，名词。</li>
+<li><strong>Garbage Collecting</strong>：垃圾收集动作，动词。</li>
+</ul>
+</li>
+<li>
+<p>**Mutator：**生产垃圾的角色，也就是我们的应用程序，垃圾制造者，通过 Allocator 进行 allocate 和 free。</p>
+</li>
+<li>
+<p><strong>TLAB</strong>：Thread Local Allocation Buffer 的简写，基于 CAS 的独享线程（Mutator Threads）可以优先将对象分配在 Eden 中的一块内存，因为是 Java 线程独享的内存区没有锁竞争，所以分配速度更快，每个 TLAB 都是一个线程独享的。</p>
+</li>
+<li>
+<p>**Card Table：**中文翻译为卡表，主要是用来标记卡页的状态，每个卡表项对应一个卡页。当卡页中一个对象引用有写操作时，写屏障将会标记对象所在的卡表状态改为 dirty，卡表的本质是用来解决跨代引用的问题。具体怎么解决的可以参考 StackOverflow 上的这个问题 <a href="https://stackoverflow.com/questions/19154607/how-actually-card-table-and-writer-barrier-works">how-actually-card-table-and-writer-barrier-works</a>，或者研读一下 cardTableRS.app 中的源码。</p>
+</li>
+</ul>
+<p> </p>
+<h3 id="22-分配对象">2.2 分配对象</h3>
+<p>Java 中对象地址操作主要使用 Unsafe 调用了 C 的 allocate 和 free 两个方法，分配方法有两种：</p>
+<ul>
+<li>**空闲链表（free list）：**通过额外的存储记录空闲的地址，将随机 IO 变为顺序 IO，但带来了额外的空间消耗。</li>
+<li>**碰撞指针（bump  pointer）：**通过一个指针作为分界点，需要分配内存时，仅需把指针往空闲的一端移动与对象大小相等的距离，分配效率较高，但使用场景有限。</li>
+</ul>
+<h3 id="23-收集对象">2.3 收集对象</h3>
+<h4 id="231-识别垃圾">2.3.1 识别垃圾</h4>
+<ul>
+<li><strong>引用计数法（Reference Counting）</strong>：对每个对象的引用进行计数，每当有一个地方引用它时计数器+1，引用失效则-1，引用计数器放在对象头中。虽然循环引用问题可以通过Recycler算法解决，但是在多线程环境下，引用计数变更需要进行同步操作，性能较低，早期的编程语言才采用此算法。</li>
+<li>**可达性分析，又称引用链法（Tracing GC）：**从 GC Root （两栈两方法：JVM栈、本地方法栈、方法区的常量池、方法区的静态属性）开始进行对象搜索，可以被搜索到的对象即为可达对象，整个连通图之外的对象便可以作为垃圾被回收掉。目前 Java 中主流的虚拟机均采用此算法。</li>
+</ul>
+<p> </p>
+<h4 id="232-内存回收算法">2.3.2 内存回收算法</h4>
+<p>自从有自动内存管理出现之时就有的一些收集算法，不同的收集器也是在不同场景下进行组合。</p>
+<ul>
+<li><strong>Mark-Sweep（标记-清除）：</strong>【基础算法】回收过程主要分为两个阶段，第一阶段为追踪（Tracing）阶段，即从 GC Root 开始遍历对象图，并标记（Mark）所遇到的每个对象，第二阶段为清除（Sweep）阶段，即回收器检查堆中每一个对象，并将所有未被标记的对象进行回收，整个过程不会发生对象移动。整个算法在不同的实现中会使用三色抽象（Tricolour Abstraction）、位图标记（BitMap）等技术来提高算法的效率，存活对象较多时较高效。</li>
+<li><strong>Copying（复制）：</strong>【优化：<em>新生代</em>，新生代存活时间短，不需要过多复制】将空间分为两个大小相同的 From 和 To 两个半区，同一时间只会使用其中一个，每次进行回收时将一个半区的存活对象通过复制的方式转移到另一个半区。有递归（Robert R. Fenichel 和 Jerome C. Yochelson提出）和迭代（Cheney 提出）算法，以及解决了前两者递归栈、缓存行等问题的近似优先搜索算法。复制算法可以通过碰撞指针的方式进行快速地分配内存，但是也存在着空间利用率不高的缺点，另外就是存活对象比较大时复制的成本比较高。</li>
+<li><strong>Mark-Compact （标记-整理）：</strong>【优化：<em>老年代</em>，老年代存活时间长，复制算法需要较多的复制操作，效率较低】这个算法的主要目的就是解决在非移动式回收器中都会存在的碎片化问题，也分为两个阶段，第一阶段与 Mark-Sweep 类似，第二阶段则会对存活对象按照整理顺序（Compaction Order）进行整理。主要实现有双指针（Two-Finger）回收算法、滑动回收（Lisp2）算法和引线整理（Threaded Compaction）算法等。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images/image-20220607124816646.png" alt="image-20220607124816646"></p>
+<p> </p>
+<h3 id="24-垃圾收集器">2.4 垃圾收集器</h3>
+<ul>
+<li>垃圾回收器是回收算法的具体实现，不同的回收器关注不用多特性，即作用在不同的场景</li>
+<li>垃圾回收器的衡量指标：<strong>内存占用</strong>、<strong>吞吐量</strong>和<strong>延迟</strong></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images/image-20220609130657476.png" alt="image-20220609130657476"></p>
+<h4 id="241-分代收集器">2.4.1 分代收集器</h4>
+<p>（分代收集指在物理层面分成新生代和老年代）</p>
+<ul>
+<li><strong>Serial</strong>：【早期的单线程新生代收集器，采用复制算法】</li>
+<li><strong>Serial Old</strong>：【Serial的老年代收集器，采用标记-整理算法】</li>
+<li><strong>ParNew：</strong>【新生代，采用“复制“算法】一款多线程的收集器，是Serial的优化版，采用复制算法，主要工作在 Young 区，可以通过 <code>-XX:ParallelGCThreads</code> 参数来控制收集的线程数，整个过程都是 STW 的，常与 CMS 组合使用。</li>
+<li><strong>Parallel Scavenge</strong>：【新生代，多线程 - ”复制“算法，以获取更大的吞吐量为目的】
+<ul>
+<li>吞吐量 = 运行用户代码时间 / （运行用户代码时间 + 垃圾回收时间）</li>
+</ul>
+</li>
+<li><strong>Parallel Old</strong>：【老年代，多线程 - ”标记-整理“算法，以获取更大的吞吐量为目的】</li>
+<li><strong>CMS：</strong>【老年代：采用“<strong>标记-清除</strong>”算法，以获取最短回收停顿时间为目标】，分 4 大步进行垃圾收集，其中初始标记和重新标记会 STW ，多数应用于互联网站或者 B/S 系统的服务器端上，JDK9 被标记弃用，JDK14 被删除，详情可见 <a href="https://openjdk.java.net/jeps/363">JEP 363</a>。
+<ul>
+<li>初始标记：标记GC Root的直接关联对象（STW）</li>
+<li>并发标记：开始对象图的并发标记</li>
+<li>重新标记：标记由于并发标记过程中用户线程活动产生的对象（STW）</li>
+<li>并发清除：并发清除垃圾对象（由于清除过程用户线程仍在活动，所以有“浮动垃圾”产生）</li>
+</ul>
+</li>
+</ul>
+<h4 id="242-分区收集器">2.4.2 分区收集器</h4>
+<p>（新生代和老年代的概念仍然存在，但是已经不在物理上划分）</p>
+<ul>
+<li>
+<p><strong>G1</strong>：【新生老年代：新生采用“<strong>复制</strong>”算法，老年采用“<strong>标记-整理</strong>”算法，以控制回收停顿时间并尽可能的提高吞吐量为目标】一种服务器端的垃圾收集器，应用在多处理器和大容量内存环境中。作为JDK9的默认GC，不强制在物理内存上划分分代，而是面向堆内存进行管理，堆内存被划分未多个region（1-32M），而不同的region可能扮演不同的角色，G1根据其角色采用不同的回收策略。大致步骤是：计算region的回收价值（垃圾多少及回收时间）并维护优先列表，根据用户设置的允许停顿时间，优先处理回收价值高的region。</p>
+<ul>
+<li>初始标记：标记GC Root直接关联到的对象（STW）</li>
+<li>并发标记：对第一步扫描到的对象进行可达性分析，递归扫描整个堆里的对象图。</li>
+<li>最终标记：标记由于并发标记过程中用户线程活动产生的对象（STW）</li>
+<li>筛选回收：负责更新Region的统计数据，对各个Region的回 收价值和成本进行排序，根据用户所期望的停顿时间来制定回收计划。回收过程如下：将要回收的region复制到空的region-清空原来的region。（STW）</li>
+<li>相比于CMS
+<ul>
+<li>G1有着无空间碎片、可均衡停顿时间和吞吐量的优势，但是其垃圾收集产生的内存占用及其他额外负载都比CMS高</li>
+<li>CMS在小内存的表现优于G1，G1在大内存应用上能发挥更大的优势（堆容量平衡点：6G-8G）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>**Shenandoah：**由 Red Hat 的一个团队负责开发，与 G1 类似，基于 Region 设计的垃圾收集器，但不需要 Remember Set 或者 Card Table 来记录跨 Region 引用，停顿时间和堆的大小没有任何关系。停顿时间与 ZGC 接近，下图为与 CMS 和 G1 等收集器的 benchmark。</p>
+</li>
+<li>
+<p><strong>ZGC：</strong>【新生老年代，“<strong>标记-整理</strong>”算法，采用<strong>染色指针技术</strong>，极大的降低停顿时间】JDK11 中推出的一款低延迟垃圾回收器，适用于大内存低延迟服务的内存管理和回收，SPECjbb 2015 基准测试，在 128G 的大堆下，最大停顿时间才 1.68 ms，停顿时间远胜于 G1 和 CMS。</p>
+</li>
+</ul>
+<p> </p>
+<h2 id="三gcoom实战">三、GC+OOM实战</h2>
+<h3 id="31-jvm常用工具">3.1 JVM常用工具</h3>
+<h4 id="标准命令行终端">标准命令行终端</h4>
+<p>（i have 2 polices man）</p>
+<p>如何获取堆和栈的dump文件？（dump为JVM运行时的快照）</p>
+<ul>
+<li>jmap：获取堆内存快照（heap dump）</li>
+<li>jstack：获取虚拟机的线程快照（stack dump），定位线程出现长时间停顿的原因，如<em>线程间死锁、死循环、请求外部资源</em>导致的长时间等待</li>
+<li>jinfo：显示和调整虚拟机的配置参数</li>
+<li>jstat：用于收集虚拟机各方面的运行数据</li>
+<li>jps：显示制定系统内所有的虚拟机进程</li>
+</ul>
+<h4 id="整合型命令行终端">整合型命令行终端</h4>
+<ul>
+<li>jcmd</li>
+<li>arthas</li>
+<li>vjtools</li>
+</ul>
+<h4 id="可视化界面">可视化界面</h4>
+<ul>
+<li>
+<p>JConsole：Java监控与管理控制台，包括<em>堆内存使用情况、线程、类、CPU使用情况</em>等</p>
+</li>
+<li>
+<p>VisualVM：多合一故障处理工具</p>
+<ul>
+<li>显示进程配置、环境信息（jps、jinfo）</li>
+<li>监控程序CPU、GC、堆、方法区以及线程的信息（jstat、jstack）</li>
+<li>dump以及分析堆快照</li>
+<li>方法级的性能分析：找出被调用最多、运行时间最长的方法</li>
+</ul>
+</li>
+<li>
+<p>JProfiler（商业版）</p>
+</li>
+</ul>
+<h3 id="32-gc实战">3.2 GC实战</h3>
+<h4 id="判断gc问题核心指标">判断GC问题核心指标</h4>
+<ul>
+<li><strong>延迟（Latency）</strong>：也可以理解为最大停顿时间，即垃圾收集过程中一次 STW 的最长时间，越短越好，一定程度上可以接受频次的增大，GC 技术的主要发展方向。</li>
+<li>**吞吐量（Throughput）：**应用系统的生命周期内，由于 GC 线程会占用 Mutator 当前可用的 CPU 时钟周期，吞吐量即为 Mutator 有效花费的时间占系统总运行时间的百分比，例如系统运行了 100 min，GC 耗时 1 min，则系统吞吐量为 99%，吞吐量优先的收集器可以接受较长的停顿。</li>
+</ul>
+<h4 id="gc日志分析">GC日志分析</h4>
+<ol>
+<li>打印GC日志
+<ul>
+<li><code>-XX:+PrintGCDetails</code>：表示的是打印GC日志详情</li>
+<li><code>-XX:+PrintGCTimeStamps</code>：表示打印GC时间戳</li>
+<li><code>-Xloggc: ./gc.log</code>：表示在当前目录下生成gc.log文件</li>
+</ul>
+</li>
+</ol>
+<pre tabindex="0"><code>-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Xloggc:./gc.log
+</code></pre><ol start="2">
+<li>gceasy在线工具：https://blog.csdn.net/CoderBruis/article/details/101234738</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images640.png" alt="图片"></p>
+<h4 id="重点gc-case">重点GC Case</h4>
+<ul>
+<li>**System.gc()：**手动触发GC操作</li>
+<li>**CMS：**CMS GC 在执行过程中的一些动作，重点关注 CMS Initial Mark 和 CMS Final Remark 两个 STW 阶段</li>
+<li>**Promotion Failure：**Old 区没有足够的空间分配给 Young 区晋升的对象（即使总可用内存足够大）</li>
+<li>**Concurrent Mode Failure：**CMS GC 运行期间，Old 区预留的空间不足以分配给新的对象，此时收集器会发生退化，严重影响 GC 性能，下面的一个案例即为这种场景</li>
+<li>**GCLocker Initiated GC：**如果线程执行在 JNI 临界区时，刚好需要进行 GC，此时 GC Locker 将会阻止 GC 的发生，同时阻止其他线程进入 JNI 临界区，直到最后一个线程退出临界区时触发一次 GC</li>
+</ul>
+<h4 id="gc问题具体分类">GC问题具体分类</h4>
+<ul>
+<li><strong>Unexpected GC</strong>：意外发生的 GC，实际上不需要发生，我们可以通过一些手段去避免。
+<ul>
+<li>**Space Shock：**空间震荡问题，参见“场景一：动态扩容引起的空间震荡”。</li>
+<li>**Explicit GC：**显示执行 GC 问题，参见“场景二：显式 GC 的去与留”。</li>
+</ul>
+</li>
+<li><strong>Full GC</strong>：全量收集的 GC，对整个堆进行回收，STW 时间会比较长，一旦发生，影响较大。参见“场景七：内存碎片&amp;收集器退化”。</li>
+<li>**MetaSpace：**元空间回收引发问题，参见“场景三：MetaSpace 区 OOM”。</li>
+<li>**Direct Memory：**直接内存（也可以称作为堆外内存）回收引发问题，参见“场景八：堆外内存 OOM”。</li>
+<li>**JNI：**本地 Native 方法引发问题，参见“场景九：JNI 引发的 GC 问题”。</li>
+</ul>
+<h4 id="常见场景分析与解决">常见场景分析与解决</h4>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images640-20220622235843314.png" alt="图片"></p>
+<ol>
+<li><strong>场景一：动态扩容引起的空间震荡</strong></li>
+</ol>
+<ul>
+<li><strong>现象</strong>：服务<strong>刚刚启动时 GC 次数较多</strong>，最大空间剩余很多但是依然发生 GC，这种情况我们可以通过观察 GC 日志或者通过监控工具来观察堆的空间变化情况即可。GC Cause 一般为 Allocation Failure，且在 GC 日志中会观察到经历一次 GC ，堆内各个空间的大小会被调整。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images640-20220622230646396.png" alt="图片"></p>
+<ul>
+<li><strong>原因</strong>：在 JVM 的参数中 <code>-Xms</code> 和 <code>-Xmx</code> 设置的不一致，在初始化时只会初始 <code>-Xms</code> 大小的空间存储信息，每当空间不够用时再向操作系统申请，这样的话必然要进行一次 GC。</li>
+<li><strong>解决</strong>：尽量<strong>将成对出现的空间大小配置参数设置成固定的</strong>，如 <code>-Xms</code> 和 <code>-Xmx</code>，<code>-XX:MaxNewSize</code> 和 <code>-XX:NewSize</code>，<code>-XX:MetaSpaceSize</code> 和 <code>-XX:MaxMetaSpaceSize</code> 等。</li>
+</ul>
+<ol start="2">
+<li><strong>场景三：MetaSpace 区 OOM</strong></li>
+</ol>
+<ul>
+<li><strong>现象</strong>：JVM 在启动后或者某个时间点开始，<strong>MetaSpace 的已使用大小在持续增长，同时每次 GC 也无法释放，调大 MetaSpace 空间也无法彻底解决</strong></li>
+<li><strong>原因</strong>：
+<ul>
+<li>**MetaSpace 内存管理：**类和其元数据的生命周期与其对应的类加载器相同，只要类的类加载器是存活的，在 Metaspace 中的类元数据也是存活的，不能被回收</li>
+<li><strong>MetaSpace 弹性伸缩：<strong>由于 MetaSpace 空间和 Heap 并不在一起，所以这块的空间可以不用设置或者单独设置，一般情况下避免 MetaSpace 耗尽 VM 内存都会设置一个 MaxMetaSpaceSize，在运行过程中，如果实际大小小于这个值，JVM会动态调整其大小。为了避免弹性伸缩带来的额外 GC 消耗，我们会将 <code>-XX:MetaSpaceSize</code> 和 <code>-XX:MaxMetaSpaceSize</code>两个值设置为固定的，但是这样也会导致在空间不够的时候无法扩容，然后频繁地触发 GC，最终 OOM。所以关键原因就是 ClassLoader 不停地在内存中 load 了新的 Class ，一般这种问题都发生在</strong>动态类加载</strong>等情况上</li>
+</ul>
+</li>
+<li><strong>策略</strong>：了解MetaSpace的内存管理后，如何定位和解决就很简单了，可以 dump 快照之后通过 JProfiler 或 MAT 观察 Classes 的 Histogram（直方图） 即可，或者直接通过命令即可定位，看一下具体是哪个包下的 <strong>Class 增加</strong>较多就可以定位了</li>
+<li><strong>小结</strong>：原理理解比较复杂，但定位和解决问题会比较简单，经常会出问题的几个点有 <em>Orika 的 classMap、JSON 的 ASMSerializer、Groovy 动态加载类</em>等，基本都集中在<em>反射、Javasisit 字节码增强、CGLIB 动态代理、OSGi 自定义类加载器等</em>的技术点上。另外就是及时给 MetaSpace 区的使用率加一个监控，如果指标有波动提前发现并解决问题。</li>
+</ul>
+<ol start="3">
+<li><strong>场景四：过早晋升</strong>*</li>
+</ol>
+<ul>
+<li>
+<p><strong>现象</strong>：这种场景主要发生在分代的收集器上，90% 的对象朝生夕死，只有在 Young 区经历过几次 GC 的洗礼后才会晋升到 Old 区，每经历一次 GC 对象的 GC Age 就会增长 1，最大通过 <code>-XX:MaxTenuringThreshold</code> 来控制。通常可以观察以下几种现象来判断是否发生了过早晋升。</p>
+<ul>
+<li>分配速率接近于晋升速率，对象晋升年龄过小。</li>
+<li>Full GC比较频繁，并且GC后Old区的变化比例很大。</li>
+</ul>
+<p>过早晋升的危害：</p>
+<ul>
+<li>YGC频繁，总吞吐量下降</li>
+<li>FGC频繁，有较大停顿时间</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images640-20220622231511224.png" alt="图片"></p>
+</li>
+<li>
+<p><strong>原因</strong>：</p>
+<ul>
+<li><strong>Young/Eden区过小</strong>：Young区很快被填满并且频繁GC，导致对象年龄快速上升（默认年龄为15），并且被过早晋升到Old区（原本在Young区就可以被回收），而YGC采用的是复制算法，频繁的YGC又会导致大量对象的Copy，进而降低YGC效率，形成恶性循环。</li>
+<li><strong>分配速率过大</strong>：（内存增加速度 &gt; 垃圾回收速度）可以观察出问题前后 Mutator 的分配速率，如果有明显波动可以尝试观察网卡流量、存储类中间件慢查询日志等信息，看是否有大量数据被加载到内存中。</li>
+</ul>
+</li>
+<li>
+<p><strong>策略</strong>：</p>
+<ul>
+<li><strong>增大Young区</strong>，通常Old区设定为存活对象大小的2-3倍，剩下的空间可以预留给Young区。</li>
+<li>如果是分配速率问题：
+<ul>
+<li><strong>偶发较大</strong>：通过内存分析工具找到问题代码，从业务逻辑上做一些优化。</li>
+<li><strong>一直较大</strong>：当前的 Collector 已经不满足 Mutator 的期望了，这种情况要么扩容 Mutator 的 VM，要么调整 GC 收集器类型或加大空间。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li><strong>场景六：单次 CMS Old GC 耗时长 *</strong></li>
+</ol>
+<ul>
+<li><strong>现象</strong>：CMS GC 单次 STW 最大超过 1000ms，不会频繁发生，如下图所示最长达到了 8000ms。某些场景下会引起“雪崩效应”，这种场景非常危险，我们应该尽量避免出现。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images640-20220622003941247.png" alt="图片"></p>
+<ul>
+<li><strong>原因</strong>：
+<ul>
+<li>CMS 在回收的过程中，STW 的阶段主要是 <em>Init Mark</em> 和 <em>Final Remark</em> 这两个阶段，也是导致 CMS Old GC 最多的原因。
+<ul>
+<li><em>Init Mark</em> ：从 GC Root 出发标记 Old 中的对象，处理完成后借助 BitMap 处理下 Young 区对 Old 区的引用，整个过程基本都比较快，很少会有较大的停顿。</li>
+<li><em>Final Remark</em>：Final Remark 的开始阶段与 Init Mark 处理的流程相同，但是后续多了 Card Table 遍历、Reference 实例的清理并将其加入到 Reference 维护的 <code>pend_list</code> 中，如果要收集元数据信息，还要清理 SystemDictionary、CodeCache、SymbolTable、StringTable 等组件中不再使用的资源。其中最容易出问题的是 ：
+<ul>
+<li>Reference 中的 FinalReference：主要观察 <code>java.lang.ref.Finalizer</code> 对象的 dominator tree，找到泄漏的来源。经常会出现问题的几个点有 Socket 的 <code>SocksSocketImpl</code> 、Jersey 的 <code>ClientRuntime</code>、MySQL 的 <code>ConnectionImpl</code> 等等</li>
+<li>scrub symbol table 表示清理元数据符号引用耗时：符号引用是 Java 代码被编译成字节码时，方法在 JVM 中的表现形式，生命周期一般与 Class 一致，当 <code>_should_unload_classes</code> 被设置为 true 时在 <code>CMSCollector::refProcessingWork()</code> 中与 Class Unload、String Table 一起被处理。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>策略</strong>：由上述分析可知，问题主要来自Final Remark阶段，其中最容易出问题的是 【Reference 中的 FinalReference 和元数据信息处理中的 scrub symbol table 两个阶段】，通常不会大面积同时爆发，很多时候是单台的STW比较长，如果业务影响比较大，及时摘掉流量，具体后续优化策略如下：
+<ul>
+<li>FinalReference：找到内存来源后通过优化代码的方式来解决，如果短时间无法定位可以增加 <code>-XX:+ParallelRefProcEnabled</code> 对 Reference 进行并行处理。【在 Reference 类的问题处理方面，不管是 FinalReference，还是 SoftReference、WeakReference 核心的手段就是<strong>找准时机 dump 快照</strong>，然后用内存分析工具来分析。】</li>
+<li>symbol table：观察 MetaSpace 区的历史使用峰值，以及每次 GC 前后的回收情况，一般没有使用动态类加载或者 DSL 处理等，MetaSpace 的使用率上不会有什么变化，这种情况可以通过 <code>-XX:-CMSClassUnloadingEnabled</code> 来避免 MetaSpace 的处理，JDK8 会默认开启 CMSClassUnloadingEnabled，这会使得 CMS 在 CMS-Remark 阶段尝试进行类的卸载。</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>
+<p><strong>场景七：内存碎片&amp;收集器退化</strong></p>
+</li>
+<li>
+<p><strong>场景八：堆外内存 OOM</strong></p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>现象</strong>：内存使用率不断上升，甚至开始使用 SWAP 内存，同时可能出现 GC 时间飙升，线程被 Block 等现象，通过 top 命令发现 Java 进程的 RES 甚至超过了 -Xmx 的大小。出现这些现象时，基本可以确定是出现了堆外内存泄漏。</p>
+</li>
+<li>
+<p><strong>原因</strong>：</p>
+<ul>
+<li>原因一：通过 <code>UnSafe#allocateMemory</code>，<code>ByteBuffer#allocateDirect</code> 主动申请了堆外内存而没有释放，常见于 NIO、Netty 等相关组件。</li>
+<li>原因二：代码中有通过 JNI 调用 Native Code 申请的内存没有释放。</li>
+</ul>
+</li>
+<li>
+<p>策略：</p>
+<ul>
+<li>
+<p>策略一：JVM 使用 <code>-XX:MaxDirectMemorySize=size</code> 参数来控制可申请的堆外内存的最大值。在 Java 8 中，如果未配置该参数，默认和 <code>-Xmx</code> 相等。可以通过 Debug 的方式确定使用堆外内存的地方是否正确执行了释放内存的代码。另外，需要检查 JVM 的参数是否有 <code>-XX:+DisableExplicitGC</code> 选项，如果有就去掉，因为该参数会使 System.gc 失效。（场景二：显式 GC 的去与留）</p>
+</li>
+<li>
+<p>策略二：Google perftools（统计调用 malloc 时进行内存分配的情况） + Btrace（对线上的Java调用栈进行追踪喝监控）工具进行分析，</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images640-20220622224641446.png" alt="图片"></p>
+<h4 id="基本的gc日志参数">基本的GC日志参数</h4>
+<ul>
+<li><code>XX:+HeapDumpOnOutOfMemoryError</code>：OOM时打印堆快照</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images640-20220622225239025.png" alt="图片"></p>
+<p> </p>
+<p> </p>
+<h4 id="oom">OOM</h4>
+<ul>
+<li>OOM场景：https://juejin.cn/post/6873299829784018952</li>
+<li>OOM优化及监控：https://juejin.cn/post/7074762489736478757#heading-1</li>
+<li>OOM实战案例：
+<ul>
+<li>Netty堆外内存泄露排查与总结：https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&amp;mid=2651749037&amp;idx=2&amp;sn=d1d6b0348eea5cd80e2c7a56c8a61fa9&amp;chksm=bd12a3e08a652af684fd8d96e81fc0e0fded69dd847051e6b0f791f3726da0415c9552ee2615&amp;scene=21#wechat_redirect</li>
+<li>Spring Boot内存泄露排查记：https://mp.weixin.qq.com/s?__biz=MjM5NjQ5MTI5OA==&amp;mid=2651750037&amp;idx=2&amp;sn=847fb15d4413354355c33a46a7bccf55&amp;chksm=bd12a7d88a652ecea5789073973abb9545e76a8972c843968a6efd1fb3a918ef07eed8abb37e&amp;scene=21#wechat_redirect</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考">参考</h2>
+<ul>
+<li>ZGC：https://mp.weixin.qq.com/s/RFwXYdzeRkTG5uaebVoLQw</li>
+<li>GC：https://mp.weixin.qq.com/s/RFwXYdzeRkTG5uaebVoLQw</li>
+</ul>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2018/10/jvm/" title="JVM" target="_blank" rel="external">https://PI-KA-CHU.github.io/2018/10/jvm/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/2018/10/cookiesession%E5%8F%8Aapplication%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Cookie,Session及Application的使用"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/2018/10/junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BD%BF%E7%94%A8/"
+                    title="JUnit单元测试的使用"><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

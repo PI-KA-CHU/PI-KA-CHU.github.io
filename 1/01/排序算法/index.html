@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+         - PI-KA-CHU&#39;s blog
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="author = &amp;ldquo;pikachu&amp;rdquo; title = &amp;ldquo;排序算法&amp;rdquo; date = &amp;ldquo;2022-06-29&amp;rdquo; description = &amp;ldquo;十大排序算法&amp;rdquo; tags = [ ] categories = [ &amp;ldquo;it&amp;rdquo" />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title> - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="" />
+<meta property="og:description" content="author = &ldquo;pikachu&rdquo; title = &ldquo;排序算法&rdquo; date = &ldquo;2022-06-29&rdquo; description = &ldquo;十大排序算法&rdquo; tags = [ ] categories = [ &ldquo;it&rdquo" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/1/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="author = &ldquo;pikachu&rdquo; title = &ldquo;排序算法&rdquo; date = &ldquo;2022-06-29&rdquo; description = &ldquo;十大排序算法&rdquo; tags = [ ] categories = [ &ldquo;it&rdquo">
+
+<meta itemprop="wordCount" content="2691">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="author = &ldquo;pikachu&rdquo; title = &ldquo;排序算法&rdquo; date = &ldquo;2022-06-29&rdquo; description = &ldquo;十大排序算法&rdquo; tags = [ ] categories = [ &ldquo;it&rdquo"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/go/" class="category-list-link">go</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">104</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/java/" class="category-list-link">java</a><span class="category-list-count">18</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" class="category-list-link">个人成长</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-list-link">中间件</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%85%B6%E4%BB%96/" class="category-list-link">其他</a><span class="category-list-count">9</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" class="category-list-link">分布式</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="category-list-link">基础理论</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4/" class="category-list-link">开发运维</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-list-link">数据库</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/" class="category-list-link">算法</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-list-link">计算机网络</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/dubbo/" class="tag-list-link">dubbo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/go/" class="tag-list-link">go</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/http/" class="tag-list-link">http</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/jvm/" class="tag-list-link">jvm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/kafka/" class="tag-list-link">kafka</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-cloud/" class="tag-list-link">spring-cloud</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/websocket/" class="tag-list-link">websocket</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%89%E5%85%A8/" class="tag-list-link">安全</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">13</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" class="tag-list-link">疑难杂症</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E9%83%A8%E7%BD%B2%E5%B7%A5%E5%85%B7/" class="tag-list-link">部署工具</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/" class="title">网易案例分析</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/springcloud%E6%95%B4%E5%90%88websocket/" class="title">SpringBoot整合redis</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-28</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/kafka%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/" class="title">Kafka常见问题解析</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-23</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E9%AB%98%E5%B9%B6%E5%8F%91%E5%9C%BA%E6%99%AF%E5%BA%93%E5%AD%98%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88/" class="title">高并发场景库存处理方案</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-23</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E8%A1%8C/" class="title">程序员的工具包</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-22 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-22</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/1/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"
+    ></a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2691字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <p>author = &ldquo;pikachu&rdquo;
+title = &ldquo;排序算法&rdquo;
+date = &ldquo;2022-06-29&rdquo;
+description = &ldquo;十大排序算法&rdquo;
+tags = [
+]
+categories = [
+&ldquo;it&rdquo;,&ldquo;算法&rdquo;
+]</p>
+<hr>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images165c15fba21994d3%7Etplv-t2oaga2asx-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp" alt="img"></p>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images/8tr0wqbgft.png" alt="img"></p>
+<ul>
+<li>数据结构可视化：https://www.cs.usfca.edu/~galles/visualization/Algorithms.html</li>
+<li>*八大排序：https://juejin.cn/post/6844903687932887053#heading-7</li>
+<li>*leetcode排序解析：https://leetcode.cn/problems/sort-an-array/solution/fu-xi-ji-chu-pai-xu-suan-fa-java-by-liweiwei1419/</li>
+</ul>
+<h2 id="jdk算法">JDK算法</h2>
+<ul>
+<li><a href="https://blog.csdn.net/xlgen157387/article/details/79863301">https://blog.csdn.net/xlgen157387/article/details/79863301</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images/20180409110517932" alt="这里写图片描述"></p>
+<h2 id="冒泡排序">冒泡排序</h2>
+<h3 id="算法效率">算法效率</h3>
+<ul>
+<li>稳定算法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">平均时间复杂度</th>
+<th>最好情况</th>
+<th>最坏情况</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">O(n2)</td>
+<td>O(n)</td>
+<td>O(n2)</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="快排重点">快排(重点)</h2>
+<h3 id="基本思想">基本思想</h3>
+<ul>
+<li><a href="https://juejin.cn/post/6844903640340267022">https://juejin.cn/post/6844903640340267022</a></li>
+<li>优化思路：https://juejin.cn/post/6844903576037244935</li>
+</ul>
+<p>快速排序（Quicksort）是对冒泡排序的一种改进，借用了分治的思想，基本思路是：</p>
+<ul>
+<li>每次选择一个数，将所有小于该数的元素放到该数的前面，大于的放到其后面。（每次都确定一个元素的位置）</li>
+<li>递归实现</li>
+</ul>
+<p>JDK的Arrays.sort采用了双轴快速排序</p>
+<p>快排的实现方式：</p>
+<ul>
+<li>基本快排</li>
+<li>双指针快排</li>
+<li>三指针快排</li>
+</ul>
+<p>基本快排和双指针快排的区别：[2, 1, 3, 1, 3, 1]，对于普通快排，需要swap三次，对于双指针快排，需要swap一次</p>
+<h3 id="代码实现">代码实现</h3>
+<blockquote>
+<p>只记住第一种和第二种写法就行，不要记零的写法，所以整个过程中涉及到的对象间的调整都是swap，记住！</p>
+</blockquote>
+<ul>
+<li>写法零：填坑法(双指针)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> arr<span style="color:#f92672">[],</span> <span style="color:#66d9ef">int</span> low<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>arr <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> arr<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>low <span style="color:#f92672">&gt;=</span> high<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> left <span style="color:#f92672">=</span> low<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> right <span style="color:#f92672">=</span> high<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> temp <span style="color:#f92672">=</span> arr<span style="color:#f92672">[</span>left<span style="color:#f92672">];</span> <span style="color:#75715e">//挖坑1：保存基准的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>left <span style="color:#f92672">&lt;</span> right<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>left <span style="color:#f92672">&lt;</span> right <span style="color:#f92672">&amp;&amp;</span> arr<span style="color:#f92672">[</span>right<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;=</span> temp<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        right<span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>      arr<span style="color:#f92672">[</span>left<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> arr<span style="color:#f92672">[</span>right<span style="color:#f92672">];</span> <span style="color:#75715e">//坑2：从后向前找到比基准小的元素，插入到基准位置坑1中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>left <span style="color:#f92672">&lt;</span> right <span style="color:#f92672">&amp;&amp;</span> arr<span style="color:#f92672">[</span>left<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> temp<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        left <span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>      arr<span style="color:#f92672">[</span>right<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> arr<span style="color:#f92672">[</span>left<span style="color:#f92672">];</span> <span style="color:#75715e">//坑3：从前往后找到比基准大的元素，放到刚才挖的坑2中
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    arr<span style="color:#f92672">[</span>left<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> temp<span style="color:#f92672">;</span> <span style="color:#75715e">//基准值填补到坑3中，准备分治递归快排
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    sort<span style="color:#f92672">(</span>arr<span style="color:#f92672">,</span> low<span style="color:#f92672">,</span> left<span style="color:#f92672">-</span>1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    sort<span style="color:#f92672">(</span>arr<span style="color:#f92672">,</span> left <span style="color:#f92672">+</span> 1<span style="color:#f92672">,</span> high<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ul>
+<li>写法一：基本快速排序
+<ul>
+<li>partition方法：找到基准下标，该基准左边都是小于基准的值，右边都是大于基准的值</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">sortArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    quickSort<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> nums<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">quickSort</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> left<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> right<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>left <span style="color:#f92672">&gt;=</span> right<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> pIndex <span style="color:#f92672">=</span> partition<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> left<span style="color:#f92672">,</span> right<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    quickSort<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> left<span style="color:#f92672">,</span> pIndex <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    quickSort<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> pIndex <span style="color:#f92672">+</span> 1<span style="color:#f92672">,</span> right<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">partition</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> left<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> right<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> pivot <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>left<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>  	<span style="color:#66d9ef">int</span> lt <span style="color:#f92672">=</span> left<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> left <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>i <span style="color:#f92672">&lt;=</span> right<span style="color:#f92672">;</span>i <span style="color:#f92672">++){</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> pivot<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        lt <span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        swap<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> i<span style="color:#f92672">,</span> lt<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    swap<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> lt<span style="color:#f92672">,</span> left<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> lt<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> left<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> right<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> tmp <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>left<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    nums<span style="color:#f92672">[</span>left<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>right<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    nums<span style="color:#f92672">[</span>right<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> tmp<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ul>
+<li>写法二：双指针（指针对撞）快速排序</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">sortArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    quickSort<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> nums<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">quickSort</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> left<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> right<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>left <span style="color:#f92672">&gt;=</span> right<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> pIndex <span style="color:#f92672">=</span> partition<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> left<span style="color:#f92672">,</span> right<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    quickSort<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> left<span style="color:#f92672">,</span> pIndex <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    quickSort<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> pIndex <span style="color:#f92672">+</span> 1<span style="color:#f92672">,</span> right<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">partition</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> left<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> right<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> pivot <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>left<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  	<span style="color:#75715e">// lt从left开始，lt在开始移动后代表第一个从左往右 &gt; povit的元素，没有移动时停留在 &lt;= pivot的元素上（swap需要），如果从left + 1开始，没有 &lt;= pivot的数时会被强制swap，导致出错
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> lt <span style="color:#f92672">=</span> left<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// gt移动后表示第一个 &lt; povit的元素，不care不移动时候的指向元素
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">int</span> gt <span style="color:#f92672">=</span> right<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>lt <span style="color:#f92672">&lt;</span> gt<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// lt从left开始，得先遍历gt的，这样即使遇到1，2，3，4这种已经有序的，也可以保证lt没有移动，因为如果是lt先遍历，无论如何都会往下走一位，这样left和lt会被强制替换导致出问题
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>lt <span style="color:#f92672">&lt;</span> gt <span style="color:#f92672">&amp;&amp;</span> nums<span style="color:#f92672">[</span>gt<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;=</span> pivot<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>            gt <span style="color:#f92672">--;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>lt <span style="color:#f92672">&lt;</span> gt <span style="color:#f92672">&amp;&amp;</span> nums<span style="color:#f92672">[</span>lt<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;=</span> pivot<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>            lt <span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        swap<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> lt<span style="color:#f92672">,</span> gt<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    swap<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> left<span style="color:#f92672">,</span> lt<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> lt<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> left<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> right<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> tmp <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>left<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    nums<span style="color:#f92672">[</span>left<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>right<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    nums<span style="color:#f92672">[</span>right<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> tmp<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="算法效率-1">算法效率</h3>
+<ul>
+<li>
+<p>不稳定</p>
+</li>
+<li>
+<p>最坏情况：数组有序（正序或倒序），这样每次partition后都分为一个为空、一个为（n-1）个数的数组，最终O(n^2)</p>
+</li>
+<li>
+<p>最好情况：每次都能平均分割，O(nlogn)</p>
+</li>
+<li>
+<p>平均情况：O(n*logn)</p>
+</li>
+<li>
+<p>空间复杂度：主要由递归而产生的对栈空间的影响</p>
+<ul>
+<li>最好：O(logn)：pivot为中间值，树平衡</li>
+<li>最坏:O(n)：数组基本有序，取第一个数作为pivot会导致生成树不平衡，数高度=数组长度</li>
+<li>平均：O(logn)</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">平均时间复杂度</th>
+<th style="text-align:left">最好情况</th>
+<th>最坏情况</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td>O(n2)</td>
+<td>O(logn)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="插入排序">插入排序</h2>
+<h3 id="算法思路">算法思路</h3>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images/165c25fe0f393246%7Etplv-t2oaga2asx-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp" alt="img"></p>
+<h3 id="算法实现">算法实现</h3>
+<pre tabindex="0"><code>if (a == null || a.length == 0) {
+    return;
+}
+
+for (int i = 1; i &lt; a.length; i++) {
+    int j = i - 1;
+    int temp = a[i]; // 先取出待插入数据保存，因为向后移位过程中会把覆盖掉待插入数
+    while (j &gt;= 0 &amp;&amp; a[j] &gt; temp) { // 如果待是比待插入数据大，就后移
+        a[j+1] = a[j];
+        j--;
+    }
+    a[j+1] = temp; // 找到比待插入数据小的位置，将待插入数据插入
+}
+</code></pre><h3 id="算法效率-2">算法效率</h3>
+<ul>
+<li>稳定</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>平均时间复杂度</th>
+<th>最好情况</th>
+<th>最坏情况</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O(n2)</td>
+<td>O(n)</td>
+<td>O(n2)</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="希尔排序">希尔排序</h2>
+<h3 id="算法效率-3">算法效率</h3>
+<ul>
+<li>不稳定</li>
+</ul>
+<h2 id="选择排序">选择排序</h2>
+<h3 id="算法思路-1">算法思路</h3>
+<blockquote>
+<p>每次选择最小的数的下标，并将其取出排序</p>
+</blockquote>
+<h3 id="算法实现-1">算法实现</h3>
+<pre tabindex="0"><code>public int[] sortArray(int[] nums) {
+    
+    for(int i = 0;i &lt; nums.length;i ++){
+        int min = i;
+        for(int j = i + 1;j &lt; nums.length;j ++){
+            if(nums[min] &gt; nums[j]){
+                min = j;
+            }
+        }
+
+        swap(nums, min, i);
+    }
+
+    return nums;
+}
+
+private void swap(int[] nums, int left ,int right){
+    int tmp = nums[left];
+    nums[left] = nums[right];
+    nums[right] = tmp;
+}
+</code></pre><h3 id="算法效率-4">算法效率</h3>
+<ul>
+<li>不稳定（涉及到swap，例如{5,5,2}）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>平均时间复杂度</th>
+<th>最好情况</th>
+<th>最坏情况</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O(n2)</td>
+<td>O(n2)</td>
+<td>O(n2)</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="归并排序重点">归并排序（重点）</h2>
+<h3 id="代码实现-1">代码实现</h3>
+<pre tabindex="0"><code>public int[] sortArray(int[] nums) {
+    if(nums.length &lt;= 1){
+        return nums;
+    }
+    
+    int num = nums.length / 2;
+    int[] left = Arrays.copyOfRange(nums, 0, num);
+    int[] right = Arrays.copyOfRange(nums, num, nums.length);
+
+    return merge(sortArray(left), sortArray(right));
+}
+
+
+private int[] merge(int[] left, int[] right){
+    int len1 = left.length;
+    int len2 = right.length;
+    int i = 0, j = 0, k = 0;
+
+    int[] res = new int[len1 + len2];
+    while(i &lt; len1 &amp;&amp; j &lt; len2){
+        if(left[i] &lt; right[j]){
+            res[k++] = left[i++];
+        }else {
+            res[k++] = right[j++];
+        }
+    }
+    while(i &lt; len1){
+        res[k++] = left[i++];
+    }
+
+    while(j &lt; len2){
+        res[k++] = right[j++];
+    }
+
+    return res;
+}
+</code></pre><h3 id="算法效率-5">算法效率</h3>
+<ul>
+<li>稳定</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>平均时间复杂度</th>
+<th>最好情况</th>
+<th>最坏情况</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="基数排序">基数排序</h2>
+<h3 id="算法思路-2">算法思路</h3>
+<blockquote>
+<p>如下图所示，依次对从高位到低位上的元素进行排序（桶思想）。</p>
+<p>适用场景：</p>
+<ul>
+<li>数据范围较小，建议在小于1000</li>
+<li>每个数值都要大于等于0</li>
+</ul>
+<p>基数排序 vs 计数排序 vs 桶排序</p>
+<p>这三种排序算法都利用了桶的概念，但对桶的使用方法上有明显差异：</p>
+<ul>
+<li>基数排序：根据键值的每位数字来分配桶</li>
+<li>计数排序：每个桶只存储单一键值</li>
+<li>桶排序：每个桶存储一定范围的数值</li>
+</ul>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/PI-KA-CHU/Image-OSS/main/images/165c75b70ba878f4~tplv-t2oaga2asx-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp" alt=""></p>
+<h3 id="算法效率-6">算法效率</h3>
+<ul>
+<li>稳定</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>平均时间复杂度</th>
+<th>最好情况</th>
+<th>最坏情况</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O(d*(n+r))</td>
+<td>O(d*(n+r))</td>
+<td>O(d*(n+r))</td>
+<td>O(n+r)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="堆排序重点">堆排序（重点）</h2>
+<ul>
+<li>堆排序动画：https://www.bilibili.com/video/BV1B64y1975b?vd_source=db044ebd2a1b441023aaee25eb452c6c</li>
+</ul>
+<h3 id="基本思想-1">基本思想</h3>
+<ol>
+<li>将待排序序列构造成一个大顶堆，此时，整个序列的最大值就是堆顶的根节点。</li>
+<li>将堆顶节点与最后一个节点进行swap，并剔除出堆</li>
+<li>调整替换后的堆，让堆顶重回最大元素</li>
+</ol>
+<h3 id="代码实现-2">代码实现</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> <span style="color:#a6e22e">sortArray</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 构建大根堆，从最后一个非叶子结点开始
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>len <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">/</span> 2<span style="color:#f92672">;</span>i <span style="color:#f92672">&gt;=</span> 0<span style="color:#f92672">;</span>i <span style="color:#f92672">--){</span>
+</span></span><span style="display:flex;"><span>        adjustHeap<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> i<span style="color:#f92672">,</span> len <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 替换根顶和末尾的元素，并重新调整，大根堆保证每个节点都大于其左右节点（即子树的根节点是最大的值）
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> len <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span>i <span style="color:#f92672">&gt;=</span> 0<span style="color:#f92672">;</span>i <span style="color:#f92672">--){</span>
+</span></span><span style="display:flex;"><span>        swap<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> i<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        adjustHeap<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span>0<span style="color:#f92672">,</span> i <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> nums<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">adjustHeap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> k<span style="color:#f92672">,</span><span style="color:#66d9ef">int</span> end<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 左叶子结点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>2 <span style="color:#f92672">*</span> k <span style="color:#f92672">+</span> 1 <span style="color:#f92672">&lt;=</span> end<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 2 <span style="color:#f92672">*</span> k <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>j <span style="color:#f92672">+</span> 1 <span style="color:#f92672">&lt;=</span> end <span style="color:#f92672">&amp;&amp;</span> nums<span style="color:#f92672">[</span>j <span style="color:#f92672">+</span> 1<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;</span> nums<span style="color:#f92672">[</span>j<span style="color:#f92672">]){</span>
+</span></span><span style="display:flex;"><span>            j <span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;</span> nums<span style="color:#f92672">[</span>k<span style="color:#f92672">]){</span>
+</span></span><span style="display:flex;"><span>          swap<span style="color:#f92672">(</span>nums<span style="color:#f92672">,</span> j<span style="color:#f92672">,</span> k<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">// 该子树被调整了，需要重新构建
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          k <span style="color:#f92672">=</span> j<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">// 已经为最大值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">swap</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> left<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> right<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> tmp <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>left<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    nums<span style="color:#f92672">[</span>left<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> nums<span style="color:#f92672">[</span>right<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    nums<span style="color:#f92672">[</span>right<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> tmp<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="算法效率-7">算法效率</h3>
+<ul>
+<li>不稳定</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>平均时间复杂度</th>
+<th>最好情况</th>
+<th>最坏情况</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O(nlogn)</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/1/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="" target="_blank" rel="external">https://PI-KA-CHU.github.io/1/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="next">
+                <a href="https://PI-KA-CHU.github.io/1/01/leetcode-hot100/"
+                    title=""><span>上一篇&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

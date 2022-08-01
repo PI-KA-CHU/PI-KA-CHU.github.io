@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go on PI-KA-CHU&#39;s blog</title>
+    <link>https://PI-KA-CHU.github.io/tags/go/</link>
+    <description>Recent content in go on PI-KA-CHU&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 17 Jun 2022 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="https://PI-KA-CHU.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SpringBoot中使用Spring Session实现单点登陆</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/</guid>
+      <description>一、Session的共享问题 Session的共享可以通过redis的操作及spring session进行解决，从而实现单点登陆，redis操</description>
+    </item>
+    
+    <item>
+      <title>Idea中SpringBoot &#43; maven进行环境隔离</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/idea%E4%B8%ADspringboot--maven%E8%BF%9B%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB/</link>
+      <pubDate>Fri, 08 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/idea%E4%B8%ADspringboot--maven%E8%BF%9B%E8%A1%8C%E7%8E%AF%E5%A2%83%E9%9A%94%E7%A6%BB/</guid>
+      <description>1. 新建各个环境的配置文件夹 2. pom.xml中配置profile &amp;lt;!-- Maven多环境隔离配置 --&amp;gt; &amp;lt;project&amp;gt; &amp;lt;build&amp;gt; &amp;lt;!-- 多环境文件夹配置，根据profile选择对应</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot2.0静态变量注入及过滤器的使用</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/springboot2.0%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E6%B3%A8%E5%85%A5%E5%8F%8A%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Tue, 29 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/springboot2.0%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F%E6%B3%A8%E5%85%A5%E5%8F%8A%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>一、实现静态变量的注入 参考： SpringBoot的常见注解：https://blog.csdn.net/fxbin123/article/d</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot整合redis</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/spring%E6%95%B4%E5%90%88redis/</link>
+      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/spring%E6%95%B4%E5%90%88redis/</guid>
+      <description>一、redis单机版 写在前面 选中代码块，按control + alt + t：快捷tryCatch 选中类名，按control + shift + t：快捷创建Junit</description>
+    </item>
+    
+    <item>
+      <title>Redis命令操作</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/redis%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Mon, 21 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/redis%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/</guid>
+      <description>一、redis的基础命令 info命令： # Server：查看系统信息，包括redis的版本信息，使用的端口和process_id和依赖的gcc</description>
+    </item>
+    
+    <item>
+      <title>Redis安装及使用</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/redis%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sun, 20 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/redis%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>一、redis的安装（Linux环境） 下载需要的redis版本：http://download.redis.io/releases/ ，将re</description>
+    </item>
+    
+    <item>
+      <title>Idea的使用及常见问题</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/idea%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/idea%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>一、前言 一直使用Eclipse进行java开发的我最近发现一个界面及其炫酷的编译器Idea，尝试着使用Idea进行开发，记录下出现的一些问题</description>
+    </item>
+    
+    <item>
+      <title>进程与线程</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/</guid>
+      <description>一、进程的定义及特征 定义： 多道程序设计技术的引入，实现了资源的共享和程序的并发执行。为了描述并发执行的特点，引入了进程的概念。进程是可高并发</description>
+    </item>
+    
+    <item>
+      <title>操作系统引论</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%BC%95%E8%AE%BA/</guid>
+      <description>一、操作系统的概念 操作系统是一组控制和管理计算机硬件资源和软件资源、合理组织计算机的工作流程，方便用户使用的程序的集合。 操作系统是裸机上的第</description>
+    </item>
+    
+    <item>
+      <title>分支限界法</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/</guid>
+      <description>分支限界法的性质 广度优先或最小耗费（最大效益）优先的方式搜索解空间树 先入先出队列式分支限界 优先队列式分支限界 分支限界法和回溯法的关系 搜索方式</description>
+    </item>
+    
+    <item>
+      <title>时间空间复杂度</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E6%97%B6%E9%97%B4%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</guid>
+      <description>参考 https://blog.csdn.net/zolalad/article/details/11848739</description>
+    </item>
+    
+    <item>
+      <title>递归与分治</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</guid>
+      <description>一、分治法 分治法思想 将要解决的较大规模的问题不断地分割成更小规模的子问题，直到能够很容易地得到子问题的解。 对小规模的问题进行求解 将小问题的解</description>
+    </item>
+    
+    <item>
+      <title>动态规划</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>动态规划的基本步骤 1. 分析最优子结构 找出最优解的性质，并刻画其结构特征 2. 建立递归关系 递归地定义最优值 3. 计算最优值 以自底向上的方式计算出最优值（</description>
+    </item>
+    
+    <item>
+      <title>回溯法</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%9B%9E%E6%BA%AF%E6%B3%95/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%9B%9E%E6%BA%AF%E6%B3%95/</guid>
+      <description>回溯法的本质 具有限界函数的深度优先搜索法 扩展结点：一个正在产生儿子的结点称为扩展结点 活结点：一个自身已生成但其儿子还没有全部生成的节点称做活</description>
+    </item>
+    
+    <item>
+      <title>贪心算法</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sat, 12 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</guid>
+      <description>贪心算法的本质 做出在当前看来最好的选择 自顶向下地解决问题 贪心算法基本要素 最优子结构 贪心选择 贪心算法的例子 活动安排问题： 利用贪心算法，解决下列</description>
+    </item>
+    
+    <item>
+      <title>Nginx的安装及负载均衡（Linux环境）</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/nginx%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1linux%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/nginx%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1linux%E7%8E%AF%E5%A2%83/</guid>
+      <description>一、依赖环境安装 操作系统： CentOS 7.3 安装版本： nginx-1.14.2 安装gcc： yum install gcc-c++ 安装其他依赖： yum install -y pcre pcre-devel yum install -y zlib zlib-devel yum install -y openssl openssl-devel 二、Nginx安装 官网下载地址 http://nginx.org/en/download.html ng</description>
+    </item>
+    
+    <item>
+      <title>UML期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/uml/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/uml/</guid>
+      <description>UML的体系结构 UML建模规则 名字：任何一个UML成员都必须包含一个名字。 作用域：UML成员所定义的内容起作用的上下文环境。某个成员在每个实</description>
+    </item>
+    
+    <item>
+      <title>软件测试复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/</guid>
+      <description>软件测试的知识点 思维导图（部分）： 软件测试的定义： 软件是一个集合，包括三部分：文档，程序和数据 软件测试就是为了发现错误而审查软件文档，检查软</description>
+    </item>
+    
+    <item>
+      <title>单机部署Tomcat集群</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2tomcat%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2tomcat%E9%9B%86%E7%BE%A4/</guid>
+      <description>一、Tomcat的安装 单个Tomcat的安装（包括基本JDK，Mysql环境搭建）具体可参考这边笔记#20 ，现在需要将多个Tomcat安装到</description>
+    </item>
+    
+    <item>
+      <title>Python期末复习</title>
+      <link>https://PI-KA-CHU.github.io/2019/01/python%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/01/python%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
+      <description>列表： 有序，可变 [ &#39;crunchy frog&#39; , &#39;ram bladder&#39; , &#39;lark vomit&#39; ] 元组： 有序，不可变 ( &#39;crunchy frog&#39; , &#39;ram bladder&#39; , &#39;lark vomit&#39; ) 字典： 无序，可变 { &#39;x&#39; : &#39;crunchy frog&#39; , &#39;y&#39; : &#39;ram bladder&#39; , &#39;z&#39; : &#39;lark vomit&#39; } 集合： 无序，可变 {</description>
+    </item>
+    
+  </channel>
+</rss>
