@@ -5,7 +5,7 @@
     <link>https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 13 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jun 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,6 +17,15 @@
       
       <guid>https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/</guid>
       <description>常见响应码 3XX（重定向） 301：永久重定向 308：临时重定向 4XX（客户端问题） 400：缺少参数 401：没有权限 403：Forbidden</description>
+    </item>
+    
+    <item>
+      <title>排序算法</title>
+      <link>https://PI-KA-CHU.github.io/2022/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+      <description>排序算法 数据结构可视化：https://www.cs.usfca.edu/~galles/visualization/Algorithms.</description>
     </item>
     
     <item>
@@ -179,15 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
       <description>一、初识Volatile what volatile是Java语言提供的一种较弱的同步机制，用来确保将变量的更新操作通知到其他线程，volatile修</description>
-    </item>
-    
-    <item>
-      <title>Synchronize关键字</title>
-      <link>https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/</link>
-      <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
-      <description>一、初识Synchronize what Synchronize是JVM的底层关键字，可以为对象的方法或者代码块加锁，加锁的代码同一时刻最多只能有一个</description>
     </item>
     
   </channel>

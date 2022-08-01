@@ -5,10 +5,19 @@
     <link>https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 13 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jun 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Synchronize关键字</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <description>一、初识Synchronize what Synchronize是JVM的底层关键字，可以为对象的方法或者代码块加锁，加锁的代码同一时刻最多只能有一个</description>
+    </item>
     
     <item>
       <title>U盘修复工具</title>
@@ -179,15 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/07/spring-ioc%D1%A7%CF%B0/</guid>
       <description>一、什么是IOC IOC（控制反转）又叫做DI（依赖注入），它描述了对象的定义和依赖的一个过程，也就是说，依赖的对象通过构造参数、工厂方法参数</description>
-    </item>
-    
-    <item>
-      <title>Spring MVC学习</title>
-      <link>https://PI-KA-CHU.github.io/2019/06/spring-mvc%D1%A7%CF%B0/</link>
-      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/06/spring-mvc%D1%A7%CF%B0/</guid>
-      <description>最近在学习Spring的相关模块及源码，在学习Bean的相关创建方法时，发现spring的bean一般都是单例模式，在xml中可以通过sco</description>
     </item>
     
   </channel>

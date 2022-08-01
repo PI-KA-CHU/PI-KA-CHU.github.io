@@ -59,6 +59,20 @@
   </url>
   
   <url>
+    <loc>https://PI-KA-CHU.github.io/2022/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-06-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-06-29T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://PI-KA-CHU.github.io/categories/spring/</loc>
     <lastmod>2022-06-28T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -759,13 +773,6 @@
   </url>
   
   <url>
-    <loc>https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2019-01-13T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://PI-KA-CHU.github.io/2019/01/%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</loc>
     <lastmod>2019-01-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -1074,12 +1081,6 @@
   
   <url>
     <loc>https://PI-KA-CHU.github.io/1/01/leetcode-hot100/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://PI-KA-CHU.github.io/1/01/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

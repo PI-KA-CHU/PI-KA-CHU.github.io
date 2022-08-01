@@ -5,10 +5,19 @@
     <link>https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 13 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jun 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring MVC学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/06/spring-mvc%D1%A7%CF%B0/</link>
+      <pubDate>Fri, 28 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/06/spring-mvc%D1%A7%CF%B0/</guid>
+      <description>最近在学习Spring的相关模块及源码，在学习Bean的相关创建方法时，发现spring的bean一般都是单例模式，在xml中可以通过sco</description>
+    </item>
     
     <item>
       <title>线程池与数据库连接池的区别</title>
@@ -179,15 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/02/restful%D1%A7%CF%B0/</guid>
       <description>REST全称是Representational State Transfer，中文意思是表述性状态转移，指的是一组架构约束条件和原则， 如果一个架构符合R</description>
-    </item>
-    
-    <item>
-      <title>SpringBoot实现全局异常的捕获</title>
-      <link>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7/</link>
-      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7/</guid>
-      <description>1. 创建一个简单类 使用@RestControllerAdvice注册组件，使用@ExceptionHandler捕获异常 该类只捕获Contro</description>
     </item>
     
   </channel>

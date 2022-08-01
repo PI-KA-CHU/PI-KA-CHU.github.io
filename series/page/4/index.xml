@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>SpringBoot实现全局异常的捕获</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9E%E7%8E%B0%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%9A%84%E6%8D%95%E8%8E%B7/</guid>
+      <description>1. 创建一个简单类 使用@RestControllerAdvice注册组件，使用@ExceptionHandler捕获异常 该类只捕获Contro</description>
+    </item>
+    
+    <item>
       <title>SpringBoot中使用Spring Session实现单点登陆</title>
       <link>https://PI-KA-CHU.github.io/2019/02/springboot%E4%B8%AD%E4%BD%BF%E7%94%A8spring-session%E5%AE%9E%E7%8E%B0%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86/</link>
       <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
@@ -178,15 +187,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/01/%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2tomcat%E9%9B%86%E7%BE%A4/</guid>
       <description>一、Tomcat的安装 单个Tomcat的安装（包括基本JDK，Mysql环境搭建）具体可参考这边笔记#20 ，现在需要将多个Tomcat安装到</description>
-    </item>
-    
-    <item>
-      <title>Python期末复习</title>
-      <link>https://PI-KA-CHU.github.io/2019/01/python%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</link>
-      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/01/python%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/</guid>
-      <description>列表： 有序，可变 [ &#39;crunchy frog&#39; , &#39;ram bladder&#39; , &#39;lark vomit&#39; ] 元组： 有序，不可变 ( &#39;crunchy frog&#39; , &#39;ram bladder&#39; , &#39;lark vomit&#39; ) 字典： 无序，可变 { &#39;x&#39; : &#39;crunchy frog&#39; , &#39;y&#39; : &#39;ram bladder&#39; , &#39;z&#39; : &#39;lark vomit&#39; } 集合： 无序，可变 {</description>
     </item>
     
   </channel>
