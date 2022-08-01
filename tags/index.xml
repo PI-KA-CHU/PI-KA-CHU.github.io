@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>leetcode hot100</title>
+      <link>https://PI-KA-CHU.github.io/2022/07/leetcode-hot100/</link>
+      <pubDate>Thu, 28 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2022/07/leetcode-hot100/</guid>
+      <description>LeetCode Hot100 3. 无重复字符的最长子串 算法：滑动窗口法 窗口存放[left, right)中字符的数量 public int lengthOfLongestSubstring(String s) { int left = 0; int right = 0; Map&amp;lt;Character, Integer&amp;gt; windows = new HashMap&amp;lt;&amp;gt;(); int maxVal = 0; while(right &amp;lt; s.length()){ char</description>
+    </item>
+    
+    <item>
       <title>常见响应码</title>
       <link>https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/</link>
       <pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate>
@@ -179,15 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/12/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B9%8B%E5%8E%9F%E5%AD%90%E6%80%A7%E6%93%8D%E4%BD%9C/</guid>
       <description>一、原子性操作方法 1.1 同步锁 synchronized (this){ ++ count; } 1.2 Atomic类 Atomic底层利用CAS实现，而CAS则是利用UnSafe类（native） + 反射技术</description>
-    </item>
-    
-    <item>
-      <title>Volatile关键字</title>
-      <link>https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</link>
-      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
-      <description>一、初识Volatile what volatile是Java语言提供的一种较弱的同步机制，用来确保将变量的更新操作通知到其他线程，volatile修</description>
     </item>
     
   </channel>

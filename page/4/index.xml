@@ -5,10 +5,19 @@
     <link>https://PI-KA-CHU.github.io/</link>
     <description>Recent content on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 30 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Jul 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RESTful学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/02/restful%D1%A7%CF%B0/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/02/restful%D1%A7%CF%B0/</guid>
+      <description>REST全称是Representational State Transfer，中文意思是表述性状态转移，指的是一组架构约束条件和原则， 如果一个架构符合R</description>
+    </item>
     
     <item>
       <title>SpringBoot实现全局异常的捕获</title>
@@ -179,15 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/01/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%A4%8D%E4%B9%A0/</guid>
       <description>软件测试的知识点 思维导图（部分）： 软件测试的定义： 软件是一个集合，包括三部分：文档，程序和数据 软件测试就是为了发现错误而审查软件文档，检查软</description>
-    </item>
-    
-    <item>
-      <title>单机部署Tomcat集群</title>
-      <link>https://PI-KA-CHU.github.io/2019/01/%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2tomcat%E9%9B%86%E7%BE%A4/</link>
-      <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/01/%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2tomcat%E9%9B%86%E7%BE%A4/</guid>
-      <description>一、Tomcat的安装 单个Tomcat的安装（包括基本JDK，Mysql环境搭建）具体可参考这边笔记#20 ，现在需要将多个Tomcat安装到</description>
     </item>
     
   </channel>

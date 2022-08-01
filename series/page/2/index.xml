@@ -10,6 +10,15 @@
     
     
     <item>
+      <title>Volatile关键字</title>
+      <link>https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</link>
+      <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/12/volatile%E5%85%B3%E9%94%AE%E5%AD%97/</guid>
+      <description>一、初识Volatile what volatile是Java语言提供的一种较弱的同步机制，用来确保将变量的更新操作通知到其他线程，volatile修</description>
+    </item>
+    
+    <item>
       <title>Synchronize关键字</title>
       <link>https://PI-KA-CHU.github.io/2019/12/synchronize%E5%85%B3%E9%94%AE%E5%AD%97/</link>
       <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
@@ -178,15 +187,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/07/spring-bean%D1%A7%CF%B0/</guid>
       <description>一、定义 bean的定义 Bean是一个被实例化、组装、并被Spring容器所管理的对象，是由容器提供的配置元数据（如bean.xml）创建的。</description>
-    </item>
-    
-    <item>
-      <title>Spring IOC学习</title>
-      <link>https://PI-KA-CHU.github.io/2019/07/spring-ioc%D1%A7%CF%B0/</link>
-      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/07/spring-ioc%D1%A7%CF%B0/</guid>
-      <description>一、什么是IOC IOC（控制反转）又叫做DI（依赖注入），它描述了对象的定义和依赖的一个过程，也就是说，依赖的对象通过构造参数、工厂方法参数</description>
     </item>
     
   </channel>

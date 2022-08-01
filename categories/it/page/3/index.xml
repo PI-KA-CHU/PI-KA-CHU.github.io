@@ -5,10 +5,19 @@
     <link>https://PI-KA-CHU.github.io/categories/it/</link>
     <description>Recent content in it on PI-KA-CHU&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 30 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Jul 2022 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="https://PI-KA-CHU.github.io/categories/it/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Spring IOC学习</title>
+      <link>https://PI-KA-CHU.github.io/2019/07/spring-ioc%D1%A7%CF%B0/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://PI-KA-CHU.github.io/2019/07/spring-ioc%D1%A7%CF%B0/</guid>
+      <description>一、什么是IOC IOC（控制反转）又叫做DI（依赖注入），它描述了对象的定义和依赖的一个过程，也就是说，依赖的对象通过构造参数、工厂方法参数</description>
+    </item>
     
     <item>
       <title>Spring MVC学习</title>
@@ -179,15 +188,6 @@
       
       <guid>https://PI-KA-CHU.github.io/2019/02/springboot%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%8F%8Aredis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%88%9B%E5%BB%BA/</guid>
       <description>分布式锁实现流程图 一、@Scheduled的使用及其redis的分布式锁创建 创建新类，使用@Scheduled注解注释需要定时启动的方法 单机</description>
-    </item>
-    
-    <item>
-      <title>RESTful学习</title>
-      <link>https://PI-KA-CHU.github.io/2019/02/restful%D1%A7%CF%B0/</link>
-      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://PI-KA-CHU.github.io/2019/02/restful%D1%A7%CF%B0/</guid>
-      <description>REST全称是Representational State Transfer，中文意思是表述性状态转移，指的是一组架构约束条件和原则， 如果一个架构符合R</description>
     </item>
     
   </channel>

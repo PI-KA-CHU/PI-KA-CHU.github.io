@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <title>
+        leetcode hot100 - PI-KA-CHU&#39;s blog
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content=" leetcode100" />
+    <meta name="generator" content="Hugo 0.98.0 with theme pure" />
+    <title>leetcode hot100 - PI-KA-CHU&#39;s blog</title>
+    
+    
+    <link rel="stylesheet" href="https://PI-KA-CHU.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="leetcode hot100" />
+<meta property="og:description" content=" leetcode100" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://PI-KA-CHU.github.io/2022/07/leetcode-hot100/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-07-28T00:00:00+00:00" />
+
+<meta itemprop="name" content="leetcode hot100">
+<meta itemprop="description" content=" leetcode100"><meta itemprop="datePublished" content="2022-07-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-07-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1226">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="leetcode hot100"/>
+<meta name="twitter:description" content=" leetcode100"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://PI-KA-CHU.github.io/" target="_blank">
+            <img class="img-circle img-rotate" src="https://PI-KA-CHU.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">PI-KA-CHU</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">Zeng</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Zhuhai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="想要查找什么..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>欢迎来到皮卡丘的个人博客~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> 分类</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/go/" class="category-list-link">go</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/it/" class="category-list-link">it</a><span class="category-list-count">106</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/java/" class="category-list-link">java</a><span class="category-list-count">18</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/spring/" class="category-list-link">spring</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" class="category-list-link">个人成长</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-list-link">中间件</a><span class="category-list-count">10</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%85%B6%E4%BB%96/" class="category-list-link">其他</a><span class="category-list-count">9</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F/" class="category-list-link">分布式</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" class="category-list-link">基础理论</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E5%BC%80%E5%8F%91%E8%BF%90%E7%BB%B4/" class="category-list-link">开发运维</a><span class="category-list-count">17</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-list-link">数据库</a><span class="category-list-count">7</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E7%AE%97%E6%B3%95/" class="category-list-link">算法</a><span class="category-list-count">8</span></li>
+            <li class="category-list-item"><a href="https://PI-KA-CHU.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-list-link">计算机网络</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> 标签</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/docker/" class="tag-list-link">docker</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/dubbo/" class="tag-list-link">dubbo</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/go/" class="tag-list-link">go</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/http/" class="tag-list-link">http</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/jvm/" class="tag-list-link">jvm</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/kafka/" class="tag-list-link">kafka</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/log/" class="tag-list-link">log</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/mysql/" class="tag-list-link">mysql</a><span
+                    class="tag-list-count">9</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/redis/" class="tag-list-link">redis</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring/" class="tag-list-link">spring</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-boot/" class="tag-list-link">spring-boot</a><span
+                    class="tag-list-count">11</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/spring-cloud/" class="tag-list-link">spring-cloud</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/websocket/" class="tag-list-link">websocket</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" class="tag-list-link">分布式</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="tag-list-link">多线程</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="tag-list-link">大数据</a><span
+                    class="tag-list-count">10</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%89%E5%85%A8/" class="tag-list-link">安全</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="tag-list-link">实用工具</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="tag-list-link">开发工具</a><span
+                    class="tag-list-count">13</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="tag-list-link">操作系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" class="tag-list-link">疑难杂症</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://PI-KA-CHU.github.io/tags/%E9%83%A8%E7%BD%B2%E5%B7%A5%E5%85%B7/" class="tag-list-link">部署工具</a><span
+                    class="tag-list-count">6</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/07/leetcode-hot100/" class="title">leetcode hot100</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-07-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-07-28</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/" class="title">常见响应码</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-30 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="title">排序算法</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-29 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-29</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/springcloud%E6%95%B4%E5%90%88websocket/" class="title">SpringCloud整合WebSocket</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-28</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://PI-KA-CHU.github.io/2022/06/kafka%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E6%9E%90/" class="title">Kafka常见问题解析</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2022-06-23 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-06-23</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">文章目录</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2022/07/leetcode-hot100/"
+    >leetcode hot100</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://PI-KA-CHU.github.io/2022/07/leetcode-hot100/" class="article-date">
+  <time datetime="2022-07-28 00:00:00 &#43;0000 UTC" itemprop="datePublished">2022-07-28</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/it/"> it </a>
+  <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+</span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1226字</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3分 </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h2 id="leetcode-hot100">LeetCode Hot100</h2>
+<h4 id="3-无重复字符的最长子串">3. 无重复字符的最长子串</h4>
+<ul>
+<li>算法：滑动窗口法
+<ul>
+<li>窗口存放[left, right)中字符的数量</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>public int lengthOfLongestSubstring(String s) {
+
+    int left = 0;
+    int right = 0;
+    Map&lt;Character, Integer&gt; windows = new HashMap&lt;&gt;();
+    int maxVal = 0;
+
+    while(right &lt; s.length()){
+        char c = s.charAt(right);
+        windows.put(c, windows.getOrDefault(c, 0) + 1);
+        right ++;
+
+        while(windows.get(c) &gt; 1){
+            char d = s.charAt(left);
+            windows.put(d, windows.get(d) - 1);
+            left ++;
+        }
+        maxVal = Integer.max(maxVal, right - left);
+    }
+
+    return maxVal;
+}
+</code></pre><ul>
+<li>优化版
+<ul>
+<li>left不需要一个一个滑动，map存放的是下标，但是容易出错</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>public int lengthOfLongestSubstring(String s) {
+
+    int left = 0;
+    int right = 0;
+    Map&lt;Character, Integer&gt; windows = new HashMap&lt;&gt;();
+    int maxVal = 0;
+
+    while(right &lt; s.length()){
+        char c = s.charAt(right);
+
+        if(windows.containsKey(c) &amp;&amp; windows.get(c) &gt;= left){
+            maxVal = Integer.max(maxVal, right - left);
+            left = windows.get(c) + 1;
+        }
+
+        windows.put(c, right);
+        right ++;
+    }
+    maxVal = Integer.max(maxVal, right - left);
+
+    return maxVal;
+}
+</code></pre><h4 id="5-最长回文子串">5. &gt;最长回文子串</h4>
+<ul>
+<li>解法：中心扩列法</li>
+<li>注意：substring需要的是左右的下标</li>
+</ul>
+<pre tabindex="0"><code>public String longestPalindrome(String s) {
+
+    int left = 0;
+    int maxLen = 1;
+
+    for(int i = 0;i &lt; s.length();i ++){
+        int len1 = subLongestPalindrome(s, i , i);
+        int len2 = subLongestPalindrome(s, i , i + 1);
+        int subMax = Integer.max(len1, len2);
+
+        if(subMax &gt; maxLen){
+            left = i - (subMax - 1) / 2;
+            maxLen = subMax;
+        }
+    }
+
+    return s.substring(left, left + maxLen);
+}
+
+private int subLongestPalindrome(String s, int left, int right){
+    
+    int maxLen = 0;
+    while(left &gt;= 0 &amp;&amp; right &lt; s.length()){
+        if(s.charAt(left) == s.charAt(right)){
+            maxLen = Integer.max(maxLen, right - left + 1);
+            left --;
+            right ++;
+        }else {
+            return maxLen;
+        }
+    }
+
+    return maxLen;
+}
+</code></pre><h4 id="11-盛最多水的容器">11. &gt;盛最多水的容器</h4>
+<ul>
+<li>双指针</li>
+</ul>
+<pre tabindex="0"><code>public int maxArea(int[] height) {
+
+    int max = 0;
+    int left = 0;
+    int right = height.length - 1;
+
+    while(left &lt; right){
+        max = Integer.max(max, Integer.min(height[left], height[right]) * (right - left));
+
+        if(height[left] &lt; height[right]){
+            left ++;
+        }else {
+            right --;
+        }
+    }
+
+    return max;
+}
+</code></pre><h4 id="15-三数之和">15. &gt;三数之和</h4>
+<ul>
+<li>三指针</li>
+</ul>
+<pre tabindex="0"><code>public List&lt;List&lt;Integer&gt;&gt; threeSum(int[] nums) {
+
+    Arrays.sort(nums);
+
+    List&lt;List&lt;Integer&gt;&gt; ans = new ArrayList&lt;&gt;();
+    for(int i = 0;i &lt; nums.length;i ++){
+
+        int left = i + 1;
+        int right = nums.length - 1;
+
+        // 去重
+        if(i &gt; 0 &amp;&amp; nums[i] == nums[i - 1]){
+            continue;
+        }
+
+        while(left &lt; right){
+            int sum = nums[left] + nums[right] + nums[i];
+            if(sum == 0){
+                ans.add(Arrays.asList(nums[left], nums[right], nums[i]));
+                left ++;
+                right --;
+
+                // 去重
+                while(left &lt; right &amp;&amp; nums[left] == nums[left - 1]) left ++;
+                while(left &lt; right &amp;&amp; nums[right] == nums[right + 1]) right --;
+            }else if(sum &lt; 0){
+                left ++;
+            }else {
+                right --;
+            }
+        }
+    }
+
+    return ans;
+}
+</code></pre><h4 id="17-电话号码的字母组合">17. &gt;电话号码的字母组合</h4>
+<ul>
+<li>算法：回溯法</li>
+</ul>
+<blockquote>
+<p>组合和排列一般都会用到回溯法，排列和组合的区别：组合不考虑顺序，例如对[A,B]选两个数进行排列组合，[A,B]即组合成一组，而排列考虑顺序，[A,B]、[B,A]为不同排列。</p>
+</blockquote>
+<pre tabindex="0"><code>public List&lt;String&gt; letterCombinations(String digits) {
+    if(digits == null || digits.length() == 0){
+        return new ArrayList&lt;&gt;();
+    }
+
+    Map&lt;Character, String&gt; map = new HashMap&lt;&gt;();
+    map.put(&#39;2&#39;, &#34;abc&#34;);
+    map.put(&#39;3&#39;, &#34;def&#34;);
+    map.put(&#39;4&#39;, &#34;ghi&#34;);
+    map.put(&#39;5&#39;, &#34;jkl&#34;);
+    map.put(&#39;6&#39;, &#34;mno&#34;);
+    map.put(&#39;7&#39;, &#34;pqrs&#34;);
+    map.put(&#39;8&#39;, &#34;tuv&#34;);
+    map.put(&#39;9&#39;, &#34;wxyz&#34;);
+
+    List&lt;String&gt; ans = new ArrayList&lt;&gt;();
+    backtract(digits, new StringBuilder(), ans, map, 0);
+
+    return ans;
+}
+
+public void backtract(String digits, StringBuilder subAns, List&lt;String&gt; ans, Map&lt;Character, String&gt; map, int index){
+    if(subAns.length() == digits.length()){
+        ans.add(new String(subAns));
+        return;
+    }
+
+    char c = digits.charAt(index);
+    String nums = map.get(c);
+
+    for(int i = 0;i &lt; nums.length();i ++){
+        char c2 = nums.charAt(i);
+        subAns.append(c2);
+        backtract(digits, subAns, ans, map, index + 1);
+        subAns.deleteCharAt(subAns.length() - 1);
+    }
+
+}
+</code></pre><h4 id="19-删除链表的倒数第-n-个结点">19. 删除链表的倒数第 N 个结点</h4>
+<ul>
+<li>算法：快慢指针</li>
+<li>注意：添加dummyHead</li>
+</ul>
+<pre tabindex="0"><code>public ListNode removeNthFromEnd(ListNode head, int n) {
+    if(head == null || n &lt;= 0){
+        return head;
+    }
+    
+    ListNode dummyHead = new ListNode();
+    dummyHead.next = head;
+    ListNode p1 = dummyHead;
+    ListNode p2 = dummyHead;
+
+    for(int i = 1;i &lt;= n;i ++){
+        p1 = p1.next;
+    }
+
+    while(p1.next != null){
+        p1 = p1.next;
+        p2 = p2.next;
+    }
+
+    p2.next = p2.next.next;
+
+    return dummyHead.next;
+}
+</code></pre><h4 id="20-有效的括号">20. &gt;有效的括号</h4>
+<ul>
+<li>算法：利用栈
+<ul>
+<li>遇到左符合则入栈</li>
+<li>遇到右符合则检查栈不为空且栈顶元素需为其左符号</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code>public boolean isValid(String s) {
+
+    Deque&lt;Character&gt; stack = new ArrayDeque&lt;&gt;();
+    Map&lt;Character, Character&gt; map = new HashMap&lt;&gt;();
+    map.put(&#39;(&#39;, &#39;)&#39;);
+    map.put(&#39;[&#39;, &#39;]&#39;);
+    map.put(&#39;{&#39;, &#39;}&#39;);
+
+    for(char c : s.toCharArray()){
+        if(map.containsKey(c)){
+            stack.push(c);
+        }else {
+            if(stack.isEmpty() || map.get(stack.peek()) != c){
+                return false;
+            }
+            stack.pop();
+        }
+    }
+
+    return stack.isEmpty();
+}
+</code></pre><h4 id="21-合并两个有序链表httpsleetcodecnproblemsmerge-two-sorted-lists"><a href="https://leetcode.cn/problems/merge-two-sorted-lists/">21. 合并两个有序链表</a></h4>
+<ul>
+<li>思路：归并排序</li>
+</ul>
+<pre tabindex="0"><code>public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+
+    ListNode dummyHead = new ListNode();
+    ListNode p3 = dummyHead;
+    ListNode p1 = list1;
+    ListNode p2 = list2;
+
+    while(p1 != null &amp;&amp; p2 != null){
+        if(p1.val &lt; p2.val){
+            p3.next = p1;
+            p1 = p1.next;;
+        }else {
+            p3.next = p2;
+            p2 = p2.next;;
+        }
+
+        p3 = p3.next;
+    }
+
+    while(p1 != null){
+        p3.next = p1;
+        p1 = p1.next;
+        p3 = p3.next;
+    }
+
+    while(p2 != null){
+        p3.next = p2;
+        p2 = p2.next;
+        p3 = p3.next;
+    }
+
+    return dummyHead.next;
+}
+</code></pre><h4 id="22-括号生成httpsleetcodecnproblemsgenerate-parentheses"><a href="https://leetcode.cn/problems/generate-parentheses/">22. 括号生成</a></h4>
+<ul>
+<li>算法：回溯法（全排列） - 暴力解法</li>
+</ul>
+<pre tabindex="0"><code>public List&lt;String&gt; generateParenthesis(int n) {
+
+    List&lt;String&gt; ans = new ArrayList&lt;&gt;();
+    backtract(ans, new StringBuilder(), n, n);
+
+    return ans;
+}
+
+public void backtract(List&lt;String&gt; ans, StringBuilder subAns, int left, int right){
+    if(left == 0 &amp;&amp; right == 0){
+        String str = new String(subAns);
+        if(valid(str)) ans.add(str);
+        return;
+    }
+
+    if(left &gt; 0){
+        subAns.append(&#34;(&#34;);
+        backtract(ans, subAns, left - 1, right);
+        subAns.deleteCharAt(subAns.length() - 1);
+    }
+
+    if(right &gt; 0){
+        subAns.append(&#34;)&#34;);
+        backtract(ans, subAns, left, right - 1);
+        subAns.deleteCharAt(subAns.length() - 1);
+    }
+}
+
+private boolean valid(String subAns){
+    int cnt = 0;
+    for(char c : subAns.toCharArray()){
+        if(c == &#39;(&#39;){
+            cnt ++;
+        }else {
+            if(cnt &gt; 0){
+                cnt --;
+            }else {
+                return false;
+            }
+        }
+    }
+
+    return cnt == 0;
+}
+</code></pre><ul>
+<li><strong>最优</strong>：优化后</li>
+</ul>
+<pre tabindex="0"><code>public List&lt;String&gt; generateParenthesis(int n) {
+
+    List&lt;String&gt; ans = new ArrayList&lt;&gt;();
+    backtract(ans, new StringBuilder(), n, n);
+
+    return ans;
+}
+
+public void backtract(List&lt;String&gt; ans, StringBuilder subAns, int left, int right){
+    if(left == 0 &amp;&amp; right == 0){
+        ans.add(new String(subAns));
+        return;
+    }
+
+    if(left &gt; 0){
+        subAns.append(&#34;(&#34;);
+        backtract(ans, subAns, left - 1, right);
+        subAns.deleteCharAt(subAns.length() - 1);
+    }
+	
+	// 关键点
+    if(right &gt; left){
+        subAns.append(&#34;)&#34;);
+        backtract(ans, subAns, left, right - 1);
+        subAns.deleteCharAt(subAns.length() - 1);
+    }
+}
+</code></pre>
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接: </strong>
+      <a href="https://PI-KA-CHU.github.io/2022/07/leetcode-hot100/" title="leetcode hot100" target="_blank" rel="external">https://PI-KA-CHU.github.io/2022/07/leetcode-hot100/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://PI-KA-CHU.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://PI-KA-CHU.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://PI-KA-CHU.github.io/" target="_blank"><span class="text-dark">PI-KA-CHU</span><small class="ml-1x">Zeng</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://PI-KA-CHU.github.io/2022/06/%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%A0%81/" title="常见响应码"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;下一篇</span></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="文章目录" role="button">
+                    <span>[&nbsp;</span><span>文章目录</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        
+        <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal"
+            data-target="#donateModal"><span>赏</span></button>
+        
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content donate">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <div class="modal-body">
+                <div class="donate-box">
+                    <div class="donate-head">
+                        <p>感谢您的支持,我会继续努力的!</p>
+                    </div>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/alipayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦~</p>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+                            <div class="donate-payimg">
+                                <img src="https://PI-KA-CHU.github.io/donate/wechatpayimg.png"
+                                    alt="扫码支持" title="扫一扫" />
+                            </div>
+                            <p class="text-muted mv">扫码打赏, 多少你说了算~</p>
+                            <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+                        </div>
+                    </div>
+                    <div class="donate-footer">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay"
+                                    aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab"
+                                    aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i>
+                                    微信支付</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/PI-KA-CHU/PI-KA-CHU.github.io" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://PI-KA-CHU.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://PI-KA-CHU.github.io/js/application.min.c181e6b0c036798c7731cfb85b41b44c80689fd48fee546b73d449386ce6ccfb.js"></script>
+<script src="https://PI-KA-CHU.github.io/js/plugin.min.cf6ab047215536635a92ff5defe1e5174ee0acd6c4950757b2732693f7f196f3.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(未命名)',
+            },
+            ROOT_URL: 'https:\/\/PI-KA-CHU.github.io\/',
+            CONTENT_URL: 'https:\/\/PI-KA-CHU.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://PI-KA-CHU.github.io/js/insight.min.853c5d4062a8c262b2490c70df2f6d2b232483f85227b30b28013788b8c4da8ab59c1a735b9b31c9006f2962ef62213fea9d17cb9469c297f201772ce94e8fdf.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>
